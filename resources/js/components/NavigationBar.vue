@@ -1,15 +1,15 @@
 <template>
     <b-navbar>
         <b-navbar-brand href="#">
-            <img src="/img/brand2.png" alt="">
+            <img src="/img/brand.png" alt="">
         </b-navbar-brand>
 
         <b-navbar-nav>
             <b-nav-item>Home</b-nav-item>
             <b-nav-item>Updates</b-nav-item>
             <b-nav-item>Commands</b-nav-item>
-            <b-nav-item>Marketplace</b-nav-item>
             <b-nav-item>Wiki</b-nav-item>
+            <b-nav-item>Marketplace</b-nav-item>
         </b-navbar-nav>
 
         <b-navbar-nav class="ml-auto">

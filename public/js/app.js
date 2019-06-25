@@ -72451,7 +72451,7 @@ var render = function() {
     "b-navbar",
     [
       _c("b-navbar-brand", { attrs: { href: "#" } }, [
-        _c("img", { attrs: { src: "/img/brand2.png", alt: "" } })
+        _c("img", { attrs: { src: "/img/brand.png", alt: "" } })
       ]),
       _vm._v(" "),
       _c(
@@ -72463,9 +72463,9 @@ var render = function() {
           _vm._v(" "),
           _c("b-nav-item", [_vm._v("Commands")]),
           _vm._v(" "),
-          _c("b-nav-item", [_vm._v("Marketplace")]),
+          _c("b-nav-item", [_vm._v("Wiki")]),
           _vm._v(" "),
-          _c("b-nav-item", [_vm._v("Wiki")])
+          _c("b-nav-item", [_vm._v("Marketplace")])
         ],
         1
       ),
