@@ -9,8 +9,15 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import BootstrapVue from 'bootstrap-vue'
-
 Vue.use(BootstrapVue)
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faDiscord } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+library.add(faDiscord)
+
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -23,6 +30,7 @@ Vue.use(BootstrapVue)
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.component('navigation-bar-component', require('./components/NavigationBar.vue').default);
 
 /**
