@@ -7774,6 +7774,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -40375,7 +40392,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".carousel[data-v-15bf0008], .carousel-inner[data-v-15bf0008] {\n  position: relative;\n}\n.carousel-item[data-v-15bf0008] {\n  position: relative;\n  height: 750px;\n}\n.carousel-item img[data-v-15bf0008] {\n  position: absolute;\n  left: 0;\n  bottom: 0;\n}\n.carousel-wrapper[data-v-15bf0008] {\n  position: relative;\n}\n.carousel-wrapper .slide-card[data-v-15bf0008] {\n  width: 300px;\n  height: 300px;\n  position: absolute;\n  z-index: 2;\n  top: 50%;\n  background-color: rgba(16, 18, 26, 0.9);\n  opacity: 0;\n  -webkit-transform: translateY(-50%);\n  transform: translateY(-50%);\n  -webkit-transition: opacity 600ms;\n  transition: opacity 600ms;\n}\n.carousel-wrapper #slide_card_0[data-v-15bf0008] {\n  right: 10%;\n}\n.carousel-wrapper #slide_card_1[data-v-15bf0008] {\n  left: 10%;\n}\n.carousel-wrapper .card-active[data-v-15bf0008] {\n  opacity: 1;\n  -webkit-transition: opacity 600ms;\n  transition: opacity 600ms;\n}", ""]);
+exports.push([module.i, ".carousel[data-v-15bf0008], .carousel-inner[data-v-15bf0008] {\n  position: relative;\n}\n.carousel-item[data-v-15bf0008] {\n  position: relative;\n  height: 750px;\n}\n.carousel-item img[data-v-15bf0008] {\n  position: absolute;\n  left: 0;\n  bottom: 0;\n}\n.carousel-wrapper[data-v-15bf0008] {\n  position: relative;\n}\n.slide-card[data-v-15bf0008] {\n  width: 450px;\n  height: 350px;\n  padding: 25px;\n  position: absolute;\n  z-index: 2;\n  top: 50%;\n  background-color: rgba(16, 18, 26, 0.8);\n  opacity: 0;\n  -webkit-transform: translateY(-50%);\n  transform: translateY(-50%);\n  -webkit-transition: opacity 600ms;\n  transition: opacity 600ms;\n  color: white;\n  box-shadow: 0 0 5px rgba(16, 18, 26, 0.8);\n}\n.slide-card h2[data-v-15bf0008] {\n  font: bold 2.5rem \"Roboto Condensed\", sans-serif;\n}\n.slide-card p[data-v-15bf0008] {\n  font-family: \"Open Sans\", sans-serif;\n  color: #dfdfdf;\n  line-height: 1.75;\n}\n.slide-card a[data-v-15bf0008] {\n  position: absolute;\n  bottom: 25px;\n  left: 50%;\n  -webkit-transform: translate(-50%, 0);\n  transform: translate(-50%, 0);\n  padding: 10px 25px;\n  background-color: transparent;\n  border: 1px solid #DCC458;\n  color: #DCC458;\n  border-radius: 4px;\n  font: bold 0.9rem \"Roboto Condensed\", sans-serif;\n  text-transform: uppercase;\n  -webkit-transition: color 100ms, background-color 100ms;\n  transition: color 100ms, background-color 100ms;\n}\n.slide-card a[data-v-15bf0008]:hover {\n  text-decoration: none;\n  background-color: #c9b350;\n  border: 1px solid #c9b350;\n  color: white;\n}\n#slide_card_0[data-v-15bf0008] {\n  right: 10%;\n}\n#slide_card_1[data-v-15bf0008] {\n  left: 10%;\n}\n.card-active[data-v-15bf0008] {\n  opacity: 1;\n  -webkit-transition: opacity 600ms;\n  transition: opacity 600ms;\n}", ""]);
 
 // exports
 
@@ -72577,6 +72594,48 @@ var render = function() {
           _c("b-carousel-slide", { attrs: { "img-src": "/img/slide_02.png" } })
         ],
         1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          key: "slide_card_0",
+          staticClass: "slide-card",
+          class: { "card-active": _vm.slide == 0 },
+          attrs: { id: "slide_card_0" }
+        },
+        [
+          _c("h2", [_vm._v("Lorem ipsum dolor sit amet consectetur ")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porttitor sem elit, ac aliquam lorem feugiat at. Aenean ac tincidunt ante. Maecenas ultrices vulputate consequat. Morbi eu nisi nunc.  "
+            )
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Lorem ipsum")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          key: "slide_card_1",
+          staticClass: "slide-card",
+          class: { "card-active": _vm.slide == 1 },
+          attrs: { id: "slide_card_1" }
+        },
+        [
+          _c("h2", [_vm._v("Lorem ipsum dolor sit amet consectetur ")]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porttitor sem elit, ac aliquam lorem feugiat at. Aenean ac tincidunt ante. Maecenas ultrices vulputate consequat. Morbi eu nisi nunc.  "
+            )
+          ]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "#" } }, [_vm._v("Lorem ipsum")])
+        ]
       )
     ],
     1
