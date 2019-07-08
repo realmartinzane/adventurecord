@@ -1,0 +1,67 @@
+
+// Transform
+@mixin transform($value)
+{
+    -moz-transform: $value;
+    -o-transform: $value;
+    -ms-transform: $value;
+    -webkit-transform: $value;
+    transform: $value;
+}
+
+// Transform Origin
+@mixin transform-origin($value)
+{
+    transform-origin: $value;
+    -webkit-transform-origin: $value;
+}
+
+// Transition
+@mixin transition($value)
+{
+    -moz-transition: $value;
+    -o-transition: $value;
+    -webkit-transition: $value;
+    transition: $value;
+}
+
+// Transition Delay
+@mixin transition-delay($value)
+{
+    transition-delay: $value;
+    -moz-transition-delay: $value;
+    -o-transition-delay: $value;
+    -webkit-transition-delay: $value;
+}
+
+// User Select
+@mixin user-select($value)
+{
+    -webkit-user-select: $value;
+    -moz-user-select: $value;
+    -ms-user-select: $value;
+    user-select: $value;
+}
+
+// Box Shadow
+@mixin box-shadow($value)
+{
+  -moz-box-shadow: $value;
+  -webkit-box-shadow: $value;
+  box-shadow: $value;
+}
+
+// Border Radius
+@mixin border-radius($value)
+{
+  -webkit-border-radius: $value;
+  -moz-border-radius: $value;
+  border-radius: $value; 
+}
+
+// Backface Visibility
+@mixin backface-visibility($value)
+{
+    backface-visibility: $value;
+    -webkit-backface-visibility: $value;
+}

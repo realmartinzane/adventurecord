@@ -32,6 +32,7 @@ library.add(faDiscord)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.component('navigation-bar-component', require('./components/NavigationBar.vue').default);
+Vue.component('landing-component', require('./components/Landing.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

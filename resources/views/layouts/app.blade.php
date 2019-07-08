@@ -24,9 +24,13 @@
         
         <navigation-bar-component></navigation-bar-component>
 
+        <landing-component></landing-component>
+
+        <!--
         <main class="py-4">
             @yield('content')
         </main>
+    -->
     </div>
 </body>
 </html>
