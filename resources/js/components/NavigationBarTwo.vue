@@ -16,13 +16,13 @@
                 <b-nav-item>Marketplace</b-nav-item>
             </b-navbar-nav>
 
-            <b-navbar-nav class="ml-auto">
+            <b-navbar-nav>
                 <b-nav-item>
                     <b-button>
                         <font-awesome-icon :icon="['fab', 'discord']" size="lg" class="mr-1"></font-awesome-icon>
                         <span>Log in with discord</span>
                     </b-button>
-                    </b-nav-item>
+                </b-nav-item>
             </b-navbar-nav>
         </b-navbar>
     </div>
@@ -85,14 +85,22 @@ export default {
     {
         position: absolute;
         top: 0;
-        left: 225px;
+        left: 0;
         background: #10121A;
-        width: calc(100% + 45px);
+        width: 100%;
     }
     .navbar-nav
     {
-        position: relative;
-        left: 45px;
+       &:nth-child(1)
+       {
+            position: relative;
+            left: 250px;
+       }
+        &:nth-child(2) 
+        {
+            position: absolute;
+            right: 0;
+        }
         .nav-item
         {
             margin: 0 10px;
