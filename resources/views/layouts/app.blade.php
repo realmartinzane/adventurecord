@@ -21,9 +21,9 @@
 </head>
 <body>
     <div id="app">
-        
-        <navigation-bar-two-component></navigation-bar-two-component>
 
+        <navigation-bar-two-component></navigation-bar-two-component>
+        
         <!--
         <main class="py-4">
             @yield('content')

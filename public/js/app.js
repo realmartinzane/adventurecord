@@ -7871,6 +7871,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -40456,7 +40473,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".brand[data-v-49779c58] {\n  display: block;\n  width: 0;\n  height: 0;\n  border-style: solid;\n  border-width: 410px 270px 0 0;\n  border-color: #10121A transparent transparent transparent;\n}\n.brand .content[data-v-49779c58] {\n  position: absolute;\n  top: 0;\n  left: 0;\n}\n.brand img[data-v-49779c58] {\n  display: block;\n  margin-left: 10px;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n}\n.brand img[data-v-49779c58]:hover {\n  -webkit-transform: scale(1.1);\n  transform: scale(1.1);\n}\n.brand img[data-v-49779c58]:nth-child(1) {\n  margin-top: 25px;\n  width: 200px;\n}\n.brand img[data-v-49779c58]:nth-child(2) {\n  margin-top: 20px;\n  width: 100px;\n  height: auto;\n}", ""]);
+exports.push([module.i, ".brand[data-v-49779c58] {\n  position: relative;\n}\n.triangle[data-v-49779c58] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 1;\n  display: inline-block;\n  width: 0;\n  height: 0;\n  border-style: solid;\n  border-width: 410px 270px 0 0;\n  border-color: #202433 transparent transparent transparent;\n}\n.content[data-v-49779c58] {\n  position: absolute;\n  top: 0;\n  z-index: 2;\n}\nimg[data-v-49779c58] {\n  display: block;\n  margin-left: 10px;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n}\nimg[data-v-49779c58]:hover {\n  -webkit-transform: scale(1.1);\n  transform: scale(1.1);\n}\nimg[data-v-49779c58]:nth-child(1) {\n  margin-top: 25px;\n  width: 200px;\n}\nimg[data-v-49779c58]:nth-child(2) {\n  margin-top: 20px;\n  width: 100px;\n  height: auto;\n}\n.navbar[data-v-49779c58] {\n  position: absolute;\n  top: 0;\n  left: 225px;\n  background: #10121A;\n  width: calc(100% + 45px);\n}\n.navbar-nav[data-v-49779c58] {\n  position: relative;\n  left: 45px;\n}\n.navbar-nav .nav-item[data-v-49779c58] {\n  margin: 0 10px;\n}\n.navbar-nav .nav-item a[data-v-49779c58] {\n  font-family: \"Roboto Condensed\", sans-serif;\n  font-weight: bold;\n  color: white;\n}\n.navbar-nav .nav-item a[data-v-49779c58]:hover, .navbar-nav .nav-item a[data-v-49779c58]:active, .navbar-nav .nav-item a[data-v-49779c58]:focus {\n  color: #DCC458;\n}\n.navbar-nav .nav-item button[data-v-49779c58] {\n  text-transform: uppercase;\n  background-color: #7289da;\n}\n.navbar-nav .nav-item button svg[data-v-49779c58] {\n  vertical-align: middle;\n}", ""]);
 
 // exports
 
@@ -72812,22 +72829,74 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "b-navbar",
+        [
+          _c(
+            "b-navbar-nav",
+            [
+              _c("b-nav-item", [_vm._v("Home")]),
+              _vm._v(" "),
+              _c("b-nav-item", [_vm._v("Updates")]),
+              _vm._v(" "),
+              _c("b-nav-item", [_vm._v("Commands")]),
+              _vm._v(" "),
+              _c("b-nav-item", [_vm._v("Wiki")]),
+              _vm._v(" "),
+              _c("b-nav-item", [_vm._v("Marketplace")])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-navbar-nav",
+            { staticClass: "ml-auto" },
+            [
+              _c(
+                "b-nav-item",
+                [
+                  _c(
+                    "b-button",
+                    [
+                      _c("font-awesome-icon", {
+                        staticClass: "mr-1",
+                        attrs: { icon: ["fab", "discord"], size: "lg" }
+                      }),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("Log in with discord")])
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("nav", [
-        _c("div", { staticClass: "brand" }, [
-          _c("div", { staticClass: "content" }, [
-            _c("img", { attrs: { src: "/img/brand_name.png" } }),
-            _vm._v(" "),
-            _c("img", { attrs: { src: "/img/brand_logo.png" } })
-          ])
-        ])
+    return _c("div", { staticClass: "brand" }, [
+      _c("div", { staticClass: "triangle" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "content" }, [
+        _c("img", { attrs: { src: "/img/brand_name.png" } }),
+        _vm._v(" "),
+        _c("img", { attrs: { src: "/img/brand_logo.png" } })
       ])
     ])
   }

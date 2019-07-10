@@ -50,6 +50,6 @@ export default {
             background-color: #7289da;
             svg {vertical-align: middle}
         }
-    } 
+    }
 
 </style>

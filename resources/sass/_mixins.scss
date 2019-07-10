@@ -65,3 +65,12 @@
     backface-visibility: $value;
     -webkit-backface-visibility: $value;
 }
+
+// Box Sizing
+@mixin box-sizing($value)
+{
+    -webkit-box-sizing: $value;
+    -moz-box-sizing: $value;
+    -o-box-sizing: $value;
+    box-sizing: $value;
+}

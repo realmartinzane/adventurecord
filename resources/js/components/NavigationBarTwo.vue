@@ -1,13 +1,30 @@
 <template>
     <div>
-        <nav>
-            <div class="brand">
+        <div class="brand">
+            <div class="triangle"></div>
                 <div class="content">
                     <img src="/img/brand_name.png">
                     <img src="/img/brand_logo.png">
                 </div>
             </div>
-        </nav>
+        <b-navbar>
+            <b-navbar-nav>
+                <b-nav-item>Home</b-nav-item>
+                <b-nav-item>Updates</b-nav-item>
+                <b-nav-item>Commands</b-nav-item>
+                <b-nav-item>Wiki</b-nav-item>
+                <b-nav-item>Marketplace</b-nav-item>
+            </b-navbar-nav>
+
+            <b-navbar-nav class="ml-auto">
+                <b-nav-item>
+                    <b-button>
+                        <font-awesome-icon :icon="['fab', 'discord']" size="lg" class="mr-1"></font-awesome-icon>
+                        <span>Log in with discord</span>
+                    </b-button>
+                    </b-nav-item>
+            </b-navbar-nav>
+        </b-navbar>
     </div>
 </template>
 
@@ -22,41 +39,77 @@ export default {
 
 @import '../../sass/_mixins.scss';
 
-    .brand 
+    .brand {position: relative}
+    .triangle
     {
-        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        display: inline-block;
         width: 0;
         height: 0;
         border-style: solid;
         border-width: 410px 270px 0 0;
-        border-color: #10121A transparent transparent transparent;
-        .content
+        border-color: rgb(32, 36, 51) transparent transparent transparent;
+    }
+    .content
+    {
+        position: absolute;
+        top: 0;
+        z-index: 2;
+    }
+    img
+    {
+        display: block;
+        margin-left: 10px;
+        @include transition(all 200ms);
+        &:hover
         {
-            position: absolute;
-            top: 0;
-            left: 0;
+            @include transform(scale(1.1));
         }
-        img
+        &:nth-child(1)
         {
-            display: block;
-            margin-left: 10px;
-            @include transition(all 200ms);
-            &:hover
+            margin-top: 25px;
+            width: 200px;
+            
+        }
+        &:nth-child(2)
+        {
+            margin-top: 20px;
+            width: 100px;
+            height: auto;
+        }
+    }
+    .navbar
+    {
+        position: absolute;
+        top: 0;
+        left: 225px;
+        background: #10121A;
+        width: calc(100% + 45px);
+    }
+    .navbar-nav
+    {
+        position: relative;
+        left: 45px;
+        .nav-item
+        {
+            margin: 0 10px;
+            a
             {
-                @include transform(scale(1.1));
+                font-family: 'Roboto Condensed', sans-serif;
+                font-weight: bold;
+                color: white;
+                &:hover, &:active, &:focus {color: #DCC458;}
             }
-            &:nth-child(1)
+            button
             {
-                margin-top: 25px;
-                width: 200px;
-                
-            }
-            &:nth-child(2)
-            {
-                margin-top: 20px;
-                width: 100px;
-                height: auto;
+                text-transform: uppercase;
+                background-color: #7289da;
+                svg {vertical-align: middle}
             }
         }
     }
+    
 </style>
