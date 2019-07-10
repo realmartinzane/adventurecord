@@ -7851,6 +7851,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -72908,6 +72917,27 @@ var render = function() {
             staticClass: "info-content",
             class: { "info-active": _vm.slide == 0 },
             attrs: { id: "slide_info_0" }
+          },
+          [
+            _c("h2", [_vm._v("Lorem ipsum dolor sit amet consectetur ")]),
+            _vm._v(" "),
+            _c("p", [
+              _vm._v(
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porttitor sem elit, ac aliquam lorem feugiat at. Aenean ac tincidunt ante. Maecenas ultrices vulputate consequat. Morbi eu nisi nunc.  "
+              )
+            ]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "#" } }, [_vm._v("Lorem ipsum")])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            key: "slide_info_1",
+            staticClass: "info-content",
+            class: { "info-active": _vm.slide == 1 },
+            attrs: { id: "slide_info_1" }
           },
           [
             _c("h2", [_vm._v("Lorem ipsum dolor sit amet consectetur ")]),

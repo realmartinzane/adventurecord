@@ -26,6 +26,15 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porttitor sem elit, ac aliquam lorem feugiat at. Aenean ac tincidunt ante. Maecenas ultrices vulputate consequat. Morbi eu nisi nunc.  </p>
                 <a href="#">Lorem ipsum</a>
             </div>
+
+            <div class="info-content"
+                :id="'slide_info_1'" 
+                :class="{ 'info-active': slide == 1 }" 
+                key="slide_info_1">
+                <h2>Lorem ipsum dolor sit amet consectetur </h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porttitor sem elit, ac aliquam lorem feugiat at. Aenean ac tincidunt ante. Maecenas ultrices vulputate consequat. Morbi eu nisi nunc.  </p>
+                <a href="#">Lorem ipsum</a>
+            </div>
         </div> 
     </div>
 </template>
