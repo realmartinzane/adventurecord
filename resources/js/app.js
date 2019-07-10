@@ -34,6 +34,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.component('navigation-bar-component', require('./components/NavigationBar.vue').default);
 Vue.component('navigation-bar-two-component', require('./components/NavigationBarTwo.vue').default);
 Vue.component('landing-component', require('./components/Landing.vue').default);
+Vue.component('landing-two-component', require('./components/LandingTwo.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

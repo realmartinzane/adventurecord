@@ -23,6 +23,7 @@
     <div id="app">
 
         <navigation-bar-two-component></navigation-bar-two-component>
+        <landing-two-component></landing-two-component>
         
         <!--
         <main class="py-4">

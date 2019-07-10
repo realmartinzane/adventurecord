@@ -45,8 +45,7 @@ export default {
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 1;
-        display: inline-block;
+        z-index: 3;
         width: 0;
         height: 0;
         border-style: solid;
@@ -57,7 +56,7 @@ export default {
     {
         position: absolute;
         top: 0;
-        z-index: 2;
+        z-index: 4;
     }
     img
     {
@@ -88,6 +87,7 @@ export default {
         left: 0;
         background: #10121A;
         width: 100%;
+        z-index: 2;
     }
     .navbar-nav
     {
