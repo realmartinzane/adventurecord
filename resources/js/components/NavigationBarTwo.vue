@@ -12,6 +12,7 @@
                 <b-nav-item>Home</b-nav-item>
                 <b-nav-item>Updates</b-nav-item>
                 <b-nav-item>Commands</b-nav-item>
+                <b-nav-item>Tutorial</b-nav-item>
                 <b-nav-item>Wiki</b-nav-item>
                 <b-nav-item>Marketplace</b-nav-item>
             </b-navbar-nav>

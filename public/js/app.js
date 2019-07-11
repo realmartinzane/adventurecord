@@ -7957,6 +7957,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -73068,6 +73069,8 @@ var render = function() {
               _c("b-nav-item", [_vm._v("Updates")]),
               _vm._v(" "),
               _c("b-nav-item", [_vm._v("Commands")]),
+              _vm._v(" "),
+              _c("b-nav-item", [_vm._v("Tutorial")]),
               _vm._v(" "),
               _c("b-nav-item", [_vm._v("Wiki")]),
               _vm._v(" "),
