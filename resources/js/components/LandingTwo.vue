@@ -31,8 +31,8 @@
                 :id="'slide_info_1'" 
                 :class="{ 'info-active': slide == 1 }" 
                 key="slide_info_1">
-                <h2>Lorem ipsum dolor sit amet consectetur </h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porttitor sem elit, ac aliquam lorem feugiat at. Aenean ac tincidunt ante. Maecenas ultrices vulputate consequat. Morbi eu nisi nunc.  </p>
+                <h2>This is a text about Lorem Ipsum </h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.  </p>
                 <a href="#">Lorem ipsum</a>
             </div>
         </div> 
@@ -103,7 +103,7 @@ export default {
     .info-content
     {
         position: absolute;
-        z-index: 2;
+        z-index: 1;
         bottom: 10%;
         right: 5%;
         color: white;
@@ -113,10 +113,10 @@ export default {
         opacity: 0;
         text-align: center;
         @include transition(opacity 600ms);
-        h2 {font: bold 2.5rem 'Roboto Condensed', sans-serif;}
+        h2 {font: normal 2.5rem 'Roboto Condensed', sans-serif;}
         p
         {
-            font-family: 'Open Sans', sans-serif;
+            font: 300 'Heebo', sans-serif;
             color: rgb(223, 223, 223);
             line-height: 1.75;
         }
@@ -128,7 +128,7 @@ export default {
             border: 1px solid #DCC458;
             color: #DCC458;
             @include border-radius(4px);
-            font: bold 0.9rem 'Roboto Condensed', sans-serif;
+            font: 500 0.8rem 'Roboto Condensed', sans-serif;
             text-transform: uppercase;
             @include transition((color 100ms, background-color 100ms));
             &:hover
@@ -142,7 +142,8 @@ export default {
     }
     .info-active 
     {
-        opacity: 1; 
+        opacity: 1;
+        z-index: 2; 
         @include transition(opacity 600ms)
     }
     
