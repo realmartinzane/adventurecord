@@ -24,7 +24,8 @@
 
         <navigation-bar-two-component></navigation-bar-two-component>
         <landing-two-component></landing-two-component>
-        
+        <updates-component></updates-component>
+
         <!--
         <main class="py-4">
             @yield('content')

@@ -13,9 +13,11 @@ Vue.use(BootstrapVue)
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faDiscord } from '@fortawesome/free-brands-svg-icons'
+import { faHeart, faEye, faComment, faShareSquare} from '@fortawesome/free-regular-svg-icons'
+import {  } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faDiscord)
+library.add(faDiscord, faEye, faHeart, faComment, faShareSquare)
 
 
 
@@ -35,6 +37,7 @@ Vue.component('navigation-bar-component', require('./components/NavigationBar.vu
 Vue.component('navigation-bar-two-component', require('./components/NavigationBarTwo.vue').default);
 Vue.component('landing-component', require('./components/Landing.vue').default);
 Vue.component('landing-two-component', require('./components/LandingTwo.vue').default);
+Vue.component('updates-component', require('./components/Updates.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

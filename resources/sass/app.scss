@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Heebo');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Variables
 @import 'variables';
@@ -7,3 +7,20 @@
 // Bootstrap
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/bootstrap-vue/src/index.scss';
+
+// General Styles
+
+.hr-sm
+{
+    width: 100px;
+    height: 3px;
+    background: #FFD700;
+    margin: auto;
+}
+
+.hr-lg
+{
+    height: 1px;
+    background: #545464;
+    margin: 25px auto;
+}

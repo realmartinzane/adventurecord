@@ -2,7 +2,7 @@
     <div class="carousel-wrapper">
         <b-carousel
             id="landing"
-            :interval="3000"
+            :interval="5000"
             v-model="slide"
             indicators
             fade
@@ -125,8 +125,8 @@ export default {
             @include transform(translate(-50%, 0));
             padding: 10px 25px;
             background-color: transparent;
-            border: 1px solid #DCC458;
-            color: #DCC458;
+            border: 1px solid #FFD700;
+            color: #FFD700;
             @include border-radius(4px);
             font: 500 0.8rem 'Roboto Condensed', sans-serif;
             text-transform: uppercase;

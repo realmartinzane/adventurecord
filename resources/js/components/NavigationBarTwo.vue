@@ -37,7 +37,6 @@ export default {
 
 <style lang="scss" scoped>
 
-
 @import '../../sass/_mixins.scss';
 
     .brand {position: relative}
@@ -110,7 +109,7 @@ export default {
                 font-family: 'Roboto Condensed', sans-serif;
                 font-weight: bold;
                 color: white;
-                &:hover, &:active, &:focus {color: #DCC458;}
+                &:hover, &:active, &:focus {color: #FFD700;}
             }
             button
             {

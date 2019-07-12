@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Heebo);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -12205,5 +12205,18 @@ input[type=color].form-control:disabled {
 .b-toaster.b-toaster-bottom-left .b-toast.b-toaster-leave-active .toast.fade {
   -webkit-transition-delay: 0s;
           transition-delay: 0s;
+}
+
+.hr-sm {
+  width: 100px;
+  height: 3px;
+  background: #FFD700;
+  margin: auto;
+}
+
+.hr-lg {
+  height: 1px;
+  background: #545464;
+  margin: 25px auto;
 }
 
