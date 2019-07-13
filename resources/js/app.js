@@ -38,6 +38,7 @@ Vue.component('navigation-bar-two-component', require('./components/NavigationBa
 Vue.component('landing-component', require('./components/Landing.vue').default);
 Vue.component('landing-two-component', require('./components/LandingTwo.vue').default);
 Vue.component('updates-component', require('./components/Updates.vue').default);
+Vue.component('footer-component', require('./components/Footer.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

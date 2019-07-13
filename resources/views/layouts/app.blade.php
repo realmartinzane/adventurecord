@@ -25,6 +25,7 @@
         <navigation-bar-two-component></navigation-bar-two-component>
         <landing-two-component></landing-two-component>
         <updates-component></updates-component>
+        <footer-component></footer-component>
 
         <!--
         <main class="py-4">
