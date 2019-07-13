@@ -248,7 +248,6 @@ export default {
             > div * {vertical-align: middle;}
             svg {font-size: 1.2rem}
             .likes {color: #ec4853}
-            .comments {color: #F2B73B;}
             .share {color: #3CB1B6;}
         }
     }
@@ -256,6 +255,6 @@ export default {
     {
         text-align: center;
         font-size: 0.8rem;
-        }
+    }
     
 </style>
