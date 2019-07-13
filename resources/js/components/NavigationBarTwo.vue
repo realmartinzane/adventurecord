@@ -49,8 +49,22 @@ export default {
         width: 0;
         height: 0;
         border-style: solid;
+        border-width: 411px 271px 0 0;
+        border-color: #3d3d49 transparent transparent transparent;
+    }
+    .triangle:before
+    {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        width: 0;
+        height: 0;
+        border-style: solid;
         border-width: 410px 270px 0 0;
         border-color: rgb(32, 36, 51) transparent transparent transparent;
+        top: -411px;
     }
     .content
     {
