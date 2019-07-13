@@ -31,14 +31,11 @@
                     </div>
                     <div class="post-footer mt-3">
                         <div class="left">
-                            <a href="#">Continue Reading</a>
+                            <b-link>Continue Reading</b-link>
                         </div
                         ><div class="right">
                             <div class="likes">
                                 <div>93</div> <font-awesome-icon :icon="['far', 'heart']" class="ml-1"></font-awesome-icon>
-                            </div>
-                            <div class="comments">
-                                <div>28</div> <font-awesome-icon :icon="['far', 'comment']" class="ml-1"></font-awesome-icon>
                             </div>
                             <div class="share">
                                 <font-awesome-icon :icon="['far', 'share-square']" class="ml-2"></font-awesome-icon>
@@ -74,14 +71,11 @@
                     </div>
                     <div class="post-footer mt-3">
                         <div class="left">
-                            <a href="#">Continue Reading</a>
+                            <b-link>Continue Reading</b-link>
                         </div
                         ><div class="right">
                             <div class="likes">
                                 <div>88</div> <font-awesome-icon :icon="['far', 'heart']" class="ml-1"></font-awesome-icon>
-                            </div>
-                            <div class="comments">
-                                <div>24</div> <font-awesome-icon :icon="['far', 'comment']" class="ml-1"></font-awesome-icon>
                             </div>
                             <div class="share">
                                 <font-awesome-icon :icon="['far', 'share-square']" class="ml-2"></font-awesome-icon>
@@ -91,6 +85,48 @@
                 </div>
             </div>
             <div class="hr-lg"></div>
+            <div class="post">
+                <div class="left">
+                    <img src="/img/brand_logo.png" alt="">
+                </div
+                ><div class="right">
+                    <div class="post-header mt-4">
+                        <div class="left">
+                            <h2>Sed a elit eu lectus porta efficitur a nec ante</h2>
+                            <div class="author">
+                                <p>Posted by VampY</p>
+                            </div>
+                        </div
+                        ><div class="right">
+                            <div class="date">12.07.2019</div>
+                            <div class="views-count">
+                                342
+                                <font-awesome-icon :icon="['far', 'eye']" class="ml-1"></font-awesome-icon>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-body mt-4">
+                        Sed a elit eu lectus porta efficitur a nec ante. Nam metus leo, sollicitudin vitae faucibus et, viverra quis neque. Praesent faucibus sagittis libero, sit amet semper erat tincidunt in. Sed maximus fermentum varius. Aenean pulvinar urna at augue faucibus...
+                    </div>
+                    <div class="post-footer mt-3">
+                        <div class="left">
+                            <b-link>Continue Reading</b-link>
+                        </div
+                        ><div class="right">
+                            <div class="likes">
+                                <div>108</div> <font-awesome-icon :icon="['far', 'heart']" class="ml-1"></font-awesome-icon>
+                            </div>
+                            <div class="share">
+                                <font-awesome-icon :icon="['far', 'share-square']" class="ml-2"></font-awesome-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hr-lg"></div>
+            <div class="view-more">
+                <b-link>View more updates</b-link>
+            </div>
         </div>
     </div>
 </template>
@@ -108,7 +144,12 @@ export default {
     .updates
     {
         padding: 75px 0;
-        background: #212127
+        background: #212127;
+        a
+            {
+                color: #FFD700;
+                text-transform: uppercase;
+            }
     }
     .section-header
     {
@@ -188,11 +229,7 @@ export default {
         {
             width: 25%;
             display: inline-block;
-            a
-            {
-                color: #FFD700;
-                text-transform: uppercase;
-            }
+            
         }
         .right
         {
@@ -215,5 +252,10 @@ export default {
             .share {color: #3CB1B6;}
         }
     }
+    .view-more 
+    {
+        text-align: center;
+        font-size: 0.8rem;
+        }
     
 </style>
