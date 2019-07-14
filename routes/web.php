@@ -13,7 +13,7 @@
 
 Route::get('/', function () 
 {
-    return view('home');
+    return view('layouts.app');
 });
 
 Auth::routes();

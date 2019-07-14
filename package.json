@@ -21,7 +21,8 @@
         "sass": "^1.22.0",
         "sass-loader": "^7.1.0",
         "vue": "^2.5.17",
-        "vue-template-compiler": "^2.6.10"
+        "vue-template-compiler": "^2.6.10",
+        "vue-router": "^3.0.7"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.19",
