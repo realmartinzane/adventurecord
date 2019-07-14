@@ -50,7 +50,7 @@ export default {
         height: 0;
         border-style: solid;
         border-width: 411px 271px 0 0;
-        border-color: #3d3d49 transparent transparent transparent;
+        border-color: #4d4d5c transparent transparent transparent;
     }
     .triangle:before
     {
@@ -63,7 +63,7 @@ export default {
         height: 0;
         border-style: solid;
         border-width: 410px 270px 0 0;
-        border-color: rgb(32, 36, 51) transparent transparent transparent;
+        border-color: rgb(31, 35, 48) transparent transparent transparent;
         top: -411px;
     }
     .content
@@ -102,6 +102,7 @@ export default {
         background: #10121A;
         width: 100%;
         z-index: 2;
+        border: 1px solid #3d3d49
     }
     .navbar-nav
     {
