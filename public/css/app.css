@@ -12208,7 +12208,7 @@ input[type=color].form-control:disabled {
 }
 
 .hr-sm {
-  width: 100px;
+  width: 50px;
   height: 3px;
   background: #FFD700;
   margin: auto;

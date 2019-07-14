@@ -1,7 +1,7 @@
 <template>
-    <div class="updates">
-        <div class="section-header">
-            <h2>Latest Updates</h2>
+    <section class="updates">
+        <div class="section-header" :class="{ 'mt-5' : isUpdates }">
+            <h2>{{ isUpdates ? '' : 'Latest' }} Updates</h2>
             <div class="hr-sm"></div>
         </div>
         <div class="posts">
@@ -124,16 +124,19 @@
                 </div>
             </div>
             <div class="hr-lg"></div>
-            <div class="view-more">
+            <div v-if="!isUpdates" class="view-more">
                 <b-link>View more updates</b-link>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>
 export default {
-    
+    computed:
+    {
+        isUpdates() {return this.$route.name === 'updates'}
+    }
 }
 </script>
 
