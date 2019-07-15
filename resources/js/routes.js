@@ -3,6 +3,7 @@ import Vue from 'vue';
 Vue.use(VueRouter)
 import HomePage from './pages/Home.vue';
 import UpdatesComponent from './components/Updates.vue';
+import UpdateComponent from './components/Update.vue';
 
 let routes =
     [
@@ -15,6 +16,11 @@ let routes =
             path: '/updates',
             name: 'updates',
             component: UpdatesComponent
+        },
+        {
+            path: '/update',
+            name: 'update',
+            component: UpdateComponent
         }
     ]
 

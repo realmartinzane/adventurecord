@@ -12220,3 +12220,10 @@ input[type=color].form-control:disabled {
   margin: 25px auto;
 }
 
+html,
+body,
+#app,
+.wrapper {
+  height: 100%;
+}
+
