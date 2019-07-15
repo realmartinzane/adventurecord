@@ -13,7 +13,7 @@
             <update-component></update-component>
             <div class="hr-lg"></div>
             <div v-if="!isUpdates" class="view-more">
-                <b-link>View more updates</b-link>
+                <b-link :to="'/updates'">View more updates</b-link>
             </div>
         </div>
     </section>
