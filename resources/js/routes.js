@@ -14,12 +14,12 @@ let routes =
         },
         {
             path: '/updates',
-            name: 'updates',
+            name: 'updates.index',
             component: UpdatesComponent
         },
         {
             path: '/update',
-            name: 'update',
+            name: 'updates.show',
             component: UpdateComponent
         }
     ]

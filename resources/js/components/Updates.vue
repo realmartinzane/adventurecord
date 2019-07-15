@@ -27,7 +27,7 @@ export default {
     components: {UpdateComponent, SectionHeaderComponent},
     computed:
     {
-        isUpdates() {return this.$route.name === 'updates'}
+        isUpdates() {return this.$route.name === 'updates.index'}
     }
 }
 </script>

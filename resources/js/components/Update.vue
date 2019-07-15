@@ -45,7 +45,7 @@
 export default {
     computed:
         {
-            isUpdate() {return this.$route.name === 'update'}
+            isUpdate() {return this.$route.name === 'updates.show'}
         }
 }
 </script>
