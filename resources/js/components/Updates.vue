@@ -6,123 +6,11 @@
         </div>
         <div class="posts">
             <div class="hr-lg"></div>
-            <div class="post">
-                <div class="left">
-                    <img src="/img/brand_logo.png" alt="">
-                </div
-                ><div class="right">
-                    <div class="post-header mt-4">
-                        <div class="left">
-                            <h2>Lorem ipsum dolor sit amet</h2>
-                            <div class="author">
-                                <p>Posted by VampY</p>
-                            </div>
-                        </div
-                        ><div class="right">
-                            <div class="date">12.07.2019</div>
-                            <div class="views-count">
-                                278
-                                <font-awesome-icon :icon="['far', 'eye']" class="ml-1"></font-awesome-icon>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post-body mt-4">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis non lacus ac consectetur. Aliquam lobortis ac velit et vulputate. Maecenas pulvinar eget purus at convallis. Maecenas finibus dolor eu metus blandit, vel lobortis orci viverra...
-                    </div>
-                    <div class="post-footer mt-3">
-                        <div class="left">
-                            <b-link>Continue Reading</b-link>
-                        </div
-                        ><div class="right">
-                            <div class="likes">
-                                <div>93</div> <font-awesome-icon :icon="['far', 'heart']" class="ml-1"></font-awesome-icon>
-                            </div>
-                            <div class="share">
-                                <font-awesome-icon :icon="['far', 'share-square']" class="ml-2"></font-awesome-icon>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <update-component></update-component>
             <div class="hr-lg"></div>
-            <div class="post">
-                <div class="left">
-                    <img src="/img/brand_logo.png" alt="">
-                </div
-                ><div class="right">
-                    <div class="post-header mt-4">
-                        <div class="left">
-                            <h2>Pellentesque aliquam rhoncus finibus</h2>
-                            <div class="author">
-                                <p>Posted by VampY</p>
-                            </div>
-                        </div
-                        ><div class="right">
-                            <div class="date">12.07.2019</div>
-                            <div class="views-count">
-                                261
-                                <font-awesome-icon :icon="['far', 'eye']" class="ml-1"></font-awesome-icon>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post-body mt-4">
-                        Pellentesque aliquam rhoncus finibus. Vestibulum vitae arcu tincidunt, porttitor massa eu, euismod lectus. Fusce malesuada magna sit amet lacus feugiat, ac varius odio tristique. Duis ligula quam, efficitur a enim vitae, malesuada maximus leo...
-                    </div>
-                    <div class="post-footer mt-3">
-                        <div class="left">
-                            <b-link>Continue Reading</b-link>
-                        </div
-                        ><div class="right">
-                            <div class="likes">
-                                <div>88</div> <font-awesome-icon :icon="['far', 'heart']" class="ml-1"></font-awesome-icon>
-                            </div>
-                            <div class="share">
-                                <font-awesome-icon :icon="['far', 'share-square']" class="ml-2"></font-awesome-icon>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <update-component></update-component>
             <div class="hr-lg"></div>
-            <div class="post">
-                <div class="left">
-                    <img src="/img/brand_logo.png" alt="">
-                </div
-                ><div class="right">
-                    <div class="post-header mt-4">
-                        <div class="left">
-                            <h2>Sed a elit eu lectus porta efficitur a nec ante</h2>
-                            <div class="author">
-                                <p>Posted by VampY</p>
-                            </div>
-                        </div
-                        ><div class="right">
-                            <div class="date">12.07.2019</div>
-                            <div class="views-count">
-                                342
-                                <font-awesome-icon :icon="['far', 'eye']" class="ml-1"></font-awesome-icon>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="post-body mt-4">
-                        Sed a elit eu lectus porta efficitur a nec ante. Nam metus leo, sollicitudin vitae faucibus et, viverra quis neque. Praesent faucibus sagittis libero, sit amet semper erat tincidunt in. Sed maximus fermentum varius. Aenean pulvinar urna at augue faucibus...
-                    </div>
-                    <div class="post-footer mt-3">
-                        <div class="left">
-                            <b-link>Continue Reading</b-link>
-                        </div
-                        ><div class="right">
-                            <div class="likes">
-                                <div>108</div> <font-awesome-icon :icon="['far', 'heart']" class="ml-1"></font-awesome-icon>
-                            </div>
-                            <div class="share">
-                                <font-awesome-icon :icon="['far', 'share-square']" class="ml-2"></font-awesome-icon>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <update-component></update-component>
             <div class="hr-lg"></div>
             <div v-if="!isUpdates" class="view-more">
                 <b-link>View more updates</b-link>
@@ -132,7 +20,10 @@
 </template>
 
 <script>
+import UpdateComponent from './Update.vue'
+
 export default {
+    components: {UpdateComponent},
     computed:
     {
         isUpdates() {return this.$route.name === 'updates'}
@@ -152,6 +43,7 @@ export default {
             {
                 color: #FFD700;
                 text-transform: uppercase;
+                &:hover {color: #FFD700}
             }
     }
     .section-header
