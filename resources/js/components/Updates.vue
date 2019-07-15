@@ -1,9 +1,9 @@
 <template>
     <section class="updates">
-        <div class="section-header" :class="{ 'mt-5' : isUpdates }">
-            <h2>{{ isUpdates ? '' : 'Latest' }} Updates</h2>
-            <div class="hr-sm"></div>
-        </div>
+        <section-header-component 
+            :text="isUpdates ? 'Updates' : 'Latest Updates'"
+            :spacing="isUpdates">
+        </section-header-component>
         <div class="posts">
             <div class="hr-lg"></div>
             <update-component></update-component>
@@ -21,9 +21,10 @@
 
 <script>
 import UpdateComponent from './Update.vue'
+import SectionHeaderComponent from './SectionHeader.vue'
 
 export default {
-    components: {UpdateComponent},
+    components: {UpdateComponent, SectionHeaderComponent},
     computed:
     {
         isUpdates() {return this.$route.name === 'updates'}
@@ -40,12 +41,7 @@ export default {
         padding: 75px 0;
         background: #212127;
     }
-    .section-header
-    {
-        text-align: center;
-        color: white;
-        h2 {font: 300 2.25rem'Roboto Condensed', sans-serif;}
-    }
+    
     .hr-lg {width: 880px;}
     .posts {margin: 50px 0;}
     
