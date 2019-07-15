@@ -24,7 +24,7 @@
                 key="slide_info_0">
                 <h2>Lorem ipsum dolor sit amet consectetur </h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porttitor sem elit, ac aliquam lorem feugiat at. Aenean ac tincidunt ante. Maecenas ultrices vulputate consequat. Morbi eu nisi nunc.  </p>
-                <a href="#">Lorem ipsum</a>
+                <b-button class="adv-btn">Lorem ipsum</b-button>
             </div>
 
             <div class="info-content"
@@ -33,7 +33,7 @@
                 key="slide_info_1">
                 <h2>This is a text about Lorem Ipsum </h2>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.  </p>
-                <a href="#">Lorem ipsum</a>
+                <b-button class="adv-btn">Lorem ipsum</b-button>
             </div>
         </div> 
     </div>
@@ -119,25 +119,6 @@ export default {
             font: 300 'Heebo', sans-serif;
             color: rgb(223, 223, 223);
             line-height: 1.75;
-        }
-        a
-        {
-            @include transform(translate(-50%, 0));
-            padding: 10px 25px;
-            background-color: transparent;
-            border: 1px solid #FFD700;
-            color: #FFD700;
-            @include border-radius(4px);
-            font: 500 0.8rem 'Roboto Condensed', sans-serif;
-            text-transform: uppercase;
-            @include transition((color 100ms, background-color 100ms));
-            &:hover
-            {
-                text-decoration: none;
-                background-color: rgb(201, 179, 80);
-                border: 1px solid rgb(201, 179, 80);
-                color: white;
-            }
         }
     }
     .info-active 

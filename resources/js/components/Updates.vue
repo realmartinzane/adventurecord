@@ -13,7 +13,7 @@
             <update-component></update-component>
             <div class="hr-lg"></div>
             <div v-if="!isUpdates" class="view-more">
-                <b-link :to="'/updates'">View more updates</b-link>
+                <b-link :to="'/updates'" class="adv-link">View more updates</b-link>
             </div>
         </div>
     </section>
@@ -49,11 +49,6 @@ export default {
     {
         text-align: center;
         font-size: 0.8rem;
-        a
-        {
-            color: #FFD700;
-            text-transform: uppercase;
-        }
     }
     
 </style>

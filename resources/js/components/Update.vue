@@ -25,7 +25,7 @@
                 </div>
                 <div class="post-footer mt-3">
                     <div class="left">
-                        <b-link v-if="!isUpdate" :to="'/update'">Continue Reading</b-link>
+                        <b-link v-if="!isUpdate" :to="'/update'" class="adv-link">Continue Reading</b-link>
                     </div
                     ><div class="right">
                         <div class="likes">
@@ -57,11 +57,7 @@ export default {
         background: #212127;
         min-height: 100%;
     }
-    a
-    {
-        color: #FFD700;
-        text-transform: uppercase;
-    }
+    
     .hr-lg {width: 880px;}
     .post
     {

@@ -26,3 +26,29 @@
 }
 
 html,body, #app, .wrapper {height:100%;}
+
+.adv-btn
+{
+    padding: 10px 25px;
+    background-color: transparent;
+    border: 1px solid #FFD700;
+    color: #FFD700;
+    @include border-radius(4px);
+    font: 500 0.8rem 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
+    @include transition((color 100ms, background-color 100ms));
+    &:hover
+    {
+        text-decoration: none;
+        background-color: rgb(201, 179, 80);
+        border: 1px solid rgb(201, 179, 80);
+        color: white;
+    }
+}
+
+.adv-link
+{
+    color: #FFD700;
+    text-transform: uppercase;
+    &:hover {color: #FFD700}
+}

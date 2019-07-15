@@ -12227,3 +12227,38 @@ body,
   height: 100%;
 }
 
+.adv-btn {
+  padding: 10px 25px;
+  background-color: transparent;
+  border: 1px solid #FFD700;
+  color: #FFD700;
+  border-radius: 4px;
+  font: 500 0.8rem "Roboto Condensed", sans-serif;
+  text-transform: uppercase;
+  -webkit-transition: color 100ms, background-color 100ms;
+  transition: color 100ms, background-color 100ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .adv-btn {
+    -webkit-transition: none;
+    transition: none;
+  }
+}
+
+.adv-btn:hover {
+  text-decoration: none;
+  background-color: #c9b350;
+  border: 1px solid #c9b350;
+  color: white;
+}
+
+.adv-link {
+  color: #FFD700;
+  text-transform: uppercase;
+}
+
+.adv-link:hover {
+  color: #FFD700;
+}
+
