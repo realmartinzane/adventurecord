@@ -49,6 +49,11 @@ export default {
     {
         text-align: center;
         font-size: 0.8rem;
+        a
+        {
+            color: #FFD700;
+            text-transform: uppercase;
+        }
     }
     
 </style>
