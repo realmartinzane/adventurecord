@@ -11,10 +11,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        factory(App\Update::class, 3)->create();
+        
+        /*
         DB::table('users')->insert([
-            'nagkje' => Str::random(10),
+            'name' => Str::random(10),
             'email' => Str::random(10).'@gmail.com',
             'password' => bcrypt('secret'),
         ]);
+        */
     }
 }
