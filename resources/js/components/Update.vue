@@ -7,7 +7,7 @@
             ><div class="right">
                 <div class="post-header mt-4">
                     <div class="left">
-                        <h2>Nunc non cursus massa</h2>
+                        <h2>{{ update.title }}</h2>
                         <div class="author">
                             <p>Posted by VampY</p>
                         </div>
@@ -15,13 +15,13 @@
                     ><div class="right">
                         <div class="date">12.07.2019</div>
                         <div class="views-count">
-                            278
+                            {{ update.views }}
                             <font-awesome-icon :icon="['far', 'eye']" class="ml-1"></font-awesome-icon>
                         </div>
                     </div>
                 </div>
                 <div class="post-body mt-4">
-                    <p>Nunc non cursus massa. Duis at lacus feugiat, tristique justo quis, ultricies neque. Cras at lacinia tortor. Pellentesque aliquet pretium ligula et placerat. Nam varius vestibulum lorem, pellentesque scelerisque libero congue vel. Duis magna sem, rutrum non condimentum vel, ullamcorper et nibh.</p>                    
+                    <p>{{ update.body }}</p>                    
                 </div>
                 <div class="post-footer mt-3">
                     <div class="left">
@@ -29,7 +29,7 @@
                     </div
                     ><div class="right">
                         <div class="likes">
-                            <div>93</div> <font-awesome-icon :icon="['far', 'heart']" class="ml-1"></font-awesome-icon>
+                            <div>{{ update.likes }}</div> <font-awesome-icon :icon="['far', 'heart']" class="ml-1"></font-awesome-icon>
                         </div>
                         <div class="share">
                             <font-awesome-icon :icon="['far', 'share-square']" class="ml-2"></font-awesome-icon>
@@ -43,6 +43,7 @@
 
 <script>
 export default {
+    props: ['update'],
     computed:
         {
             isUpdate() {return this.$route.name === 'updates.show'}

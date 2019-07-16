@@ -19,11 +19,6 @@ let routes =
             component: UpdatesComponent
         },
         {
-            path: '/update',
-            name: 'updates.show',
-            component: UpdateComponent
-        },
-        {
             path: '/updates/create',
             name: 'updates.create',
             component: UpdateForm

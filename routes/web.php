@@ -16,4 +16,6 @@ Route::get('/', function ()
     return view('layouts.app');
 });
 
+Route::get('updates/data', 'UpdateController@data');
+
 Auth::routes();
