@@ -54,8 +54,6 @@ export default {
     .update 
     {
         padding: 150px 0;
-        background: #212127;
-        min-height: calc(100% - 74px);
     }
     
     .hr-lg {width: 880px;}

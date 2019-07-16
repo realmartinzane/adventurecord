@@ -46,8 +46,6 @@ export default {
     section
     {
         padding: 75px 0;
-        background: #212127;
-        min-height: calc(100% - 74px);
     }
     form
     {
