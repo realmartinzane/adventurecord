@@ -55,13 +55,13 @@ export default {
     {
         padding: 150px 0;
         background: #212127;
-        min-height: 100%;
+        min-height: calc(100% - 74px);
     }
     
     .hr-lg {width: 880px;}
     .post
     {
-        width: 880px;
+        width: 800px;
         margin: auto;
         > .left
         {

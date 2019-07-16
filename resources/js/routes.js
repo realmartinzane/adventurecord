@@ -4,6 +4,7 @@ Vue.use(VueRouter)
 import HomePage from './pages/Home.vue';
 import UpdatesComponent from './components/Updates.vue';
 import UpdateComponent from './components/Update.vue';
+import UpdateForm from './components/UpdateForm.vue';
 
 let routes =
     [
@@ -21,6 +22,11 @@ let routes =
             path: '/update',
             name: 'updates.show',
             component: UpdateComponent
+        },
+        {
+            path: '/updates/create',
+            name: 'updates.create',
+            component: UpdateForm
         }
     ]
 

@@ -12207,6 +12207,10 @@ input[type=color].form-control:disabled {
           transition-delay: 0s;
 }
 
+:focus {
+  outline: none;
+}
+
 .hr-sm {
   width: 50px;
   height: 3px;
