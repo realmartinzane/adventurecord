@@ -17,5 +17,6 @@ Route::get('/', function ()
 });
 
 Route::get('updates/data', 'UpdateController@data');
+Route::get('updates/{id}}', 'UpdateController@get');
 
 Auth::routes();
