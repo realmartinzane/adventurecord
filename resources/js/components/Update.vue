@@ -25,7 +25,7 @@
                 </div>
                 <div class="post-footer mt-3">
                     <div class="left">
-                        <b-link v-if="!isUpdate" :to="'/update'" class="adv-link">Continue Reading</b-link>
+                        <b-link v-if="!isUpdate" :to="{name: 'updates.show', params: {id: update.id}}" class="adv-link">Continue Reading</b-link>
                     </div
                     ><div class="right">
                         <div class="likes">
