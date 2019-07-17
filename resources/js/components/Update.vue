@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="post-body mt-4">
-                    <p>{{ update.body }}</p>                    
+                    <p>{{ body }}</p>                    
                 </div>
                 <div class="post-footer mt-3">
                     <div class="left">
@@ -46,7 +46,8 @@ export default {
     props: ['update'],
     computed:
         {
-            isUpdate() {return this.$route.name === 'updates.show'}
+            isUpdate() {return this.$route.name === 'updates.show'},
+            body() {return this.update.body.length < 250 ? this.update.body : this.update.body.substring(0,250) + "..."}
         }
 }
 </script>
