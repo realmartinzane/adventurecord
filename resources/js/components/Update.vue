@@ -13,7 +13,7 @@
                         </div>
                     </div
                     ><div class="right">
-                        <div class="date">12.07.2019</div>
+                        <div class="date">{{ update.created_date }}</div>
                         <div class="views-count">
                             {{ update.views }}
                             <font-awesome-icon :icon="['far', 'eye']" class="ml-1"></font-awesome-icon>
