@@ -63,8 +63,8 @@ export default {
             @include box-shadow(0 0 5px #000);
             &:focus 
             {
-                background: #3d3d49;
-                @include box-shadow(0 0 5px #3d3d49);
+                background: #363641;
+                @include box-shadow(0 0 5px #363641);
                 border: 1px solid #212127;
             }
         }
