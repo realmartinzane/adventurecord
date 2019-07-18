@@ -4,14 +4,14 @@
             :text="'Create a New Update'"
             :spacing="true">
         </section-header-component>
-        <b-form>
+        <b-form @submit.prevent="store">
             <b-form-group
                 id="title-group"
                 label="Title"
                 label-for="title"
                 description="Enter the title of your new update"
                 >
-                <b-form-input id="title" type="text"></b-form-input>
+                <b-form-input id="title" type="text" v-model="title"></b-form-input>
             </b-form-group>
 
             <b-form-group
@@ -20,7 +20,7 @@
                 label-for="body"
                 description="Enter the body of your new update"
                 >
-                <b-form-textarea id="title" rows="8"></b-form-textarea>
+                <b-form-textarea id="title" rows="8" v-model="body"></b-form-textarea>
             </b-form-group>
 
             <b-button type="submit" class="adv-btn">Submit</b-button>
@@ -35,6 +35,25 @@ export default {
     components:
     {
         SectionHeaderComponent
+    },
+    data(){return{
+        title: null,
+        body: null
+    }},
+    methods:
+    {
+        store()
+        {
+            axios.post(`/updates/store`, 
+            {
+                title: this.title,
+                body: this.body
+            })
+            .then(({data}) => 
+            {
+                console.log(data)
+            })
+        }
     }
 }
 </script>
