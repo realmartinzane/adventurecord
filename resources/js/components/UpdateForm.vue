@@ -11,7 +11,16 @@
                 label-for="title"
                 description="Enter the title of your new update"
                 >
-                <b-form-input id="title" type="text" v-model="title"></b-form-input>
+                <b-form-input 
+                    id="title" 
+                    type="text" 
+                    v-model="$v.form.title.$model"
+                    :state="$v.form.title.$dirty ? !$v.form.title.$error : null">
+                </b-form-input>
+
+                <b-form-invalid-feedback id="title-live-feedback">
+                    This is a required field and cannot exceed 100 characters.
+                </b-form-invalid-feedback>
             </b-form-group>
 
             <b-form-group
@@ -20,34 +29,61 @@
                 label-for="body"
                 description="Enter the body of your new update"
                 >
-                <b-form-textarea id="title" rows="8" v-model="body"></b-form-textarea>
+                <b-form-textarea 
+                    id="title" 
+                    rows="8" 
+                    v-model="$v.form.body.$model"
+                    :state="$v.form.body.$dirty ? !$v.form.body.$error : null">
+                </b-form-textarea>
+
+                <b-form-invalid-feedback id="body-live-feedback">
+                    This is a required field and cannot exceed 2 500 characters.
+                </b-form-invalid-feedback>
             </b-form-group>
 
-            <b-button type="submit" class="adv-btn">Submit</b-button>
+            <b-button type="submit" class="adv-btn" :disabled="$v.form.$invalid">Submit</b-button>
         </b-form>
     </section>
 </template>
 
 <script>
+import { validationMixin } from 'vuelidate'
+import { required, maxLength } from 'vuelidate/lib/validators'
+
 import SectionHeaderComponent from './SectionHeader.vue'
 
 export default {
+    mixins: [validationMixin],
     components:
     {
         SectionHeaderComponent
     },
     data(){return{
-        title: null,
-        body: null
+        form:
+        {
+            title: null,
+            body: null
+        }
     }},
+    validations:
+    {
+        form:
+        {
+            title: {required, maxLength: maxLength(100)},
+            body: {required, maxLength: maxLength(2500)}
+        }
+    },
     methods:
     {
         store()
         {
+            this.$v.form.$touch()
+            if (this.$v.form.$anyError) return;
+
             axios.post(`/updates/store`, 
             {
-                title: this.title,
-                body: this.body
+                title: this.form.title,
+                body: this.form.body
             })
             .then(({data}) => 
             {

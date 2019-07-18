@@ -29,6 +29,7 @@
         "@fortawesome/free-brands-svg-icons": "^5.9.0",
         "@fortawesome/free-regular-svg-icons": "^5.9.0",
         "@fortawesome/free-solid-svg-icons": "^5.9.0",
-        "@fortawesome/vue-fontawesome": "^0.1.6"
+        "@fortawesome/vue-fontawesome": "^0.1.6",
+        "vuelidate": "^0.7.4"
     }
 }
