@@ -11,7 +11,7 @@ class UpdateController extends Controller
     {
         return Update::orderby('created_at', 'desc')->get();
     }
-    public function get()
+    public function get($id)
     {
         return Update::findOrFail($id);
     }

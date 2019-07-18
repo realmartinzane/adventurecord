@@ -1,21 +1,21 @@
 <template>
-    <div :class="{ 'update' : isUpdate }">
-        <div class="post">
+    <div :class="{ 'update' : isShowRoute }">
+        <div class="post" v-if="fetchedUpdate">
             <div class="left">
                 <img src="/img/brand_logo.png" alt="">
             </div
             ><div class="right">
                 <div class="post-header mt-4">
                     <div class="left">
-                        <h2>{{ update.title }}</h2>
+                        <h2>{{ fetchedUpdate.title }}</h2>
                         <div class="author">
                             <p>Posted by VampY</p>
                         </div>
                     </div
                     ><div class="right">
-                        <div class="date">{{ update.created_date }}</div>
+                        <div class="date">{{ fetchedUpdate.created_date }}</div>
                         <div class="views-count">
-                            {{ update.views }}
+                            {{ fetchedUpdate.views }}
                             <font-awesome-icon :icon="['far', 'eye']" class="ml-1"></font-awesome-icon>
                         </div>
                     </div>
@@ -25,11 +25,11 @@
                 </div>
                 <div class="post-footer mt-3">
                     <div class="left">
-                        <b-link v-if="!isUpdate" :to="{name: 'updates.show', params: {id: update.id}}" class="adv-link">Continue Reading</b-link>
+                        <b-link v-if="!isShowRoute" :to="{name: 'updates.show', params: {id: fetchedUpdate.id}}" class="adv-link">Continue Reading</b-link>
                     </div
                     ><div class="right">
                         <div class="likes">
-                            <div>{{ update.likes }}</div> <font-awesome-icon :icon="['far', 'heart']" class="ml-1"></font-awesome-icon>
+                            <div>{{ fetchedUpdate.likes }}</div> <font-awesome-icon :icon="['far', 'heart']" class="ml-1"></font-awesome-icon>
                         </div>
                         <div class="share">
                             <font-awesome-icon :icon="['far', 'share-square']" class="ml-2"></font-awesome-icon>
@@ -44,11 +44,31 @@
 <script>
 export default {
     props: ['update'],
+    data(){return{
+        id: this.$route.params.id,
+        fetchedUpdate: null
+    }},
     computed:
+    {
+        isShowRoute() {return this.$route.name === 'updates.show'},
+        body() {return this.fetchedUpdate.body.length < 250 ? this.fetchedUpdate.body : (this.isShowRoute ? this.fetchedUpdate.body : this.fetchedUpdate.body.substring(0,250) + "...")}
+    },
+    mounted()
+    {
+        if(this.id) this.fetch();
+        else {this.fetchedUpdate = this.update}
+    },
+    methods:
+    {
+        fetch()
         {
-            isUpdate() {return this.$route.name === 'updates.show'},
-            body() {return this.update.body.length < 250 ? this.update.body : this.update.body.substring(0,250) + "..."}
+            axios.get('/updates/' + this.id )
+            .then(({data}) =>
+            {
+                this.fetchedUpdate = data;
+            });
         }
+    }
 }
 </script>
 
