@@ -11,6 +11,22 @@ window.Vue = require('vue');
 import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue)
 
+// Cxlt Toastr
+import CxltToastr from 'cxlt-vue2-toastr'
+import 'cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css'
+const toastrConfigs = {
+    closeButton: true,
+    progressBar: true,
+    position: 'bottom right',
+    showMethod: 'lightSpeedIn',
+    hideMethod: 'lightSpeedOut',
+    showDuration: 300,
+    hideDuration: 300,
+    timeOut: 2400
+
+}
+Vue.use(CxltToastr, toastrConfigs)
+
 // FontAwesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faDiscord } from '@fortawesome/free-brands-svg-icons'

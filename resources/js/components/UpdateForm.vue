@@ -87,7 +87,13 @@ export default {
             })
             .then(({data}) => 
             {
-                console.log(data)
+                this.$router.push('/updates', () =>
+                {
+                    this.$toast.success({
+                        title:'Success',
+                        message:'Your update has been created.'
+                    })
+                })
             })
         }
     }
