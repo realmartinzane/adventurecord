@@ -4,7 +4,7 @@ Vue.use(VueRouter)
 import HomePage from './pages/Home.vue';
 import UpdatesComponent from './components/Updates.vue';
 import UpdateComponent from './components/Update.vue';
-import UpdateForm from './components/UpdateForm.vue';
+import UpdateFormComponent from './components/UpdateForm.vue';
 
 let routes =
     [
@@ -21,12 +21,17 @@ let routes =
         {
             path: '/updates/create',
             name: 'updates.create',
-            component: UpdateForm
+            component: UpdateFormComponent
         },
         {
             path: '/updates/:id',
             name: 'updates.show',
             component: UpdateComponent
+        },
+        {
+            path: '/updates/:id/edit',
+            name: 'updates.edit',
+            component: UpdateFormComponent
         }
     ]
 

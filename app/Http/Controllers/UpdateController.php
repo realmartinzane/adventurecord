@@ -23,6 +23,15 @@ class UpdateController extends Controller
         $update->body = $request->body;
         $update->save();
         
-        return 'Success';
+        return 'Success!';
+    }
+    public function update(PostUpdateRequest $request, $id)
+    {
+        $update = Update::findOrFail($id);
+        $update->title = $request->title;
+        $update->body = $request->body;
+        $update->save();
+        
+        return 'Success!';
     }
 }

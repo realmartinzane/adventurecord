@@ -12266,3 +12266,7 @@ body,
   color: #FFD700;
 }
 
+.adv-btn.small-btn {
+  padding: 5px 10px;
+}
+

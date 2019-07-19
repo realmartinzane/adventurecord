@@ -3,13 +3,19 @@
         <div class="post" v-if="fetchedUpdate">
             <div class="left">
                 <img src="/img/brand_logo.png" alt="">
+                <b-button class="adv-btn small-btn" :to="{name: 'updates.edit', params: {id: fetchedUpdate.id}}">
+                    <font-awesome-icon :icon="['far', 'edit']" class="mr-1"></font-awesome-icon>
+                    Edit
+                </b-button>
             </div
             ><div class="right">
                 <div class="post-header mt-4">
                     <div class="left">
                         <h2>{{ fetchedUpdate.title }}</h2>
                         <div class="author">
-                            <p>Posted by VampY</p>
+                            <p>
+                                Posted by VampY 
+                            </p>
                         </div>
                     </div
                     ><div class="right">

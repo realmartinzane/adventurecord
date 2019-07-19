@@ -1,15 +1,15 @@
 <template>
     <section>
         <section-header-component 
-            :text="'Create a New Update'"
+            :text="isEditRoute ? 'Edit Update' : 'Create a New Update'"
             :spacing="true">
         </section-header-component>
-        <b-form @submit.prevent="store">
+        <b-form @submit.prevent="submit">
             <b-form-group
                 id="title-group"
                 label="Title"
                 label-for="title"
-                description="Enter the title of your new update (Note: Make sure the title is unique)"
+                description="Enter the title of your update (Note: Make sure the title is unique)"
                 >
                 <b-form-input 
                     id="title" 
@@ -27,7 +27,7 @@
                 id="body-group"
                 label="Body"
                 label-for="body"
-                description="Enter the body of your new update"
+                description="Enter the body of your update"
                 >
                 <b-form-textarea 
                     id="title" 
@@ -63,7 +63,8 @@ export default {
         {
             title: null,
             body: null
-        }
+        },
+        id: this.$route.params.id,
     }},
     validations:
     {
@@ -73,14 +74,23 @@ export default {
             body: {required, maxLength: maxLength(2500)}
         }
     },
+    computed:
+    {
+        isEditRoute() {return this.$route.name === 'updates.edit'},
+        endpoint() {return this.isEditRoute ? `/updates/${this.id}/update` : `updates/store`}
+    },
+    mounted()
+    {
+        if(this.isEditRoute) this.fetch();
+    },
     methods:
     {
-        store()
+        submit()
         {
             this.$v.form.$touch()
             if (this.$v.form.$anyError) return;
 
-            axios.post(`/updates/store`, 
+            axios.post(this.endpoint, 
             {
                 title: this.form.title,
                 body: this.form.body
@@ -102,6 +112,15 @@ export default {
                     message: 'There was an error. Please try again later.'
                 })
             })
+        },
+        fetch()
+        {
+            axios.get('/updates/' + this.id )
+            .then(({data}) =>
+            {
+                this.form.title = data.title;
+                this.form.body = data.body;
+            });
         }
     }
 }
