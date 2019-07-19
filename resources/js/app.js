@@ -22,7 +22,7 @@ const toastrConfigs = {
     hideMethod: 'lightSpeedOut',
     showDuration: 300,
     hideDuration: 300,
-    timeOut: 2400
+    timeOut: 4400
 
 }
 Vue.use(CxltToastr, toastrConfigs)

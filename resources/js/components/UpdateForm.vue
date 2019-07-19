@@ -9,7 +9,7 @@
                 id="title-group"
                 label="Title"
                 label-for="title"
-                description="Enter the title of your new update"
+                description="Enter the title of your new update (Note: Make sure the title is unique)"
                 >
                 <b-form-input 
                     id="title" 
@@ -93,6 +93,13 @@ export default {
                         title:'Success',
                         message:'Your update has been created.'
                     })
+                })
+            })
+            .catch(error =>
+            {
+                this.$toast.error({
+                    title:'Error!',
+                    message: 'There was an error. Please try again later.'
                 })
             })
         }

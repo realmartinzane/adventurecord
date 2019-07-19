@@ -24,7 +24,7 @@ class PostUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:100',
+            'title' => 'required|max:100|unique:updates',
             'body' => 'required|max:2500'
         ];
     }
