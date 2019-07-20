@@ -8,12 +8,16 @@
                     <font-awesome-icon :icon="['far', 'edit']"></font-awesome-icon>
                     
                 </b-button
-                ><b-form @submit.prevent="destroy">
-                    <b-button type="submit" class="adv-btn small-btn adv-delete">
-                        <font-awesome-icon :icon="['fas', 'trash-alt']"></font-awesome-icon>
-                        
-                    </b-button>
-                </b-form>
+                ><b-button @click="showModal = !showModal" class="adv-btn small-btn adv-delete">
+                    <font-awesome-icon :icon="['fas', 'trash-alt']"></font-awesome-icon>
+                </b-button>
+                <b-modal
+                    title="Are you sure?"
+                    @ok="destroy()"
+                    v-model="showModal">
+                    <b-form @submit.prevent="handleSubmit"></b-form>
+                    <p>Do you really want to delete this item? This process cannot be undone.</p>
+                </b-modal>
             </div
             ><div class="right">
                 <div class="post-header mt-4">
@@ -59,7 +63,8 @@ export default {
     props: ['update'],
     data(){return{
         id: this.$route.params.id,
-        fetchedUpdate: null
+        fetchedUpdate: null,
+        showModal: false
     }},
     computed:
     {
