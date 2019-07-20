@@ -3,12 +3,12 @@
         <div class="post" v-if="fetchedUpdate">
             <div class="left">
                 <img src="/img/brand_logo.png" alt="">
-                <b-button class="adv-btn small-btn" :to="{name: 'updates.edit', params: {id: fetchedUpdate.id}}">
+                <b-button class="adv-btn small-btn adv-edit" :to="{name: 'updates.edit', params: {id: fetchedUpdate.id}}">
                     <font-awesome-icon :icon="['far', 'edit']"></font-awesome-icon>
                     
                 </b-button
                 ><b-form @submit.prevent="destroyUpdate">
-                    <b-button type="submit" class="adv-btn small-btn">
+                    <b-button type="submit" class="adv-btn small-btn adv-delete">
                         <font-awesome-icon :icon="['fas', 'trash-alt']"></font-awesome-icon>
                         
                     </b-button>
@@ -115,16 +115,6 @@ export default {
             {
                 display: inline-block;
                 margin: 0 5px;
-            }
-            a:hover 
-            {
-                background: #3CB1B6;
-                border-color: #3CB1B6
-            }
-            button:hover 
-            {
-                background: #ec4853;
-                border-color: #ec4853;
             }
         }
         > .right
