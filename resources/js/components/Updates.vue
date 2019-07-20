@@ -32,10 +32,17 @@ export default {
 
         endpoint() {return `/updates/data`}
     },
-    created()
+    mounted()
     {
-        axios.get(this.endpoint)
-        .then(response => this.updates = response.data)
+        this.fetch()
+    },
+    methods:
+    {
+        fetch()
+        {
+            axios.get(this.endpoint)
+            .then(response => this.updates = response.data)
+        }
     }
 }
 </script>
