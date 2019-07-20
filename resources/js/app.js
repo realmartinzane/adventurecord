@@ -31,9 +31,9 @@ Vue.use(CxltToastr, toastrConfigs)
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faDiscord } from '@fortawesome/free-brands-svg-icons'
 import { faHeart, faEye, faComment, faShareSquare, faEdit} from '@fortawesome/free-regular-svg-icons'
-import {  } from '@fortawesome/free-solid-svg-icons'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-library.add(faDiscord, faEye, faHeart, faComment, faShareSquare, faEdit)
+library.add(faDiscord, faEye, faHeart, faComment, faShareSquare, faEdit, faTrashAlt)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 // Vue Router

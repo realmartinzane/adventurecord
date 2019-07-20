@@ -4,9 +4,15 @@
             <div class="left">
                 <img src="/img/brand_logo.png" alt="">
                 <b-button class="adv-btn small-btn" :to="{name: 'updates.edit', params: {id: fetchedUpdate.id}}">
-                    <font-awesome-icon :icon="['far', 'edit']" class="mr-1"></font-awesome-icon>
-                    Edit
-                </b-button>
+                    <font-awesome-icon :icon="['far', 'edit']"></font-awesome-icon>
+                    
+                </b-button
+                ><b-form @submit.prevent="destroyUpdate">
+                    <b-button type="submit" class="adv-btn small-btn">
+                        <font-awesome-icon :icon="['fas', 'trash-alt']"></font-awesome-icon>
+                        
+                    </b-button>
+                </b-form>
             </div
             ><div class="right">
                 <div class="post-header mt-4">
@@ -101,9 +107,24 @@ export default {
                 background: black;;
                 outline: 2px solid black;
                 border: 4px solid #FFD700;
-                margin: 25px 0;
+                margin: 25px auto;
                 padding: 10px;
-                
+                display: block;
+            }
+            a, form 
+            {
+                display: inline-block;
+                margin: 0 5px;
+            }
+            a:hover 
+            {
+                background: #3CB1B6;
+                border-color: #3CB1B6
+            }
+            button:hover 
+            {
+                background: #ec4853;
+                border-color: #ec4853;
             }
         }
         > .right
