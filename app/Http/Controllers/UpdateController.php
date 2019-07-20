@@ -18,20 +18,10 @@ class UpdateController extends Controller
     }
     public function store(PostUpdateRequest $request)
     {
-        $update = new Update();
-        $update->title = $request->title;
-        $update->body = $request->body;
-        $update->save();
-        
-        return 'Success!';
+        Update::create($request->only('title', 'body'));
     }
     public function update(PostUpdateRequest $request, $id)
     {
-        $update = Update::findOrFail($id);
-        $update->title = $request->title;
-        $update->body = $request->body;
-        $update->save();
-        
-        return 'Success!';
+        Update::findOrFail($id)->update($request->only('title', 'body'));
     }
 }
