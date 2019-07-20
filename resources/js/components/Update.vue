@@ -1,65 +1,67 @@
 <template>
     <div :class="{ 'update' : isShowRoute }">
         <div v-if="!fetchedUpdate" class="spinner"><b-spinner label="Spinning"></b-spinner></div>
-        <div class="post" v-if="fetchedUpdate">
-            <div class="left">
-                <img src="/img/brand_logo.png" alt="">
-                <b-button class="adv-btn small-btn adv-edit" :to="{name: 'updates.edit', params: {id: fetchedUpdate.id}}">
-                    <font-awesome-icon :icon="['far', 'edit']"></font-awesome-icon>
-                    
-                </b-button
-                ><b-button @click="showModal = !showModal" class="adv-btn small-btn adv-delete">
-                    <font-awesome-icon :icon="['fas', 'trash-alt']"></font-awesome-icon>
-                </b-button>
-                <b-modal
-                    title="Are you sure?"
-                    @ok="destroy()"
-                    v-model="showModal"
-                    header-text-variant="light"
-                    body-bg-variant="dark"
-                    body-text-variant="light"
-                    footer-bg-variant="dark"
-                    footer-text-variant="light">
-                    <b-form @submit.prevent="handleSubmit"></b-form>
-                    <p>Do you really want to delete this item? This process cannot be undone.</p>
-                </b-modal>
-            </div
-            ><div class="right">
-                <div class="post-header mt-4">
-                    <div class="left">
-                        <h2>{{ fetchedUpdate.title }}</h2>
-                        <div class="author">
-                            <p>
-                                Posted by VampY 
-                            </p>
-                        </div>
-                    </div
-                    ><div class="right">
-                        <div class="date">{{ fetchedUpdate.created_date }}</div>
-                        <div class="views-count">
-                            {{ fetchedUpdate.views }}
-                            <font-awesome-icon :icon="['far', 'eye']" class="ml-1"></font-awesome-icon>
+        <transition appear name="slide-fade">
+            <div class="post" v-if="fetchedUpdate">
+                <div class="left">
+                    <img src="/img/brand_logo.png" alt="">
+                    <b-button class="adv-btn small-btn adv-edit" :to="{name: 'updates.edit', params: {id: fetchedUpdate.id}}">
+                        <font-awesome-icon :icon="['far', 'edit']"></font-awesome-icon>
+                        
+                    </b-button
+                    ><b-button @click="showModal = !showModal" class="adv-btn small-btn adv-delete">
+                        <font-awesome-icon :icon="['fas', 'trash-alt']"></font-awesome-icon>
+                    </b-button>
+                    <b-modal
+                        title="Are you sure?"
+                        @ok="destroy()"
+                        v-model="showModal"
+                        header-text-variant="light"
+                        body-bg-variant="dark"
+                        body-text-variant="light"
+                        footer-bg-variant="dark"
+                        footer-text-variant="light">
+                        <b-form @submit.prevent="handleSubmit"></b-form>
+                        <p>Do you really want to delete this item? This process cannot be undone.</p>
+                    </b-modal>
+                </div
+                ><div class="right">
+                    <div class="post-header mt-4">
+                        <div class="left">
+                            <h2>{{ fetchedUpdate.title }}</h2>
+                            <div class="author">
+                                <p>
+                                    Posted by VampY 
+                                </p>
+                            </div>
+                        </div
+                        ><div class="right">
+                            <div class="date">{{ fetchedUpdate.created_date }}</div>
+                            <div class="views-count">
+                                {{ fetchedUpdate.views }}
+                                <font-awesome-icon :icon="['far', 'eye']" class="ml-1"></font-awesome-icon>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="post-body mt-4">
-                    <p>{{ body }}</p>                    
-                </div>
-                <div class="post-footer mt-3">
-                    <div class="left">
-                        <b-link v-if="!isShowRoute" :to="{name: 'updates.show', params: {id: fetchedUpdate.id}}" class="adv-link">Continue Reading</b-link>
-                    </div
-                    ><div class="right">
-                        <div class="likes">
-                            <div>{{ fetchedUpdate.likes }}</div> <font-awesome-icon :icon="['far', 'heart']" class="ml-1"></font-awesome-icon>
-                        </div>
-                        <div class="share">
-                            <font-awesome-icon :icon="['far', 'share-square']" class="ml-2"></font-awesome-icon>
+                    <div class="post-body mt-4">
+                        <p>{{ body }}</p>                    
+                    </div>
+                    <div class="post-footer mt-3">
+                        <div class="left">
+                            <b-link v-if="!isShowRoute" :to="{name: 'updates.show', params: {id: fetchedUpdate.id}}" class="adv-link">Continue Reading</b-link>
+                        </div
+                        ><div class="right">
+                            <div class="likes">
+                                <div>{{ fetchedUpdate.likes }}</div> <font-awesome-icon :icon="['far', 'heart']" class="ml-1"></font-awesome-icon>
+                            </div>
+                            <div class="share">
+                                <font-awesome-icon :icon="['far', 'share-square']" class="ml-2"></font-awesome-icon>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </transition>
     </div>
 </template>
 
