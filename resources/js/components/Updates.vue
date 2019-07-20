@@ -1,5 +1,6 @@
 <template>
     <section class="updates">
+        <div v-if="!updates" class="spinner"><b-spinner label="Spinning"></b-spinner></div>
         <section-header-component 
             :text="isUpdates ? 'Updates' : 'Latest Updates'"
             :spacing="isUpdates">
@@ -24,7 +25,7 @@ import SectionHeaderComponent from './SectionHeader.vue'
 export default {
     components: {UpdateComponent, SectionHeaderComponent},
     data(){return{
-        updates: []
+        updates: null
     }},
     computed:
     {

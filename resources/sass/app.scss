@@ -2,7 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Variables
-@import 'variables';
+@import 'variables',
+        'mixins';
 
 // Bootstrap
 @import 'node_modules/bootstrap/scss/bootstrap';
@@ -65,4 +66,13 @@ html,body, #app, .wrapper {height:100%;}
 {
     background: #ec4853;
     border-color: #ec4853;
+}
+.spinner 
+{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -20px;
+    margin-left: -20px;
+    .spinner-border {color: #FFD700;}
 }

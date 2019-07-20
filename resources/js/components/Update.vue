@@ -1,5 +1,6 @@
 <template>
     <div :class="{ 'update' : isShowRoute }">
+        <div v-if="!fetchedUpdate" class="spinner"><b-spinner label="Spinning"></b-spinner></div>
         <div class="post" v-if="fetchedUpdate">
             <div class="left">
                 <img src="/img/brand_logo.png" alt="">

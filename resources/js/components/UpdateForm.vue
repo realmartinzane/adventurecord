@@ -1,10 +1,11 @@
 <template>
     <section>
+        <div v-if="isEditRoute && !form.title && !form.body" class="spinner"><b-spinner label="Spinning"></b-spinner></div>
         <section-header-component 
             :text="isEditRoute ? 'Edit Update' : 'Create a New Update'"
             :spacing="true">
         </section-header-component>
-        <b-form @submit.prevent="submit">
+        <b-form @submit.prevent="submit" v-if="(isEditRoute && form.title && form.body) || !isEditRoute">
             <b-form-group
                 id="title-group"
                 label="Title"
