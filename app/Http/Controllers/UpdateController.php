@@ -19,15 +19,16 @@ class UpdateController extends Controller
     public function store(PostUpdateRequest $request)
     {
         Update::create($request->only('title', 'body'));
+        return response()->json('Your update has been created.');
     }
     public function update(PostUpdateRequest $request, $id)
     {
         Update::findOrFail($id)->update($request->only('title', 'body'));
+        return response()->json('Your update has been edited.');
     }
     public function destroy($id)
     {
         Update::findOrFail($id)->delete();
-        
         return response()->json('Your update has been deleted.');
     }
 }

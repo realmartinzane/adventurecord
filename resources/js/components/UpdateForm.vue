@@ -101,7 +101,7 @@ export default {
                 {
                     this.$toast.success({
                         title:'Success',
-                        message:'Your update has been created.'
+                        message: data
                     })
                 })
             })

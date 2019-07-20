@@ -83,16 +83,15 @@ export default {
         destroy()
         {
             axios.post(`/updates/${this.fetchedUpdate.id}/destroy`)
-            .then(({message})=> 
+            .then(({data})=> 
             {
-                
                 if(this.isShowRoute)
                 {
                     this.$router.push('/updates', () =>
                     {
                         this.$toast.success({
                             title:'Success',
-                            message: message
+                            message: data
                         })
                     });
                 }
@@ -101,7 +100,7 @@ export default {
                     this.$parent.fetch();
                     this.$toast.success({
                             title:'Success',
-                            message: message
+                            message: data
                         })
                 }
             });
