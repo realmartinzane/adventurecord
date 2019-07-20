@@ -98,7 +98,7 @@ export default {
                 }
                 else
                 {
-                    this.fetch();
+                    this.$parent.fetch();
                     this.$toast.success({
                             title:'Success',
                             message: message
