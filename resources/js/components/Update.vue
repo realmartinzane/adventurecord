@@ -7,7 +7,7 @@
                     <font-awesome-icon :icon="['far', 'edit']"></font-awesome-icon>
                     
                 </b-button
-                ><b-form @submit.prevent="destroyUpdate">
+                ><b-form @submit.prevent="destroy">
                     <b-button type="submit" class="adv-btn small-btn adv-delete">
                         <font-awesome-icon :icon="['fas', 'trash-alt']"></font-awesome-icon>
                         
@@ -74,10 +74,36 @@ export default {
     {
         fetch()
         {
-            axios.get('/updates/' + this.id )
+            axios.get(`/updates/${this.id}`)
             .then(({data}) =>
             {
                 this.fetchedUpdate = data;
+            });
+        },
+        destroy()
+        {
+            axios.post(`/updates/${this.fetchedUpdate.id}/destroy`)
+            .then(({message})=> 
+            {
+                
+                if(this.isShowRoute)
+                {
+                    this.$router.push('/updates', () =>
+                    {
+                        this.$toast.success({
+                            title:'Success',
+                            message: message
+                        })
+                    });
+                }
+                else
+                {
+                    this.fetch();
+                    this.$toast.success({
+                            title:'Success',
+                            message: message
+                        })
+                }
             });
         }
     }

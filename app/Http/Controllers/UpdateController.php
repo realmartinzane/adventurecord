@@ -24,4 +24,10 @@ class UpdateController extends Controller
     {
         Update::findOrFail($id)->update($request->only('title', 'body'));
     }
+    public function destroy($id)
+    {
+        Update::findOrFail($id)->delete();
+        
+        return response()->json('Your update has been deleted.');
+    }
 }
