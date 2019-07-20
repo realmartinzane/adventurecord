@@ -76,3 +76,13 @@ html,body, #app, .wrapper {height:100%;}
     margin-left: -20px;
     .spinner-border {color: #FFD700;}
 }
+.modal-content
+{
+    header, footer, button {border: none;}
+    header {background-color: rgb(194, 165, 0);}
+    button.btn-primary
+    {
+        background: rgb(194, 165, 0);
+        &:hover {background: rgb(184, 156, 0)}
+    }
+}

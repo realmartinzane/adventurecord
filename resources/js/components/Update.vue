@@ -14,7 +14,12 @@
                 <b-modal
                     title="Are you sure?"
                     @ok="destroy()"
-                    v-model="showModal">
+                    v-model="showModal"
+                    header-text-variant="light"
+                    body-bg-variant="dark"
+                    body-text-variant="light"
+                    footer-bg-variant="dark"
+                    footer-text-variant="light">
                     <b-form @submit.prevent="handleSubmit"></b-form>
                     <p>Do you really want to delete this item? This process cannot be undone.</p>
                 </b-modal>

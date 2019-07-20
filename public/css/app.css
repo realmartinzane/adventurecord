@@ -12292,3 +12292,21 @@ body,
   color: #FFD700;
 }
 
+.modal-content header,
+.modal-content footer,
+.modal-content button {
+  border: none;
+}
+
+.modal-content header {
+  background-color: #c2a500;
+}
+
+.modal-content button.btn-primary {
+  background: #c2a500;
+}
+
+.modal-content button.btn-primary:hover {
+  background: #b89c00;
+}
+
