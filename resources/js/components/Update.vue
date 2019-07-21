@@ -55,7 +55,14 @@
                                 <div>{{ fetchedUpdate.likes }}</div> <font-awesome-icon :icon="['far', 'heart']" class="ml-1"></font-awesome-icon>
                             </div>
                             <div class="share">
-                                <font-awesome-icon :icon="['far', 'share-square']" class="ml-2"></font-awesome-icon>
+                                <font-awesome-icon :icon="['far', 'share-square']" class="ml-2" @click="showLinks = !showLinks"></font-awesome-icon>
+                                <social-sharing-component
+                                    v-if="showLinks"
+                                    :url="url"
+                                    :title="fetchedUpdate.title"
+                                    :quote="fetchedUpdate.title"
+                                    :hashtags="'adventurecord'"
+                                ></social-sharing-component>
                             </div>
                         </div>
                     </div>
@@ -66,12 +73,18 @@
 </template>
 
 <script>
+
+import SocialSharingComponent from './SocialSharing.vue'
+
 export default {
     props: ['update'],
+    components: {SocialSharingComponent},
     data(){return{
         id: this.$route.params.id,
         fetchedUpdate: null,
-        showModal: false
+        showModal: false,
+        showLinks: false,
+        url: ''
     }},
     computed:
     {
@@ -80,6 +93,7 @@ export default {
     },
     mounted()
     {
+        this.url = window.location.href;
         if(this.id && !this.isShowRoute) this.fetch();
         else if(this.id && this.isShowRoute) this.fetchSingle();
         else this.fetchedUpdate = this.update;
@@ -131,11 +145,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-    .update 
-    {
-        padding: 150px 0;
-    }
+<style lang="scss">
+
+    .update {padding: 150px 0;}
     
     .hr-lg {width: 880px;}
     .post
@@ -232,7 +244,7 @@ export default {
             > div * {vertical-align: middle;}
             svg {font-size: 1.2rem}
             .likes {color: #ec4853}
-            .share {color: #3CB1B6;}
+            .share {color: #3CB1B6; position: relative;}
         }
     }
 </style>

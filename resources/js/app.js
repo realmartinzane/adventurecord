@@ -27,13 +27,19 @@ const toastrConfigs = {
 }
 Vue.use(CxltToastr, toastrConfigs)
 
+// Vue Social Sharing
+import SocialSharing from 'vue-social-sharing'
+Vue.use(SocialSharing)
+
 // FontAwesome
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faDiscord } from '@fortawesome/free-brands-svg-icons'
-import { faHeart, faEye, faComment, faShareSquare, faEdit} from '@fortawesome/free-regular-svg-icons'
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import { faDiscord, faFacebook, faLine, faLinkedin, faOdnoklassniki, faReddit, faSkype, faTelegram, faTwitter, faVk, faWeibo, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import { faHeart, faEye, faComment, faShareSquare, faEdit, faEnvelope, faComments} from '@fortawesome/free-regular-svg-icons'
+import { faTrashAlt} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-library.add(faDiscord, faEye, faHeart, faComment, faShareSquare, faEdit, faTrashAlt)
+library.add(faDiscord, faEye, faHeart, faComment, faShareSquare, faEdit, faTrashAlt,
+            faFacebook, faLine, faLinkedin, faOdnoklassniki, faReddit, faSkype, faTelegram, 
+            faTwitter, faVk, faWeibo, faWhatsapp, faEnvelope, faComments)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 // Vue Router
