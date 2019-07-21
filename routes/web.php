@@ -18,6 +18,7 @@ Route::get('/', function ()
 
 Route::get('updates/data', 'UpdateController@data');
 Route::get('updates/{id}', 'UpdateController@get');
+Route::get('updates/{id}/single', 'UpdateController@getSingle');
 Route::post('updates/store', 'UpdateController@store');
 Route::post('updates/{id}/update', 'UpdateController@update');
 Route::post('updates/{id}/destroy', 'UpdateController@destroy');

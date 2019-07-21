@@ -80,14 +80,23 @@ export default {
     },
     mounted()
     {
-        if(this.id) this.fetch();
-        else {this.fetchedUpdate = this.update}
+        if(this.id && !this.isShowRoute) this.fetch();
+        else if(this.id && this.isShowRoute) this.fetchSingle();
+        else this.fetchedUpdate = this.update;
     },
     methods:
     {
         fetch()
         {
             axios.get(`/updates/${this.id}`)
+            .then(({data}) =>
+            {
+                this.fetchedUpdate = data;
+            });
+        },
+        fetchSingle()
+        {
+            axios.get(`/updates/${this.id}/single`)
             .then(({data}) =>
             {
                 this.fetchedUpdate = data;

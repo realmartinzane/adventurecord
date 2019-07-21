@@ -16,6 +16,13 @@ class UpdateController extends Controller
     {
         return Update::findOrFail($id);
     }
+    public function getSingle($id)
+    {
+        $update = Update::findOrFail($id);
+        $update->views += 1;
+        $update->save();
+        return Update::findOrFail($id);
+    }
     public function store(PostUpdateRequest $request)
     {
         Update::create($request->only('title', 'body'));
