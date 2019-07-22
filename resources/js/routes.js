@@ -5,6 +5,7 @@ import HomePage from './pages/Home.vue';
 import UpdatesComponent from './components/Updates.vue';
 import UpdateComponent from './components/Update.vue';
 import UpdateFormComponent from './components/UpdateForm.vue';
+import CommandsComponent from './components/Commands.vue';
 
 let routes =
     [
@@ -32,6 +33,11 @@ let routes =
             path: '/updates/:id/edit',
             name: 'updates.edit',
             component: UpdateFormComponent
+        },
+        {
+            path: '/commands',
+            name: 'commands',
+            component: CommandsComponent
         }
     ]
 
