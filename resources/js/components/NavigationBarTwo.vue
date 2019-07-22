@@ -12,8 +12,8 @@
                 <b-nav-item :to="'/'">Home</b-nav-item>
                 <b-nav-item :to="'/updates'">Updates</b-nav-item>
                 <b-nav-item :to="'/commands'">Commands</b-nav-item>
-                <b-nav-item>Tutorial</b-nav-item>
-                <b-nav-item>Wiki</b-nav-item>
+                <b-nav-item href="https://youtu.be/mTzogDbNAI0" target="_blank">Tutorial</b-nav-item>
+                <b-nav-item href="https://adventurecord.fandom.com/wiki/AdventureCord_Wiki" target="_blank">Wiki</b-nav-item>
                 <b-nav-item>Marketplace</b-nav-item>
             </b-navbar-nav>
 
