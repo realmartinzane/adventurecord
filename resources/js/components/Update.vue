@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="post-body mt-4">
-                        <p>{{ body }}</p>                    
+                        <div v-html=fetchedUpdate.body_html></div>                    
                     </div>
                     <div class="post-footer mt-3">
                         <div class="left">
