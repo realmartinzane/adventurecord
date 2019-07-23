@@ -1,28 +1,28 @@
 <template>
-    <section>
+    <b-row>
         <section-header-component
-        :text="'Available Commands'"
-        :spacing="true">
+            :text="'Available Commands'"
+            :spacing="true">
         </section-header-component>
 
-        
-
-        <b-tabs content-class="mt-3" fill>
-            <p>The prefix for AdventureCord is ! and is not interchangeable. The following is a list of all the commands:</p>
-            <b-tab title="General" active>
-                <b-table striped hover :items="listOne"></b-table>
-            </b-tab>
-            <b-tab title="Marketplace &amp; Guilds">
-                <b-table striped hover :items="listTwo"></b-table>
-            </b-tab>
-            <b-tab title="Voting &amp; Friends">
-                <b-table striped hover :items="listThree"></b-table>
-            </b-tab>
-            <b-tab title="Leaderboards &amp; Statistics">
-                <b-table striped hover :items="listFour"></b-table>
-            </b-tab>
-        </b-tabs>
-    </section>
+        <b-col cols="12" lg="8" offset-lg="2">
+            <b-tabs content-class="mt-3" fill>
+                <p>The prefix for AdventureCord is ! and is not interchangeable. The following is a list of all the commands:</p>
+                <b-tab title="General" active>
+                    <b-table striped hover :items="listOne"></b-table>
+                </b-tab>
+                <b-tab title="Marketplace &amp; Guilds">
+                    <b-table striped hover :items="listTwo"></b-table>
+                </b-tab>
+                <b-tab title="Voting &amp; Friends">
+                    <b-table striped hover :items="listThree"></b-table>
+                </b-tab>
+                <b-tab title="Leaderboards &amp; Statistics">
+                    <b-table striped hover :items="listFour"></b-table>
+                </b-tab>
+            </b-tabs>
+        </b-col>
+    </b-row>
 </template>
 
 <script>
@@ -94,11 +94,9 @@ export default {
 
 @import '../../sass/_mixins.scss';
 
-    section {padding: 75px 0;}
     .tabs
     {
         p {color: white}
-        width: 800px;
         margin: 50px auto;
         .nav-tabs {border-bottom: 1px solid #FFD700;}
         .nav-link.active 

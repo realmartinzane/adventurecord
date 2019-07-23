@@ -12227,7 +12227,7 @@ input[type=color].form-control:disabled {
 html,
 body,
 #app,
-.wrapper {
+.container-fluid {
   height: 100%;
 }
 

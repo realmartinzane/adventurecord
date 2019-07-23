@@ -1,9 +1,9 @@
 <template>
-    <div class="wrapper">
+    <b-container fluid>
         <navigation-bar-two-component></navigation-bar-two-component>
         <router-view></router-view>
         <footer-component></footer-component>
-    </div>
+    </b-container>
 </template>
 
 <script>
@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .wrapper > *:nth-child(2)
+    .container-fluid > *:nth-child(2)
     {
         background: #212127;
         min-height: calc(100% - 74px);

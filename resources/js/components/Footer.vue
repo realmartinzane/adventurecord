@@ -1,7 +1,7 @@
 <template>
-    <div class="footer">
+    <b-row class="footer">
         <p>AdventureCord, Copyright &copy; 2019</p>
-    </div>
+    </b-row>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <b-row>
         <div class="brand">
             <div class="triangle"></div>
                 <div class="content">
@@ -26,7 +26,7 @@
                 </b-nav-item>
             </b-navbar-nav>
         </b-navbar>
-    </div>
+    </b-row>
 </template>
 
 <script>
