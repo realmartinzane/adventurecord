@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="post-body mt-4">
-                        <div v-html=fetchedUpdate.body_html></div>                    
+                        <div v-html="body"></div>                    
                     </div>
                     <div class="post-footer mt-3">
                         <div class="left">
@@ -89,7 +89,7 @@ export default {
     computed:
     {
         isShowRoute() {return this.$route.name === 'updates.show'},
-        body() {return this.fetchedUpdate.body.length < 250 ? this.fetchedUpdate.body : (this.isShowRoute ? this.fetchedUpdate.body : this.fetchedUpdate.body.substring(0,250) + "...")}
+        body() {return this.fetchedUpdate.body_html.length < 250 ? this.fetchedUpdate.body_html : (this.isShowRoute ? this.fetchedUpdate.body_html : this.fetchedUpdate.body_html.substring(0,250) + "...")}
     },
     mounted()
     {
