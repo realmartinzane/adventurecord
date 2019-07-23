@@ -35,11 +35,11 @@ Vue.use(SocialSharing)
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faDiscord, faFacebook, faLine, faLinkedin, faOdnoklassniki, faReddit, faSkype, faTelegram, faTwitter, faVk, faWeibo, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import { faHeart, faEye, faComment, faShareSquare, faEdit, faEnvelope, faComments} from '@fortawesome/free-regular-svg-icons'
-import { faTrashAlt} from '@fortawesome/free-solid-svg-icons'
+import { faTrashAlt, faBars} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 library.add(faDiscord, faEye, faHeart, faComment, faShareSquare, faEdit, faTrashAlt,
             faFacebook, faLine, faLinkedin, faOdnoklassniki, faReddit, faSkype, faTelegram, 
-            faTwitter, faVk, faWeibo, faWhatsapp, faEnvelope, faComments)
+            faTwitter, faVk, faWeibo, faWhatsapp, faEnvelope, faComments, faBars)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 // Vue Router

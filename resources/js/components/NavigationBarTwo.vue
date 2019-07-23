@@ -1,5 +1,5 @@
 <template>
-    <b-row>
+    <b-row class="navbar-desktop">
         <div class="brand">
             <div class="triangle"></div>
                 <div class="content">

@@ -1,27 +1,20 @@
 <template>
-    <b-navbar>
-        <b-navbar-brand href="#">
-            <img src="/img/brand.png" alt="">
-        </b-navbar-brand>
+    <b-row class="navbar-mobile">
+        <b-navbar>
+            <b-navbar-brand href="#">
+                <img src="/img/brand.png" alt="">
+            </b-navbar-brand>
 
-        <b-navbar-nav>
-            <b-nav-item>Home</b-nav-item>
-            <b-nav-item>Updates</b-nav-item>
-            <b-nav-item>Commands</b-nav-item>
-            <b-nav-item>Wiki</b-nav-item>
-            <b-nav-item>Marketplace</b-nav-item>
-        </b-navbar-nav>
-
-        <b-navbar-nav class="ml-auto">
-            <b-nav-item>
-                <b-button>
-                    <font-awesome-icon :icon="['fab', 'discord']" size="lg" class="mr-1"></font-awesome-icon>
-                    <span>Log in with discord</span>
-                </b-button>
+            <b-navbar-nav class="ml-auto">
+                <b-nav-item>
+                    <b-button>
+                        <font-awesome-icon :icon="['fab', 'discord']" size="lg" class="mr-1"></font-awesome-icon>
+                        <span>Log in</span>
+                    </b-button>
                 </b-nav-item>
-        </b-navbar-nav>
-
-    </b-navbar>
+            </b-navbar-nav>
+        </b-navbar>
+    </b-row>
 </template>
 
 <script>
@@ -32,7 +25,9 @@ export default {
 
 <style lang="scss" scoped>
 
-    .navbar {background-color: #10121A;}
+@import '../../sass/_mixins.scss';
+
+    .navbar {background-color: #10121A; width: 100%;}
     .navbar-brand {img{height: 50px;}}
     .navbar-nav .nav-item
     {
@@ -50,6 +45,20 @@ export default {
             background-color: #7289da;
             svg {vertical-align: middle}
         }
+        .adv-link 
+        {
+            border: none; 
+            background: transparent;
+            font-size: 1.3rem;
+            @include transition(all 100ms);
+            @include transform(scale(1.4));
+            vertical-align: middle;
+            &:hover
+            {
+                @include transform(scale(1.6));
+            }
+        }
+
     }
 
 </style>
