@@ -2,8 +2,8 @@
     <b-row class="updates">
         <div v-if="!updates" class="spinner"><b-spinner label="Spinning"></b-spinner></div>
         <section-header-component 
-            :text="isUpdates ? 'Updates' : 'Latest Updates'"
-            :spacing="isUpdates">
+            :text="isIndexRoute ? 'Updates' : 'Latest Updates'"
+            :spacing="isIndexRoute">
         </section-header-component>
         <div class="posts">
             <b-col cols="12" md="10" offset-md="1" offset="1" xl="8" offset-xl="2" class="hr-lg"></b-col>
@@ -11,7 +11,7 @@
                 <update-component :update="update"></update-component>
                 <b-col cols="12" md="10" offset-md="1" xl="8" offset-xl="2" class="hr-lg"></b-col>
             </div>
-            <div v-if="!isUpdates" class="view-more">
+            <div v-if="!isIndexRoute" class="view-more">
                 <b-link :to="'/updates'" class="adv-link">View more updates</b-link>
             </div>
         </div>
@@ -29,7 +29,7 @@ export default {
     }},
     computed:
     {
-        isUpdates() {return this.$route.name === 'updates.index'},
+        isIndexRoute() {return this.$route.name === 'updates.index'},
 
         endpoint() {return `/updates/data`}
     },
