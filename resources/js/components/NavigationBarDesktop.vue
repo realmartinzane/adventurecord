@@ -38,6 +38,7 @@ export default {
 <style lang="scss" scoped>
 
 @import '../../sass/_mixins.scss';
+
     .navbar-desktop {position: relative;}
     .brand {position: relative}
     .triangle

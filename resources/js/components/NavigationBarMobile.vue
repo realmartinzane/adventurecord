@@ -6,14 +6,10 @@
             </b-navbar-brand>
 
             <b-navbar-nav class="ml-auto">
-                <b-nav-item>
-                    <b-button>
-                        <font-awesome-icon :icon="['fab', 'discord']" size="lg" class="mr-1"></font-awesome-icon>
-                        <span>Log in</span>
-                    </b-button>
-                </b-nav-item>
                 <b-nav-item-dropdown toggle-class="adv-toggle" right>
                     <template slot="button-content"><font-awesome-icon :icon="['fas', 'bars']"></font-awesome-icon></template>
+                    <b-dropdown-item :to="'/'">Log in</b-dropdown-item>
+                    <b-dropdown-divider></b-dropdown-divider>
                     <b-dropdown-item :to="'/'">Home</b-dropdown-item>
                     <b-dropdown-item :to="'/updates'">Updates</b-dropdown-item>
                     <b-dropdown-item :to="'/commands'">Commands</b-dropdown-item>
@@ -74,6 +70,7 @@ export default {
                 padding-bottom: 7.5px;
                 &:hover {background: #2d2d35}
             }
+            .dropdown-divider {border-color: #3d3d49;}
         }
     }
 

@@ -1,7 +1,7 @@
 import VueRouter from 'vue-router';
 import Vue from 'vue';
 Vue.use(VueRouter)
-import HomePage from './pages/Home.vue';
+import LandingComponent from './components/Landing.vue';
 import UpdatesComponent from './components/Updates.vue';
 import UpdateComponent from './components/Update.vue';
 import UpdateFormComponent from './components/UpdateForm.vue';
@@ -12,7 +12,7 @@ let routes =
         {
             path: '/',
             name: 'home',
-            component: HomePage
+            component: LandingComponent
         },
         {
             path: '/updates',
