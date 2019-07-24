@@ -14,11 +14,11 @@
                 </b-nav-item>
                 <b-nav-item-dropdown toggle-class="adv-toggle" right>
                     <template slot="button-content"><font-awesome-icon :icon="['fas', 'bars']"></font-awesome-icon></template>
-                    <b-dropdown-item>Home</b-dropdown-item>
-                    <b-dropdown-item>Updates</b-dropdown-item>
-                    <b-dropdown-item>Commands</b-dropdown-item>
-                    <b-dropdown-item>Tutorial</b-dropdown-item>
-                    <b-dropdown-item>Wiki</b-dropdown-item>
+                    <b-dropdown-item :to="'/'">Home</b-dropdown-item>
+                    <b-dropdown-item :to="'/updates'">Updates</b-dropdown-item>
+                    <b-dropdown-item :to="'/commands'">Commands</b-dropdown-item>
+                    <b-dropdown-item href="https://youtu.be/mTzogDbNAI0" target="_blank">Tutorial</b-dropdown-item>
+                    <b-dropdown-item href="https://adventurecord.fandom.com/wiki/AdventureCord_Wiki" target="_blank">Wiki</b-dropdown-item>
                     <b-dropdown-item>Marketplace</b-dropdown-item>
                 </b-nav-item-dropdown>
             </b-navbar-nav>
