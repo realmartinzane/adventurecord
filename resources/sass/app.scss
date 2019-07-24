@@ -55,6 +55,20 @@ html,body, #app, .container-fluid {height:100%;}
     text-transform: uppercase;
     &:hover {color: #FFD700}
 }
+.adv-toggle
+{
+    color: #FFD700 !important;
+    &:hover {color: #FFD700}
+    &::after {content: none}
+    font-size: 1.3rem;
+    margin-top: 5px;
+    @include transition(all 100ms);
+    @include transform(scale(1.4));
+    &:hover
+    {
+        @include transform(scale(1.6));
+    }
+}
 
 .adv-btn.small-btn {padding: 5px 10px;}
 .adv-edit:hover

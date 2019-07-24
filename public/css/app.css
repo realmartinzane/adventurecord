@@ -12266,6 +12266,36 @@ body,
   color: #FFD700;
 }
 
+.adv-toggle {
+  color: #FFD700 !important;
+  font-size: 1.3rem;
+  margin-top: 5px;
+  -webkit-transition: all 100ms;
+  transition: all 100ms;
+  -webkit-transform: scale(1.4);
+  transform: scale(1.4);
+}
+
+.adv-toggle:hover {
+  color: #FFD700;
+}
+
+.adv-toggle::after {
+  content: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .adv-toggle {
+    -webkit-transition: none;
+    transition: none;
+  }
+}
+
+.adv-toggle:hover {
+  -webkit-transform: scale(1.6);
+  transform: scale(1.6);
+}
+
 .adv-btn.small-btn {
   padding: 5px 10px;
 }
