@@ -1,19 +1,19 @@
 <template>
     <div>
-        <landing-two-component></landing-two-component>
+        <landing-component></landing-component>
         <updates-component></updates-component>
     </div>
 </template>
 
 <script>
 
-import LandingTwoComponent from '../components/LandingTwo.vue'
+import LandingComponent from '../components/Landing.vue'
 import UpdatesComponent from '../components/Updates.vue'
 
 export default {
     components:
     {
-        LandingTwoComponent,
+        LandingComponent,
         UpdatesComponent
     }
 }

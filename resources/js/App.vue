@@ -1,21 +1,21 @@
 <template>
     <b-container fluid>
-        <navigation-bar-component></navigation-bar-component>
-        <navigation-bar-two-component></navigation-bar-two-component>
+        <navigation-bar-desktop-component></navigation-bar-desktop-component>
+        <navigation-bar-mobile-component></navigation-bar-mobile-component>
         <router-view></router-view>
         <footer-component></footer-component>
     </b-container>
 </template>
 
 <script>
-import NavigationBarComponent from './components/NavigationBar.vue'
-import NavigationBarTwoComponent from './components/NavigationBarTwo.vue'
+import NavigationBarDesktopComponent from './components/NavigationBarDesktop.vue'
+import NavigationBarMobileComponent from './components/NavigationBarMobile.vue'
 import FooterComponent from './components/Footer.vue'
 export default {
     components:
     {
-        NavigationBarComponent,
-        NavigationBarTwoComponent,
+        NavigationBarDesktopComponent,
+        NavigationBarMobileComponent,
         FooterComponent,
     }
 }
