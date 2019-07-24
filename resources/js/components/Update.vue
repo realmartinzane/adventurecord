@@ -1,13 +1,12 @@
 <template>
-    <div :class="{ 'update' : isShowRoute }">
+    <b-row :class="{ 'update' : isShowRoute }">
         <div v-if="!fetchedUpdate" class="spinner"><b-spinner label="Spinning"></b-spinner></div>
         <transition appear name="slide-fade">
-            <div class="post" v-if="fetchedUpdate">
+            <b-col cols="12" md="10" offset-md="1" xl="8" offset-xl="2" class="post" v-if="fetchedUpdate">
                 <div class="left">
                     <img src="/img/brand_logo.png" alt="">
                     <b-button class="adv-btn small-btn adv-edit" :to="{name: 'updates.edit', params: {id: fetchedUpdate.id}}">
                         <font-awesome-icon :icon="['far', 'edit']"></font-awesome-icon>
-                        
                     </b-button
                     ><b-button @click="showModal = !showModal" class="adv-btn small-btn adv-delete">
                         <font-awesome-icon :icon="['fas', 'trash-alt']"></font-awesome-icon>
@@ -26,7 +25,7 @@
                     </b-modal>
                 </div
                 ><div class="right">
-                    <div class="post-header mt-4">
+                    <div class="post-header mt-4 mr-2">
                         <div class="left">
                             <h2>{{ fetchedUpdate.title }}</h2>
                             <div class="author">
@@ -43,7 +42,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="post-body mt-4">
+                    <div class="post-body mt-4 mr-2">
                         <div v-html="body"></div>                    
                     </div>
                     <div class="post-footer mt-3">
@@ -67,9 +66,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </b-col>
         </transition>
-    </div>
+    </b-row>
 </template>
 
 <script>
@@ -149,10 +148,8 @@ export default {
 
     .update {padding: 150px 0;}
     
-    .hr-lg {width: 880px;}
     .post
     {
-        width: 800px;
         margin: auto;
         > .left
         {
@@ -169,10 +166,28 @@ export default {
                 margin: 25px auto;
                 padding: 10px;
                 display: block;
+                @media screen and (max-width: 576px) 
+                {
+                    width: 60px;
+                    height: 60px;
+                    padding: 5px;
+                    outline: 1px solid black;
+                    border: 2px solid #FFD700;
+                }
+                @media screen and (max-width: 360px)
+                {
+                    width: 50px;
+                    height: 50px;
+                }
             }
             a, form 
             {
                 display: inline-block;
+                @media screen and (max-width: 576px) 
+                {
+                    display: table;
+                    margin: 7.5px auto;
+                }
                 margin: 0 5px;
             }
         }
@@ -189,6 +204,7 @@ export default {
         > .left
         {
             width: 80%;
+            @media screen and (max-width: 576px) {width: 100%;}
             display: inline-block;
             h2
             {
@@ -209,10 +225,11 @@ export default {
             display: inline-block;
             vertical-align: top;
             text-align: right;
-            .date {color: lightgray;}
-            .views-count {font-size: 1.1rem}
+            @media screen and (max-width: 576px) {display: none;}
         }
     }
+    .date {color: lightgray;}
+    .views-count {font-size: 1.1rem}
     .post-body
     {
         color: lightgray;
@@ -223,13 +240,13 @@ export default {
     {
         .left
         {
-            width: 25%;
+            width: 60%;
             display: inline-block;
             
         }
         .right
         {
-            width: 75%;
+            width: 40%;
             display: inline-block;
             vertical-align: top;
             text-align: right;

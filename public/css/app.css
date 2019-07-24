@@ -12220,6 +12220,7 @@ input[type=color].form-control:disabled {
 
 .hr-lg {
   height: 1px;
+  width: 100%;
   background: #545464;
   margin: 25px auto;
 }
@@ -12228,6 +12229,7 @@ html,
 body,
 #app,
 .container-fluid {
+  overflow-x: hidden;
   height: 100%;
 }
 

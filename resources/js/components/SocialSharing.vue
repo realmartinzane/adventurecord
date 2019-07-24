@@ -69,7 +69,8 @@ export default {
         {
             position: absolute;
             bottom: 0;
-            left: 40px;
+            @media screen and (min-width: 1201px) {left: 40px;}
+            @media screen and (max-width: 1200px) {right: 40px;}
             width: 150px;
             background: #10121A;
             @include box-shadow(0 0 10px #10121A);

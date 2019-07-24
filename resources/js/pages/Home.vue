@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <b-row>
         <landing-component></landing-component>
         <updates-component></updates-component>
-    </div>
+    </b-row>
 </template>
 
 <script>
