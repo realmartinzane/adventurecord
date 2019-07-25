@@ -1,5 +1,5 @@
 <template>
-    <b-row>
+    <b-row class="landing-row">
         <div class="carousel-wrapper">
             <b-carousel
                 id="triangle"
@@ -93,7 +93,7 @@ export default {
 @import '../../sass/_mixins.scss';
 
 
-    .row {min-height: auto !important}
+    .landing-row {min-height: auto !important}
     @media screen and (max-width: 1200px)
     {
         .carousel-wrapper {height: 800px;}

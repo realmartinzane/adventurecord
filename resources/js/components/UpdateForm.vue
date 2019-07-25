@@ -1,50 +1,52 @@
 <template>
-    <section>
+    <b-row class="update-form">
         <div v-if="isEditRoute && !form.title && !form.body" class="spinner"><b-spinner label="Spinning"></b-spinner></div>
         <section-header-component 
             :text="isEditRoute ? 'Edit Update' : 'Create a New Update'"
             :spacing="true">
         </section-header-component>
-        <b-form @submit.prevent="submit" v-if="(isEditRoute && form.title && form.body) || !isEditRoute">
-            <b-form-group
-                id="title-group"
-                label="Title"
-                label-for="title"
-                description="Enter the title of your update (Note: Make sure the title is unique)"
-                >
-                <b-form-input 
-                    id="title" 
-                    type="text" 
-                    v-model="$v.form.title.$model"
-                    :state="$v.form.title.$dirty ? !$v.form.title.$error : null">
-                </b-form-input>
+        <b-col cols="10" offset="1" lg="8" offset-lg="2" xl="6" offset-xl="3">
+            <b-form @submit.prevent="submit" v-if="(isEditRoute && form.title && form.body) || !isEditRoute">
+                <b-form-group
+                    id="title-group"
+                    label="Title"
+                    label-for="title"
+                    description="Enter the title of your update (Note: Make sure the title is unique)"
+                    >
+                    <b-form-input 
+                        id="title" 
+                        type="text" 
+                        v-model="$v.form.title.$model"
+                        :state="$v.form.title.$dirty ? !$v.form.title.$error : null">
+                    </b-form-input>
 
-                <b-form-invalid-feedback id="title-live-feedback">
-                    This is a required field and cannot exceed 100 characters.
-                </b-form-invalid-feedback>
-            </b-form-group>
+                    <b-form-invalid-feedback id="title-live-feedback">
+                        This is a required field and cannot exceed 100 characters.
+                    </b-form-invalid-feedback>
+                </b-form-group>
 
-            <b-form-group
-                id="body-group"
-                label="Body"
-                label-for="body"
-                description="Enter the body of your update"
-                >
-                <b-form-textarea 
-                    id="title" 
-                    rows="8" 
-                    v-model="$v.form.body.$model"
-                    :state="$v.form.body.$dirty ? !$v.form.body.$error : null">
-                </b-form-textarea>
+                <b-form-group
+                    id="body-group"
+                    label="Body"
+                    label-for="body"
+                    description="Enter the body of your update"
+                    >
+                    <b-form-textarea 
+                        id="title" 
+                        rows="8" 
+                        v-model="$v.form.body.$model"
+                        :state="$v.form.body.$dirty ? !$v.form.body.$error : null">
+                    </b-form-textarea>
 
-                <b-form-invalid-feedback id="body-live-feedback">
-                    This is a required field and cannot exceed 2 500 characters.
-                </b-form-invalid-feedback>
-            </b-form-group>
+                    <b-form-invalid-feedback id="body-live-feedback">
+                        This is a required field and cannot exceed 2 500 characters.
+                    </b-form-invalid-feedback>
+                </b-form-group>
 
-            <b-button type="submit" class="adv-btn" :disabled="$v.form.$invalid">Submit</b-button>
-        </b-form>
-    </section>
+                <b-button type="submit" class="adv-btn" :disabled="$v.form.$invalid">Submit</b-button>
+            </b-form>
+        </b-col>   
+    </b-row>
 </template>
 
 <script>
@@ -131,14 +133,13 @@ export default {
 
 @import '../../sass/_mixins.scss';
 
-    section
+    .update-form
     {
         padding: 75px 0;
     }
     form
     {
         text-align: center;
-        width: 880px;
         margin: 50px auto;
         color: white;
         font-size: 1.2rem;
