@@ -11,32 +11,28 @@
                 @sliding-start="onSlideStart"
                 @sliding-end="onSlideEnd">
 
-                <b-carousel-slide img-src="/img/slide_01.png"></b-carousel-slide>
-                <b-carousel-slide img-src="/img/slide_02.png"></b-carousel-slide>
+                <b-carousel-slide class="triangle-caption" img-src="/img/slide_01.png">
+                    <div class="info-content"
+                        :id="'slide_info_0'" 
+                        :class="{ 'info-active': slide == 0 }" 
+                        key="slide_info_0">
+                        <h2>Lorem ipsum dolor sit amet consectetur </h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porttitor sem elit, ac aliquam lorem feugiat at. Aenean ac tincidunt ante. Maecenas ultrices vulputate consequat. Morbi eu nisi nunc.  </p>
+                        <b-button class="adv-btn">Lorem ipsum</b-button>
+                    </div>
+                </b-carousel-slide>
+                <b-carousel-slide class="triangle-caption" img-src="/img/slide_02.png">
+                    <div class="info-content"
+                        :id="'slide_info_1'" 
+                        :class="{ 'info-active': slide == 1 }" 
+                        key="slide_info_1">
+                        <h2>This is a text about Lorem Ipsum </h2>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.  </p>
+                        <b-button class="adv-btn">Lorem ipsum</b-button>
+                    </div>
+                </b-carousel-slide>
             </b-carousel>
 
-            <div class="info-container">
-                <div 
-                    class="slide-info">
-                </div>
-                <div class="info-content"
-                    :id="'slide_info_0'" 
-                    :class="{ 'info-active': slide == 0 }" 
-                    key="slide_info_0">
-                    <h2>Lorem ipsum dolor sit amet consectetur </h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porttitor sem elit, ac aliquam lorem feugiat at. Aenean ac tincidunt ante. Maecenas ultrices vulputate consequat. Morbi eu nisi nunc.  </p>
-                    <b-button class="adv-btn">Lorem ipsum</b-button>
-                </div>
-
-                <div class="info-content"
-                    :id="'slide_info_1'" 
-                    :class="{ 'info-active': slide == 1 }" 
-                    key="slide_info_1">
-                    <h2>This is a text about Lorem Ipsum </h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.  </p>
-                    <b-button class="adv-btn">Lorem ipsum</b-button>
-                </div>
-            </div> 
         </div>
     </b-row>
 </template>
@@ -61,66 +57,49 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 @import '../../sass/_mixins.scss';
 
-    .carousel, .carousel-inner {position: relative;}
-    .carousel-item
+    .carousel-caption
     {
-        position: relative;
-        img
-        {
-            position:absolute;
-            left: 0;
-            bottom: 0;
-        }
-    }
-    .carousel-wrapper
-    {
-        position: relative;
+        height: 135%;
+        width: 50%;
+        padding: 0;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: auto;
+        background: linear-gradient(to bottom right, transparent 0%, transparent 50%, rgba(0,0,0, 0.75) 50%, rgba(0,0,0, 0.75) 100%);
     }
     
-    .info-container
-    {
-        width: 800px;
-        height: 1215px;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-    }
-
-    .slide-info
-    {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        z-index: 1;
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 1215px 800px 0 0;
-        border-color: transparent rgba(0,0,0, 0.75)  transparent transparent;
-    }
     .info-content
     {
         position: absolute;
-        z-index: 1;
-        bottom: 10%;
-        right: 5%;
+        left: 38%;
+        bottom: 7.5%;
         color: white;
-        width: 450px;
-        height: 350px;
+        width: 500px;
+        height: 375px;
         padding: 25px;
-        opacity: 0;
         text-align: center;
+        opacity: 1;
         @include transition(opacity 600ms);
-        h2 {font: normal 2.5rem 'Roboto Condensed', sans-serif;}
+        @media screen and (max-width: 1600px) {width: 450px; height: 350px;}
+        @media screen and (max-width: 1440px) {position: absolute; left: 32.5%; bottom: 0}
+        @media screen and (max-width: 1300px) {position: absolute; left: 29%; bottom: -2.5%}
+        h2 
+        {
+            font: normal 3.0rem 'Roboto Condensed', sans-serif;
+            @media screen and (max-width: 1600px) {font-size: 2.5rem}
+            @media screen and (max-width: 1440px) {font-size: 2.0rem}
+        }
         p
         {
-            font: 300 'Heebo', sans-serif;
+            font: 300 1.0rem 'Heebo', sans-serif;
             color: rgb(223, 223, 223);
             line-height: 1.75;
+            @media screen and (max-width: 1600px) {font-size: 0.9rem}
         }
     }
     .info-active 
