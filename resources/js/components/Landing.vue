@@ -1,42 +1,44 @@
 <template>
-    <div class="carousel-wrapper">
-        <b-carousel
-            id="landing"
-            :interval="5000"
-            v-model="slide"
-            indicators
-            fade
-            background="#10121A"
-            @sliding-start="onSlideStart"
-            @sliding-end="onSlideEnd">
+    <b-row>
+        <div class="carousel-wrapper">
+            <b-carousel
+                id="landing"
+                :interval="5000"
+                v-model="slide"
+                indicators
+                fade
+                background="#10121A"
+                @sliding-start="onSlideStart"
+                @sliding-end="onSlideEnd">
 
-            <b-carousel-slide img-src="/img/slide_01.png"></b-carousel-slide>
-            <b-carousel-slide img-src="/img/slide_02.png"></b-carousel-slide>
-        </b-carousel>
+                <b-carousel-slide img-src="/img/slide_01.png"></b-carousel-slide>
+                <b-carousel-slide img-src="/img/slide_02.png"></b-carousel-slide>
+            </b-carousel>
 
-        <div class="info-container">
-            <div 
-                class="slide-info">
-            </div>
-            <div class="info-content"
-                :id="'slide_info_0'" 
-                :class="{ 'info-active': slide == 0 }" 
-                key="slide_info_0">
-                <h2>Lorem ipsum dolor sit amet consectetur </h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porttitor sem elit, ac aliquam lorem feugiat at. Aenean ac tincidunt ante. Maecenas ultrices vulputate consequat. Morbi eu nisi nunc.  </p>
-                <b-button class="adv-btn">Lorem ipsum</b-button>
-            </div>
+            <div class="info-container">
+                <div 
+                    class="slide-info">
+                </div>
+                <div class="info-content"
+                    :id="'slide_info_0'" 
+                    :class="{ 'info-active': slide == 0 }" 
+                    key="slide_info_0">
+                    <h2>Lorem ipsum dolor sit amet consectetur </h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porttitor sem elit, ac aliquam lorem feugiat at. Aenean ac tincidunt ante. Maecenas ultrices vulputate consequat. Morbi eu nisi nunc.  </p>
+                    <b-button class="adv-btn">Lorem ipsum</b-button>
+                </div>
 
-            <div class="info-content"
-                :id="'slide_info_1'" 
-                :class="{ 'info-active': slide == 1 }" 
-                key="slide_info_1">
-                <h2>This is a text about Lorem Ipsum </h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.  </p>
-                <b-button class="adv-btn">Lorem ipsum</b-button>
-            </div>
-        </div> 
-    </div>
+                <div class="info-content"
+                    :id="'slide_info_1'" 
+                    :class="{ 'info-active': slide == 1 }" 
+                    key="slide_info_1">
+                    <h2>This is a text about Lorem Ipsum </h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.  </p>
+                    <b-button class="adv-btn">Lorem ipsum</b-button>
+                </div>
+            </div> 
+        </div>
+    </b-row>
 </template>
 
 <script>
