@@ -1,14 +1,18 @@
 <template>
     <b-row class="profile">
-        <b-col class="profile-left" lg="3" offset-lg="2">
+        <b-col class="profile-left"   md="3" offset-md="2">
+            <div class="header header-mobile">
+                <h1>VampY <span class="banned">Banned</span></h1>
+                <sub>ID: 393447523471196160 </sub>
+            </div>
             <div class="img-container mb-3">
                 <img src="/img/brand_logo.png">
                 <b-button class="adv-btn small-btn mt-2">
                     <font-awesome-icon :icon="['fas', 'cog']" class="mr-1"></font-awesome-icon>
                     Settings
                 </b-button>
-            </div>
-            <div class="info-container">
+            </div
+            ><div class="info-container">
                 <div class="field-group">
                     <div class="short-field"><font-awesome-icon :icon="['fas', 'coins']" class="mr-1"></font-awesome-icon>200</div>
                     <div class="short-field"><font-awesome-icon :icon="['far', 'gem']" class="mr-1"></font-awesome-icon>75</div>
@@ -21,9 +25,11 @@
                 </div>
             </div>
         </b-col>
-        <b-col class="profile-right" lg="7">
-            <h1>VampY <span class="banned">Banned</span></h1>
-            <sub>ID: 393447523471196160 </sub>
+        <b-col class="profile-right" sm="10" offset-sm="1" offset-md="0" md="7">
+            <div class="header header-desktop">
+                <h1>VampY <span class="banned">Banned</span></h1>
+                <sub>ID: 393447523471196160 </sub>
+            </div>
             <div class="stats-box">
                 <img src="/img/humania.png" alt="">
                 <div class="right">
@@ -55,10 +61,34 @@ export default {
         padding: 150px 0;
         color: white;
     }
+    .header
+    {
+        h1, sub {margin: 0;}
+        .banned
+        {
+            color: #ec4853;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+    }
+    .header-desktop
+    {
+        display: block;
+        @media screen and (max-width: 767px) {display: none;}
+    }
+    .header-mobile
+    {
+        text-align: center;
+        margin-bottom: 15px;
+        display: none;
+        @media screen and (max-width: 767px) {display: block;}
+    }
     .profile-left
     {
+        text-align: center;
         .img-container
         {
+            @media screen and (max-width: 767px) {display: inline-block;}
             img
             {
                 display: block;
@@ -78,6 +108,14 @@ export default {
         }
         .info-container
         {
+            
+            @media screen and (max-width: 767px) 
+            {
+                display: inline-block;
+                vertical-align: top;
+                margin-left: 15px;
+                margin-top: 25px;
+            }
             font-size: 1.1rem;
             text-align: center;
             .field-group 
@@ -104,13 +142,7 @@ export default {
     }
     .profile-right
     {
-        h1, sub {margin: 0;}
-        .banned
-        {
-            color: #ec4853;
-            font-size: 1rem;
-            text-transform: uppercase;
-        }
+        
         .stats-box
         {
             margin: 15px 0;
@@ -120,6 +152,7 @@ export default {
             border: 1px solid #3d3d49;
             @include box-shadow(0 0 10px black);
             padding: 20px;
+            @media screen and (max-width: 767px) {width: 100%;}
             img
             {
                 height: 80px;
@@ -143,6 +176,7 @@ export default {
                 {
                     display: inline-block;
                     width: calc(100% - 60px);
+                    @media screen and (max-width: 420px) {width: 100%;}
                 }
                 .progress-bar {background-color: #FFC107}
             }
@@ -152,6 +186,7 @@ export default {
             margin: 20px 0;
             width: 90%;
             max-width: 800px;
+            @media screen and (max-width: 767px) {width: 100%;}
             div 
             {
                 font-size: 1.0rem;
