@@ -12359,3 +12359,37 @@ body,
   opacity: 0;
 }
 
+form.adv-form {
+  text-align: center;
+  margin: 50px auto;
+  color: white;
+  font-size: 1.2rem;
+}
+
+form.adv-form .form-group {
+  text-align: left;
+}
+
+form.adv-form .form-control {
+  color: lightgray;
+}
+
+form.adv-form input,
+form.adv-form textarea,
+form.adv-form select {
+  background-color: #33333b;
+  border: 1px solid #3d3d49;
+  color: white;
+}
+
+form.adv-form input:focus,
+form.adv-form textarea:focus,
+form.adv-form select:focus {
+  background-color: #363641;
+  border: 1px solid #212127;
+}
+
+form.adv-form button {
+  margin: auto;
+}
+

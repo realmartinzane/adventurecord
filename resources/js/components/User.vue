@@ -7,7 +7,7 @@
             </div>
             <div class="img-container mb-3">
                 <img src="/img/brand_logo.png">
-                <b-button class="adv-btn small-btn mt-2">
+                <b-button class="adv-btn small-btn mt-2" :to="'user/settings'">
                     <font-awesome-icon :icon="['fas', 'cog']" class="mr-1"></font-awesome-icon>
                     Settings
                 </b-button>

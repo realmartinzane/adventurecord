@@ -7,6 +7,7 @@ import UpdateComponent from './components/Update.vue';
 import UpdateFormComponent from './components/UpdateForm.vue';
 import CommandsComponent from './components/Commands.vue';
 import UserComponent from './components/User.vue';
+import UserSettingsComponent from './components/UserSettings.vue';
 
 let routes =
     [
@@ -44,6 +45,11 @@ let routes =
             path: '/user',
             name: 'users.show',
             component: UserComponent
+        },
+        {
+            path: '/user/settings',
+            name: 'users.settings',
+            component: UserSettingsComponent
         }
     ]
 

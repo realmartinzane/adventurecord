@@ -6,7 +6,7 @@
             :spacing="true">
         </section-header-component>
         <b-col cols="10" offset="1" lg="8" offset-lg="2" xl="6" offset-xl="3">
-            <b-form @submit.prevent="submit" v-if="(isEditRoute && form.title && form.body) || !isEditRoute">
+            <b-form class="adv-form" @submit.prevent="submit" v-if="(isEditRoute && form.title && form.body) || !isEditRoute">
                 <b-form-group
                     id="title-group"
                     label="Title"
@@ -128,35 +128,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss" scoped>
-
-@import '../../sass/_mixins.scss';
-
-    .update-form
-    {
-        padding: 75px 0;
-    }
-    form
-    {
-        text-align: center;
-        margin: 50px auto;
-        color: white;
-        font-size: 1.2rem;
-        .form-group {text-align: left;}
-        .form-control {color: lightgray;}
-        input, textarea
-        {
-            background: #33333b;
-            border: 1px solid #3d3d49;
-            @include box-shadow(0 0 5px #000);
-            &:focus 
-            {
-                background: #363641;
-                @include box-shadow(0 0 5px #363641);
-                border: 1px solid #212127;
-            }
-        }
-        button {margin: auto;}
-    }
-</style>

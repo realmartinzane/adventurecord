@@ -112,3 +112,27 @@ html,body, #app, .container-fluid {overflow-x: hidden; height:100%;}
   transform: translateY(10px);
   opacity: 0;
 }
+
+form.adv-form
+{
+    text-align: center;
+    margin: 50px auto;
+    color: white;
+    font-size: 1.2rem;
+    .form-group {text-align: left;}
+    .form-control {color: lightgray;}
+    input, textarea, select
+    {
+        background-color: #33333b;
+        border: 1px solid #3d3d49;
+        color: white;
+        @include box-shadow(0 0 5px #000);
+        &:focus 
+        {
+            background-color: #363641;
+            @include box-shadow(0 0 5px #363641);
+            border: 1px solid #212127;
+        }
+    }
+    button {margin: auto;}
+}

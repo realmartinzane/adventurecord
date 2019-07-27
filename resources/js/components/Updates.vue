@@ -51,11 +51,6 @@ export default {
 <style lang="scss" scoped>
 
 @import '../../sass/_mixins.scss';
-
-    .updates
-    {
-        padding: 75px 0;
-    }
     
     .posts 
     {
