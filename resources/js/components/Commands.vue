@@ -75,7 +75,7 @@ export default {
             {command: '!rewards', function: 'Claims Voting Milestones.'},
             {command: '!claim', function: 'Activates unclaimed votes.'},
             {command: '!event or !event [event name]', function: 'Lists current events or provides a description of the specified event.'},
-            {command: '!purchase or !purchase [serial key]', function: 'Provides a link to the online shop or activates a purchase (Example: !purchase FAZSAVHDDF2UNVZLVH7Y12BUU).'},
+            {command: '!purchase or !purchase [serial key]', function: 'Provides a link to the online shop or activates a purchase.'},
             {command: '!friendadd [user mention]', function: 'Adds a user to your friend list.'},
             {command: '!friendlist', function: 'Displays a list of your friends.'},
         ],
