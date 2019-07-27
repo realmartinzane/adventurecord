@@ -8,6 +8,7 @@ import UpdateFormComponent from './components/UpdateForm.vue';
 import CommandsComponent from './components/Commands.vue';
 import UserComponent from './components/User.vue';
 import UserSettingsComponent from './components/UserSettings.vue';
+import MarketplaceComponent from './components/Marketplace.vue';
 
 let routes =
     [
@@ -50,6 +51,11 @@ let routes =
             path: '/user/settings',
             name: 'users.settings',
             component: UserSettingsComponent
+        },
+        {
+            path: '/marketplace',
+            name: 'marketplace',
+            component: MarketplaceComponent
         }
     ]
 
