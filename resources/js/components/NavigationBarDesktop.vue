@@ -14,7 +14,7 @@
                 <b-nav-item :to="'/commands'">Commands</b-nav-item>
                 <b-nav-item href="https://youtu.be/mTzogDbNAI0" target="_blank">Tutorial</b-nav-item>
                 <b-nav-item href="https://adventurecord.fandom.com/wiki/AdventureCord_Wiki" target="_blank">Wiki</b-nav-item>
-                <b-nav-item>Marketplace</b-nav-item>
+                <b-nav-item :to="'/marketplace'">Marketplace</b-nav-item>
             </b-navbar-nav>
 
             <b-navbar-nav>

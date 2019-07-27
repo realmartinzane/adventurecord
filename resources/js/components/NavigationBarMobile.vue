@@ -15,7 +15,7 @@
                     <b-dropdown-item :to="'/commands'">Commands</b-dropdown-item>
                     <b-dropdown-item href="https://youtu.be/mTzogDbNAI0" target="_blank">Tutorial</b-dropdown-item>
                     <b-dropdown-item href="https://adventurecord.fandom.com/wiki/AdventureCord_Wiki" target="_blank">Wiki</b-dropdown-item>
-                    <b-dropdown-item>Marketplace</b-dropdown-item>
+                    <b-dropdown-item :to="'/marketplace'">Marketplace</b-dropdown-item>
                 </b-nav-item-dropdown>
             </b-navbar-nav>
         </b-navbar>
