@@ -1,7 +1,7 @@
 <template>
     <b-row class="navbar-mobile">
         <b-navbar>
-            <b-navbar-brand href="#">
+            <b-navbar-brand :to="'/'">
                 <img src="/img/brand.png" alt="">
             </b-navbar-brand>
 
