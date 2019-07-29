@@ -16,6 +16,50 @@
                 </b-input-group>
             </b-form>
         </b-col>
+        <b-col cols="10" offset="1" class="items">
+            <h2>Popular Items Now</h2>
+            <div class="item-card">
+                <div class="left">
+                    <img src="/img/brand_logo.png" alt="">
+                </div
+                ><div class="right">
+                    <h3>Item Name</h3>
+                    <p>Class: Mage</p>
+                    <p>Armor: 24</p>
+                </div>
+            </div
+            ><div class="item-card">
+                <div class="left">
+                    <img src="/img/brand_logo.png" alt="">
+                </div
+                ><div class="right">
+                    <h3>Item Name</h3>
+                    <p>Class: Mage</p>
+                    <p>Armor: 24</p>
+                </div>
+            </div
+            ><div class="item-card">
+                <div class="left">
+                    <img src="/img/brand_logo.png" alt="">
+                </div
+                ><div class="right">
+                    <h3>Item Name</h3>
+                    <p>Class: Mage</p>
+                    <p>Armor: 24</p>
+                </div>
+            </div
+            ><div class="item-card">
+                <div class="left">
+                    <img src="/img/brand_logo.png" alt="">
+                </div
+                ><div class="right">
+                    <h3>Item Name</h3>
+                    <p>Class: Mage</p>
+                    <p>Armor: 24</p>
+                </div>
+            </div>
+
+        </b-col>
     </b-row>
 </template>
 
@@ -51,4 +95,61 @@ export default {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
     }
+    .items 
+    {
+        text-align: center; 
+        margin-bottom: 75px;
+        h2
+        {
+            color: white;
+        }
+    }
+    .item-card
+    {
+        display: inline-block;
+        text-align: left;
+        width: 100%;
+        background: #2e2e36;
+        border: 1px solid #3d3d49;
+        @include box-shadow(0 0 10px black);
+        @media screen and (min-width: 480px) {width: 80%; margin: 15px auto;}
+        @media screen and (min-width: 860px) {width: calc(50% - 30px); margin: 15px;}
+        @media screen and (min-width: 1200px) {width: calc(33% - 30px);}
+        @media screen and (min-width: 1600px) {width: calc(25% - 30px);}
+        padding: 20px;
+        @include transition(all 200ms);
+        &:hover
+        {
+            cursor: pointer;
+            @include transform(scale(1.05))
+        }
+        .left
+        {
+            display: inline-block;
+            height: 65px;
+            width: 65px;
+            padding: 5px;
+            background: black;
+            outline: 2px solid black;
+            border: 4px solid #FFD700;
+            img {width: 100%; height: 100%;}
+        }
+        .right
+        {
+            display: inline-block;
+            vertical-align: middle;
+            width: calc(100% - 85px);
+            margin-left: 15px;
+            color: white;
+            p {margin-bottom: 0;}
+        }
+    }
+    .item-card:nth-child(2) .left {border-color: rgb(157, 115, 212)}
+    .item-card:nth-child(3) .left {border-color: #84CEEB}
+    .item-card:nth-child(4) .left {border-color: #F76D6D}
+    .item-card:nth-child(2) {@include box-shadow(0 0 10px rgb(157, 115, 212));}
+    .item-card:nth-child(3) {@include box-shadow(0 0 10px #84CEEB);}
+    .item-card:nth-child(4) {@include box-shadow(0 0 10px #F76D6D);}
+    .item-card:nth-child(5) {@include box-shadow(0 0 10px #FFD700);}
+
 </style>
