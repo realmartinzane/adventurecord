@@ -18,7 +18,7 @@
         </b-col>
         <b-col cols="10" offset="1" class="items">
             <h2>Popular Items Now</h2>
-            <div class="item-card">
+            <div class="item-card" @click="showModal = !showModal">
                 <div class="left">
                     <img src="/img/brand_logo.png" alt="">
                 </div
@@ -27,6 +27,34 @@
                     <p>Class: Mage</p>
                     <p>Armor: 24</p>
                 </div>
+                <b-modal
+                    v-model="showModal"
+                    modal-class="item-modal"
+                    title="Item Information"
+                    header-text-variant="light"
+                    body-bg-variant="dark"
+                    body-text-variant="light"
+                    footer-bg-variant="dark"
+                    footer-text-variant="light"> 
+                    <div class="left">
+                    <img src="/img/brand_logo.png" alt="">
+                    </div
+                    ><div class="right">
+                        <h3>Item Name</h3>
+                        <p>This is the item description, where you will find more information about the item you are currently viewing.</p>
+                    </div>
+                    <div class="more-info">
+                        <p><span>Armor:</span> 24</p
+                        ><p><span>Rarity:</span> Epic</p
+                        ><p><span>Class:</span> Mage</p
+                        ><p><span>Sell Price:</span> 174</p
+                        ><p><span>Level:</span> 17+</p
+                        ><p><span>Obtainable:</span> Yes</p>
+                    </div>
+                    <div slot="modal-footer">
+                        <b-button>Purchase</b-button>
+                    </div>
+                </b-modal>
             </div
             ><div class="item-card">
                 <div class="left">
@@ -68,11 +96,14 @@
 import SectionHeaderComponent from './SectionHeader.vue'
 
 export default {
-    components: {SectionHeaderComponent}
+    components: {SectionHeaderComponent},
+    data(){return{
+        showModal: false
+    }}
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 @import '../../sass/_mixins.scss';
     input::placeholder {color: lightgray;}
@@ -111,6 +142,7 @@ export default {
         width: 100%;
         background: #2e2e36;
         border: 1px solid #3d3d49;
+        margin: 15px 0;
         @include box-shadow(0 0 10px black);
         @media screen and (min-width: 480px) {width: 80%; margin: 15px auto;}
         @media screen and (min-width: 860px) {width: calc(50% - 30px); margin: 15px;}
@@ -123,6 +155,9 @@ export default {
             cursor: pointer;
             @include transform(scale(1.05))
         }
+    }
+    .item-modal, .item-card
+    {
         .left
         {
             display: inline-block;
@@ -144,12 +179,49 @@ export default {
             p {margin-bottom: 0;}
         }
     }
-    .item-card:nth-child(2) .left {border-color: rgb(157, 115, 212)}
+    .item-card:nth-child(2) .left {border-color: #9d73d4}
     .item-card:nth-child(3) .left {border-color: #84CEEB}
     .item-card:nth-child(4) .left {border-color: #F76D6D}
     .item-card:nth-child(2) {@include box-shadow(0 0 10px rgb(157, 115, 212));}
     .item-card:nth-child(3) {@include box-shadow(0 0 10px #84CEEB);}
     .item-card:nth-child(4) {@include box-shadow(0 0 10px #F76D6D);}
     .item-card:nth-child(5) {@include box-shadow(0 0 10px #FFD700);}
+
+    .item-modal .modal-content
+    {
+        header, footer {border: none;}
+        header {background-color: #9d73d4;}
+        .more-info
+        {
+            margin-left: 20px;
+            @media screen and (min-width: 460px) {margin-left: 85px;}
+            margin-top: 25px;
+            p 
+            {
+                display: inline-block;
+                width: 50%;
+                margin: 5px 0;
+                font-size: 1.0rem;
+                letter-spacing: .5px;
+                span 
+                {
+                    color: white; 
+                    font-weight: bold;
+                }
+            }
+        }
+        .modal-footer
+        {
+            justify-content: center;
+            button
+            {
+                background-color: #9d73d4;
+                &:hover
+                {
+                    background-color: rgb(138, 101, 187);
+                }
+            }
+        }
+    }
 
 </style>
