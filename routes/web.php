@@ -16,6 +16,9 @@ Route::get('/', function ()
     return view('layouts.app');
 });
 
+Route::get('login/discord', 'Auth\LoginController@redirectToProvider');
+Route::get('login/discord/callback', 'Auth\LoginController@handleProviderCallback');
+
 Route::get('updates/data', 'UpdateController@data');
 Route::get('updates/{id}', 'UpdateController@get');
 Route::get('updates/{id}/single', 'UpdateController@getSingle');

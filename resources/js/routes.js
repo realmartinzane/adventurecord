@@ -56,7 +56,7 @@ let routes =
             path: '/marketplace',
             name: 'marketplace',
             component: MarketplaceComponent
-        }
+            }
     ]
 
 export default new VueRouter({
