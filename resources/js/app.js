@@ -11,6 +11,29 @@ window.Vue = require('vue');
 import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue)
 
+// Vue Authenticate
+import VueAxios from 'vue-axios'
+import VueSocialauth from 'vue-social-auth'
+import axios from 'axios';
+Vue.use(VueAxios, axios)
+Vue.use(VueSocialauth, {
+
+    providers: {
+        discord: {
+            name: 'discord',
+            url: '/login/discord',
+            clientId: '600598691857825792',
+            authorizationEndpoint: 'https://discordapp.com/api/oauth2/authorize',
+            redirectUri: 'http://adventurecord.test/login/discord/callback',
+            requiredUrlParams: ['display', 'scope'],
+            scope: ['identify', 'guilds'],
+            scopeDelimiter: ' ',
+            display: 'basic',
+            oauthType: '2.0',
+        }
+    }
+})
+
 // Cxlt Toastr
 import CxltToastr from 'cxlt-vue2-toastr'
 import 'cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css'

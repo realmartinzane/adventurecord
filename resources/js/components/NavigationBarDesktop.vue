@@ -19,7 +19,7 @@
 
             <b-navbar-nav>
                 <b-nav-item>
-                    <b-button>
+                    <b-button @click="AuthProvider('discord')">
                         <font-awesome-icon :icon="['fab', 'discord']" size="lg" class="mr-1"></font-awesome-icon>
                         <span>Log in with discord</span>
                     </b-button>
@@ -31,7 +31,33 @@
 
 <script>
 export default {
-    
+    methods: 
+    {
+        AuthProvider(provider) {
+        
+            var self = this
+            
+            this.$auth.authenticate(provider).then(response =>{
+            
+            self.SocialLogin(provider,response)
+
+            }).catch(err => {
+                console.log({err:err})
+            })
+
+        },
+        
+        SocialLogin(provider,response){
+
+            this.$http.post('/sociallogin/'+provider,response).then(response => {
+
+                console.log(response.data)
+
+            }).catch(err => {
+                console.log({err:err})
+            })
+        },
+    }
 }
 </script>
 

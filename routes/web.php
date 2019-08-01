@@ -19,6 +19,9 @@ Route::get('/', function ()
 Route::get('login/discord', 'Auth\LoginController@redirectToProvider');
 Route::get('login/discord/callback', 'Auth\LoginController@handleProviderCallback');
 
+Route::post('sociallogin/{provider}', 'Auth\AuthController@SocialSignup');
+Route::get('login/{provider}/callback', 'OutController@index')->where('provider', '.*');
+
 Route::get('updates/data', 'UpdateController@data');
 Route::get('updates/{id}', 'UpdateController@get');
 Route::get('updates/{id}/single', 'UpdateController@getSingle');

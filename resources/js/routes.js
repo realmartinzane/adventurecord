@@ -56,7 +56,13 @@ let routes =
             path: '/marketplace',
             name: 'marketplace',
             component: MarketplaceComponent
+        },
+        {
+            path: '/login/:provider/callback',
+            component: {
+                template: '<div class="auth-component"></div>'
             }
+        },
     ]
 
 export default new VueRouter({
