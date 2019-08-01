@@ -59,9 +59,7 @@ let routes =
         },
         {
             path: '/login/:provider/callback',
-            component: {
-                template: '<div class="auth-component"></div>'
-            }
+            component: {template: '<div class="auth-component"></div>'}
         },
     ]
 

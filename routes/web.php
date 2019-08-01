@@ -16,9 +16,6 @@ Route::get('/', function ()
     return view('layouts.app');
 });
 
-Route::get('login/discord', 'Auth\LoginController@redirectToProvider');
-Route::get('login/discord/callback', 'Auth\LoginController@handleProviderCallback');
-
 Route::post('sociallogin/{provider}', 'Auth\AuthController@SocialSignup');
 Route::get('login/{provider}/callback', 'OutController@index')->where('provider', '.*');
 

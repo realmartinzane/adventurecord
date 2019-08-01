@@ -16,10 +16,12 @@ import VueAxios from 'vue-axios'
 import VueSocialauth from 'vue-social-auth'
 import axios from 'axios';
 Vue.use(VueAxios, axios)
-Vue.use(VueSocialauth, {
-
-    providers: {
-        discord: {
+Vue.use(VueSocialauth, 
+{
+    providers: 
+    {
+        discord: 
+        {
             name: 'discord',
             url: '/login/discord',
             clientId: '600598691857825792',
@@ -32,7 +34,7 @@ Vue.use(VueSocialauth, {
             oauthType: '2.0',
         }
     }
-})
+});
 
 // Cxlt Toastr
 import CxltToastr from 'cxlt-vue2-toastr'
