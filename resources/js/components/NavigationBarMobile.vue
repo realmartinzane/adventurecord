@@ -8,7 +8,11 @@
             <b-navbar-nav class="ml-auto">
                 <b-nav-item-dropdown toggle-class="adv-toggle" right>
                     <template slot="button-content"><font-awesome-icon :icon="['fas', 'bars']"></font-awesome-icon></template>
-                    <b-dropdown-item :to="'/'">Log in</b-dropdown-item>
+                    <!--
+                    <b-dropdown-item @click="AuthProvider('discord')">Log in</b-dropdown-item>
+                    -->
+                    <b-dropdown-item :to="'user'">View Profile</b-dropdown-item>
+                    <b-dropdown-item :to="'user/settings'">Settings</b-dropdown-item>
                     <b-dropdown-divider></b-dropdown-divider>
                     <b-dropdown-item :to="'/'">Home</b-dropdown-item>
                     <b-dropdown-item :to="'/updates'">Updates</b-dropdown-item>
@@ -24,7 +28,36 @@
 
 <script>
 export default {
-    
+    methods: 
+    {
+        AuthProvider(provider) 
+        {
+            var self = this
+            this.$auth.authenticate(provider)
+            .then(response =>
+            {
+                self.SocialLogin(provider,response)
+            })
+            .catch(err => 
+            {
+                console.log({err:err})
+            });
+        },
+        
+        SocialLogin(provider,response)
+        {
+
+            this.$http.post('/sociallogin/'+provider,response)
+            .then(response => 
+            {
+                console.log(response.data)
+            })
+            .catch(err => 
+            {
+                console.log({err:err})
+            })
+        },
+    }
 }
 </script>
 
