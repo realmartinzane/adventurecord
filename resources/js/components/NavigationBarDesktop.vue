@@ -27,8 +27,8 @@
                 </b-nav-item>
                 -->
                 <b-nav-item-dropdown text="My Account" right>
-                    <b-dropdown-item :to="'user'">View Profile</b-dropdown-item>
-                    <b-dropdown-item :to="'user/settings'">Settings</b-dropdown-item>
+                    <b-dropdown-item :to="'/user'">View Profile</b-dropdown-item>
+                    <b-dropdown-item :to="'/user/settings'">Settings</b-dropdown-item>
                 </b-nav-item-dropdown>
             </b-navbar-nav>
         </b-navbar>

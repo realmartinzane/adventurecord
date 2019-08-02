@@ -11,8 +11,8 @@
                     <!--
                     <b-dropdown-item @click="AuthProvider('discord')">Log in</b-dropdown-item>
                     -->
-                    <b-dropdown-item :to="'user'">View Profile</b-dropdown-item>
-                    <b-dropdown-item :to="'user/settings'">Settings</b-dropdown-item>
+                    <b-dropdown-item :to="'/user'">View Profile</b-dropdown-item>
+                    <b-dropdown-item :to="'/user/settings'">Settings</b-dropdown-item>
                     <b-dropdown-divider></b-dropdown-divider>
                     <b-dropdown-item :to="'/'">Home</b-dropdown-item>
                     <b-dropdown-item :to="'/updates'">Updates</b-dropdown-item>
