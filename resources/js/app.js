@@ -7,10 +7,6 @@
 require('./bootstrap');
 window.Vue = require('vue');
 
-// BootstrapVue
-import BootstrapVue from 'bootstrap-vue'
-Vue.use(BootstrapVue)
-
 // Vue Authenticate
 import VueAxios from 'vue-axios'
 import VueSocialauth from 'vue-social-auth'
