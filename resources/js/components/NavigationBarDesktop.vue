@@ -1,4 +1,6 @@
 <template>
+    <div class="navigation-desktop"></div>
+    <!--
     <b-row class="navbar-desktop">
         <div class="brand">
             <div class="triangle"></div>
@@ -18,14 +20,12 @@
             </b-navbar-nav>
 
             <b-navbar-nav>
-                <!--
                 <b-nav-item>
                     <b-button @click="AuthProvider('discord')">
                         <font-awesome-icon :icon="['fab', 'discord']" size="lg" class="mr-1"></font-awesome-icon>
                         <span>Log in with discord</span>
                     </b-button>
                 </b-nav-item>
-                -->
                 <b-nav-item-dropdown text="My Account" right>
                     <b-dropdown-item :to="'/user'">View Profile</b-dropdown-item>
                     <b-dropdown-item :to="'/user/settings'">Settings</b-dropdown-item>
@@ -33,6 +33,7 @@
             </b-navbar-nav>
         </b-navbar>
     </b-row>
+    -->
 </template>
 
 <script>
@@ -72,8 +73,9 @@ export default {
 
 <style lang="scss">
 
-@import '../../sass/_mixins.scss';
 
+
+    /*
     .navbar-desktop 
     {
         position: relative;
@@ -185,6 +187,6 @@ export default {
             .dropdown-divider {border-color: #3d3d49;}
         }
     }
-    
-    
+    */
+
 </style>
