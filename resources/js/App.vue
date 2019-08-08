@@ -1,33 +1,24 @@
 <template>
-    <b-container fluid>
+    <div class="container">
         <navigation-bar-desktop-component></navigation-bar-desktop-component>
-        <navigation-bar-mobile-component></navigation-bar-mobile-component>
-        <router-view></router-view>
-        <updates-component v-if="$route.name == 'home'"></updates-component>
-        <footer-component></footer-component>
-    </b-container>
+    </div>
 </template>
 
 <script>
 import NavigationBarDesktopComponent from './components/NavigationBarDesktop.vue'
-import NavigationBarMobileComponent from './components/NavigationBarMobile.vue'
-import UpdatesComponent from './components/Updates.vue'
-import FooterComponent from './components/Footer.vue'
 export default {
     components:
     {
-        NavigationBarDesktopComponent,
-        NavigationBarMobileComponent,
-        UpdatesComponent,
-        FooterComponent
+        NavigationBarDesktopComponent
     }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 @import '../sass/_mixins.scss';
 
+/*
     .container-fluid {@include box-sizing(border-box)}
     .container-fluid > *:nth-child(3), .container-fluid > .updates
     {
@@ -42,4 +33,5 @@ export default {
     {
         @media screen and (max-width: 991px){display: none;}
     }
+*/
 </style>

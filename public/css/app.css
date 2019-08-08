@@ -1,174 +1,104 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);:focus {
-  outline: none;
+@import url(https://fonts.googleapis.com/css?family=Nunito);*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
-.hr-sm {
-  width: 50px;
-  height: 3px;
-  background: #FFD700;
-  margin: auto;
+html {
+  font-size: 62.5%;
 }
 
-.hr-lg {
-  height: 1px;
-  width: 100%;
-  background: #545464;
-  margin: 25px auto;
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: #777777;
+  box-sizing: border-box;
 }
 
-html,
-body,
-#app,
-.container-fluid {
-  overflow-x: hidden;
-  height: 100%;
+.u-center-text {
+  text-align: center !important;
 }
 
-.adv-btn {
-  padding: 10px 25px;
-  background-color: transparent;
-  border: 1px solid #FFD700;
-  color: #FFD700;
-  border-radius: 4px;
-  font: 500 0.8rem "Roboto Condensed", sans-serif;
-  text-transform: uppercase;
-  -webkit-transition: color 100ms, background-color 100ms;
-  transition: color 100ms, background-color 100ms;
+.u-margin-bottom-sm {
+  margin-bottom: 1.5rem !important;
 }
 
-.adv-btn:hover {
-  text-decoration: none;
-  background-color: #c9b350;
-  border: 1px solid #c9b350;
-  color: white;
+.u-margin-bottom-md {
+  margin-bottom: 4rem !important;
 }
 
-.adv-link {
-  color: #FFD700;
-  text-transform: uppercase;
+.u-margin-bottom-lg {
+  margin-bottom: 8rem !important;
 }
 
-.adv-link:hover {
-  color: #FFD700;
+.u-margin-bottom-xl {
+  margin-bottom: 10rem !important;
 }
 
-.adv-toggle {
-  color: #FFD700 !important;
-  font-size: 1.3rem;
-  margin-top: 5px;
-  -webkit-transition: all 100ms;
-  transition: all 100ms;
-  -webkit-transform: scale(1.4);
-  transform: scale(1.4);
+.u-margin-top-sm {
+  margin-top: 1.5rem !important;
 }
 
-.adv-toggle:hover {
-  color: #FFD700;
+.u-margin-top-md {
+  margin-top: 4rem !important;
 }
 
-.adv-toggle::after {
-  content: none;
+.u-margin-top-lg {
+  margin-top: 8rem !important;
 }
 
-.adv-toggle:hover {
-  -webkit-transform: scale(1.6);
-  transform: scale(1.6);
+.u-margin-top-xl {
+  margin-top: 10rem !important;
 }
 
-.adv-btn.small-btn {
-  padding: 5px 10px;
+.row {
+  max-width: 114rem;
+  margin: 0 auto;
 }
 
-.adv-edit:hover {
-  background: #3CB1B6;
-  border-color: #3CB1B6;
+.row:not(:last-child) {
+  margin-bottom: 8rem;
 }
 
-.adv-delete:hover {
-  background: #ec4853;
-  border-color: #ec4853;
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-.spinner {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-top: -20px;
-  margin-left: -20px;
+.row [class^=col-] {
+  float: left;
 }
 
-.spinner .spinner-border {
-  color: #FFD700;
+.row [class^=col-]:not(:last-child) {
+  margin-right: 6rem;
 }
 
-.modal-content header,
-.modal-content footer,
-.modal-content button {
-  border: none;
+.row .col-1-of-2 {
+  width: calc((100% - 6rem) / 2);
 }
 
-.modal-content header {
-  background-color: #c2a500;
+.row .col-1-of-3 {
+  width: calc((100% - 2* 6rem) / 3);
 }
 
-.modal-content button.btn-primary {
-  background: #c2a500;
+.row .col-2-of-3 {
+  width: calc(2* ((100% - 2* 6rem) / 3) + 6rem);
 }
 
-.modal-content button.btn-primary:hover {
-  background: #b89c00;
+.row .col-1-of-4 {
+  width: calc((100% - 3 * 6rem) / 4);
 }
 
-.slide-fade-enter-active {
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+.row .col-2-of-4 {
+  width: calc(2 * ((100% - 3 * 6rem) / 4) + 6rem);
 }
 
-.slide-fade-leave-active {
-  -webkit-transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.slide-fade-enter,
-.slide-fade-leave-to {
-  -webkit-transform: translateY(10px);
-          transform: translateY(10px);
-  opacity: 0;
-}
-
-form.adv-form {
-  text-align: center;
-  margin: 50px auto;
-  color: white;
-  font-size: 1.2rem;
-}
-
-form.adv-form .form-group {
-  text-align: left;
-}
-
-form.adv-form .form-control {
-  color: lightgray;
-}
-
-form.adv-form input,
-form.adv-form textarea,
-form.adv-form select {
-  background-color: #33333b;
-  border: 1px solid #3d3d49;
-  color: white;
-  box-shadow: 0 0 5px #000;
-}
-
-form.adv-form input:focus,
-form.adv-form textarea:focus,
-form.adv-form select:focus {
-  background-color: #363641;
-  box-shadow: 0 0 5px #363641;
-  border: 1px solid #212127;
-}
-
-form.adv-form button {
-  margin: auto;
+.row .col-3-of-4 {
+  width: calc(3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem);
 }
 

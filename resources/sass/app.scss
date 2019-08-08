@@ -1,133 +1,21 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+// Abstracts
+@import 'abstracts/variables',
+        'abstracts/functions',
+        'abstracts/mixins';
 
-// Variables
+// Base
+@import 'base/base',
+        'base/animations',
+        'base/typography',
+        'base/utilities';
+
+// Components
+
+// Layout
+@import 'layout/grid';
+
+// ================================================================================================
+// Temporary, delete later.
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 @import 'variables',
         'mixins';
-
-// General Styles
-:focus {outline: none;}
-
-.hr-sm
-{
-    width: 50px;
-    height: 3px;
-    background: #FFD700;
-    margin: auto;
-}
-
-.hr-lg
-{
-    height: 1px;
-    width: 100%;
-    background: #545464;
-    margin: 25px auto;
-}
-
-html,body, #app, .container-fluid {overflow-x: hidden; height:100%;}
-
-.adv-btn
-{
-    padding: 10px 25px;
-    background-color: transparent;
-    border: 1px solid #FFD700;
-    color: #FFD700;
-    @include border-radius(4px);
-    font: 500 0.8rem 'Roboto Condensed', sans-serif;
-    text-transform: uppercase;
-    @include transition((color 100ms, background-color 100ms));
-    &:hover
-    {
-        text-decoration: none;
-        background-color: rgb(201, 179, 80);
-        border: 1px solid rgb(201, 179, 80);
-        color: white;
-    }
-}
-
-.adv-link
-{
-    color: #FFD700;
-    text-transform: uppercase;
-    &:hover {color: #FFD700}
-}
-.adv-toggle
-{
-    color: #FFD700 !important;
-    &:hover {color: #FFD700}
-    &::after {content: none}
-    font-size: 1.3rem;
-    margin-top: 5px;
-    @include transition(all 100ms);
-    @include transform(scale(1.4));
-    &:hover
-    {
-        @include transform(scale(1.6));
-    }
-}
-
-.adv-btn.small-btn {padding: 5px 10px;}
-.adv-edit:hover
-{
-    background: #3CB1B6;
-    border-color: #3CB1B6
-}
-.adv-delete:hover
-{
-    background: #ec4853;
-    border-color: #ec4853;
-}
-.spinner 
-{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -20px;
-    margin-left: -20px;
-    .spinner-border {color: #FFD700;}
-}
-.modal-content
-{
-    header, footer, button {border: none;}
-    header {background-color: rgb(194, 165, 0);}
-    button.btn-primary
-    {
-        background: rgb(194, 165, 0);
-        &:hover {background: rgb(184, 156, 0)}
-    }
-}
-
-.slide-fade-enter-active {
-  transition: all .3s ease;
-}
-.slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.slide-fade-enter, .slide-fade-leave-to {
-  transform: translateY(10px);
-  opacity: 0;
-}
-
-form.adv-form
-{
-    text-align: center;
-    margin: 50px auto;
-    color: white;
-    font-size: 1.2rem;
-    .form-group {text-align: left;}
-    .form-control {color: lightgray;}
-    input, textarea, select
-    {
-        background-color: #33333b;
-        border: 1px solid #3d3d49;
-        color: white;
-        @include box-shadow(0 0 5px #000);
-        &:focus 
-        {
-            background-color: #363641;
-            @include box-shadow(0 0 5px #363641);
-            border: 1px solid #212127;
-        }
-    }
-    button {margin: auto;}
-}
