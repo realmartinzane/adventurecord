@@ -1,0 +1,36 @@
+.btn
+{
+    &, &:visited, &:link
+    {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: .8rem 1.6rem;
+        display: inline-block;
+        border-radius: 3px;
+        transition: all 200ms;
+        font-size: 1.4rem;
+        border: 1px solid transparent;
+        color: $color-white;
+
+        // Change for the <button> element
+        cursor: pointer;
+    }
+
+    &:active, &:focus
+    {
+        outline: none;
+    }
+
+    &--discord
+    {
+        background: rgba($color-discord, .9);
+        border-color: rgba($color-discord, .9);
+        transition: all 200ms;
+
+        &:hover
+        {
+            background: $color-discord;
+            border-color: rgba($color-discord, .9);
+        }
+    }
+}

@@ -1,5 +1,30 @@
 <template>
-    <div class="navigation-desktop"></div>
+    <div class="navigation">
+        <div class="navigation__brand">
+            <div class="navigation__brand-content">
+                <img src="/img/brand_name.png" alt="" class="navigation__brand-name">
+                <img src="/img/brand_logo.png" alt="" class="navigation__brand-logo">
+            </div>
+        </div>
+
+        <nav class="navigation__nav">
+            <ul class="navigation__list">
+                <li class="navigation__item"><a href="#" class="navigation__link">Home</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link">Updates</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link">Commands</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link">Tutorial</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link">Wiki</a></li>
+                <li class="navigation__item"><a href="#" class="navigation__link">Marketplace</a></li>
+            </ul>
+
+            <div class="navigation__account">
+                <a href="" class="btn btn--discord">
+                    <font-awesome-icon :icon="['fab', 'discord']" size="lg" class="u-margin-right-sm"></font-awesome-icon>
+                    <span>Log in with discord</span>
+                </a>
+            </div>
+        </nav>
+    </div>
     <!--
     <b-row class="navbar-desktop">
         <div class="brand">
@@ -73,6 +98,96 @@ export default {
 
 <style lang="scss">
 
+@import '../../sass/abstracts/_variables.scss';
+
+    .navigation
+    {
+        &__brand
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 300;
+            width: 27rem;
+            height: 41rem;
+            background-image: linear-gradient(123.5deg, 
+                                    $color-logo-bg 50%,
+                                    transparent 50%);
+        }
+
+        &__brand-content
+        {
+            position: absolute;
+            top: 0;
+            z-index: 400;
+        }
+
+        &__brand-name
+        {
+            display: block;
+            width: 20rem;
+            margin-left: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        &__brand-logo
+        {
+            display: block;
+            width: 10rem;
+            margin-left: 1rem;
+            margin-top: 2rem;
+        }
+
+        &__nav
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            width: 100%;
+            padding: .8rem 0;
+            background: $color-secondary-dark;
+            border: 1px solid $color-border-dark;
+        }
+
+        &__list
+        {
+            list-style: none;
+            margin-left: 27rem;
+            display: inline-block;
+            width: calc(74% - 27rem);
+        }
+
+        &__item
+        {
+            display: inline-block;
+            margin: 0 1rem;
+        }
+
+        &__link
+        {
+            &:link, &:visited
+            {
+                display: inline-block;
+                text-decoration: none;
+                color: $color-white;
+                font-size: 1.4rem;
+                font-weight: 700;
+            }
+
+            &:hover, &:active, &:focus
+            {
+                color: $color-primary;
+            }
+        }
+
+        &__account
+        {
+            display: inline-block;
+            width: 24%;
+            text-align: right;
+        }
+    }
 
 
     /*
@@ -146,11 +261,11 @@ export default {
         }
         .navbar-nav
         {
-        &:nth-child(1)
-        {
+            &:nth-child(1)
+            {
                 position: relative;
                 left: 250px;
-        }
+            }
             &:nth-child(2) 
             {
                 position: absolute;

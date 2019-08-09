@@ -16014,6 +16014,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     AuthProvider: function AuthProvider(provider) {
@@ -16681,7 +16706,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "/*\n.navbar-desktop \n{\n    position: relative;\n    .brand {position: relative}\n    .triangle\n    {\n        position: absolute;\n        top: 0;\n        left: 0;\n        z-index: 3;\n        width: 0;\n        height: 0;\n        border-style: solid;\n        border-width: 411px 271px 0 0;\n        border-color: #4d4d5c transparent transparent transparent;\n    }\n    .triangle:before\n    {\n        content: \"\";\n        position: absolute;\n        top: 0;\n        left: 0;\n        z-index: 3;\n        width: 0;\n        height: 0;\n        border-style: solid;\n        border-width: 410px 270px 0 0;\n        border-color: rgb(31, 35, 48) transparent transparent transparent;\n        top: -411px;\n    }\n    .content\n    {\n        position: absolute;\n        top: 0;\n        z-index: 4;\n    }\n    img\n    {\n        display: block;\n        margin-left: 10px;\n        @include transition(all 200ms);\n        &:hover\n        {\n            @include transform(scale(1.1));\n        }\n        &:nth-child(1)\n        {\n            margin-top: 25px;\n            width: 200px;\n\n        }\n        &:nth-child(2)\n        {\n            margin-top: 20px;\n            width: 100px;\n            height: auto;\n        }\n    }\n    .navbar\n    {\n        position: absolute;\n        top: 0;\n        left: 0;\n        background: #10121A;\n        width: 100%;\n        z-index: 2;\n        border: 1px solid #3d3d49\n    }\n    .navbar-nav\n    {\n    &:nth-child(1)\n    {\n            position: relative;\n            left: 250px;\n    }\n        &:nth-child(2) \n        {\n            position: absolute;\n            right: 0;\n        }\n        .nav-item\n        {\n            margin: 0 10px;\n            a\n            {\n                font-family: 'Roboto Condensed', sans-serif;\n                font-weight: bold;\n                color: white;\n                &:hover, &:active, &:focus {color: #FFD700;}\n            }\n            button\n            {\n                text-transform: uppercase;\n                background-color: #7289da;\n                svg {vertical-align: middle}\n            }\n        }\n    }\n    .navbar-light .navbar-nav .show > .dropdown-toggle {color: #FFD700 !important}\n    .dropdown-menu \n    {\n        background: #212127;\n        .dropdown-item\n        {\n            padding-top: 7.5px;\n            padding-bottom: 7.5px;\n            &:hover {background: #2d2d35}\n        }\n        .dropdown-divider {border-color: #3d3d49;}\n    }\n}\n*/", ""]);
+exports.push([module.i, ".navigation__brand {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 300;\n  width: 27rem;\n  height: 41rem;\n  background-image: linear-gradient(123.5deg, #252936 50%, transparent 50%);\n}\n.navigation__brand-content {\n  position: absolute;\n  top: 0;\n  z-index: 400;\n}\n.navigation__brand-name {\n  display: block;\n  width: 20rem;\n  margin-left: 1rem;\n  margin-top: 2.5rem;\n}\n.navigation__brand-logo {\n  display: block;\n  width: 10rem;\n  margin-left: 1rem;\n  margin-top: 2rem;\n}\n.navigation__nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 2;\n  width: 100%;\n  padding: 0.8rem 0;\n  background: #10121A;\n  border: 1px solid #3d3d49;\n}\n.navigation__list {\n  list-style: none;\n  margin-left: 27rem;\n  display: inline-block;\n  width: calc(74% - 27rem);\n}\n.navigation__item {\n  display: inline-block;\n  margin: 0 1rem;\n}\n.navigation__link:link, .navigation__link:visited {\n  display: inline-block;\n  text-decoration: none;\n  color: #fff;\n  font-size: 1.4rem;\n  font-weight: 700;\n}\n.navigation__link:hover, .navigation__link:active, .navigation__link:focus {\n  color: #FFD700;\n}\n.navigation__account {\n  display: inline-block;\n  width: 24%;\n  text-align: right;\n}\n\n/*\n.navbar-desktop \n{\n    position: relative;\n    .brand {position: relative}\n    .triangle\n    {\n        position: absolute;\n        top: 0;\n        left: 0;\n        z-index: 3;\n        width: 0;\n        height: 0;\n        border-style: solid;\n        border-width: 411px 271px 0 0;\n        border-color: #4d4d5c transparent transparent transparent;\n    }\n    .triangle:before\n    {\n        content: \"\";\n        position: absolute;\n        top: 0;\n        left: 0;\n        z-index: 3;\n        width: 0;\n        height: 0;\n        border-style: solid;\n        border-width: 410px 270px 0 0;\n        border-color: rgb(31, 35, 48) transparent transparent transparent;\n        top: -411px;\n    }\n    .content\n    {\n        position: absolute;\n        top: 0;\n        z-index: 4;\n    }\n    img\n    {\n        display: block;\n        margin-left: 10px;\n        @include transition(all 200ms);\n        &:hover\n        {\n            @include transform(scale(1.1));\n        }\n        &:nth-child(1)\n        {\n            margin-top: 25px;\n            width: 200px;\n\n        }\n        &:nth-child(2)\n        {\n            margin-top: 20px;\n            width: 100px;\n            height: auto;\n        }\n    }\n    .navbar\n    {\n        position: absolute;\n        top: 0;\n        left: 0;\n        background: #10121A;\n        width: 100%;\n        z-index: 2;\n        border: 1px solid #3d3d49\n    }\n    .navbar-nav\n    {\n        &:nth-child(1)\n        {\n            position: relative;\n            left: 250px;\n        }\n        &:nth-child(2) \n        {\n            position: absolute;\n            right: 0;\n        }\n        .nav-item\n        {\n            margin: 0 10px;\n            a\n            {\n                font-family: 'Roboto Condensed', sans-serif;\n                font-weight: bold;\n                color: white;\n                &:hover, &:active, &:focus {color: #FFD700;}\n            }\n            button\n            {\n                text-transform: uppercase;\n                background-color: #7289da;\n                svg {vertical-align: middle}\n            }\n        }\n    }\n    .navbar-light .navbar-nav .show > .dropdown-toggle {color: #FFD700 !important}\n    .dropdown-menu \n    {\n        background: #212127;\n        .dropdown-item\n        {\n            padding-top: 7.5px;\n            padding-bottom: 7.5px;\n            &:hover {background: #2d2d35}\n        }\n        .dropdown-divider {border-color: #3d3d49;}\n    }\n}\n*/", ""]);
 
 // exports
 
@@ -35949,9 +35974,92 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "navigation-desktop" })
+  return _c("div", { staticClass: "navigation" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("nav", { staticClass: "navigation__nav" }, [
+      _vm._m(1),
+      _vm._v(" "),
+      _c("div", { staticClass: "navigation__account" }, [
+        _c(
+          "a",
+          { staticClass: "btn btn--discord", attrs: { href: "" } },
+          [
+            _c("font-awesome-icon", {
+              staticClass: "u-margin-right-sm",
+              attrs: { icon: ["fab", "discord"], size: "lg" }
+            }),
+            _vm._v(" "),
+            _c("span", [_vm._v("Log in with discord")])
+          ],
+          1
+        )
+      ])
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "navigation__brand" }, [
+      _c("div", { staticClass: "navigation__brand-content" }, [
+        _c("img", {
+          staticClass: "navigation__brand-name",
+          attrs: { src: "/img/brand_name.png", alt: "" }
+        }),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "navigation__brand-logo",
+          attrs: { src: "/img/brand_logo.png", alt: "" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", { staticClass: "navigation__list" }, [
+      _c("li", { staticClass: "navigation__item" }, [
+        _c("a", { staticClass: "navigation__link", attrs: { href: "#" } }, [
+          _vm._v("Home")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "navigation__item" }, [
+        _c("a", { staticClass: "navigation__link", attrs: { href: "#" } }, [
+          _vm._v("Updates")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "navigation__item" }, [
+        _c("a", { staticClass: "navigation__link", attrs: { href: "#" } }, [
+          _vm._v("Commands")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "navigation__item" }, [
+        _c("a", { staticClass: "navigation__link", attrs: { href: "#" } }, [
+          _vm._v("Tutorial")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "navigation__item" }, [
+        _c("a", { staticClass: "navigation__link", attrs: { href: "#" } }, [
+          _vm._v("Wiki")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("li", { staticClass: "navigation__item" }, [
+        _c("a", { staticClass: "navigation__link", attrs: { href: "#" } }, [
+          _vm._v("Marketplace")
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 

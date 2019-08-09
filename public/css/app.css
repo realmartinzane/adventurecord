@@ -55,6 +55,47 @@ body {
   margin-top: 10rem !important;
 }
 
+.u-margin-left-sm {
+  margin-left: 0.3rem !important;
+}
+
+.u-margin-right-sm {
+  margin-right: 0.3rem !important;
+}
+
+.btn,
+.btn:visited,
+.btn:link {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.8rem 1.6rem;
+  display: inline-block;
+  border-radius: 3px;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+  font-size: 1.4rem;
+  border: 1px solid transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn:active,
+.btn:focus {
+  outline: none;
+}
+
+.btn--discord {
+  background: rgba(114, 137, 218, 0.9);
+  border-color: rgba(114, 137, 218, 0.9);
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+}
+
+.btn--discord:hover {
+  background: #7289da;
+  border-color: rgba(114, 137, 218, 0.9);
+}
+
 .row {
   max-width: 114rem;
   margin: 0 auto;
