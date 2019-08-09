@@ -2,6 +2,9 @@
     <div class="container">
         <navigation-bar-desktop-component></navigation-bar-desktop-component>
         <navigation-bar-mobile-component></navigation-bar-mobile-component>
+        <main>
+            <router-view></router-view>
+        </main>
     </div>
 </template>
 

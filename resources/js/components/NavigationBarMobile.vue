@@ -70,7 +70,7 @@ export default {
         z-index: 200;
         width: 100%;
         padding: 1rem;
-        background: $color-secondary-dark;
+        background-color: $color-secondary-dark;
         border: 1px solid $color-border-dark;
         &__brand
         {
@@ -158,7 +158,7 @@ export default {
             overflow: hidden;
             list-style: none;
             text-align: left;
-            background: $color-secondary;
+            background-color: $color-secondary;
             transition: all 200ms;
         }
 
@@ -168,7 +168,7 @@ export default {
             {
                 display: block;
                 text-decoration: none;
-                color: $color-white;
+                color: inherit;
                 font-size: 1.4rem;
                 font-weight: 700;
                 padding: 1rem 2rem;
@@ -176,7 +176,7 @@ export default {
             &:hover, &:focus, &:active
             {
                 color: $color-primary;
-                background: $color-secondary-light;
+                background-color: $color-secondary-light;
             }
         }
 

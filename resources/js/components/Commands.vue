@@ -1,36 +1,87 @@
 <template>
-    <b-row>
-        <section-header-component
-            :text="'Available Commands'"
-            :spacing="true">
-        </section-header-component>
+    <section class="section-commands">
+        <div class="u-center-text u-margin-bottom-lg">
+            <h2 class="heading-secondary">Commands</h2>
+        </div>
 
-        <b-col cols="12" lg="8" offset-lg="2">
-            <b-tabs content-class="mt-3" fill>
-                <p>The prefix for AdventureCord is ! and is not interchangeable. The following is a list of all the commands:</p>
-                <b-tab title="General" active>
-                    <b-table striped hover :items="listOne"></b-table>
-                </b-tab>
-                <b-tab title="Marketplace &amp; Guilds">
-                    <b-table striped hover :items="listTwo"></b-table>
-                </b-tab>
-                <b-tab title="Voting &amp; Friends">
-                    <b-table striped hover :items="listThree"></b-table>
-                </b-tab>
-                <b-tab title="Leaderboards &amp; Statistics">
-                    <b-table striped hover :items="listFour"></b-table>
-                </b-tab>
-            </b-tabs>
-        </b-col>
-    </b-row>
+        <div class="commands">
+            <input type="radio" name="tabs" id="btn_1" checked="checked" class="commands__radio">
+            <label for="btn_1" class="commands__button">General</label>
+            
+            <input type="radio" name="tabs" id="btn_2" class="commands__radio">
+            <label for="btn_2" class="commands__button">Marketplace &amp; Guilds</label>
+            
+            <input type="radio" name="tabs" id="btn_3" class="commands__radio">
+            <label for="btn_3" class="commands__button">Voting &amp; Friends</label>
+            
+            <input type="radio" name="tabs" id="btn_4" class="commands__radio">
+            <label for="btn_4" class="commands__button">Leaderboards &amp; Statistics</label>
+
+            <div class="commands__info-box">
+                The prefix for AdventureCord is ! and is not interchangeable. The following is a list of all the available commands:
+            </div>
+
+            <div class="commands__tab" id="tab_1">
+                <table class="commands__table">
+                    <tr class="commands__row commands__row--first">
+                        <th class="commands__column commands__column--command">Command</th>
+                        <th class="commands__column commands__column--function">Function</th>
+                    </tr>
+
+                    <tr class="commands__row" v-for="(item, index) in listOne" :key="index">
+                        <td class="commands__column commands__column--command">{{ item.command }}</td>
+                        <td class="commands__column commands__column--function">{{ item.function }}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="commands__tab" id="tab_2">
+                <table class="commands__table">
+                    <tr class="commands__row commands__row--first">
+                        <th class="commands__column commands__column--command">Command</th>
+                        <th class="commands__column commands__column--function">Function</th>
+                    </tr>
+
+                    <tr class="commands__row" v-for="(item, index) in listTwo" :key="index">
+                        <td class="commands__column commands__column--command">{{ item.command }}</td>
+                        <td class="commands__column commands__column--function">{{ item.function }}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="commands__tab" id="tab_3">
+                <table class="commands__table">
+                    <tr class="commands__row commands__row--first">
+                        <th class="commands__column commands__column--command">Command</th>
+                        <th class="commands__column commands__column--function">Function</th>
+                    </tr>
+
+                    <tr class="commands__row" v-for="(item, index) in listThree" :key="index">
+                        <td class="commands__column commands__column--command">{{ item.command }}</td>
+                        <td class="commands__column commands__column--function">{{ item.function }}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="commands__tab" id="tab_4">
+                <table class="commands__table">
+                    <tr class="commands__row commands__row--first">
+                        <th class="commands__column commands__column--command">Command</th>
+                        <th class="commands__column commands__column--function">Function</th>
+                    </tr>
+
+                    <tr class="commands__row" v-for="(item, index) in listFour" :key="index">
+                        <td class="commands__column commands__column--command">{{ item.command }}</td>
+                        <td class="commands__column commands__column--function">{{ item.function }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
 </template>
 
 <script>
-
-import SectionHeaderComponent from './SectionHeader.vue'
-
 export default {
-    components: {SectionHeaderComponent},
     data(){return{
         listOne: 
         [
@@ -92,33 +143,99 @@ export default {
 
 <style lang="scss">
 
-@import '../../sass/_mixins.scss';
+@import '../../sass/abstracts/_variables.scss';
 
-    .tabs
+    .commands
     {
-        p {color: white}
-        margin: 50px auto;
-        .nav-tabs {border-bottom: 1px solid #FFD700;}
-        .nav-link.active 
+        &__radio
         {
-            color: black;
-            background-color: #FFD700;
-            border-color: #FFD700;
+            display: none;
         }
-        .nav-link 
+
+        &__button
         {
-            @include transition(all 100ms);
-            font-size: 1rem;
-            font-family: 'Roboto Condensed', sans-serif;
-            color: lightgray;
-            &:hover {border-color: #FFD700;}
+            display: inline-block;
+            color: $color-white;
+            padding: 1rem 4rem;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            cursor: pointer;
         }
-        .table
+
+        &__radio:checked + &__button
         {
-            th, td {border-color: #3d3d49}
-            th {color: white;}
-            td:nth-child(1) {color: #FFD700}
-            td {color: lightgray}
+            color: $color-secondary;
+            background-color: $color-primary;
+        }
+        
+        &__info-box
+        {
+            padding: 1rem 0;
+            border-top: 1px solid $color-primary;
+        }
+        
+        &__tab
+        {
+            display: none;
+        }
+
+        #btn_1:checked ~ #tab_1
+        {
+            display: block;
+        }
+
+        #btn_2:checked ~ #tab_2
+        {
+            display: block;
+        }
+        
+        #btn_3:checked ~ #tab_3
+        {
+            display: block;
+        }
+        
+        #btn_4:checked ~ #tab_4
+        {
+            display: block;
+        }
+
+        &__table
+        {
+            width: 100%;
+            border-top: 2px solid $color-border-light;
+            border-bottom: 2px solid $color-border-light;
+            text-align: left;
+            border-collapse: collapse
+        }
+
+        &__row
+        {
+            font-weight: normal;
+            border-bottom: 1px solid $color-border-light;
+        }
+
+        &__row--first
+        {
+            border-bottom: 2px solid $color-border-light;
+            font-weight: bold;
+            .commands__column {color: $color-white;}
+        }
+
+        &__column
+        {
+            padding: .8rem 1.5rem;
+        }
+        
+        &__column--command
+        {
+            width: 30%;
+            color: $color-primary;
+        }
+
+        &__column--function
+        {
+            width: 69%;
         }
     }
+
 </style>

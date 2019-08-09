@@ -112,7 +112,7 @@ export default {
             z-index: 200;
             width: 100%;
             padding: .8rem 0;
-            background: $color-secondary-dark;
+            background-color: $color-secondary-dark;
             border: 1px solid $color-border-dark;
         }
 
@@ -136,7 +136,7 @@ export default {
             {
                 display: inline-block;
                 text-decoration: none;
-                color: $color-white;
+                color: inherit;
                 font-size: 1.4rem;
                 font-weight: 700;
             }

@@ -15565,6 +15565,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -15585,7 +15588,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _SectionHeader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SectionHeader.vue */ "./resources/js/components/SectionHeader.vue");
 //
 //
 //
@@ -15613,11 +15615,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    SectionHeaderComponent: _SectionHeader_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
   data: function data() {
     return {
       listOne: [{
@@ -16698,7 +16751,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".tabs {\n  margin: 50px auto;\n}\n.tabs p {\n  color: white;\n}\n.tabs .nav-tabs {\n  border-bottom: 1px solid #FFD700;\n}\n.tabs .nav-link.active {\n  color: black;\n  background-color: #FFD700;\n  border-color: #FFD700;\n}\n.tabs .nav-link {\n  -webkit-transition: all 100ms;\n  transition: all 100ms;\n  font-size: 1rem;\n  font-family: \"Roboto Condensed\", sans-serif;\n  color: lightgray;\n}\n.tabs .nav-link:hover {\n  border-color: #FFD700;\n}\n.tabs .table th, .tabs .table td {\n  border-color: #3d3d49;\n}\n.tabs .table th {\n  color: white;\n}\n.tabs .table td:nth-child(1) {\n  color: #FFD700;\n}\n.tabs .table td {\n  color: lightgray;\n}", ""]);
+exports.push([module.i, ".commands__radio {\n  display: none;\n}\n.commands__button {\n  display: inline-block;\n  color: #fff;\n  padding: 1rem 4rem;\n  border-top-left-radius: 3px;\n  border-top-right-radius: 3px;\n  cursor: pointer;\n}\n.commands__radio:checked + .commands__button {\n  color: #212127;\n  background-color: #FFD700;\n}\n.commands__info-box {\n  padding: 1rem 0;\n  border-top: 1px solid #FFD700;\n}\n.commands__tab {\n  display: none;\n}\n.commands #btn_1:checked ~ #tab_1 {\n  display: block;\n}\n.commands #btn_2:checked ~ #tab_2 {\n  display: block;\n}\n.commands #btn_3:checked ~ #tab_3 {\n  display: block;\n}\n.commands #btn_4:checked ~ #tab_4 {\n  display: block;\n}\n.commands__table {\n  width: 100%;\n  border-top: 2px solid #545464;\n  border-bottom: 2px solid #545464;\n  text-align: left;\n  border-collapse: collapse;\n}\n.commands__row {\n  font-weight: normal;\n  border-bottom: 1px solid #545464;\n}\n.commands__row--first {\n  border-bottom: 2px solid #545464;\n  font-weight: bold;\n}\n.commands__row--first .commands__column {\n  color: #fff;\n}\n.commands__column {\n  padding: 0.8rem 1.5rem;\n}\n.commands__column--command {\n  width: 30%;\n  color: #FFD700;\n}\n.commands__column--function {\n  width: 69%;\n}", ""]);
 
 // exports
 
@@ -16755,7 +16808,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".navigation__brand {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 300;\n  width: 27rem;\n  height: 41rem;\n  background-image: linear-gradient(123.5deg, #252936 50%, transparent 50%);\n}\n.navigation__brand-content {\n  position: absolute;\n  top: 0;\n  z-index: 400;\n}\n.navigation__brand-name {\n  display: block;\n  width: 20rem;\n  margin-left: 1rem;\n  margin-top: 2.5rem;\n}\n.navigation__brand-logo {\n  display: block;\n  width: 10rem;\n  margin-left: 1rem;\n  margin-top: 2rem;\n}\n.navigation__nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 200;\n  width: 100%;\n  padding: 0.8rem 0;\n  background: #10121A;\n  border: 1px solid #3d3d49;\n}\n.navigation__list {\n  list-style: none;\n  margin-left: 27rem;\n  display: inline-block;\n  width: calc(74% - 27rem);\n}\n.navigation__item {\n  display: inline-block;\n  margin: 0 1rem;\n}\n.navigation__link, .navigation__link:link, .navigation__link:visited {\n  display: inline-block;\n  text-decoration: none;\n  color: #fff;\n  font-size: 1.4rem;\n  font-weight: 700;\n}\n.navigation__link:hover, .navigation__link:active, .navigation__link:focus {\n  color: #FFD700;\n}\n.navigation__account {\n  display: inline-block;\n  width: 24%;\n  text-align: right;\n}", ""]);
+exports.push([module.i, ".navigation__brand {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 300;\n  width: 27rem;\n  height: 41rem;\n  background-image: linear-gradient(123.5deg, #252936 50%, transparent 50%);\n}\n.navigation__brand-content {\n  position: absolute;\n  top: 0;\n  z-index: 400;\n}\n.navigation__brand-name {\n  display: block;\n  width: 20rem;\n  margin-left: 1rem;\n  margin-top: 2.5rem;\n}\n.navigation__brand-logo {\n  display: block;\n  width: 10rem;\n  margin-left: 1rem;\n  margin-top: 2rem;\n}\n.navigation__nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 200;\n  width: 100%;\n  padding: 0.8rem 0;\n  background-color: #10121A;\n  border: 1px solid #3d3d49;\n}\n.navigation__list {\n  list-style: none;\n  margin-left: 27rem;\n  display: inline-block;\n  width: calc(74% - 27rem);\n}\n.navigation__item {\n  display: inline-block;\n  margin: 0 1rem;\n}\n.navigation__link, .navigation__link:link, .navigation__link:visited {\n  display: inline-block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n}\n.navigation__link:hover, .navigation__link:active, .navigation__link:focus {\n  color: #FFD700;\n}\n.navigation__account {\n  display: inline-block;\n  width: 24%;\n  text-align: right;\n}", ""]);
 
 // exports
 
@@ -16774,7 +16827,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".mobile-navigation {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 200;\n  width: 100%;\n  padding: 1rem;\n  background: #10121A;\n  border: 1px solid #3d3d49;\n}\n.mobile-navigation__brand {\n  height: 5rem;\n  width: 69%;\n  display: inline-block;\n}\n.mobile-navigation__brand-img {\n  height: 100%;\n  width: auto;\n}\n.mobile-navigation__nav {\n  display: inline-block;\n  width: 29%;\n  text-align: right;\n  vertical-align: top;\n}\n.mobile-navigation__checkbox {\n  display: none;\n}\n.mobile-navigation__button {\n  display: inline-block;\n  cursor: pointer;\n  height: 5rem;\n  width: 5rem;\n  text-align: center;\n}\n.mobile-navigation__icon {\n  position: relative;\n  margin-top: 2.5rem;\n}\n.mobile-navigation__icon, .mobile-navigation__icon::before, .mobile-navigation__icon::after {\n  display: inline-block;\n  width: 3rem;\n  height: 2px;\n  background-color: #FFD700;\n}\n.mobile-navigation__icon::before, .mobile-navigation__icon::after {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n}\n.mobile-navigation__icon::before {\n  top: -0.8rem;\n}\n.mobile-navigation__icon::after {\n  bottom: -0.8rem;\n}\n.mobile-navigation__button:hover .mobile-navigation__icon::before {\n  top: -1rem;\n}\n.mobile-navigation__button:hover .mobile-navigation__icon::after {\n  top: 1rem;\n}\n.mobile-navigation__list {\n  position: absolute;\n  top: 8rem;\n  right: 0;\n  height: 0;\n  width: 20rem;\n  overflow: hidden;\n  list-style: none;\n  text-align: left;\n  background: #212127;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n}\n.mobile-navigation__link, .mobile-navigation__link:link, .mobile-navigation__link:visited {\n  display: block;\n  text-decoration: none;\n  color: #fff;\n  font-size: 1.4rem;\n  font-weight: 700;\n  padding: 1rem 2rem;\n}\n.mobile-navigation__link:hover, .mobile-navigation__link:focus, .mobile-navigation__link:active {\n  color: #FFD700;\n  background: #2E2E36;\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon {\n  background-color: transparent;\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon::before {\n  top: 0;\n  -webkit-transform: rotate(135deg);\n          transform: rotate(135deg);\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon::after {\n  top: 0;\n  -webkit-transform: rotate(-135deg);\n          transform: rotate(-135deg);\n}\n.mobile-navigation__checkbox:checked ~ .mobile-navigation__list {\n  height: 30rem;\n}", ""]);
+exports.push([module.i, ".mobile-navigation {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 200;\n  width: 100%;\n  padding: 1rem;\n  background-color: #10121A;\n  border: 1px solid #3d3d49;\n}\n.mobile-navigation__brand {\n  height: 5rem;\n  width: 69%;\n  display: inline-block;\n}\n.mobile-navigation__brand-img {\n  height: 100%;\n  width: auto;\n}\n.mobile-navigation__nav {\n  display: inline-block;\n  width: 29%;\n  text-align: right;\n  vertical-align: top;\n}\n.mobile-navigation__checkbox {\n  display: none;\n}\n.mobile-navigation__button {\n  display: inline-block;\n  cursor: pointer;\n  height: 5rem;\n  width: 5rem;\n  text-align: center;\n}\n.mobile-navigation__icon {\n  position: relative;\n  margin-top: 2.5rem;\n}\n.mobile-navigation__icon, .mobile-navigation__icon::before, .mobile-navigation__icon::after {\n  display: inline-block;\n  width: 3rem;\n  height: 2px;\n  background-color: #FFD700;\n}\n.mobile-navigation__icon::before, .mobile-navigation__icon::after {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n}\n.mobile-navigation__icon::before {\n  top: -0.8rem;\n}\n.mobile-navigation__icon::after {\n  bottom: -0.8rem;\n}\n.mobile-navigation__button:hover .mobile-navigation__icon::before {\n  top: -1rem;\n}\n.mobile-navigation__button:hover .mobile-navigation__icon::after {\n  top: 1rem;\n}\n.mobile-navigation__list {\n  position: absolute;\n  top: 8rem;\n  right: 0;\n  height: 0;\n  width: 20rem;\n  overflow: hidden;\n  list-style: none;\n  text-align: left;\n  background-color: #212127;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n}\n.mobile-navigation__link, .mobile-navigation__link:link, .mobile-navigation__link:visited {\n  display: block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n  padding: 1rem 2rem;\n}\n.mobile-navigation__link:hover, .mobile-navigation__link:focus, .mobile-navigation__link:active {\n  color: #FFD700;\n  background-color: #2E2E36;\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon {\n  background-color: transparent;\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon::before {\n  top: 0;\n  -webkit-transform: rotate(135deg);\n          transform: rotate(135deg);\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon::after {\n  top: 0;\n  -webkit-transform: rotate(-135deg);\n          transform: rotate(-135deg);\n}\n.mobile-navigation__checkbox:checked ~ .mobile-navigation__list {\n  height: 30rem;\n}", ""]);
 
 // exports
 
@@ -35552,7 +35605,9 @@ var render = function() {
     [
       _c("navigation-bar-desktop-component"),
       _vm._v(" "),
-      _c("navigation-bar-mobile-component")
+      _c("navigation-bar-mobile-component"),
+      _vm._v(" "),
+      _c("main", [_c("router-view")], 1)
     ],
     1
   )
@@ -35579,81 +35634,244 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "b-row",
-    [
-      _c("section-header-component", {
-        attrs: { text: "Available Commands", spacing: true }
+  return _c("section", { staticClass: "section-commands" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "commands" }, [
+      _c("input", {
+        staticClass: "commands__radio",
+        attrs: { type: "radio", name: "tabs", id: "btn_1", checked: "checked" }
       }),
       _vm._v(" "),
       _c(
-        "b-col",
-        { attrs: { cols: "12", lg: "8", "offset-lg": "2" } },
-        [
-          _c(
-            "b-tabs",
-            { attrs: { "content-class": "mt-3", fill: "" } },
-            [
-              _c("p", [
-                _vm._v(
-                  "The prefix for AdventureCord is ! and is not interchangeable. The following is a list of all the commands:"
+        "label",
+        { staticClass: "commands__button", attrs: { for: "btn_1" } },
+        [_vm._v("General")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "commands__radio",
+        attrs: { type: "radio", name: "tabs", id: "btn_2" }
+      }),
+      _vm._v(" "),
+      _c(
+        "label",
+        { staticClass: "commands__button", attrs: { for: "btn_2" } },
+        [_vm._v("Marketplace & Guilds")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "commands__radio",
+        attrs: { type: "radio", name: "tabs", id: "btn_3" }
+      }),
+      _vm._v(" "),
+      _c(
+        "label",
+        { staticClass: "commands__button", attrs: { for: "btn_3" } },
+        [_vm._v("Voting & Friends")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "commands__radio",
+        attrs: { type: "radio", name: "tabs", id: "btn_4" }
+      }),
+      _vm._v(" "),
+      _c(
+        "label",
+        { staticClass: "commands__button", attrs: { for: "btn_4" } },
+        [_vm._v("Leaderboards & Statistics")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "commands__info-box" }, [
+        _vm._v(
+          "\n            The prefix for AdventureCord is ! and is not interchangeable. The following is a list of all the available commands:\n        "
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "commands__tab", attrs: { id: "tab_1" } }, [
+        _c(
+          "table",
+          { staticClass: "commands__table" },
+          [
+            _vm._m(1),
+            _vm._v(" "),
+            _vm._l(_vm.listOne, function(item, index) {
+              return _c("tr", { key: index, staticClass: "commands__row" }, [
+                _c(
+                  "td",
+                  { staticClass: "commands__column commands__column--command" },
+                  [_vm._v(_vm._s(item.command))]
+                ),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  {
+                    staticClass: "commands__column commands__column--function"
+                  },
+                  [_vm._v(_vm._s(item.function))]
                 )
-              ]),
-              _vm._v(" "),
-              _c(
-                "b-tab",
-                { attrs: { title: "General", active: "" } },
-                [
-                  _c("b-table", {
-                    attrs: { striped: "", hover: "", items: _vm.listOne }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-tab",
-                { attrs: { title: "Marketplace & Guilds" } },
-                [
-                  _c("b-table", {
-                    attrs: { striped: "", hover: "", items: _vm.listTwo }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-tab",
-                { attrs: { title: "Voting & Friends" } },
-                [
-                  _c("b-table", {
-                    attrs: { striped: "", hover: "", items: _vm.listThree }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-tab",
-                { attrs: { title: "Leaderboards & Statistics" } },
-                [
-                  _c("b-table", {
-                    attrs: { striped: "", hover: "", items: _vm.listFour }
-                  })
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
+              ])
+            })
+          ],
+          2
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "commands__tab", attrs: { id: "tab_2" } }, [
+        _c(
+          "table",
+          { staticClass: "commands__table" },
+          [
+            _vm._m(2),
+            _vm._v(" "),
+            _vm._l(_vm.listTwo, function(item, index) {
+              return _c("tr", { key: index, staticClass: "commands__row" }, [
+                _c(
+                  "td",
+                  { staticClass: "commands__column commands__column--command" },
+                  [_vm._v(_vm._s(item.command))]
+                ),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  {
+                    staticClass: "commands__column commands__column--function"
+                  },
+                  [_vm._v(_vm._s(item.function))]
+                )
+              ])
+            })
+          ],
+          2
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "commands__tab", attrs: { id: "tab_3" } }, [
+        _c(
+          "table",
+          { staticClass: "commands__table" },
+          [
+            _vm._m(3),
+            _vm._v(" "),
+            _vm._l(_vm.listThree, function(item, index) {
+              return _c("tr", { key: index, staticClass: "commands__row" }, [
+                _c(
+                  "td",
+                  { staticClass: "commands__column commands__column--command" },
+                  [_vm._v(_vm._s(item.command))]
+                ),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  {
+                    staticClass: "commands__column commands__column--function"
+                  },
+                  [_vm._v(_vm._s(item.function))]
+                )
+              ])
+            })
+          ],
+          2
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "commands__tab", attrs: { id: "tab_4" } }, [
+        _c(
+          "table",
+          { staticClass: "commands__table" },
+          [
+            _vm._m(4),
+            _vm._v(" "),
+            _vm._l(_vm.listFour, function(item, index) {
+              return _c("tr", { key: index, staticClass: "commands__row" }, [
+                _c(
+                  "td",
+                  { staticClass: "commands__column commands__column--command" },
+                  [_vm._v(_vm._s(item.command))]
+                ),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  {
+                    staticClass: "commands__column commands__column--function"
+                  },
+                  [_vm._v(_vm._s(item.function))]
+                )
+              ])
+            })
+          ],
+          2
+        )
+      ])
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "u-center-text u-margin-bottom-lg" }, [
+      _c("h2", { staticClass: "heading-secondary" }, [_vm._v("Commands")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", { staticClass: "commands__row commands__row--first" }, [
+      _c("th", { staticClass: "commands__column commands__column--command" }, [
+        _vm._v("Command")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "commands__column commands__column--function" }, [
+        _vm._v("Function")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", { staticClass: "commands__row commands__row--first" }, [
+      _c("th", { staticClass: "commands__column commands__column--command" }, [
+        _vm._v("Command")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "commands__column commands__column--function" }, [
+        _vm._v("Function")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", { staticClass: "commands__row commands__row--first" }, [
+      _c("th", { staticClass: "commands__column commands__column--command" }, [
+        _vm._v("Command")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "commands__column commands__column--function" }, [
+        _vm._v("Function")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", { staticClass: "commands__row commands__row--first" }, [
+      _c("th", { staticClass: "commands__column commands__column--command" }, [
+        _vm._v("Command")
+      ]),
+      _vm._v(" "),
+      _c("th", { staticClass: "commands__column commands__column--function" }, [
+        _vm._v("Function")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 

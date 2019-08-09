@@ -4,7 +4,14 @@
     padding: 0;
     box-sizing: inherit
 }
-a {cursor: pointer}
 
 // Definition for 1rem
 html {font-size: 62.5%}
+
+a {cursor: pointer}
+
+section 
+{
+    margin: 10rem auto;
+    width: 90rem;
+}

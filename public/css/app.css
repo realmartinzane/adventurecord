@@ -6,12 +6,17 @@
   box-sizing: inherit;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 a {
   cursor: pointer;
 }
 
-html {
-  font-size: 62.5%;
+section {
+  margin: 10rem auto;
+  width: 90rem;
 }
 
 body {
@@ -19,8 +24,29 @@ body {
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.7;
-  color: #777777;
+  color: #fff;
+  background-color: #212127;
   box-sizing: border-box;
+}
+
+.heading-secondary {
+  font-size: 4rem;
+  font-weight: 300;
+  display: inline-block;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.heading-secondary::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  height: 3px;
+  width: 5rem;
+  border-bottom: 3px solid #FFD700;
 }
 
 .u-center-text {
