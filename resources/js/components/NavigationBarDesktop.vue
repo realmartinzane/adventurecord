@@ -2,19 +2,19 @@
     <div class="navigation">
         <div class="navigation__brand">
             <div class="navigation__brand-content">
-                <img src="/img/brand_name.png" alt="" class="navigation__brand-name">
-                <img src="/img/brand_logo.png" alt="" class="navigation__brand-logo">
+                <img src="/img/brand_name.png" alt="Brand Name" class="navigation__brand-name">
+                <img src="/img/brand_logo.png" alt="Brand Logo" class="navigation__brand-logo">
             </div>
         </div>
 
         <nav class="navigation__nav">
             <ul class="navigation__list">
-                <li class="navigation__item"><a href="#" class="navigation__link">Home</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link">Updates</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link">Commands</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link">Tutorial</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link">Wiki</a></li>
-                <li class="navigation__item"><a href="#" class="navigation__link">Marketplace</a></li>
+                <li class="navigation__item"><a :to="'/'" class="navigation__link">Home</a></li>
+                <li class="navigation__item"><a :to="'/updates'" class="navigation__link">Updates</a></li>
+                <li class="navigation__item"><a :to="'/commands'" class="navigation__link">Commands</a></li>
+                <li class="navigation__item"><a href="https://youtu.be/mTzogDbNAI0" target="_blank" class="navigation__link">Tutorial</a></li>
+                <li class="navigation__item"><a href="https://adventurecord.fandom.com/wiki/AdventureCord_Wiki" target="_blank" class="navigation__link">Wiki</a></li>
+                <li class="navigation__item"><a :to="'/marketplace'" class="navigation__link">Marketplace</a></li>
             </ul>
 
             <div class="navigation__account">
@@ -109,7 +109,7 @@ export default {
             position: absolute;
             top: 0;
             left: 0;
-            z-index: 2;
+            z-index: 200;
             width: 100%;
             padding: .8rem 0;
             background: $color-secondary-dark;
@@ -132,7 +132,7 @@ export default {
 
         &__link
         {
-            &:link, &:visited
+            &, &:link, &:visited
             {
                 display: inline-block;
                 text-decoration: none;

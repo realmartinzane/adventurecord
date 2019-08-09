@@ -1,29 +1,26 @@
 <template>
-    <b-row class="navbar-mobile">
-        <b-navbar>
-            <b-navbar-brand :to="'/'">
-                <img src="/img/brand.png" alt="">
-            </b-navbar-brand>
+    <div class="mobile-navigation">
+        <div class="mobile-navigation__brand">
+            <img src="/img/brand.png" alt="Brand Image" class="mobile-navigation__brand-img">
+        </div>
+        
+        <nav class="mobile-navigation__nav">
 
-            <b-navbar-nav class="ml-auto">
-                <b-nav-item-dropdown toggle-class="adv-toggle" right>
-                    <template slot="button-content"><font-awesome-icon :icon="['fas', 'bars']"></font-awesome-icon></template>
-                    <!--
-                    <b-dropdown-item @click="AuthProvider('discord')">Log in</b-dropdown-item>
-                    -->
-                    <b-dropdown-item :to="'/user'">View Profile</b-dropdown-item>
-                    <b-dropdown-item :to="'/user/settings'">Settings</b-dropdown-item>
-                    <b-dropdown-divider></b-dropdown-divider>
-                    <b-dropdown-item :to="'/'">Home</b-dropdown-item>
-                    <b-dropdown-item :to="'/updates'">Updates</b-dropdown-item>
-                    <b-dropdown-item :to="'/commands'">Commands</b-dropdown-item>
-                    <b-dropdown-item href="https://youtu.be/mTzogDbNAI0" target="_blank">Tutorial</b-dropdown-item>
-                    <b-dropdown-item href="https://adventurecord.fandom.com/wiki/AdventureCord_Wiki" target="_blank">Wiki</b-dropdown-item>
-                    <b-dropdown-item :to="'/marketplace'">Marketplace</b-dropdown-item>
-                </b-nav-item-dropdown>
-            </b-navbar-nav>
-        </b-navbar>
-    </b-row>
+            <input type="checkbox" class="mobile-navigation__checkbox" id="nav_toggle">
+            <label for="nav_toggle" class="mobile-navigation__button">
+                <span class="mobile-navigation__icon">&nbsp;</span>
+            </label>
+
+            <ul class="mobile-navigation__list">
+                <li class="mobile-navigation__item"><a :to="'/'" class="mobile-navigation__link">Home</a></li>
+                <li class="mobile-navigation__item"><a :to="'/updates'" class="mobile-navigation__link">Updates</a></li>
+                <li class="mobile-navigation__item"><a :to="'/commands'" class="mobile-navigation__link">Commands</a></li>
+                <li class="mobile-navigation__item"><a href="https://youtu.be/mTzogDbNAI0" target="_blank" class="mobile-navigation__link">Tutorial</a></li>
+                <li class="mobile-navigation__item"><a href="https://adventurecord.fandom.com/wiki/AdventureCord_Wiki" target="_blank" class="mobile-navigation__link">Wiki</a></li>
+                <li class="mobile-navigation__item"><a :to="'/marketplace'" class="mobile-navigation__link">Marketplace</a></li>
+            </ul>
+        </nav>
+    </div>
 </template>
 
 <script>
@@ -63,47 +60,148 @@ export default {
 
 <style lang="scss">
 
-@import '../../sass/_mixins.scss';
+@import '../../sass/abstracts/_variables.scss';
 
-    .navbar-mobile
+    .mobile-navigation
     {
-        position: relative;
-        z-index: 3;
-        .navbar
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 200;
+        width: 100%;
+        padding: 1rem;
+        background: $color-secondary-dark;
+        border: 1px solid $color-border-dark;
+        &__brand
+        {
+            height: 5rem;
+            width: 69%;
+            display: inline-block;
+        }
+
+        &__brand-img
+        {
+            height: 100%;
+            width: auto;
+        }
+
+        &__nav
+        {
+            display: inline-block;
+            width: 29%;
+            text-align: right;
+            vertical-align: top;
+        }
+
+        &__checkbox
+        {
+            display: none;
+        }
+
+        &__button
+        {
+            display: inline-block;
+            cursor: pointer;
+            height: 5rem;
+            width: 5rem;
+            text-align: center;
+        }
+
+        &__icon
         {
             position: relative;
-            z-index: 2;
-            background-color: #10121A; 
-            width: 100%;
-            }
-        .navbar-brand {img{height: 50px;}}
-        .navbar-nav .nav-item
-        {
-            margin: 0 10px;
-            a
+            margin-top: 2.5rem;
+            &, &::before, &::after
             {
-                font-family: 'Roboto Condensed', sans-serif;
-                font-weight: bold;
-                color: white;
-                &:hover, &:active, &:focus {color: #DCC458;}
+                display: inline-block;
+                width: 3rem;
+                height: 2px;
+                background-color: $color-primary;
             }
-            button
+
+            &::before, &::after
             {
-                text-transform: uppercase;
-                background-color: #7289da;
-                svg {vertical-align: middle}
+                content: "";
+                position: absolute;
+                left: 0;
+                transition: all 200ms;
+            }
+
+            &::before
+            {
+                top: -.8rem;
+            }
+
+            &::after 
+            {
+                bottom: -.8rem;
             }
         }
-        .dropdown-menu 
+        
+        &__button:hover &__icon::before
         {
-            background: #212127;
-            .dropdown-item
+            top: -1rem;
+        }
+
+        &__button:hover &__icon::after
+        {
+            top: 1rem;
+        }
+
+        &__list
+        {
+            position: absolute;
+            top: 8rem;
+            right: 0;
+            height: 0;
+            width: 20rem;
+            overflow: hidden;
+            list-style: none;
+            text-align: left;
+            background: $color-secondary;
+            transition: all 200ms;
+        }
+
+        &__link
+        {
+            &, &:link, &:visited
             {
-                padding-top: 7.5px;
-                padding-bottom: 7.5px;
-                &:hover {background: #2d2d35}
+                display: block;
+                text-decoration: none;
+                color: $color-white;
+                font-size: 1.4rem;
+                font-weight: 700;
+                padding: 1rem 2rem;
             }
-            .dropdown-divider {border-color: #3d3d49;}
+            &:hover, &:focus, &:active
+            {
+                color: $color-primary;
+                background: $color-secondary-light;
+            }
+        }
+
+        // Checkbox Animation
+        &__checkbox:checked + &__button &__icon
+        {
+            background-color: transparent;
+        }
+
+        &__checkbox:checked + &__button &__icon::before
+        {
+            top: 0;
+            transform: rotate(135deg);
+        }
+
+        &__checkbox:checked + &__button &__icon::after
+        {
+            top: 0;
+            transform: rotate(-135deg);
+        }
+
+        // Checkbox Functionality
+        &__checkbox:checked ~ &__list
+        {
+            height: 30rem;
         }
     }
 

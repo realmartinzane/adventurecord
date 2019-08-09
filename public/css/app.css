@@ -6,6 +6,10 @@
   box-sizing: inherit;
 }
 
+a {
+  cursor: pointer;
+}
+
 html {
   font-size: 62.5%;
 }
