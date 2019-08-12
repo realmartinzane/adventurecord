@@ -13,11 +13,9 @@ a {cursor: pointer}
 section 
 {
     margin: 10rem auto;
-    width: 90rem;
-}
-
-.section-user
-{
-    position: relative;
-    left: 5%;
+    width: 120rem;
+    @media screen and (max-width: 1360px)
+    {
+        width: 90rem;
+    }
 }

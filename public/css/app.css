@@ -16,12 +16,13 @@ a {
 
 section {
   margin: 10rem auto;
-  width: 90rem;
+  width: 120rem;
 }
 
-.section-user {
-  position: relative;
-  left: 5%;
+@media screen and (max-width: 1360px) {
+  section {
+    width: 90rem;
+  }
 }
 
 body {
