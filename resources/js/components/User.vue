@@ -1,49 +1,70 @@
 <template>
-    <b-row class="profile">
-        <b-col class="profile-left"   md="3" offset-md="2">
-            <div class="header header-mobile">
-                <h1>VampY <span class="banned">Banned</span></h1>
-                <sub>ID: 393447523471196160 </sub>
-            </div>
-            <div class="img-container mb-3">
-                <img src="/img/brand_logo.png">
-                <b-button class="adv-btn small-btn mt-2" :to="'user/settings'">
+    <section class="section-user">
+        <div class="user-profile">
+            <div class="user-profile__left">
+                <img src="/img/brand_logo.png" alt="Profile Image" class="user-profile__img">
+                <button class="user-profile__btn btn btn--primary">
                     <font-awesome-icon :icon="['fas', 'cog']" class="mr-1"></font-awesome-icon>
                     Settings
-                </b-button>
-            </div
-            ><div class="info-container">
-                <div class="field-group">
-                    <div class="short-field"><font-awesome-icon :icon="['fas', 'coins']" class="mr-1"></font-awesome-icon>200</div>
-                    <div class="short-field"><font-awesome-icon :icon="['far', 'gem']" class="mr-1"></font-awesome-icon>75</div>
-                </div>
-                <div class="field-group">
-                    <div><font-awesome-icon :icon="['fas', 'campground']" class="mr-1"></font-awesome-icon>RandomGuild</div>
-                </div>
-                <div class="field-group">
-                    <div><div><font-awesome-icon :icon="['far', 'clock']" class="mr-1"></font-awesome-icon>25.07.2019</div></div>
+                </button>
+                <div class="user-profile__info">
+                    <div class="user-profile__label">
+                        <font-awesome-icon :icon="['fas', 'coins']" class="user-profile__gold"></font-awesome-icon>
+                    </div>
+                    <div class="user-profile__data">
+                        12,753,964
+                    </div>
+
+                    <div class="user-profile__label">
+                        <font-awesome-icon :icon="['far', 'gem']" class="user-profile__gems"></font-awesome-icon>
+                    </div>
+                    <div class="user-profile__data">
+                        11,607
+                    </div>
+
+                    <div class="user-profile__label">
+                        <font-awesome-icon :icon="['fas', 'campground']" class="user-profile__guild"></font-awesome-icon>
+                    </div>
+                    <div class="user-profile__data">
+                        RandomGuild
+                    </div>
+
+                    <div class="user-profile__label">
+                        <font-awesome-icon :icon="['far', 'clock']" class="user-profile__activity"></font-awesome-icon>
+                    </div>
+                    <div class="user-profile__data">
+                        06.07.2019
+                    </div>
                 </div>
             </div>
-        </b-col>
-        <b-col class="profile-right" sm="10" offset-sm="1" offset-md="0" md="7">
-            <div class="header header-desktop">
-                <h1>VampY <span class="banned">Banned</span></h1>
-                <sub>ID: 393447523471196160 </sub>
-            </div>
-            <div class="stats-box">
-                <img src="/img/humania.png" alt="">
-                <div class="right">
-                    <div>Level</div>
-                    <div>17</div
-                    ><div class="level-bar"><b-progress :value="25" :striped="true"></b-progress></div>
+            <div class="user-profile__right">
+                <header class="user-profile__header">
+                    <h2 class="user-profile__name">
+                        VampY 
+                        <span class="user-profile__ban">Banned</span>
+                    </h2>
+                    <sub class="user-profile__id">ID: 393447523471196160 </sub>
+                </header>
+                <div class="user-profile__stats">
+                    <div class="user-profile__stats-left">
+                        <img src="/img/humania.png" alt="Humania Logo" class="user-profile__nation">
+                    </div>
+                    <div class="user-profile__stats-right">
+                        <div class="user-profile__level-label">Level</div>
+                        <div class="user-profile__level">17</div>
+                        <div class="user-profile__progress-bar">
+                            <div class="user-profile__progress"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="user-profile__location">
+                    <div class="user-profile__location-label">Current Location:</div>
+                    <img src="/img/terassyia.png" alr="Location Image" class="user-profile__location-img">
                 </div>
             </div>
-            <div class="location-box">
-                <div>Current Location:</div>
-                <img src="/img/terassyia.png" alt="" class="location">
-            </div>
-        </b-col>
-    </b-row>
+        </div>
+    </section>
 </template>
 
 <script>
@@ -54,150 +75,172 @@ export default {
 
 <style lang="scss">
 
-@import '../../sass/_mixins.scss';
+@import '../../sass/abstracts/_variables.scss';
 
-    .profile 
+    .user-profile
     {
-        padding: 150px 0;
-        color: white;
-    }
-    .header
-    {
-        h1, sub {margin: 0;}
-        .banned
+        &__left
         {
-            color: #ec4853;
-            font-size: 1rem;
+            display: inline-block;
+            width: 30%;
+            padding: 3rem 6rem;
+            vertical-align: top;
+            text-align: center;
+        }
+
+        &__right
+        {
+            display: inline-block;
+            width: 69%;
+            padding: 3rem;
+        }
+
+        // Left Styling
+        &__img
+        {
+            width: 15rem;
+            height: 15rem;
+            border: 5px solid $color-primary;
+            outline: 1px solid $color-black;
+            background-color: $color-black;
+        }
+
+        &__btn
+        {
+            padding: .5rem 1rem;
+            position: relative;
+            z-index: 5000;
+        }
+
+        &__info
+        {
+            margin-top: 2rem;
+        }
+
+        &__label
+        {
+            display: inline-block;
+            width: 25%;
+            margin: .5rem 0;
+        }
+
+        &__gold
+        {
+            color: $color-primary;
+        }
+
+        &__gems
+        {
+            color: #6755b9; // Add variable later
+        }
+
+        &__guild
+        {
+            color: #cb4154; // Add variable later
+        }
+
+        &__activity
+        {
+            color: #00bfff; // Add variable later
+        }
+
+        &__data
+        {
+            display: inline-block;
+            width: 70%;
+            text-align: right;
+        }
+
+        // Right Styling
+        &__name
+        {
+            font-size: 4rem;
+            font-weight: 300;
+            line-height: 1;
+        }
+
+        &__ban
+        {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            color: $color-red;
+        }
+
+        &__id
+        {
+            font-size: 1.2rem;
             text-transform: uppercase;
         }
-    }
-    .header-desktop
-    {
-        display: block;
-        @media screen and (max-width: 767px) {display: none;}
-    }
-    .header-mobile
-    {
-        text-align: center;
-        margin-bottom: 15px;
-        display: none;
-        @media screen and (max-width: 767px) {display: block;}
-    }
-    .profile-left
-    {
-        text-align: center;
-        .img-container
+
+        &__stats
         {
-            @media screen and (max-width: 767px) {display: inline-block;}
-            img
-            {
-                display: block;
-                margin: auto;
-                width: 150px;
-                height: 150px;
-                object-fit: contain;
-                background: black;
-                outline: 2px solid black;
-                border: 4px solid #FFD700;
-            }
-            button
-            {
-                display: block;
-                margin: auto;
-            }
+            background-color: $color-secondary-light;
+            border: 1px solid $color-border-light;
+            box-shadow: 0 0 10px $color-black;
+            margin: 1.5rem 0;
+            padding: 1rem 1.5rem;
         }
-        .info-container
+
+        &__stats-left
         {
-            
-            @media screen and (max-width: 767px) 
-            {
-                display: inline-block;
-                vertical-align: top;
-                margin-left: 15px;
-                margin-top: 25px;
-            }
-            font-size: 1.1rem;
-            text-align: center;
-            .field-group 
-            {
-                div
-                {
-                    display: inline-block;
-                    width: 150px;
-                    margin: 5px 0;
-                    text-align: left;
-                    &.short-field
-                    {
-                        width: 75px;
-                        text-align: left;
-                    }
-                }
-                &:nth-child(2) div {position: relative; right: 6px}
-            }
-            .fa-coins {color: #FFD700}
-            .fa-gem {color: #6755b9}
-            .fa-campground {color: #cb4154;}
-            .fa-clock {color: #00bfff}
+            display: inline-block;
+            width: 12rem;
         }
-    }
-    .profile-right
-    {
-        
-        .stats-box
+
+        &__nation
         {
-            margin: 15px 0;
-            width: 90%;
-            max-width: 800px;
-            background: #2e2e36;
-            border: 1px solid #3d3d49;
-            @include box-shadow(0 0 10px black);
-            padding: 20px;
-            @media screen and (max-width: 767px) {width: 100%;}
-            img
-            {
-                height: 80px;
-                width: 115px;
-            }
-            .right
-            {
-                display: inline-block;
-                vertical-align: middle;
-                width: calc(100% - 120px);
-                div {margin: 0;}
-                div:nth-child(2)
-                {
-                    display: inline-block;
-                    font-size: 2.5rem;
-                    width: 50px;
-                    line-height: 1.1;
-                    margin-right: 10px;
-                }
-                .level-bar 
-                {
-                    display: inline-block;
-                    width: calc(100% - 60px);
-                    @media screen and (max-width: 420px) {width: 100%;}
-                }
-                .progress-bar {background-color: #FFC107}
-            }
+            width: 100%;
         }
-        .location-box
+
+        &__stats-right
         {
-            margin: 20px 0;
-            width: 90%;
-            max-width: 800px;
-            @media screen and (max-width: 767px) {width: 100%;}
-            div 
-            {
-                font-size: 1.0rem;
-                margin-bottom: 5px;
-            }
-            img 
-            {
-                width: 100%;
-                border: 1px solid #3d3d49;
-                @include box-shadow(0 0 10px black);
-            }
+            display: inline-block;
+            width: calc(100% - 12.5rem);
+            vertical-align: top;
         }
+
+        &__level-label
+        {
+            margin-top: 1rem;
+        }
+
+        &__level
+        {
+            font-size: 4rem;
+            line-height: 1;
+            display: inline-block;
+        }
+
+        &__progress-bar
+        {
+            display: inline-block;
+            width: calc(100% - 60px);
+            height: 2rem;
+            background: $color-gray-light;
+            border-radius: 3px;
+        }
+
+        &__progress
+        {
+            width: 40%;
+            height: 100%;
+            background-image: repeating-linear-gradient(45deg, $color-primary, $color-primary 1rem, #e2c000 1rem, #e2c000 2rem);
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+        }
+
+        &__location
+        {
+            margin: 1.5rem 0;
+        }
+
+        &__location-img
+        {
+            width: 100%;
+            height: auto;
+            border: 1px solid $color-border-light;
+            box-shadow: 0 0 10px $color-black;
+        }
+
     }
 </style>

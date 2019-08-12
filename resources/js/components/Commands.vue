@@ -1,8 +1,8 @@
 <template>
     <section class="section-commands">
-        <div class="u-center-text u-margin-bottom-lg">
+        <header class="u-center-text u-margin-bottom-lg">
             <h2 class="heading-secondary">Commands</h2>
-        </div>
+        </header>
 
         <div class="commands">
             <input type="radio" name="tabs" id="btn_1" checked="checked" class="commands__radio">

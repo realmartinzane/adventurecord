@@ -16663,6 +16663,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -16751,7 +16772,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".commands__radio {\n  display: none;\n}\n.commands__button {\n  display: inline-block;\n  color: #fff;\n  padding: 1rem 4rem;\n  border-top-left-radius: 3px;\n  border-top-right-radius: 3px;\n  cursor: pointer;\n}\n.commands__radio:checked + .commands__button {\n  color: #212127;\n  background-color: #FFD700;\n}\n.commands__info-box {\n  padding: 1rem 0;\n  border-top: 1px solid #FFD700;\n}\n.commands__tab {\n  display: none;\n}\n.commands #btn_1:checked ~ #tab_1 {\n  display: block;\n}\n.commands #btn_2:checked ~ #tab_2 {\n  display: block;\n}\n.commands #btn_3:checked ~ #tab_3 {\n  display: block;\n}\n.commands #btn_4:checked ~ #tab_4 {\n  display: block;\n}\n.commands__table {\n  width: 100%;\n  border-top: 2px solid #545464;\n  border-bottom: 2px solid #545464;\n  text-align: left;\n  border-collapse: collapse;\n}\n.commands__row {\n  font-weight: normal;\n  border-bottom: 1px solid #545464;\n}\n.commands__row--first {\n  border-bottom: 2px solid #545464;\n  font-weight: bold;\n}\n.commands__row--first .commands__column {\n  color: #fff;\n}\n.commands__column {\n  padding: 0.8rem 1.5rem;\n}\n.commands__column--command {\n  width: 30%;\n  color: #FFD700;\n}\n.commands__column--function {\n  width: 69%;\n}", ""]);
+exports.push([module.i, ".commands__radio {\n  display: none;\n}\n.commands__button {\n  display: inline-block;\n  color: #fff;\n  padding: 1rem 4rem;\n  border-top-left-radius: 3px;\n  border-top-right-radius: 3px;\n  cursor: pointer;\n}\n.commands__radio:checked + .commands__button {\n  color: #212127;\n  background-color: #FFD700;\n}\n.commands__info-box {\n  padding: 1rem 0;\n  border-top: 1px solid #FFD700;\n}\n.commands__tab {\n  display: none;\n}\n.commands #btn_1:checked ~ #tab_1 {\n  display: block;\n}\n.commands #btn_2:checked ~ #tab_2 {\n  display: block;\n}\n.commands #btn_3:checked ~ #tab_3 {\n  display: block;\n}\n.commands #btn_4:checked ~ #tab_4 {\n  display: block;\n}\n.commands__table {\n  width: 100%;\n  border-top: 2px solid #494957;\n  border-bottom: 2px solid #494957;\n  text-align: left;\n  border-collapse: collapse;\n}\n.commands__row {\n  font-weight: normal;\n  border-bottom: 1px solid #494957;\n}\n.commands__row--first {\n  border-bottom: 2px solid #494957;\n  font-weight: bold;\n}\n.commands__row--first .commands__column {\n  color: #fff;\n}\n.commands__column {\n  padding: 0.8rem 1.5rem;\n}\n.commands__column--command {\n  width: 30%;\n  color: #FFD700;\n}\n.commands__column--function {\n  width: 69%;\n}", ""]);
 
 // exports
 
@@ -16922,7 +16943,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".profile {\n  padding: 150px 0;\n  color: white;\n}\n.header h1, .header sub {\n  margin: 0;\n}\n.header .banned {\n  color: #ec4853;\n  font-size: 1rem;\n  text-transform: uppercase;\n}\n.header-desktop {\n  display: block;\n}\n@media screen and (max-width: 767px) {\n.header-desktop {\n    display: none;\n}\n}\n.header-mobile {\n  text-align: center;\n  margin-bottom: 15px;\n  display: none;\n}\n@media screen and (max-width: 767px) {\n.header-mobile {\n    display: block;\n}\n}\n.profile-left {\n  text-align: center;\n}\n@media screen and (max-width: 767px) {\n.profile-left .img-container {\n    display: inline-block;\n}\n}\n.profile-left .img-container img {\n  display: block;\n  margin: auto;\n  width: 150px;\n  height: 150px;\n  -o-object-fit: contain;\n     object-fit: contain;\n  background: black;\n  outline: 2px solid black;\n  border: 4px solid #FFD700;\n}\n.profile-left .img-container button {\n  display: block;\n  margin: auto;\n}\n.profile-left .info-container {\n  font-size: 1.1rem;\n  text-align: center;\n}\n@media screen and (max-width: 767px) {\n.profile-left .info-container {\n    display: inline-block;\n    vertical-align: top;\n    margin-left: 15px;\n    margin-top: 25px;\n}\n}\n.profile-left .info-container .field-group div {\n  display: inline-block;\n  width: 150px;\n  margin: 5px 0;\n  text-align: left;\n}\n.profile-left .info-container .field-group div.short-field {\n  width: 75px;\n  text-align: left;\n}\n.profile-left .info-container .field-group:nth-child(2) div {\n  position: relative;\n  right: 6px;\n}\n.profile-left .info-container .fa-coins {\n  color: #FFD700;\n}\n.profile-left .info-container .fa-gem {\n  color: #6755b9;\n}\n.profile-left .info-container .fa-campground {\n  color: #cb4154;\n}\n.profile-left .info-container .fa-clock {\n  color: #00bfff;\n}\n.profile-right .stats-box {\n  margin: 15px 0;\n  width: 90%;\n  max-width: 800px;\n  background: #2e2e36;\n  border: 1px solid #3d3d49;\n  box-shadow: 0 0 10px black;\n  padding: 20px;\n}\n@media screen and (max-width: 767px) {\n.profile-right .stats-box {\n    width: 100%;\n}\n}\n.profile-right .stats-box img {\n  height: 80px;\n  width: 115px;\n}\n.profile-right .stats-box .right {\n  display: inline-block;\n  vertical-align: middle;\n  width: calc(100% - 120px);\n}\n.profile-right .stats-box .right div {\n  margin: 0;\n}\n.profile-right .stats-box .right div:nth-child(2) {\n  display: inline-block;\n  font-size: 2.5rem;\n  width: 50px;\n  line-height: 1.1;\n  margin-right: 10px;\n}\n.profile-right .stats-box .right .level-bar {\n  display: inline-block;\n  width: calc(100% - 60px);\n}\n@media screen and (max-width: 420px) {\n.profile-right .stats-box .right .level-bar {\n    width: 100%;\n}\n}\n.profile-right .stats-box .right .progress-bar {\n  background-color: #FFC107;\n}\n.profile-right .location-box {\n  margin: 20px 0;\n  width: 90%;\n  max-width: 800px;\n}\n@media screen and (max-width: 767px) {\n.profile-right .location-box {\n    width: 100%;\n}\n}\n.profile-right .location-box div {\n  font-size: 1rem;\n  margin-bottom: 5px;\n}\n.profile-right .location-box img {\n  width: 100%;\n  border: 1px solid #3d3d49;\n  box-shadow: 0 0 10px black;\n}", ""]);
+exports.push([module.i, ".user-profile__left {\n  display: inline-block;\n  width: 30%;\n  padding: 3rem 6rem;\n  vertical-align: top;\n  text-align: center;\n}\n.user-profile__right {\n  display: inline-block;\n  width: 69%;\n  padding: 3rem;\n}\n.user-profile__img {\n  width: 15rem;\n  height: 15rem;\n  border: 5px solid #FFD700;\n  outline: 1px solid #000;\n  background-color: #000;\n}\n.user-profile__btn {\n  padding: 0.5rem 1rem;\n  position: relative;\n  z-index: 5000;\n}\n.user-profile__info {\n  margin-top: 2rem;\n}\n.user-profile__label {\n  display: inline-block;\n  width: 25%;\n  margin: 0.5rem 0;\n}\n.user-profile__gold {\n  color: #FFD700;\n}\n.user-profile__gems {\n  color: #6755b9;\n}\n.user-profile__guild {\n  color: #cb4154;\n}\n.user-profile__activity {\n  color: #00bfff;\n}\n.user-profile__data {\n  display: inline-block;\n  width: 70%;\n  text-align: right;\n}\n.user-profile__name {\n  font-size: 4rem;\n  font-weight: 300;\n  line-height: 1;\n}\n.user-profile__ban {\n  font-size: 1.5rem;\n  text-transform: uppercase;\n  color: #ec4853;\n}\n.user-profile__id {\n  font-size: 1.2rem;\n  text-transform: uppercase;\n}\n.user-profile__stats {\n  background-color: #2E2E36;\n  border: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n  margin: 1.5rem 0;\n  padding: 1rem 1.5rem;\n}\n.user-profile__stats-left {\n  display: inline-block;\n  width: 12rem;\n}\n.user-profile__nation {\n  width: 100%;\n}\n.user-profile__stats-right {\n  display: inline-block;\n  width: calc(100% - 12.5rem);\n  vertical-align: top;\n}\n.user-profile__level-label {\n  margin-top: 1rem;\n}\n.user-profile__level {\n  font-size: 4rem;\n  line-height: 1;\n  display: inline-block;\n}\n.user-profile__progress-bar {\n  display: inline-block;\n  width: calc(100% - 60px);\n  height: 2rem;\n  background: #d3d3d3;\n  border-radius: 3px;\n}\n.user-profile__progress {\n  width: 40%;\n  height: 100%;\n  background-image: repeating-linear-gradient(45deg, #FFD700, #FFD700 1rem, #e2c000 1rem, #e2c000 2rem);\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.user-profile__location {\n  margin: 1.5rem 0;\n}\n.user-profile__location-img {\n  width: 100%;\n  height: auto;\n  border: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n}", ""]);
 
 // exports
 
@@ -35811,7 +35832,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "u-center-text u-margin-bottom-lg" }, [
+    return _c("header", { staticClass: "u-center-text u-margin-bottom-lg" }, [
       _c("h2", { staticClass: "heading-secondary" }, [_vm._v("Commands")])
     ])
   },
@@ -37389,156 +37410,149 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "b-row",
-    { staticClass: "profile" },
-    [
-      _c(
-        "b-col",
-        { staticClass: "profile-left", attrs: { md: "3", "offset-md": "2" } },
-        [
-          _c("div", { staticClass: "header header-mobile" }, [
-            _c("h1", [
-              _vm._v("VampY "),
-              _c("span", { staticClass: "banned" }, [_vm._v("Banned")])
-            ]),
-            _vm._v(" "),
-            _c("sub", [_vm._v("ID: 393447523471196160 ")])
+  return _c("section", { staticClass: "section-user" }, [
+    _c("div", { staticClass: "user-profile" }, [
+      _c("div", { staticClass: "user-profile__left" }, [
+        _c("img", {
+          staticClass: "user-profile__img",
+          attrs: { src: "/img/brand_logo.png", alt: "Profile Image" }
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "user-profile__btn btn btn--primary" },
+          [
+            _c("font-awesome-icon", {
+              staticClass: "mr-1",
+              attrs: { icon: ["fas", "cog"] }
+            }),
+            _vm._v("\n                Settings\n            ")
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "user-profile__info" }, [
+          _c(
+            "div",
+            { staticClass: "user-profile__label" },
+            [
+              _c("font-awesome-icon", {
+                staticClass: "user-profile__gold",
+                attrs: { icon: ["fas", "coins"] }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "user-profile__data" }, [
+            _vm._v("\n                    12,753,964\n                ")
           ]),
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "img-container mb-3" },
+            { staticClass: "user-profile__label" },
             [
-              _c("img", { attrs: { src: "/img/brand_logo.png" } }),
-              _vm._v(" "),
-              _c(
-                "b-button",
-                {
-                  staticClass: "adv-btn small-btn mt-2",
-                  attrs: { to: "user/settings" }
-                },
-                [
-                  _c("font-awesome-icon", {
-                    staticClass: "mr-1",
-                    attrs: { icon: ["fas", "cog"] }
-                  }),
-                  _vm._v("\n                Settings\n            ")
-                ],
-                1
-              )
+              _c("font-awesome-icon", {
+                staticClass: "user-profile__gems",
+                attrs: { icon: ["far", "gem"] }
+              })
             ],
             1
           ),
-          _c("div", { staticClass: "info-container" }, [
-            _c("div", { staticClass: "field-group" }, [
-              _c(
-                "div",
-                { staticClass: "short-field" },
-                [
-                  _c("font-awesome-icon", {
-                    staticClass: "mr-1",
-                    attrs: { icon: ["fas", "coins"] }
-                  }),
-                  _vm._v("200")
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "short-field" },
-                [
-                  _c("font-awesome-icon", {
-                    staticClass: "mr-1",
-                    attrs: { icon: ["far", "gem"] }
-                  }),
-                  _vm._v("75")
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "field-group" }, [
-              _c(
-                "div",
-                [
-                  _c("font-awesome-icon", {
-                    staticClass: "mr-1",
-                    attrs: { icon: ["fas", "campground"] }
-                  }),
-                  _vm._v("RandomGuild")
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "field-group" }, [
-              _c("div", [
-                _c(
-                  "div",
-                  [
-                    _c("font-awesome-icon", {
-                      staticClass: "mr-1",
-                      attrs: { icon: ["far", "clock"] }
-                    }),
-                    _vm._v("25.07.2019")
-                  ],
-                  1
-                )
-              ])
-            ])
+          _vm._v(" "),
+          _c("div", { staticClass: "user-profile__data" }, [
+            _vm._v("\n                    11,607\n                ")
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "user-profile__label" },
+            [
+              _c("font-awesome-icon", {
+                staticClass: "user-profile__guild",
+                attrs: { icon: ["fas", "campground"] }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "user-profile__data" }, [
+            _vm._v("\n                    RandomGuild\n                ")
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "user-profile__label" },
+            [
+              _c("font-awesome-icon", {
+                staticClass: "user-profile__activity",
+                attrs: { icon: ["far", "clock"] }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "user-profile__data" }, [
+            _vm._v("\n                    06.07.2019\n                ")
           ])
-        ]
-      ),
+        ])
+      ]),
       _vm._v(" "),
-      _c(
-        "b-col",
-        {
-          staticClass: "profile-right",
-          attrs: { sm: "10", "offset-sm": "1", "offset-md": "0", md: "7" }
-        },
-        [
-          _c("div", { staticClass: "header header-desktop" }, [
-            _c("h1", [
-              _vm._v("VampY "),
-              _c("span", { staticClass: "banned" }, [_vm._v("Banned")])
-            ]),
-            _vm._v(" "),
-            _c("sub", [_vm._v("ID: 393447523471196160 ")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "stats-box" }, [
-            _c("img", { attrs: { src: "/img/humania.png", alt: "" } }),
-            _vm._v(" "),
-            _c("div", { staticClass: "right" }, [
-              _c("div", [_vm._v("Level")]),
-              _vm._v(" "),
-              _c("div", [_vm._v("17")]),
-              _c(
-                "div",
-                { staticClass: "level-bar" },
-                [_c("b-progress", { attrs: { value: 25, striped: true } })],
-                1
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "location-box" }, [
-            _c("div", [_vm._v("Current Location:")]),
-            _vm._v(" "),
-            _c("img", {
-              staticClass: "location",
-              attrs: { src: "/img/terassyia.png", alt: "" }
-            })
-          ])
-        ]
-      )
-    ],
-    1
-  )
+      _vm._m(0)
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "user-profile__right" }, [
+      _c("header", { staticClass: "user-profile__header" }, [
+        _c("h2", { staticClass: "user-profile__name" }, [
+          _vm._v("\n                    VampY \n                    "),
+          _c("span", { staticClass: "user-profile__ban" }, [_vm._v("Banned")])
+        ]),
+        _vm._v(" "),
+        _c("sub", { staticClass: "user-profile__id" }, [
+          _vm._v("ID: 393447523471196160 ")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "user-profile__stats" }, [
+        _c("div", { staticClass: "user-profile__stats-left" }, [
+          _c("img", {
+            staticClass: "user-profile__nation",
+            attrs: { src: "/img/humania.png", alt: "Humania Logo" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "user-profile__stats-right" }, [
+          _c("div", { staticClass: "user-profile__level-label" }, [
+            _vm._v("Level")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "user-profile__level" }, [_vm._v("17")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "user-profile__progress-bar" }, [
+            _c("div", { staticClass: "user-profile__progress" })
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "user-profile__location" }, [
+        _c("div", { staticClass: "user-profile__location-label" }, [
+          _vm._v("Current Location:")
+        ]),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "user-profile__location-img",
+          attrs: { src: "/img/terassyia.png", alr: "Location Image" }
+        })
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
