@@ -1,7 +1,7 @@
 <template>
-    <b-row class="footer">
+    <footer class="footer">
         <p>AdventureCord, Copyright &copy; 2019</p>
-    </b-row>
+    </footer>
 </template>
 
 <script>
@@ -11,12 +11,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+@import '../../sass/abstracts/_variables.scss';
+
     .footer
     {
-        background: #10121A;
-        color: gray;
+        background: $color-secondary-dark;
+        color: $color-gray-light;
         padding: 25px;
-        border-top: 1px solid #3d3d49;
-        p {margin: 0;}
+        border-top: 1px solid $color-border-light;
     }
 </style>

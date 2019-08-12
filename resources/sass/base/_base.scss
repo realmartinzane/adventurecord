@@ -5,14 +5,24 @@
     box-sizing: inherit
 }
 
+
 // Definition for 1rem
 html {font-size: 62.5%}
 
 a {cursor: pointer}
 
-section 
+
+html, body, #app, .container
 {
-    margin: 10rem auto;
+    height: 100%;
+}
+
+main {min-height: calc(100% - 78px);}
+
+section
+{
+    padding: 10rem 0;
+    margin: 0 auto;
     width: 120rem;
     @media screen and (max-width: 1360px)
     {

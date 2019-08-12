@@ -5,18 +5,21 @@
         <main>
             <router-view></router-view>
         </main>
+        <footer-component></footer-component>
     </div>
 </template>
 
 <script>
 import NavigationBarDesktopComponent from './components/NavigationBarDesktop.vue'
 import NavigationBarMobileComponent from './components/NavigationBarMobile.vue'
+import FooterComponent from './components/Footer.vue'
 
 export default {
     components:
     {
         NavigationBarDesktopComponent,
-        NavigationBarMobileComponent
+        NavigationBarMobileComponent,
+        FooterComponent
     }
 }
 </script>
@@ -32,6 +35,5 @@ export default {
     {
         @media screen and (min-width: 992px){display: none;}
     }
-
     
 </style>
