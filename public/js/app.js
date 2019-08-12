@@ -16697,7 +16697,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _SectionHeader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SectionHeader.vue */ "./resources/js/components/SectionHeader.vue");
 //
 //
 //
@@ -16721,11 +16720,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    SectionHeaderComponent: _SectionHeader_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
   data: function data() {
     return {
       languages: [{
@@ -16962,7 +16976,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".form__group[data-v-5c854df9] {\n  width: 50%;\n  margin: auto;\n}\n.form__label[data-v-5c854df9] {\n  display: block;\n}\n.form__select[data-v-5c854df9] {\n  width: 100%;\n  background-color: #2E2E36;\n  border: 1px solid #3d3d49;\n  border-radius: 3px;\n  padding: 1rem;\n  color: #d3d3d3;\n}\n.form__submit[data-v-5c854df9] {\n  display: block;\n  margin: auto;\n}", ""]);
 
 // exports
 
@@ -37574,69 +37588,58 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "b-row",
-    { staticClass: "settings" },
-    [
-      _c("section-header-component", {
-        attrs: { text: "VampY - Settings", spacing: true }
-      }),
+  return _c("section", { staticClass: "section-user-settings" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("form", { staticClass: "form", attrs: { action: "#" } }, [
+      _c("div", { staticClass: "form__group" }, [
+        _c("label", { staticClass: "form__label", attrs: { for: "lang" } }, [
+          _vm._v("Adventure Cord Language")
+        ]),
+        _vm._v(" "),
+        _c(
+          "select",
+          { staticClass: "form__select", attrs: { name: "lang", id: "lang" } },
+          _vm._l(_vm.languages, function(lang, index) {
+            return _c(
+              "option",
+              { key: index, domProps: { value: lang.value } },
+              [_vm._v(_vm._s(lang.text))]
+            )
+          }),
+          0
+        )
+      ]),
       _vm._v(" "),
-      _c(
-        "b-col",
-        {
-          attrs: {
-            cols: "10",
-            offset: "1",
-            lg: "8",
-            "offset-lg": "2",
-            xl: "6",
-            "offset-xl": "3"
-          }
-        },
-        [
-          _c(
-            "b-form",
-            { staticClass: "adv-form" },
-            [
-              _c(
-                "b-form-group",
-                {
-                  attrs: {
-                    id: "language-group",
-                    label: "Language:",
-                    "label-for": "language"
-                  }
-                },
-                [
-                  _c("b-form-select", {
-                    attrs: {
-                      id: "language",
-                      options: _vm.languages,
-                      value: "en",
-                      "select-size": 3
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-button",
-                { staticClass: "adv-btn", attrs: { type: "submit" } },
-                [_vm._v("Submit")]
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
+      _vm._m(1)
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("header", { staticClass: "u-center-text u-margin-bottom-lg" }, [
+      _c("h2", { staticClass: "heading-secondary" }, [_vm._v("User Settings")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form__group u-margin-top-md" }, [
+      _c(
+        "button",
+        {
+          staticClass: "form__submit btn btn--primary",
+          attrs: { type: "submit" }
+        },
+        [_vm._v("Submit")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
