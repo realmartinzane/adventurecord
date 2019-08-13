@@ -140,7 +140,7 @@ body {
 }
 
 .btn--primary {
-  background: transparent;
+  background-color: transparent;
   border-color: #FFD700;
   color: #FFD700;
 }
@@ -149,19 +149,33 @@ body {
 .btn--primary:active,
 .btn--primary:focus {
   color: #fff;
-  background: #c9b350;
+  background-color: #c9b350;
   border-color: #c9b350;
 }
 
+.btn--primary-2 {
+  background-color: rgba(255, 215, 0, 0.7);
+  border-color: rgba(255, 215, 0, 0.7);
+  color: #fff;
+}
+
+.btn--primary-2:hover,
+.btn--primary-2:active,
+.btn--primary-2:focus {
+  color: #fff;
+  background-color: rgba(255, 215, 0, 0.9);
+  border-color: rgba(255, 215, 0, 0.9);
+}
+
 .btn--discord {
-  background: rgba(114, 137, 218, 0.8);
+  background-color: rgba(114, 137, 218, 0.8);
   border-color: rgba(114, 137, 218, 0.8);
 }
 
 .btn--discord:hover,
 .btn--discord:active,
 .btn--discord:focus {
-  background: #7289da;
+  background-color: #7289da;
   border-color: #7289da;
 }
 

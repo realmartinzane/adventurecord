@@ -23,26 +23,40 @@
 
     &--primary
     {
-        background: transparent;
+        background-color: transparent;
         border-color: $color-primary;
         color: $color-primary;
 
         &:hover,  &:active, &:focus
         {
             color: $color-white;
-            background: $color-primary-dark;
+            background-color: $color-primary-dark;
             border-color: $color-primary-dark;
+        }
+    }
+
+    &--primary-2
+    {
+        background-color: rgba($color-primary, .7);
+        border-color: rgba($color-primary, .7);
+        color: $color-white;
+
+        &:hover,  &:active, &:focus
+        {
+            color: $color-white;
+            background-color: rgba($color-primary, .9);
+            border-color: rgba($color-primary, .9);
         }
     }
 
     &--discord
     {
-        background: rgba($color-discord, .8);
+        background-color: rgba($color-discord, .8);
         border-color: rgba($color-discord, .8);
 
         &:hover,  &:active, &:focus
         {
-            background: $color-discord;
+            background-color: $color-discord;
             border-color: $color-discord;
         }
     }
