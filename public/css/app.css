@@ -116,12 +116,12 @@ body {
 .btn:link {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 0.8rem 1.6rem;
+  padding: 0.9rem 1.8rem;
   display: inline-block;
   border-radius: 3px;
   -webkit-transition: all 200ms;
   transition: all 200ms;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   border: 1px solid transparent;
   color: #fff;
   cursor: pointer;
