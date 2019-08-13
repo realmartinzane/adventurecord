@@ -1,4 +1,64 @@
 <template>
+    <section class="section-marketplace">
+        <header class="u-center-text u-margin-bottom-lg">
+            <h2 class="heading-secondary">Marketplace</h2>
+        </header>
+
+        <form action="#" class="form">
+            <div class="form__group">
+                <input type="text" class="form__input" id="item" placeholder="Search for items..."
+                ><button type="submit" class="form__search">
+                    <font-awesome-icon :icon="['fas', 'search']"></font-awesome-icon>
+                </button>
+            </div>
+        </form>
+
+        <div class="u-center-text u-margin-top-md u-margin-bottom-sm">
+            <h3 class="heading-tertiary">Popular Items Now</h3>
+        </div>
+
+        <div class="row">
+            <div class="col-1-of-3">
+                <div class="item">
+                    <div class="item__left">
+                        <img src="/img/brand_logo.png" alt="Item Image" class="item__img">
+                    </div>
+                    <div class="item__right">
+                        <h4 class="item__name">Item Name</h4>
+                        <div class="item__info">Class: Mage</div>
+                        <div class="item__info">Armor: 24</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-1-of-3">
+                <div class="item">
+                    <div class="item__left">
+                        <img src="/img/brand_logo.png" alt="Item Image" class="item__img">
+                    </div>
+                    <div class="item__right">
+                        <h4 class="item__name">Item Name</h4>
+                        <div class="item__info">Class: Mage</div>
+                        <div class="item__info">Armor: 24</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-1-of-3">
+                <div class="item">
+                    <div class="item__left">
+                        <img src="/img/brand_logo.png" alt="Item Image" class="item__img">
+                    </div>
+                    <div class="item__right">
+                        <h4 class="item__name">Item Name</h4>
+                        <div class="item__info">Class: Mage</div>
+                        <div class="item__info">Armor: 24</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--
     <b-row>
         <section-header-component 
             :text="'Marketplace'"
@@ -89,14 +149,12 @@
 
         </b-col>
     </b-row>
+    -->
 </template>
 
 <script>
 
-import SectionHeaderComponent from './SectionHeader.vue'
-
 export default {
-    components: {SectionHeaderComponent},
     data(){return{
         showModal: false
     }}
@@ -105,7 +163,94 @@ export default {
 
 <style lang="scss">
 
-@import '../../sass/_mixins.scss';
+@import '../../sass/abstracts/_variables.scss';
+
+    .form
+    {
+        &__input
+        {
+            display: inline-block;
+            width: calc(90% - 2px);
+            border: none;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+            vertical-align: top;
+        }
+
+        &__search
+        {
+            &
+            {
+                display: inline-block;
+                padding: .8rem;
+                width: calc(10% - 2px);
+                border: 1px solid $color-primary;
+                border-top-right-radius: 3px;
+                border-bottom-right-radius: 3px;
+                font-size: 1.5rem;
+                background-color: rgba($color-primary, .8);
+                color: $color-secondary-light;
+                transition: all 200ms;
+                cursor: pointer;
+            }
+
+            &:hover, &:active, &:focus
+            {
+                outline: none;
+                background-color: $color-primary;
+                border-color: $color-primary;
+                
+            }
+        }
+    }
+
+    .item
+    {
+        background-color: $color-secondary-light;
+        border: 1px solid $color-border-light;
+        box-shadow: 0 0 1rem $color-primary;
+        padding: 1.5rem;
+        
+        &__left
+        {
+            display: inline-block;
+            height: 6.5rem;
+            width: 6.5rem;
+            padding: .5rem;
+            background: black;
+            outline: 1px solid black;
+            border: 4px solid #FFD700;
+            vertical-align: middle;
+        }
+
+        &__img
+        {
+            width: 100%;
+        }
+
+        &__right
+        {
+            display: inline-block;
+            width: calc(100% - 8rem);
+            margin-left: 1rem;
+            vertical-align: middle;
+        }
+
+        &__name
+        {
+            font-size: 2.3rem;
+            font-weight: 400;
+        }
+
+        &__info
+        {
+
+        }
+    }
+
+    
+
+/*
     input::placeholder {color: lightgray;}
     .input-group-text 
     {
@@ -223,5 +368,5 @@ export default {
             }
         }
     }
-
+*/
 </style>

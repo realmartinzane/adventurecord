@@ -33,36 +33,4 @@ export default {
 
 <style lang="scss" scoped>
 
-@import '../../sass/abstracts/_variables.scss';
-
-    .form
-    {
-        &__group 
-        {
-            width: 50%;
-            margin: auto;
-        }
-
-        &__label
-        {
-            display: block;
-        }
-
-        &__select
-        {
-            width: 100%;
-            background-color: $color-secondary-light;
-            border: 1px solid $color-border-dark;
-            border-radius: 3px;
-            padding: 1rem;
-            color: $color-gray-light;
-        }
-
-        &__submit 
-        {
-            display: block;
-            margin: auto;
-        }
-    }
-
 </style>

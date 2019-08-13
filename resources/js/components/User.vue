@@ -101,7 +101,7 @@ export default {
             width: 15rem;
             height: 15rem;
             border: 5px solid $color-primary;
-            outline: 1px solid $color-black;
+            outline: 3px solid $color-black;
             background-color: $color-black;
         }
 

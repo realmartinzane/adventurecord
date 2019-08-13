@@ -26,9 +26,8 @@
         background: transparent;
         border-color: $color-primary;
         color: $color-primary;
-        transition: all 200ms;
 
-        &:hover
+        &:hover,  &:active, &:focus
         {
             color: $color-white;
             background: $color-primary-dark;
@@ -38,11 +37,10 @@
 
     &--discord
     {
-        background: rgba($color-discord, .9);
-        border-color: rgba($color-discord, .9);
-        transition: all 200ms;
+        background: rgba($color-discord, .8);
+        border-color: rgba($color-discord, .8);
 
-        &:hover
+        &:hover,  &:active, &:focus
         {
             background: $color-discord;
             border-color: $color-discord;

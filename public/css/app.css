@@ -67,6 +67,13 @@ body {
   border-bottom: 3px solid #FFD700;
 }
 
+.heading-tertiary {
+  font-size: 2.8rem;
+  font-weight: 400;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
 .u-center-text {
   text-align: center !important;
 }
@@ -136,26 +143,50 @@ body {
   background: transparent;
   border-color: #FFD700;
   color: #FFD700;
-  -webkit-transition: all 200ms;
-  transition: all 200ms;
 }
 
-.btn--primary:hover {
+.btn--primary:hover,
+.btn--primary:active,
+.btn--primary:focus {
   color: #fff;
   background: #c9b350;
   border-color: #c9b350;
 }
 
 .btn--discord {
-  background: rgba(114, 137, 218, 0.9);
-  border-color: rgba(114, 137, 218, 0.9);
-  -webkit-transition: all 200ms;
-  transition: all 200ms;
+  background: rgba(114, 137, 218, 0.8);
+  border-color: rgba(114, 137, 218, 0.8);
 }
 
-.btn--discord:hover {
+.btn--discord:hover,
+.btn--discord:active,
+.btn--discord:focus {
   background: #7289da;
   border-color: #7289da;
+}
+
+.form__group {
+  width: 50%;
+  margin: auto;
+}
+
+.form__label {
+  display: block;
+}
+
+.form__select,
+.form__input {
+  width: 100%;
+  background-color: #2E2E36;
+  border: 1px solid #3d3d49;
+  border-radius: 3px;
+  padding: 1rem;
+  color: #d3d3d3;
+}
+
+.form__submit {
+  display: block;
+  margin: auto;
 }
 
 .row {
