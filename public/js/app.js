@@ -36358,39 +36358,64 @@ var render = function() {
     _vm._v(" "),
     _c("nav", { staticClass: "navigation__nav" }, [
       _c("ul", { staticClass: "navigation__list" }, [
-        _c("li", { staticClass: "navigation__item" }, [
-          _c("a", { staticClass: "navigation__link", attrs: { to: "/" } }, [
-            _vm._v("Home")
-          ])
-        ]),
+        _c(
+          "li",
+          { staticClass: "navigation__item" },
+          [
+            _c(
+              "router-link",
+              { staticClass: "navigation__link", attrs: { to: "/" } },
+              [_vm._v("Home")]
+            )
+          ],
+          1
+        ),
         _vm._v(" "),
-        _c("li", { staticClass: "navigation__item" }, [
-          _c(
-            "a",
-            { staticClass: "navigation__link", attrs: { to: "/updates" } },
-            [_vm._v("Updates")]
-          )
-        ]),
+        _c(
+          "li",
+          { staticClass: "navigation__item" },
+          [
+            _c(
+              "router-link",
+              { staticClass: "navigation__link", attrs: { to: "/updates" } },
+              [_vm._v("Updates")]
+            )
+          ],
+          1
+        ),
         _vm._v(" "),
-        _c("li", { staticClass: "navigation__item" }, [
-          _c(
-            "a",
-            { staticClass: "navigation__link", attrs: { to: "/commands" } },
-            [_vm._v("Commands")]
-          )
-        ]),
+        _c(
+          "li",
+          { staticClass: "navigation__item" },
+          [
+            _c(
+              "router-link",
+              { staticClass: "navigation__link", attrs: { to: "/commands" } },
+              [_vm._v("Commands")]
+            )
+          ],
+          1
+        ),
         _vm._v(" "),
         _vm._m(1),
         _vm._v(" "),
         _vm._m(2),
         _vm._v(" "),
-        _c("li", { staticClass: "navigation__item" }, [
-          _c(
-            "a",
-            { staticClass: "navigation__link", attrs: { to: "/marketplace" } },
-            [_vm._v("Marketplace")]
-          )
-        ])
+        _c(
+          "li",
+          { staticClass: "navigation__item" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "navigation__link",
+                attrs: { to: "/marketplace" }
+              },
+              [_vm._v("Marketplace")]
+            )
+          ],
+          1
+        )
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "navigation__account" }, [
@@ -36497,50 +36522,70 @@ var render = function() {
       _vm._m(1),
       _vm._v(" "),
       _c("ul", { staticClass: "mobile-navigation__list" }, [
-        _c("li", { staticClass: "mobile-navigation__item" }, [
-          _c(
-            "a",
-            { staticClass: "mobile-navigation__link", attrs: { to: "/" } },
-            [_vm._v("Home")]
-          )
-        ]),
+        _c(
+          "li",
+          { staticClass: "mobile-navigation__item" },
+          [
+            _c(
+              "router-link",
+              { staticClass: "mobile-navigation__link", attrs: { to: "/" } },
+              [_vm._v("Home")]
+            )
+          ],
+          1
+        ),
         _vm._v(" "),
-        _c("li", { staticClass: "mobile-navigation__item" }, [
-          _c(
-            "a",
-            {
-              staticClass: "mobile-navigation__link",
-              attrs: { to: "/updates" }
-            },
-            [_vm._v("Updates")]
-          )
-        ]),
+        _c(
+          "li",
+          { staticClass: "mobile-navigation__item" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "mobile-navigation__link",
+                attrs: { to: "/updates" }
+              },
+              [_vm._v("Updates")]
+            )
+          ],
+          1
+        ),
         _vm._v(" "),
-        _c("li", { staticClass: "mobile-navigation__item" }, [
-          _c(
-            "a",
-            {
-              staticClass: "mobile-navigation__link",
-              attrs: { to: "/commands" }
-            },
-            [_vm._v("Commands")]
-          )
-        ]),
+        _c(
+          "li",
+          { staticClass: "mobile-navigation__item" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "mobile-navigation__link",
+                attrs: { to: "/commands" }
+              },
+              [_vm._v("Commands")]
+            )
+          ],
+          1
+        ),
         _vm._v(" "),
         _vm._m(2),
         _vm._v(" "),
         _vm._m(3),
         _vm._v(" "),
-        _c("li", { staticClass: "mobile-navigation__item" }, [
-          _c(
-            "a",
-            {
-              staticClass: "mobile-navigation__link",
-              attrs: { to: "/marketplace" }
-            },
-            [_vm._v("Marketplace")]
-          )
-        ])
+        _c(
+          "li",
+          { staticClass: "mobile-navigation__item" },
+          [
+            _c(
+              "router-link",
+              {
+                staticClass: "mobile-navigation__link",
+                attrs: { to: "/marketplace" }
+              },
+              [_vm._v("Marketplace")]
+            )
+          ],
+          1
+        )
       ])
     ])
   ])
