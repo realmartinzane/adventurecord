@@ -1,29 +1,24 @@
 <template>
-    <b-row class="updates">
-        <div v-if="!updates" class="spinner"><b-spinner label="Spinning"></b-spinner></div>
-        <section-header-component 
-            :text="isIndexRoute ? 'Updates' : 'Latest Updates'"
-            :spacing="isIndexRoute">
-        </section-header-component>
+    <section class="section-updates">
+       <header class="u-center-text u-margin-bottom-lg">
+            <h2 class="heading-secondary">Updates</h2>
+        </header>
         <div class="posts">
-            <b-col cols="12" md="10" offset-md="1" offset="1" xl="8" offset-xl="2" class="hr-lg"></b-col>
-            <div v-for="update in updates" :key="update.id">
+            <div class="posts__post" v-for="update in updates" :key="update.id">
                 <update-component :update="update"></update-component>
-                <b-col cols="12" md="10" offset-md="1" xl="8" offset-xl="2" class="hr-lg"></b-col>
             </div>
-            <div v-if="!isIndexRoute" class="view-more">
-                <b-link :to="'/updates'" class="adv-link">View more updates</b-link>
+            <div v-if="!isIndexRoute" class="u-center-text">
+                <router-link :to="'/updates'" class="link">View more updates</router-link>
             </div>
         </div>
-    </b-row>
+    </section>
 </template>
 
 <script>
 import UpdateComponent from './Update.vue'
-import SectionHeaderComponent from './SectionHeader.vue'
 
 export default {
-    components: {UpdateComponent, SectionHeaderComponent},
+    components: {UpdateComponent},
     data(){return{
         updates: null
     }},
@@ -50,18 +45,37 @@ export default {
 
 <style lang="scss" scoped>
 
-@import '../../sass/_mixins.scss';
+@import '../../sass/abstracts/_variables.scss';
     
     .posts 
     {
         margin: 50px 0;
         width: 100%;
-    }
-    
-    .view-more 
-    {
-        text-align: center;
-        font-size: 0.8rem;
+
+        &__post
+        {
+
+            &:first-child::before
+            {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 1px;
+                background-color: $color-border-light;
+                margin-bottom: 4rem;
+            }
+
+            &::after
+            {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 1px;
+                background-color: $color-border-light;
+                margin-top: 2rem;
+                margin-bottom: 4rem;
+            }
+        }
     }
     
 </style>

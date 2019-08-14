@@ -47,6 +47,34 @@
         }
     }
 
+    &--red
+    {
+        background-color: transparent;
+        border: 1px solid $color-primary;
+        color: $color-primary;
+
+        &:hover,  &:active, &:focus
+        {
+            color: $color-white;
+            background-color: $color-red;
+            border: 1px solid $color-red;
+        }
+    }
+
+    &--blue
+    {
+        background-color: transparent;
+        border: 1px solid $color-primary;
+        color: $color-primary;
+
+        &:hover,  &:active, &:focus
+        {
+            color: $color-white;
+            background-color: $color-blue;
+            border: 1px solid $color-blue;
+        }
+    }
+
     &--discord
     {
         color: $color-white;

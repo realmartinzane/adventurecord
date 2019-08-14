@@ -1,60 +1,50 @@
 <template>
-    <b-row :class="{ 'update' : isShowRoute }">
-        <div v-if="!fetchedUpdate" class="spinner"><b-spinner label="Spinning"></b-spinner></div>
-        <transition appear name="slide-fade">
-            <b-col cols="12" md="10" offset-md="1" xl="8" offset-xl="2" class="post" v-if="fetchedUpdate">
-                <div class="left">
-                    <img src="/img/brand_logo.png" alt="">
-                    <b-button class="adv-btn small-btn adv-edit" :to="{name: 'updates.edit', params: {id: fetchedUpdate.id}}">
+    <section :class="{'section-update': isShowRoute, 'item-update': !isShowRoute}" id="#section_update">
+        <div class="post" v-if="fetchedUpdate">
+            <div class="post__left">
+                <div class="post__img-container">
+                    <img src="/img/brand_logo.png" alt="Update Source Image" class="post__img">
+                </div>
+                
+                <div class="post__btn-container">
+                    <router-link class="btn btn--blue post__left-btn" :to="{name: 'updates.edit', params: {id: fetchedUpdate.id}}">
                         <font-awesome-icon :icon="['far', 'edit']"></font-awesome-icon>
-                    </b-button
-                    ><b-button @click="showModal = !showModal" class="adv-btn small-btn adv-delete">
+                    </router-link>
+                    
+                    <a href="#delete_prompt" class="btn btn--red post__left-btn" >
                         <font-awesome-icon :icon="['fas', 'trash-alt']"></font-awesome-icon>
-                    </b-button>
-                    <b-modal
-                        title="Are you sure?"
-                        @ok="destroy()"
-                        v-model="showModal"
-                        header-text-variant="light"
-                        body-bg-variant="dark"
-                        body-text-variant="light"
-                        footer-bg-variant="dark"
-                        footer-text-variant="light">
-                        <b-form @submit.prevent="handleSubmit"></b-form>
-                        <p>Do you really want to delete this item? This process cannot be undone.</p>
-                    </b-modal>
-                </div
-                ><div class="right">
-                    <div class="post-header mt-4 mr-2">
-                        <div class="left">
-                            <h2>{{ fetchedUpdate.title }}</h2>
-                            <div class="author">
-                                <p>
-                                    Posted by VampY 
-                                </p>
-                            </div>
-                        </div
-                        ><div class="right">
-                            <div class="date">{{ fetchedUpdate.created_date }}</div>
-                            <div class="views-count">
-                                {{ fetchedUpdate.views }}
-                                <font-awesome-icon :icon="['far', 'eye']" class="ml-1"></font-awesome-icon>
-                            </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="post__right">
+                <header class="post__header">
+                    <div class="post__header-left">
+                        <h2 class="post__title">{{ fetchedUpdate.title }}</h2>
+                        <div class="post__author">Posted by VampY</div>
+                    </div>
+
+                    <div class="post__header-right">
+                        <div class="post__date">{{ fetchedUpdate.created_date }}</div>
+                        <div class="post__views">
+                            {{ fetchedUpdate.views }}
+                            <font-awesome-icon :icon="['far', 'eye']"></font-awesome-icon>
                         </div>
                     </div>
-                    <div class="post-body mt-4 mr-2">
-                        <div v-html="body"></div>                    
+                </header>
+
+                <div v-html="body" class="post__body"></div>
+
+                <footer class="post__footer">
+                    <div class="post__footer-left">
+                        <router-link v-if="!isShowRoute" class="post__continue link"  :to="{name: 'updates.show', params: {id: fetchedUpdate.id}}">Continue Reading</router-link>
                     </div>
-                    <div class="post-footer mt-3">
-                        <div class="left">
-                            <b-link v-if="!isShowRoute" :to="{name: 'updates.show', params: {id: fetchedUpdate.id}}" class="adv-link">Continue Reading</b-link>
-                        </div
-                        ><div class="right">
-                            <div class="likes">
-                                <div>{{ fetchedUpdate.likes }}</div> <font-awesome-icon :icon="['far', 'heart']" class="ml-1"></font-awesome-icon>
+                    <div class="post__footer-right">
+                            <div class="post__likes-container">
+                                <div class="post__likes">{{ fetchedUpdate.likes }}</div> <font-awesome-icon :icon="['far', 'heart']"></font-awesome-icon>
                             </div>
-                            <div class="share">
-                                <font-awesome-icon :icon="['far', 'share-square']" class="ml-2" @click="showLinks = !showLinks"></font-awesome-icon>
+                            <div class="post__share u-margin-left-sm">
+                                <font-awesome-icon :icon="['far', 'share-square']" @click="showLinks = !showLinks"></font-awesome-icon>
                                 <social-sharing-component
                                     v-if="showLinks"
                                     :url="url"
@@ -64,11 +54,32 @@
                                 ></social-sharing-component>
                             </div>
                         </div>
-                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <div class="popup" id="delete_prompt">
+            <div class="popup__content">
+                <header class="popup__header">
+                    <h4 class="popup__header-text">Are you sure?</h4>
+                    <a href="#" class="popup__close">
+                        <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
+                    </a>
+                </header>
+
+                <div class="popup__body">
+                    <p class="popup__question">
+                        Do you really want to delete this post? This process cannot be undone.
+                    </p>
                 </div>
-            </b-col>
-        </transition>
-    </b-row>
+
+                <footer class="popup__footer popup__footer--prompt">
+                    <button class="btn btn--primary-2 popup__purchase">Ok</button>
+                    <button class="btn btn--gray popup__purchase">Cancel</button>
+                </footer>
+            </div>
+        </div>
+    </section>
 </template>
 
 <script>
@@ -146,122 +157,126 @@ export default {
 
 <style lang="scss">
 
-    .update {padding: 150px 0;}
-    
+@import '../../sass/abstracts/_variables.scss';
+
     .post
     {
-        margin: auto;
-        > .left
+        &__left
         {
-            width: 20%;
             display: inline-block;
+            margin: 0 3rem;
+            vertical-align: top;
+        }
+
+        &__img-container
+        {
+            height: 10rem;
+            width: 10rem;
+            padding: .5rem;
+            background-color: $color-black;
+            outline: 3px solid $color-black;
+            border: 5px solid $color-primary;
+        }
+
+        &__img
+        {
+            width: 100%;
+        }
+
+        &__btn-container
+        {
             text-align: center;
-            img
-            {
-                width: 100px;
-                height: 100px;
-                background: black;;
-                outline: 2px solid black;
-                border: 4px solid #FFD700;
-                margin: 25px auto;
-                padding: 10px;
-                display: block;
-                @media screen and (max-width: 576px) 
-                {
-                    width: 60px;
-                    height: 60px;
-                    padding: 5px;
-                    outline: 1px solid black;
-                    border: 2px solid #FFD700;
-                }
-                @media screen and (max-width: 360px)
-                {
-                    width: 50px;
-                    height: 50px;
-                }
-            }
-            a, form 
+        }
+
+        &__left-btn
+        {
+            &, &:link, &:visited
             {
                 display: inline-block;
-                @media screen and (max-width: 576px) 
-                {
-                    display: table;
-                    margin: 7.5px auto;
-                }
-                margin: 0 5px;
+                padding: .5rem 1rem !important;
+                margin-top: 2rem;
+                line-height: 1;
+                font-size: 1.4rem;
             }
         }
-        > .right
+
+        &__right
         {
-            width: 80%;
             display: inline-block;
-            vertical-align: top;
+            width: calc(100% - 18rem);
         }
-    }
-    .post-header
-    {
-        color: white;
-        > .left
+
+        &__header-left
         {
-            width: 80%;
-            @media screen and (max-width: 576px) {width: 100%;}
             display: inline-block;
-            h2
-            {
-                font: 1.75rem 'Ruboto Condensed', sans-serif;
-            }
+            width: 79%;
         }
-        .author
+
+        &__title
         {
-            p 
-            {
-                margin: 0;
-                color: lightgray;
-            }
+            font-size: 3rem;
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 1rem;
         }
-        > .right
+
+        &__author
         {
+            color: $color-gray-light;
+        }
+
+        &__header-right
+        {
+            display: inline-block;
             width: 20%;
-            display: inline-block;
-            vertical-align: top;
             text-align: right;
-            @media screen and (max-width: 576px) {display: none;}
-        }
-    }
-    .date {color: lightgray;}
-    .views-count {font-size: 1.1rem}
-    .post-body
-    {
-        color: lightgray;
-        font: 1rem Nunito, sans-serif;
-        line-height: 1.5;
-    }
-    .post-footer
-    {
-        .left
-        {
-            width: 60%;
-            display: inline-block;
-            
-        }
-        .right
-        {
-            width: 40%;
-            display: inline-block;
             vertical-align: top;
+        }
+
+        &__date
+        {
+            font-size: 1.4rem;
+            color: $color-gray-light;
+        }
+
+        &__views
+        {
+            font-size: 1.8rem;
+        }
+
+        &__body
+        {
+            margin: 2rem 0;
+            color: $color-gray-light;
+        }
+
+        &__footer-left
+        {
+            display: inline-block;
+            width: 14rem;
+        }
+
+        &__footer-right
+        {
+            display: inline-block;
+            width: calc(100% - 15rem);
             text-align: right;
-            color: white;
-            font-size: 1;
-            div {display: inline-block;}
-            > div 
-            {
-                margin: 0 5px; 
-                &:hover {cursor: pointer;}
-            }
-            > div * {vertical-align: middle;}
-            svg {font-size: 1.2rem}
-            .likes {color: #ec4853}
-            .share {color: #3CB1B6; position: relative;}
+            * {display: inline-block;}
+        }
+
+        &__likes-container
+        {
+            svg {color: $color-red;}
+        }
+
+        &__likes
+        {
+            color: $color-red;
+        }
+
+        &__share
+        {
+           svg {color: $color-blue;}
         }
     }
 </style>
