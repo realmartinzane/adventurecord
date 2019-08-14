@@ -6,9 +6,9 @@
 
         <form action="#" class="form">
             <div class="form__group">
-                <input type="text" class="form__input" id="item" placeholder="Search for items..."
+                <input type="text" class="form__input form__input--search" id="item" placeholder="Search for items..."
 
-                ><button type="submit" class="btn btn--primary-2 form__search">
+                ><button type="submit" class="btn btn--primary-2 form__search form__search--search">
                     <font-awesome-icon :icon="['fas', 'search']"></font-awesome-icon>
                 </button>
             </div>
@@ -83,32 +83,6 @@ export default {
 
 @import '../../sass/abstracts/_variables.scss';
 @import '../../sass/abstracts/_mixins.scss';
-
-    .form
-    {
-        &__input
-        {
-            display: inline-block;
-            width: calc(90% - 2px);
-            border: none;
-            border-top-left-radius: 3px;
-            border-bottom-left-radius: 3px;
-            vertical-align: top;
-        }
-
-        &__search
-        {
-            &, &:visited, &:link
-            {
-                display: inline-block;
-                padding: .8rem;
-                width: calc(10% - 2px);
-                border-top-left-radius: 0 !important;
-                border-bottom-left-radius: 0 !important;
-                font-size: 1.5rem;
-            }
-        }
-    }
 
     .item
     {

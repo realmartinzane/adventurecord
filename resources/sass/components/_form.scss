@@ -26,4 +26,27 @@
         display: block;
         margin: auto;
     }
+
+    &__input--search
+    {
+        display: inline-block;
+        width: calc(90% - 2px);
+        border: none;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        vertical-align: top;
+    }
+
+    &__search--search
+    {
+        &, &:visited, &:link
+        {
+            display: inline-block;
+            padding: .8rem;
+            width: calc(10% - 2px);
+            border-top-left-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
+            font-size: 1.5rem;
+        }
+    }
 }

@@ -214,6 +214,26 @@ body {
   margin: auto;
 }
 
+.form__input--search {
+  display: inline-block;
+  width: calc(90% - 2px);
+  border: none;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  vertical-align: top;
+}
+
+.form__search--search,
+.form__search--search:visited,
+.form__search--search:link {
+  display: inline-block;
+  padding: 0.8rem;
+  width: calc(10% - 2px);
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  font-size: 1.5rem;
+}
+
 .row {
   max-width: 114rem;
   margin: 0 auto;
