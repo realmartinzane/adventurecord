@@ -3,10 +3,10 @@
         <div class="user-profile">
             <div class="user-profile__left">
                 <img src="/img/brand_logo.png" alt="Profile Image" class="user-profile__img">
-                <button class="user-profile__btn btn btn--primary">
+                <router-link :to="'/user/settings'" class="user-profile__btn btn btn--primary">
                     <font-awesome-icon :icon="['fas', 'cog']" class="mr-1"></font-awesome-icon>
                     Settings
-                </button>
+                </router-link>
                 <div class="user-profile__info">
                     <div class="user-profile__label">
                         <font-awesome-icon :icon="['fas', 'coins']" class="user-profile__gold"></font-awesome-icon>
@@ -107,7 +107,7 @@ export default {
 
         &__btn
         {
-            padding: .5rem 1rem;
+            padding: .5rem 1rem !important;
             position: relative;
             z-index: 5000;
         }
