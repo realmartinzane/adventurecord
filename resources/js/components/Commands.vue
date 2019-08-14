@@ -160,6 +160,8 @@ export default {
             border-top-left-radius: 3px;
             border-top-right-radius: 3px;
             cursor: pointer;
+            position: relative;
+            z-index: 5000;
         }
 
         &__radio:checked + &__button

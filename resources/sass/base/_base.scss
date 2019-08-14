@@ -1,3 +1,5 @@
+
+// Normalization
 *, *::after, *::before
 {
     margin: 0;
@@ -11,7 +13,7 @@ html {font-size: 62.5%}
 
 a {cursor: pointer}
 
-
+// Footer to bottom of the page
 html, body, #app, .container
 {
     height: 100%;
@@ -19,6 +21,7 @@ html, body, #app, .container
 
 main {min-height: calc(100% - 78px);}
 
+// Global Element Styles & Media Queries
 section
 {
     padding: 10rem 0;
@@ -27,5 +30,19 @@ section
     @media screen and (max-width: 1360px)
     {
         width: 90rem;
+    }
+}
+
+// Specific Media Queries
+.section-commands
+{
+    @media screen and (min-width: 992px) and (max-width: 1360px)
+    {
+        width: 76.5rem !important;   
+    }
+
+    @media screen and (min-width: 1360px) and (max-width: 1410px)
+    {
+        width: 113rem !important;   
     }
 }

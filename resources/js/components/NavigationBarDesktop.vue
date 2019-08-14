@@ -121,7 +121,7 @@ export default {
             list-style: none;
             margin-left: 27rem;
             display: inline-block;
-            width: calc(74% - 27rem);
+            width: calc(76% - 27rem);
         }
 
         &__item
@@ -150,7 +150,7 @@ export default {
         &__account
         {
             display: inline-block;
-            width: 24%;
+            width: 22%;
             text-align: right;
         }
     }
