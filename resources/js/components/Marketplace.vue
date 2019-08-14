@@ -103,8 +103,8 @@ export default {
                 display: inline-block;
                 padding: .8rem;
                 width: calc(10% - 2px);
-                border-top-right-radius: none;
-                border-bottom-right-radius: none;
+                border-top-left-radius: 0 !important;
+                border-bottom-left-radius: 0 !important;
                 font-size: 1.5rem;
             }
         }
