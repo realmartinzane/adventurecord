@@ -130,6 +130,10 @@ body {
   margin-right: 0.3rem !important;
 }
 
+.u-show {
+  visibility: visible !important;
+}
+
 .btn,
 .btn:visited,
 .btn:link {
@@ -190,23 +194,40 @@ body {
   border-color: #7289da;
 }
 
+.form {
+  position: relative;
+  z-index: 5000;
+}
+
 .form__group {
-  width: 50%;
+  width: 70%;
   margin: auto;
 }
 
 .form__label {
   display: block;
+  font-size: 2rem;
 }
 
 .form__select,
-.form__input {
+.form__input,
+.form__textarea {
   width: 100%;
   background-color: #2E2E36;
   border: 1px solid #3d3d49;
   border-radius: 3px;
   padding: 1rem;
   color: #d3d3d3;
+  resize: vertical;
+  font-family: "Lato", sans-serif;
+  font-size: 1.6rem;
+}
+
+.form__feedback {
+  visibility: hidden;
+  margin-top: 0.5rem;
+  font-size: 1.4rem;
+  color: #ec4853;
 }
 
 .form__submit {

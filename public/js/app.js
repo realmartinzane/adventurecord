@@ -16401,7 +16401,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _SectionHeader_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SectionHeader.vue */ "./resources/js/components/SectionHeader.vue");
 //
 //
 //
@@ -16453,14 +16452,48 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [vuelidate__WEBPACK_IMPORTED_MODULE_0__["validationMixin"]],
-  components: {
-    SectionHeaderComponent: _SectionHeader_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
-  },
   data: function data() {
     return {
       form: {
@@ -16497,8 +16530,15 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       var _this = this;
 
+      event.preventDefault();
       this.$v.form.$touch();
-      if (this.$v.form.$anyError) return;
+
+      if (this.$v.form.$anyError) {
+        if (this.$v.form.title.$dirty) this.$v.form.body.$error = true;
+        if (this.$v.form.body.$dirty) this.$v.form.body.$error = true;
+        return;
+      }
+
       axios.post(this.endpoint, {
         title: this.form.title,
         body: this.form.body
@@ -37192,154 +37232,113 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "b-row",
-    { staticClass: "update-form" },
-    [
-      _vm.isEditRoute && !_vm.form.title && !_vm.form.body
-        ? _c(
-            "div",
-            { staticClass: "spinner" },
-            [_c("b-spinner", { attrs: { label: "Spinning" } })],
-            1
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _c("section-header-component", {
-        attrs: {
-          text: _vm.isEditRoute ? "Edit Update" : "Create a New Update",
-          spacing: true
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "b-col",
-        {
+  return _c("section", { staticClass: "section-update-form" }, [
+    _c("header", { staticClass: "u-center-text u-margin-bottom-lg" }, [
+      _c("h2", { staticClass: "heading-secondary" }, [
+        _vm._v(_vm._s(_vm.isEditRoute ? "Edit Update" : "Create a New Update"))
+      ])
+    ]),
+    _vm._v(" "),
+    _c("form", { staticClass: "form" }, [
+      _c("div", { staticClass: "form__group" }, [
+        _c("label", { staticClass: "form__label", attrs: { for: "title" } }, [
+          _vm._v("Title")
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.$v.form.title.$model,
+              expression: "$v.form.title.$model"
+            }
+          ],
+          staticClass: "form__input",
           attrs: {
-            cols: "10",
-            offset: "1",
-            lg: "8",
-            "offset-lg": "2",
-            xl: "6",
-            "offset-xl": "3"
+            type: "text",
+            name: "title",
+            id: "title",
+            state: _vm.$v.form.title.$dirty ? !_vm.$v.form.title.$error : null
+          },
+          domProps: { value: _vm.$v.form.title.$model },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.$v.form.title, "$model", $event.target.value)
+            }
           }
-        },
-        [
-          (_vm.isEditRoute && _vm.form.title && _vm.form.body) ||
-          !_vm.isEditRoute
-            ? _c(
-                "b-form",
-                {
-                  staticClass: "adv-form",
-                  on: {
-                    submit: function($event) {
-                      $event.preventDefault()
-                      return _vm.submit($event)
-                    }
-                  }
-                },
-                [
-                  _c(
-                    "b-form-group",
-                    {
-                      attrs: {
-                        id: "title-group",
-                        label: "Title",
-                        "label-for": "title",
-                        description:
-                          "Enter the title of your update (Note: Make sure the title is unique)"
-                      }
-                    },
-                    [
-                      _c("b-form-input", {
-                        attrs: {
-                          id: "title",
-                          type: "text",
-                          state: _vm.$v.form.title.$dirty
-                            ? !_vm.$v.form.title.$error
-                            : null
-                        },
-                        model: {
-                          value: _vm.$v.form.title.$model,
-                          callback: function($$v) {
-                            _vm.$set(_vm.$v.form.title, "$model", $$v)
-                          },
-                          expression: "$v.form.title.$model"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "b-form-invalid-feedback",
-                        { attrs: { id: "title-live-feedback" } },
-                        [
-                          _vm._v(
-                            "\n                    This is a required field and cannot exceed 100 characters.\n                "
-                          )
-                        ]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-group",
-                    {
-                      attrs: {
-                        id: "body-group",
-                        label: "Body",
-                        "label-for": "body",
-                        description: "Enter the body of your update"
-                      }
-                    },
-                    [
-                      _c("b-form-textarea", {
-                        attrs: {
-                          id: "title",
-                          rows: "8",
-                          state: _vm.$v.form.body.$dirty
-                            ? !_vm.$v.form.body.$error
-                            : null
-                        },
-                        model: {
-                          value: _vm.$v.form.body.$model,
-                          callback: function($$v) {
-                            _vm.$set(_vm.$v.form.body, "$model", $$v)
-                          },
-                          expression: "$v.form.body.$model"
-                        }
-                      }),
-                      _vm._v(" "),
-                      _c(
-                        "b-form-invalid-feedback",
-                        { attrs: { id: "body-live-feedback" } },
-                        [
-                          _vm._v(
-                            "\n                    This is a required field and cannot exceed 2 500 characters.\n                "
-                          )
-                        ]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "b-button",
-                    {
-                      staticClass: "adv-btn",
-                      attrs: { type: "submit", disabled: _vm.$v.form.$invalid }
-                    },
-                    [_vm._v("Submit")]
-                  )
-                ],
-                1
-              )
-            : _vm._e()
-        ],
-        1
-      )
-    ],
-    1
-  )
+        }),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            staticClass: "form__feedback",
+            class: { "u-show": _vm.$v.form.title.$error },
+            attrs: { id: "title_feedback" }
+          },
+          [_vm._v("This is a required field and cannot exceed 100 characters.")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form__group" }, [
+        _c("label", { staticClass: "form__label", attrs: { for: "body" } }, [
+          _vm._v("Body")
+        ]),
+        _vm._v(" "),
+        _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.$v.form.body.$model,
+              expression: "$v.form.body.$model"
+            }
+          ],
+          staticClass: "form__textarea",
+          attrs: {
+            name: "body",
+            id: "body",
+            rows: "8",
+            state: _vm.$v.form.body.$dirty ? !_vm.$v.form.body.$error : null
+          },
+          domProps: { value: _vm.$v.form.body.$model },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.$v.form.body, "$model", $event.target.value)
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c(
+          "p",
+          {
+            staticClass: "form__feedback",
+            class: { "u-show": _vm.$v.form.body.$error },
+            attrs: { id: "body_feedback" }
+          },
+          [_vm._v("This is a required field and cannot exceed 250 characters.")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form__group u-margin-top-md" }, [
+        _c(
+          "button",
+          {
+            staticClass: "form__submit btn btn--primary",
+            attrs: { type: "submit" },
+            on: { click: _vm.submit }
+          },
+          [_vm._v("Submit")]
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
