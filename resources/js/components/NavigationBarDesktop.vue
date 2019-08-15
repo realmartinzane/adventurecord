@@ -18,7 +18,7 @@
             </ul>
 
             <div class="navigation__account">
-                <a href="" class="btn btn--discord">
+                <a href="" class="btn btn--secondary-discord">
                     <font-awesome-icon :icon="['fab', 'discord']" size="lg" class="u-margin-right-sm"></font-awesome-icon>
                     <span>Log in with discord</span>
                 </a>

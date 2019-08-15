@@ -8,7 +8,7 @@
             <div class="form__group">
                 <input type="text" class="form__input form__input--search" id="item" placeholder="Search for items..."
 
-                ><button type="submit" class="btn btn--primary-2 form__search form__search--search">
+                ><button type="submit" class="btn btn--secondary-gold form__search form__search--search">
                     <font-awesome-icon :icon="['fas', 'search']"></font-awesome-icon>
                 </button>
             </div>
@@ -65,7 +65,7 @@
                 </div>
 
                 <footer class="popup__footer">
-                    <button class="btn btn--primary-2 popup__purchase">Purchase</button>
+                    <button class="btn btn--secondary-gold popup__purchase">Purchase</button>
                 </footer>
             </div>
         </div>

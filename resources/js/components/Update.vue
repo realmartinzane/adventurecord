@@ -7,11 +7,11 @@
                 </div>
                 
                 <div class="post__btn-container">
-                    <router-link class="btn btn--blue post__left-btn" :to="{name: 'updates.edit', params: {id: fetchedUpdate.id}}">
+                    <router-link class="btn btn--primary-blue post__left-btn" :to="{name: 'updates.edit', params: {id: fetchedUpdate.id}}">
                         <font-awesome-icon :icon="['far', 'edit']"></font-awesome-icon>
                     </router-link>
                     
-                    <a href="#delete_prompt" class="btn btn--red post__left-btn" >
+                    <a href="#delete_prompt" class="btn btn--primary-red post__left-btn" >
                         <font-awesome-icon :icon="['fas', 'trash-alt']"></font-awesome-icon>
                     </a>
                 </div>
@@ -74,8 +74,8 @@
                 </div>
 
                 <footer class="popup__footer popup__footer--prompt">
-                    <button class="btn btn--primary-2 popup__purchase">Ok</button>
-                    <button class="btn btn--gray popup__purchase">Cancel</button>
+                    <button class="btn btn--secondary-gold popup__purchase">Ok</button>
+                    <button class="btn btn--secondary-gold popup__purchase">Cancel</button>
                 </footer>
             </div>
         </div>

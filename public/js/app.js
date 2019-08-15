@@ -36099,7 +36099,7 @@ var render = function() {
             "button",
             {
               staticClass:
-                "btn btn--primary-2 form__search form__search--search",
+                "btn btn--secondary-gold form__search form__search--search",
               attrs: { type: "submit" }
             },
             [_c("font-awesome-icon", { attrs: { icon: ["fas", "search"] } })],
@@ -36246,7 +36246,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("footer", { staticClass: "popup__footer" }, [
-      _c("button", { staticClass: "btn btn--primary-2 popup__purchase" }, [
+      _c("button", { staticClass: "btn btn--secondary-gold popup__purchase" }, [
         _vm._v("Purchase")
       ])
     ])
@@ -36341,7 +36341,7 @@ var render = function() {
       _c("div", { staticClass: "navigation__account" }, [
         _c(
           "a",
-          { staticClass: "btn btn--discord", attrs: { href: "" } },
+          { staticClass: "btn btn--secondary-discord", attrs: { href: "" } },
           [
             _c("font-awesome-icon", {
               staticClass: "u-margin-right-sm",
@@ -36834,7 +36834,7 @@ var render = function() {
                   _c(
                     "router-link",
                     {
-                      staticClass: "btn btn--blue post__left-btn",
+                      staticClass: "btn btn--primary-blue post__left-btn",
                       attrs: {
                         to: {
                           name: "updates.edit",
@@ -36853,7 +36853,7 @@ var render = function() {
                   _c(
                     "a",
                     {
-                      staticClass: "btn btn--red post__left-btn",
+                      staticClass: "btn btn--primary-red post__left-btn",
                       attrs: { href: "#delete_prompt" }
                     },
                     [
@@ -37035,13 +37035,17 @@ var staticRenderFns = [
       "footer",
       { staticClass: "popup__footer popup__footer--prompt" },
       [
-        _c("button", { staticClass: "btn btn--primary-2 popup__purchase" }, [
-          _vm._v("Ok")
-        ]),
+        _c(
+          "button",
+          { staticClass: "btn btn--secondary-gold popup__purchase" },
+          [_vm._v("Ok")]
+        ),
         _vm._v(" "),
-        _c("button", { staticClass: "btn btn--gray popup__purchase" }, [
-          _vm._v("Cancel")
-        ])
+        _c(
+          "button",
+          { staticClass: "btn btn--secondary-gold popup__purchase" },
+          [_vm._v("Cancel")]
+        )
       ]
     )
   }
