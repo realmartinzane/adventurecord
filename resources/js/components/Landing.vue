@@ -8,8 +8,8 @@
             :autoplayHoverPause="false"
             :autoplayTimeout="5000"
             :loop="true"
-            :paginationColor="'rgba(255,255,255, .8)'"
-            :paginationActiveColor="'#FFD700'">
+            :paginationColor="'rgba(255,255,255, .4)'"
+            :paginationActiveColor="'rgba(255,255,255, .8)'">
 
             <slide class="carousel__slide">
 
