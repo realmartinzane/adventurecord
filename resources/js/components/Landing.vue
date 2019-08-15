@@ -1,4 +1,26 @@
 <template>
+    <div class="section-landing">
+        <carousel 
+            class="carousel" 
+            :perPage="1" 
+            :paginationPosition="'bottom-overlay'"
+            :autoplay="true"
+            :autoplayHoverPause="false"
+            :autoplayTimeout="5000"
+            :loop="true"
+            :paginationColor="'rgba(255,255,255, .8)'"
+            :paginationActiveColor="'#FFD700'">
+
+            <slide class="carousel__slide">
+
+            </slide>
+
+            <slide class="carousel__slide">
+                
+            </slide>
+        </carousel>
+    </div>
+    <!--
     <b-row class="landing-row">
         <div class="carousel-wrapper">
             <b-carousel
@@ -66,6 +88,7 @@
             </b-carousel>
         </div>
     </b-row>
+    -->
 </template>
 
 <script>
@@ -90,9 +113,24 @@ export default {
 
 <style lang="scss">
 
-@import '../../sass/_mixins.scss';
+@import '../../sass/abstracts/_variables.scss';
 
+    .carousel
+    {
+        margin-top: 5.5rem;
+        @media screen and (max-width: 991px) {margin-top: 8rem;}
+        &__slide
+        {
+            background-size: cover;
+            background-position: 50% 70%;;
+            min-height: calc(100vh - 5.5rem);
+            @media screen and (max-width: 991px) {min-height: calc(100vh - 8rem);}
+            &:nth-child(1) {background-image: url(/../img/slide_01.png);}
+            &:nth-child(2) {background-image: url(/../img/slide_02.png);}
+        }
+    }
 
+/*
     .landing-row {min-height: auto !important}
     @media screen and (max-width: 1200px)
     {
@@ -196,5 +234,6 @@ export default {
         z-index: 2; 
         @include transition(opacity 600ms)
     }
+*/
     
 </style>

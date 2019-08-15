@@ -48,6 +48,10 @@ const toastrConfigs = {
 }
 Vue.use(CxltToastr, toastrConfigs)
 
+// Vue Carousel
+import VueCarousel from 'vue-carousel';
+Vue.use(VueCarousel);
+
 // Vue Social Sharing
 import SocialSharing from 'vue-social-sharing'
 Vue.use(SocialSharing)
