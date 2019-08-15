@@ -197,6 +197,8 @@ export default {
                 margin-top: 2rem;
                 line-height: 1;
                 font-size: 1.4rem;
+                position: relative;
+                z-index: 5000;
             }
         }
 

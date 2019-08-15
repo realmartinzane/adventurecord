@@ -28,22 +28,22 @@ main {
 section {
   padding: 10rem 0;
   margin: 0 auto;
-  width: 120rem;
-}
-
-section.section-update {
-  padding-top: 15rem;
-}
-
-section.item-update {
-  padding: 0;
-  margin: 2rem;
+  width: 110rem;
 }
 
 @media screen and (max-width: 1360px) {
   section {
-    width: 90rem;
+    width: 80rem;
   }
+}
+
+.section-update {
+  padding-top: 15rem;
+}
+
+.item-update {
+  padding: 0;
+  margin: 2rem;
 }
 
 @media screen and (min-width: 992px) and (max-width: 1360px) {

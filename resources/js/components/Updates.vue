@@ -50,7 +50,6 @@ export default {
     .posts 
     {
         margin: 50px 0;
-        width: 100%;
 
         &__post
         {
