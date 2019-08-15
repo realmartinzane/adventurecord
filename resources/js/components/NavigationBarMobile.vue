@@ -67,11 +67,11 @@ export default {
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 200;
+        z-index: 10000;
         width: 100%;
         padding: 1rem;
         background-color: $color-secondary-dark;
-        border: 1px solid $color-border-dark;
+        border-bottom: 1px solid $color-border-dark;
         &__brand
         {
             height: 5rem;
@@ -160,6 +160,8 @@ export default {
             text-align: left;
             background-color: $color-secondary;
             transition: all 200ms;
+            border: none;
+            box-shadow: none;
         }
 
         &__link
@@ -201,7 +203,10 @@ export default {
         // Checkbox Functionality
         &__checkbox:checked ~ &__list
         {
-            height: 30rem;
+            height: 26rem;
+            border: 1px solid $color-border-light;
+            border-right: none;
+            box-shadow: 0 0 10px $color-black;
         }
     }
 

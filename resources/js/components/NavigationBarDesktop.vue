@@ -113,7 +113,7 @@ export default {
             width: 100%;
             padding: .8rem 0;
             background-color: $color-secondary-dark;
-            border: 1px solid $color-border-dark;
+            border-bottom: 1px solid $color-border-dark;
         }
 
         &__list
