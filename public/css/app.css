@@ -52,12 +52,6 @@ section {
   }
 }
 
-@media screen and (min-width: 1360px) and (max-width: 1410px) {
-  .section-commands {
-    width: 113rem !important;
-  }
-}
-
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
