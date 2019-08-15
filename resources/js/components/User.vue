@@ -84,6 +84,10 @@ export default {
             display: inline-block;
             width: 30%;
             padding: 3rem 6rem;
+            @media screen and (max-width: 1360px)
+            {
+                padding: 3rem;
+            }
             vertical-align: top;
             text-align: center;
         }
@@ -100,6 +104,7 @@ export default {
         {
             width: 15rem;
             height: 15rem;
+            
             border: 5px solid $color-primary;
             outline: 3px solid $color-black;
             background-color: $color-black;
