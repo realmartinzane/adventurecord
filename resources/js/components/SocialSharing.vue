@@ -61,20 +61,23 @@ export default {
 
 <style lang="scss">
 
-@import '../../sass/_mixins.scss';
+@import '../../sass/abstracts/variables.scss';
 
-    .post-footer .right .share
+    .post__share
     {
+        position: relative;
         .social-links
         {
             position: absolute;
             bottom: 0;
-            @media screen and (min-width: 1201px) {left: 40px;}
-            @media screen and (max-width: 1200px) {right: 40px;}
-            width: 150px;
-            background: #10121A;
-            @include box-shadow(0 0 10px #10121A);
-            border: 1px solid #3d3d49;
+            @media screen and (min-width: 1401px) {left: 3rem;}
+            @media screen and (max-width: 1400px) {right: 3rem;}
+            width: 17rem;
+            height: 25rem;
+            overflow-y: auto;
+            background: $color-secondary-dark;
+            box-shadow: 0 0 10px $color-black;
+            border: 1px solid $color-border-dark;
             padding: 10px;
             text-align: left;
         }
@@ -84,6 +87,7 @@ export default {
             width: 100%;
             padding: 3px;
             color: lightgray;
+            cursor: pointer;
             svg {font-size: 1.2rem}
             &:hover {background: #212127};
             &:nth-child(2) svg {color: #1B80E4}
