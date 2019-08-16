@@ -21,9 +21,7 @@
         "vue-axios": "^2.1.4",
         "vue-router": "^3.0.7",
         "vue-social-auth": "^1.4.1",
-        "vue-template-compiler": "^2.6.10"
-    },
-    "dependencies": {
+        "vue-template-compiler": "^2.6.10",
         "@fortawesome/fontawesome-svg-core": "^1.2.19",
         "@fortawesome/free-brands-svg-icons": "^5.9.0",
         "@fortawesome/free-regular-svg-icons": "^5.9.0",
