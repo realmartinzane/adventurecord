@@ -1,61 +1,62 @@
 import VueRouter from 'vue-router';
 import Vue from 'vue';
 Vue.use(VueRouter)
-import LandingComponent from './components/Landing.vue';
-import UpdatesComponent from './components/Updates.vue';
-import UpdateComponent from './components/Update.vue';
-import UpdateFormComponent from './components/UpdateForm.vue';
-import CommandsComponent from './components/Commands.vue';
-import UserComponent from './components/User.vue';
-import UserSettingsComponent from './components/UserSettings.vue';
-import MarketplaceComponent from './components/Marketplace.vue';
+
+import HomeView from './views/Home.vue'
+import UpdatesView from './views/Updates.vue'
+import UpdateView from './views/Update.vue'
+import UpdatesFormView from './views/UpdatesForm.vue'
+import CommandsView from './views/Commands.vue'
+import MarketplaceView from './views/Marketplace.vue'
+import UserView from './views/User.vue';
+import UserSettingsView from './views/UserSettings.vue';
 
 let routes =
     [
         {
             path: '/',
             name: 'home',
-            component: LandingComponent
+            component: HomeView
         },
         {
             path: '/updates',
             name: 'updates.index',
-            component: UpdatesComponent
+            component: UpdatesView
         },
         {
             path: '/updates/create',
             name: 'updates.create',
-            component: UpdateFormComponent
+            component: UpdatesFormView
         },
         {
             path: '/updates/:id',
             name: 'updates.show',
-            component: UpdateComponent
+            component: UpdateView
         },
         {
             path: '/updates/:id/edit',
             name: 'updates.edit',
-            component: UpdateFormComponent
+            component: UpdatesFormView
         },
         {
             path: '/commands',
             name: 'commands',
-            component: CommandsComponent
+            component: CommandsView
         },
         {
             path: '/user',
             name: 'users.show',
-            component: UserComponent
+            component: UserView
         },
         {
             path: '/user/settings',
             name: 'users.settings',
-            component: UserSettingsComponent
+            component: UserSettingsView
         },
         {
             path: '/marketplace',
             name: 'marketplace',
-            component: MarketplaceComponent
+            component: MarketplaceView
         },
         {
             path: '/login/:provider/callback',
