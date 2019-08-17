@@ -94,8 +94,15 @@ export default {
             {
                 width: 60rem;
             }           
-            background-color: orangered;
             background: linear-gradient(to bottom right, transparent 0%, transparent 50%, rgba(0,0,0, 0.75) 50%, rgba(0,0,0, 0.75) 100%);
+
+            
+            @media only screen and (max-width: 62em)
+            {
+                background: none;
+                width: 100%;
+                height: 100%;
+            }
         }
 
         &__content
@@ -105,11 +112,27 @@ export default {
             right: 10%;
             width: 40rem;
             text-align: center;
-            @media screen and (max-width: 1400px) 
+            @media only screen and (max-width: 87.5em) 
             {
                 width: 30rem;
                 bottom: 8%;
                 right: 8%;
+            }
+
+            @media only screen and (max-width: 62em)
+            {
+                bottom: 50%;
+                right: 50%;
+                transform: translate(50%, 50%);
+                width: 46rem;
+                background: rgba($color-black, .75);
+                padding: 3rem;
+                box-shadow: 0 0 10px $color-black;
+            }
+
+            @media only screen and (max-width: 30em)
+            {
+                width: 35rem !important;
             }
         }
 
@@ -119,7 +142,7 @@ export default {
             line-height: 1.2;
             font-weight: 300;
             margin-bottom: 1rem;
-            @media screen and (max-width: 1400px) {font-size: 3rem;}
+            @media only screen and (max-width: 87.5em) {font-size: 3rem;}
         }
 
         &__text
