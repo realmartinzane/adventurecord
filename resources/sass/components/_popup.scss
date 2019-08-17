@@ -18,7 +18,12 @@
         background: $color-secondary-light;
         border: 1px solid $color-border-light;
         border-radius: 3px;
-        width: 50rem
+        width: 50rem;
+
+        @media only screen and (max-width: 30em)
+        {
+            width: 95%;
+        }
     }
 
     &__header
@@ -77,6 +82,12 @@
         width: calc(100% - (8rem + 4rem));
         margin-left: 1rem;
         vertical-align: top;
+
+        @media only screen and (max-width: 30em)
+        {
+            
+            width: calc(100% - (8rem + 1rem));
+        }
     }
 
     &__name
