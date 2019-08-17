@@ -301,6 +301,12 @@ body {
   margin: auto;
 }
 
+@media only screen and (max-width: 30em) {
+  .form__group {
+    width: 90% !important;
+  }
+}
+
 .form__label {
   display: block;
   font-size: 2rem;
