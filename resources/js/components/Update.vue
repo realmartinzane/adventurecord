@@ -161,11 +161,27 @@ export default {
 
     .post
     {
+        width: 95%;
+
+        
+        @media only screen and (max-width: 30em)
+        {
+            width: 98%;
+            margin: auto;
+        }
+        
+        
         &__left
         {
             display: inline-block;
             margin: 0 3rem;
             vertical-align: top;
+            
+            @media only screen and (max-width: 30em)
+            {
+                margin-left: 0;
+                margin-right: 1.5rem;
+            }
         }
 
         &__img-container
@@ -176,6 +192,14 @@ export default {
             background-color: $color-black;
             outline: 3px solid $color-black;
             border: 5px solid $color-primary;
+
+            @media only screen and (max-width: 30em)
+            {
+                height: 7.5rem;
+                width: 7.5rem;
+                outline: 1px solid $color-black;
+                border: 3px solid $color-primary;
+            }
         }
 
         &__img
@@ -206,12 +230,21 @@ export default {
         {
             display: inline-block;
             width: calc(100% - 18rem);
+            
+            @media only screen and (max-width: 30em)
+            {
+                width: calc(100% - 10rem);
+            }
         }
 
         &__header-left
         {
             display: inline-block;
             width: 79%;
+            @media only screen and (max-width: 37.5em)
+            {
+                width: 100%;
+            }
         }
 
         &__title
@@ -220,6 +253,10 @@ export default {
             font-weight: 400;
             line-height: 1.15;
             margin-bottom: 1rem;
+            @media only screen and (max-width: 30em)
+            {
+                font-size: 2rem;
+            }
         }
 
         &__author
@@ -233,6 +270,10 @@ export default {
             width: 20%;
             text-align: right;
             vertical-align: top;
+            @media only screen and (max-width: 37.5em)
+            {
+                display: none;
+            }
         }
 
         &__date
