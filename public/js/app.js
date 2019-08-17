@@ -15876,75 +15876,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -17046,7 +16977,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".carousel {\n  margin-top: 5.5rem;\n  height: 80rem;\n}\n@media screen and (max-width: 991px) {\n.carousel {\n    margin-top: 8rem;\n}\n}\n@media screen and (max-width: 1400px) {\n.carousel {\n    height: 60rem;\n}\n}\n.VueCarousel-wrapper, .VueCarousel-inner {\n  height: 100% !important;\n}\n.slide {\n  position: relative;\n  background-size: cover;\n  background-position: 50% 70%;\n  height: 100%;\n}\n.slide:nth-child(1) {\n  background-image: url(/../img/slide_01.png);\n}\n.slide:nth-child(2) {\n  background-image: url(/../img/slide_02.png);\n}\n.slide__container {\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  width: 80rem;\n  height: 151%;\n  background-color: orangered;\n  background: -webkit-gradient(linear, left top, right bottom, from(transparent), color-stop(50%, transparent), color-stop(50%, rgba(0, 0, 0, 0.75)), to(rgba(0, 0, 0, 0.75)));\n  background: linear-gradient(to bottom right, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0.75) 100%);\n}\n@media screen and (max-width: 1400px) {\n.slide__container {\n    width: 60rem;\n}\n}\n.slide__content {\n  position: absolute;\n  bottom: 10%;\n  right: 10%;\n  width: 40rem;\n  text-align: center;\n}\n@media screen and (max-width: 1400px) {\n.slide__content {\n    width: 30rem;\n    bottom: 8%;\n    right: 8%;\n}\n}\n.slide__title {\n  font-size: 4rem;\n  line-height: 1.2;\n  font-weight: 300;\n  margin-bottom: 1rem;\n}\n@media screen and (max-width: 1400px) {\n.slide__title {\n    font-size: 3rem;\n}\n}\n.slide__text {\n  font-size: 1.4rem;\n  color: #d3d3d3;\n}\n\n/*\n    .landing-row {min-height: auto !important}\n    @media screen and (max-width: 1200px)\n    {\n        .carousel-wrapper {height: 800px;}\n        .carousel, .carousel-inner, .carousel-item {height: 100%;}\n        .carousel-item img {width: 100%; height: 100%; object-fit: cover}\n    }\n    #triangle \n    {\n        display: none;\n        @media screen and (min-width: 1200px) {display: block;}\n    }\n    #rectangle \n    {\n        display: block;\n        @media screen and (min-width: 1200px) {display: none;}\n    }\n    .triangle .carousel-caption\n    {\n        height: 135%;\n        width: 50%;\n        padding: 0;\n        position: absolute;\n        bottom: 0;\n        right: 0;\n        left: auto;\n        background: linear-gradient(to bottom right, transparent 0%, transparent 50%, rgba(0,0,0, 0.75) 50%, rgba(0,0,0, 0.75) 100%);\n        .info-content\n        {\n            position: absolute;\n            left: 38%;\n            bottom: 7.5%;\n            width: 500px;\n            height: 375px;\n            @media screen and (max-width: 1600px) {width: 450px; height: 350px;}\n            @media screen and (max-width: 1440px) {position: absolute; left: 32.5%; bottom: 0}\n            @media screen and (max-width: 1300px) {position: absolute; left: 29%; bottom: -2.5%}\n            h2\n            {\n                font-size: 3.0rem;\n                @media screen and (max-width: 1600px) {font-size: 2.5rem}\n                @media screen and (max-width: 1440px) {font-size: 2.0rem}\n            }\n            p\n            {\n                font-size: 1.0rem;\n                @media screen and (max-width: 1600px) {font-size: 0.9rem}\n            }\n        }\n    }\n\n    .rectangle .carousel-caption\n    {\n        height: 100%;\n        width: 100%;\n        padding: 0;\n        position: absolute;\n        top: 0;\n        left: 0;\n        right: auto;\n        background: rgba(0,0,0, 0.5);\n        .info-content\n        {\n            position: absolute;\n            bottom: 20%;\n            left: 50%;\n            margin-left: -225px;\n            height: 350px;\n            width: 450px;\n            h2, p {text-shadow: 1px 1px 2px black;}\n            @media screen and (max-width: 420px) \n            {\n                padding: 15px;\n                width: 330px;\n                height: 400px;\n                margin-left: -165px;\n            }\n        }\n    }\n\n    .info-content\n    {\n\n        color: white;\n        padding: 25px;\n        text-align: center;\n        opacity: 1;\n        @include transition(opacity 600ms);\n\n        h2 {font: normal 'Roboto Condensed', sans-serif;}\n        p\n        {\n            font: 300 'Heebo', sans-serif;\n            color: rgb(223, 223, 223);\n            line-height: 1.75;\n        }\n    }\n    .info-active \n    {\n        opacity: 1;\n        z-index: 2; \n        @include transition(opacity 600ms)\n    }\n*/", ""]);
+exports.push([module.i, ".carousel {\n  margin-top: 5.5rem;\n  height: 80rem;\n}\n@media screen and (max-width: 991px) {\n.carousel {\n    margin-top: 8rem;\n}\n}\n@media screen and (max-width: 1400px) {\n.carousel {\n    height: 60rem;\n}\n}\n.VueCarousel-wrapper, .VueCarousel-inner {\n  height: 100% !important;\n}\n.slide {\n  position: relative;\n  background-size: cover;\n  background-position: 50% 70%;\n  height: 100%;\n}\n.slide:nth-child(1) {\n  background-image: url(/../img/slide_01.png);\n}\n.slide:nth-child(2) {\n  background-image: url(/../img/slide_02.png);\n}\n.slide__container {\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  width: 80rem;\n  height: 151%;\n  background-color: orangered;\n  background: -webkit-gradient(linear, left top, right bottom, from(transparent), color-stop(50%, transparent), color-stop(50%, rgba(0, 0, 0, 0.75)), to(rgba(0, 0, 0, 0.75)));\n  background: linear-gradient(to bottom right, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0.75) 100%);\n}\n@media screen and (max-width: 1400px) {\n.slide__container {\n    width: 60rem;\n}\n}\n.slide__content {\n  position: absolute;\n  bottom: 10%;\n  right: 10%;\n  width: 40rem;\n  text-align: center;\n}\n@media screen and (max-width: 1400px) {\n.slide__content {\n    width: 30rem;\n    bottom: 8%;\n    right: 8%;\n}\n}\n.slide__title {\n  font-size: 4rem;\n  line-height: 1.2;\n  font-weight: 300;\n  margin-bottom: 1rem;\n}\n@media screen and (max-width: 1400px) {\n.slide__title {\n    font-size: 3rem;\n}\n}\n.slide__text {\n  font-size: 1.4rem;\n  color: #d3d3d3;\n}", ""]);
 
 // exports
 
