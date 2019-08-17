@@ -2,8 +2,8 @@
     <div class="navigation">
         <div class="navigation__brand">
             <div class="navigation__brand-content">
-                <img src="/img/brand_name.png" alt="Brand Name" class="navigation__brand-name">
-                <img src="/img/brand_logo.png" alt="Brand Logo" class="navigation__brand-logo">
+                <img srcset="/img/brand_name_1x.png 1x, /img/brand_name_2x.png 2x" alt="Brand Name" class="navigation__brand-name">
+                <img srcset="/img/brand_logo_1x.png 1x, /img/brand_logo_2x.png 2x" alt="Brand Logo" class="navigation__brand-logo">
             </div>
         </div>
 

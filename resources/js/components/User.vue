@@ -11,7 +11,7 @@
                 </header>
 
             <div class="user-profile__left">
-                <img src="/img/brand_logo.png" alt="Profile Image" class="user-profile__img">
+                <img srcset="/img/brand_logo_1x.png 1x, /img/brand_logo_2x.png 2x" alt="Profile Image" class="user-profile__img">
                 <router-link :to="'/user/settings'" class="user-profile__btn btn btn--primary">
                     <font-awesome-icon :icon="['fas', 'cog']" class="mr-1"></font-awesome-icon>
                     Settings
@@ -151,8 +151,8 @@ export default {
         // Left Styling
         &__img
         {
-            width: 15rem;
-            height: 15rem;
+            width: 12rem;
+            height: 12rem;
             
             border: 5px solid $color-primary;
             outline: 3px solid $color-black;
@@ -250,7 +250,7 @@ export default {
         &__stats-left
         {
             display: inline-block;
-            width: 12rem;
+            width: 10rem;
         }
 
         &__nation
@@ -261,7 +261,7 @@ export default {
         &__stats-right
         {
             display: inline-block;
-            width: calc(100% - 12.5rem);
+            width: calc(100% - 10.5rem);
             vertical-align: top;
         }
 

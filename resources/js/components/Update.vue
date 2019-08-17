@@ -3,7 +3,10 @@
         <div class="post" v-if="fetchedUpdate">
             <div class="post__left">
                 <div class="post__img-container">
-                    <img src="/img/brand_logo.png" alt="Update Source Image" class="post__img">
+                    <picture class="post__img">
+                        <source srcset="/img/brand_logo_1x.png" media="(max-width: 30em)">
+                        <img srcset="/img/brand_logo_1x.png 1x, /img/brand_logo_2x.png 2x" alt="Update Source Image" class="post__img">
+                    </picture>
                 </div>
                 
                 <div class="post__btn-container">

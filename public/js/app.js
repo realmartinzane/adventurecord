@@ -16302,6 +16302,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['update'],
@@ -17110,7 +17113,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".user-profile__header--sm {\n  display: none;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__header--sm {\n    display: block;\n    width: 100%;\n    text-align: center;\n    margin: 3rem 0;\n}\n}\n.user-profile__header--lg {\n  display: block;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__header--lg {\n    display: none;\n}\n}\n.user-profile__left {\n  display: inline-block;\n  width: 30%;\n  padding: 3rem 6rem;\n  vertical-align: top;\n  text-align: center;\n}\n@media only screen and (max-width: 85em) {\n.user-profile__left {\n    padding: 3rem;\n}\n}\n@media only screen and (max-width: 41.25em) {\n.user-profile__left {\n    padding: 1rem;\n}\n}\n@media only screen and (max-width: 30em) {\n.user-profile__left {\n    width: 100%;\n    margin-bottom: 3rem;\n}\n}\n.user-profile__right {\n  display: inline-block;\n  width: 69%;\n  padding: 3rem;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__right {\n    width: 100%;\n}\n}\n.user-profile__img {\n  width: 15rem;\n  height: 15rem;\n  border: 5px solid #FFD700;\n  outline: 3px solid #000;\n  background-color: #000;\n}\n.user-profile__btn {\n  padding: 0.5rem 1rem !important;\n  position: relative;\n  z-index: 5000;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__btn {\n    display: block !important;\n    width: 10rem;\n    margin: auto;\n}\n}\n.user-profile__info {\n  margin-top: 2rem;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__info {\n    width: 25rem;\n    margin: auto;\n}\n}\n.user-profile__label {\n  display: inline-block;\n  width: 25%;\n  margin: 0.5rem 0;\n  text-align: left;\n}\n.user-profile__gold {\n  color: #FFD700;\n}\n.user-profile__gems {\n  color: #6755b9;\n}\n.user-profile__guild {\n  color: #cb4154;\n}\n.user-profile__activity {\n  color: #00bfff;\n}\n.user-profile__data {\n  display: inline-block;\n  width: 70%;\n  text-align: right;\n}\n.user-profile__name {\n  font-size: 4rem;\n  font-weight: 300;\n  line-height: 1;\n}\n.user-profile__ban {\n  font-size: 1.5rem;\n  text-transform: uppercase;\n  color: #ec4853;\n}\n.user-profile__id {\n  font-size: 1.2rem;\n  text-transform: uppercase;\n}\n.user-profile__stats {\n  background-color: #2E2E36;\n  border: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n  margin: 1.5rem 0;\n  padding: 1rem 1.5rem;\n}\n.user-profile__stats-left {\n  display: inline-block;\n  width: 12rem;\n}\n.user-profile__nation {\n  width: 100%;\n}\n.user-profile__stats-right {\n  display: inline-block;\n  width: calc(100% - 12.5rem);\n  vertical-align: top;\n}\n.user-profile__level-label {\n  margin-top: 1rem;\n}\n.user-profile__level {\n  font-size: 4rem;\n  line-height: 1;\n  display: inline-block;\n}\n.user-profile__progress-bar {\n  display: inline-block;\n  width: calc(100% - 60px);\n  height: 2rem;\n  background: #d3d3d3;\n  border-radius: 3px;\n}\n.user-profile__progress {\n  width: 40%;\n  height: 100%;\n  background-image: repeating-linear-gradient(45deg, #FFD700, #FFD700 1rem, #e2c000 1rem, #e2c000 2rem);\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.user-profile__location {\n  margin: 1.5rem 0;\n}\n.user-profile__location-img {\n  width: 100%;\n  height: auto;\n  border: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n}", ""]);
+exports.push([module.i, ".user-profile__header--sm {\n  display: none;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__header--sm {\n    display: block;\n    width: 100%;\n    text-align: center;\n    margin: 3rem 0;\n}\n}\n.user-profile__header--lg {\n  display: block;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__header--lg {\n    display: none;\n}\n}\n.user-profile__left {\n  display: inline-block;\n  width: 30%;\n  padding: 3rem 6rem;\n  vertical-align: top;\n  text-align: center;\n}\n@media only screen and (max-width: 85em) {\n.user-profile__left {\n    padding: 3rem;\n}\n}\n@media only screen and (max-width: 41.25em) {\n.user-profile__left {\n    padding: 1rem;\n}\n}\n@media only screen and (max-width: 30em) {\n.user-profile__left {\n    width: 100%;\n    margin-bottom: 3rem;\n}\n}\n.user-profile__right {\n  display: inline-block;\n  width: 69%;\n  padding: 3rem;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__right {\n    width: 100%;\n}\n}\n.user-profile__img {\n  width: 12rem;\n  height: 12rem;\n  border: 5px solid #FFD700;\n  outline: 3px solid #000;\n  background-color: #000;\n}\n.user-profile__btn {\n  padding: 0.5rem 1rem !important;\n  position: relative;\n  z-index: 5000;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__btn {\n    display: block !important;\n    width: 10rem;\n    margin: auto;\n}\n}\n.user-profile__info {\n  margin-top: 2rem;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__info {\n    width: 25rem;\n    margin: auto;\n}\n}\n.user-profile__label {\n  display: inline-block;\n  width: 25%;\n  margin: 0.5rem 0;\n  text-align: left;\n}\n.user-profile__gold {\n  color: #FFD700;\n}\n.user-profile__gems {\n  color: #6755b9;\n}\n.user-profile__guild {\n  color: #cb4154;\n}\n.user-profile__activity {\n  color: #00bfff;\n}\n.user-profile__data {\n  display: inline-block;\n  width: 70%;\n  text-align: right;\n}\n.user-profile__name {\n  font-size: 4rem;\n  font-weight: 300;\n  line-height: 1;\n}\n.user-profile__ban {\n  font-size: 1.5rem;\n  text-transform: uppercase;\n  color: #ec4853;\n}\n.user-profile__id {\n  font-size: 1.2rem;\n  text-transform: uppercase;\n}\n.user-profile__stats {\n  background-color: #2E2E36;\n  border: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n  margin: 1.5rem 0;\n  padding: 1rem 1.5rem;\n}\n.user-profile__stats-left {\n  display: inline-block;\n  width: 10rem;\n}\n.user-profile__nation {\n  width: 100%;\n}\n.user-profile__stats-right {\n  display: inline-block;\n  width: calc(100% - 10.5rem);\n  vertical-align: top;\n}\n.user-profile__level-label {\n  margin-top: 1rem;\n}\n.user-profile__level {\n  font-size: 4rem;\n  line-height: 1;\n  display: inline-block;\n}\n.user-profile__progress-bar {\n  display: inline-block;\n  width: calc(100% - 60px);\n  height: 2rem;\n  background: #d3d3d3;\n  border-radius: 3px;\n}\n.user-profile__progress {\n  width: 40%;\n  height: 100%;\n  background-image: repeating-linear-gradient(45deg, #FFD700, #FFD700 1rem, #e2c000 1rem, #e2c000 2rem);\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.user-profile__location {\n  margin: 1.5rem 0;\n}\n.user-profile__location-img {\n  width: 100%;\n  height: auto;\n  border: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n}", ""]);
 
 // exports
 
@@ -36272,7 +36275,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "item__left" }, [
               _c("img", {
                 staticClass: "item__img",
-                attrs: { src: "/img/brand_logo.png", alt: "Item Image" }
+                attrs: { src: "/img/brand_logo_1x.png", alt: "Item Image" }
               })
             ]),
             _vm._v(" "),
@@ -36293,7 +36296,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "item__left" }, [
               _c("img", {
                 staticClass: "item__img",
-                attrs: { src: "/img/brand_logo.png", alt: "Item Image" }
+                attrs: { src: "/img/brand_logo_1x.png", alt: "Item Image" }
               })
             ]),
             _vm._v(" "),
@@ -36314,7 +36317,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "item__left" }, [
               _c("img", {
                 staticClass: "item__img",
-                attrs: { src: "/img/brand_logo.png", alt: "Item Image" }
+                attrs: { src: "/img/brand_logo_1x.png", alt: "Item Image" }
               })
             ]),
             _vm._v(" "),
@@ -36338,7 +36341,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "popup__left" }, [
         _c("img", {
           staticClass: "popup__img",
-          attrs: { src: "/img/brand_logo.png", alt: "Item Image" }
+          attrs: { src: "/img/brand_logo_1x.png", alt: "Item Image" }
         })
       ]),
       _vm._v(" "),
@@ -36507,12 +36510,26 @@ var staticRenderFns = [
       _c("div", { staticClass: "navigation__brand-content" }, [
         _c("img", {
           staticClass: "navigation__brand-name",
-          attrs: { src: "/img/brand_name.png", alt: "Brand Name" }
+          attrs: {
+            srcset:
+              "/img/brand_name_1x.png" +
+              " 1x, " +
+              "/img/brand_name_2x.png" +
+              " 2x",
+            alt: "Brand Name"
+          }
         }),
         _vm._v(" "),
         _c("img", {
           staticClass: "navigation__brand-logo",
-          attrs: { src: "/img/brand_logo.png", alt: "Brand Logo" }
+          attrs: {
+            srcset:
+              "/img/brand_logo_1x.png" +
+              " 1x, " +
+              "/img/brand_logo_2x.png" +
+              " 2x",
+            alt: "Brand Logo"
+          }
         })
       ])
     ])
@@ -36660,7 +36677,11 @@ var staticRenderFns = [
     return _c("div", { staticClass: "mobile-navigation__brand" }, [
       _c("img", {
         staticClass: "mobile-navigation__brand-img",
-        attrs: { src: "/img/brand.png", alt: "Brand Image" }
+        attrs: {
+          srcset:
+            "/img/nav_brand_1x.png" + " 1x, " + "/img/nav_brand_2x.png" + " 2x",
+          alt: "Brand Image"
+        }
       })
     ])
   },
@@ -37151,10 +37172,26 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "post__img-container" }, [
-      _c("img", {
-        staticClass: "post__img",
-        attrs: { src: "/img/brand_logo.png", alt: "Update Source Image" }
-      })
+      _c("picture", { staticClass: "post__img" }, [
+        _c("source", {
+          attrs: {
+            srcset: "/img/brand_logo_1x.png",
+            media: "(max-width: 30em)"
+          }
+        }),
+        _vm._v(" "),
+        _c("img", {
+          staticClass: "post__img",
+          attrs: {
+            srcset:
+              "/img/brand_logo_1x.png" +
+              " 1x, " +
+              "/img/brand_logo_2x.png" +
+              " 2x",
+            alt: "Update Source Image"
+          }
+        })
+      ])
     ])
   },
   function() {
@@ -37419,7 +37456,14 @@ var render = function() {
         [
           _c("img", {
             staticClass: "user-profile__img",
-            attrs: { src: "/img/brand_logo.png", alt: "Profile Image" }
+            attrs: {
+              srcset:
+                "/img/brand_logo_1x.png" +
+                " 1x, " +
+                "/img/brand_logo_2x.png" +
+                " 2x",
+              alt: "Profile Image"
+            }
           }),
           _vm._v(" "),
           _c(

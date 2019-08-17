@@ -1,7 +1,7 @@
 <template>
     <div class="mobile-navigation">
         <div class="mobile-navigation__brand">
-            <img src="/img/brand.png" alt="Brand Image" class="mobile-navigation__brand-img">
+            <img srcset="/img/nav_brand_1x.png 1x, /img/nav_brand_2x.png 2x" alt="Brand Image" class="mobile-navigation__brand-img">
         </div>
         
         <nav class="mobile-navigation__nav">

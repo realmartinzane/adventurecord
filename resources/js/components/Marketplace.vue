@@ -23,7 +23,7 @@
                 <a href="#details_1" class="item__link">
                     <div class="item__content">
                         <div class="item__left">
-                            <img src="/img/brand_logo.png" alt="Item Image" class="item__img">
+                            <img src="/img/brand_logo_1x.png" alt="Item Image" class="item__img">
                         </div>
                         
                         <div class="item__right">
@@ -39,7 +39,7 @@
                 <a href="#details_1" class="item__link">
                     <div class="item__content">
                         <div class="item__left">
-                            <img src="/img/brand_logo.png" alt="Item Image" class="item__img">
+                            <img src="/img/brand_logo_1x.png" alt="Item Image" class="item__img">
                         </div>
                         
                         <div class="item__right">
@@ -55,7 +55,7 @@
                 <a href="#details_1" class="item__link">
                     <div class="item__content">
                         <div class="item__left">
-                            <img src="/img/brand_logo.png" alt="Item Image" class="item__img">
+                            <img src="/img/brand_logo_1x.png" alt="Item Image" class="item__img">
                         </div>
                         
                         <div class="item__right">
@@ -79,7 +79,7 @@
 
                 <div class="popup__body">
                     <div class="popup__left">
-                        <img class="popup__img" src="/img/brand_logo.png" alt="Item Image">
+                        <img class="popup__img" src="/img/brand_logo_1x.png" alt="Item Image">
                     </div>
 
                     <div class="popup__right">
