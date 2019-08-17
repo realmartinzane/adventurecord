@@ -34,6 +34,38 @@
                     </div>
                 </a>
             </div>
+
+            <div class="col-1-of-3">
+                <a href="#details_1" class="item__link">
+                    <div class="item__content">
+                        <div class="item__left">
+                            <img src="/img/brand_logo.png" alt="Item Image" class="item__img">
+                        </div>
+                        
+                        <div class="item__right">
+                            <h4 class="item__name">Item Name</h4>
+                            <div class="item__info">Class: Mage</div>
+                            <div class="item__info">Armor: 24</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-1-of-3">
+                <a href="#details_1" class="item__link">
+                    <div class="item__content">
+                        <div class="item__left">
+                            <img src="/img/brand_logo.png" alt="Item Image" class="item__img">
+                        </div>
+                        
+                        <div class="item__right">
+                            <h4 class="item__name">Item Name</h4>
+                            <div class="item__info">Class: Mage</div>
+                            <div class="item__info">Armor: 24</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
 
         <div class="popup" id="details_1">
@@ -86,7 +118,6 @@ export default {
 
     .item
     {
-
         &__content
         {
             background-color: $color-secondary-light;

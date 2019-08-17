@@ -17,6 +17,23 @@
         {
             margin-right: $gutter-horizontal;
         }
+
+        @media screen and (max-width: 56.25em)
+        {
+            width: 46% !important;
+            display: inline-block;
+            margin-bottom: 3rem;
+            float: none;
+            margin-right: $gutter-horizontal-sm !important;
+        }
+
+        @media screen and (max-width: 37.5em)
+        {
+            width: 100% !important;
+            margin-right: 0 !important;
+            
+        }
+        
     }
 
     .col-1-of-2

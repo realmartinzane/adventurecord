@@ -31,9 +31,15 @@ section {
   width: 110rem;
 }
 
-@media screen and (max-width: 1360px) {
+@media screen and (max-width: 85em) {
   section {
     width: 80rem;
+  }
+}
+
+@media screen and (max-width: 56.25em) {
+  section {
+    width: 95%;
   }
 }
 
@@ -46,7 +52,7 @@ section {
   margin: 2rem;
 }
 
-@media screen and (min-width: 992px) and (max-width: 1360px) {
+@media screen and (min-width: 62em) and (max-width: 85em) {
   .section-commands {
     width: 76.5rem !important;
   }
@@ -323,6 +329,12 @@ body {
   vertical-align: top;
 }
 
+@media only screen and (max-width: 56.25em) {
+  .form__input--search {
+    width: calc(100% - 5.2rem);
+  }
+}
+
 .form__search--search,
 .form__search--search:visited,
 .form__search--search:link {
@@ -332,6 +344,14 @@ body {
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
   font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 56.25em) {
+  .form__search--search,
+  .form__search--search:visited,
+  .form__search--search:link {
+    width: 5rem;
+  }
 }
 
 .popup {
@@ -469,6 +489,23 @@ body {
 
 .row [class^=col-]:not(:last-child) {
   margin-right: 6rem;
+}
+
+@media screen and (max-width: 56.25em) {
+  .row [class^=col-] {
+    width: 46% !important;
+    display: inline-block;
+    margin-bottom: 3rem;
+    float: none;
+    margin-right: 2rem !important;
+  }
+}
+
+@media screen and (max-width: 37.5em) {
+  .row [class^=col-] {
+    width: 100% !important;
+    margin-right: 0 !important;
+  }
 }
 
 .row .col-1-of-2 {

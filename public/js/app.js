@@ -16047,6 +16047,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -17138,7 +17170,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".user-profile__left {\n  display: inline-block;\n  width: 30%;\n  padding: 3rem 6rem;\n  vertical-align: top;\n  text-align: center;\n}\n@media screen and (max-width: 1360px) {\n.user-profile__left {\n    padding: 3rem;\n}\n}\n.user-profile__right {\n  display: inline-block;\n  width: 69%;\n  padding: 3rem;\n}\n.user-profile__img {\n  width: 15rem;\n  height: 15rem;\n  border: 5px solid #FFD700;\n  outline: 3px solid #000;\n  background-color: #000;\n}\n.user-profile__btn {\n  padding: 0.5rem 1rem !important;\n  position: relative;\n  z-index: 5000;\n}\n.user-profile__info {\n  margin-top: 2rem;\n}\n.user-profile__label {\n  display: inline-block;\n  width: 25%;\n  margin: 0.5rem 0;\n}\n.user-profile__gold {\n  color: #FFD700;\n}\n.user-profile__gems {\n  color: #6755b9;\n}\n.user-profile__guild {\n  color: #cb4154;\n}\n.user-profile__activity {\n  color: #00bfff;\n}\n.user-profile__data {\n  display: inline-block;\n  width: 70%;\n  text-align: right;\n}\n.user-profile__name {\n  font-size: 4rem;\n  font-weight: 300;\n  line-height: 1;\n}\n.user-profile__ban {\n  font-size: 1.5rem;\n  text-transform: uppercase;\n  color: #ec4853;\n}\n.user-profile__id {\n  font-size: 1.2rem;\n  text-transform: uppercase;\n}\n.user-profile__stats {\n  background-color: #2E2E36;\n  border: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n  margin: 1.5rem 0;\n  padding: 1rem 1.5rem;\n}\n.user-profile__stats-left {\n  display: inline-block;\n  width: 12rem;\n}\n.user-profile__nation {\n  width: 100%;\n}\n.user-profile__stats-right {\n  display: inline-block;\n  width: calc(100% - 12.5rem);\n  vertical-align: top;\n}\n.user-profile__level-label {\n  margin-top: 1rem;\n}\n.user-profile__level {\n  font-size: 4rem;\n  line-height: 1;\n  display: inline-block;\n}\n.user-profile__progress-bar {\n  display: inline-block;\n  width: calc(100% - 60px);\n  height: 2rem;\n  background: #d3d3d3;\n  border-radius: 3px;\n}\n.user-profile__progress {\n  width: 40%;\n  height: 100%;\n  background-image: repeating-linear-gradient(45deg, #FFD700, #FFD700 1rem, #e2c000 1rem, #e2c000 2rem);\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.user-profile__location {\n  margin: 1.5rem 0;\n}\n.user-profile__location-img {\n  width: 100%;\n  height: auto;\n  border: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n}", ""]);
+exports.push([module.i, ".user-profile__left {\n  display: inline-block;\n  width: 30%;\n  padding: 3rem 6rem;\n  vertical-align: top;\n  text-align: center;\n}\n@media screen and (max-width: 85em) {\n.user-profile__left {\n    padding: 3rem;\n}\n}\n.user-profile__right {\n  display: inline-block;\n  width: 69%;\n  padding: 3rem;\n}\n.user-profile__img {\n  width: 15rem;\n  height: 15rem;\n  border: 5px solid #FFD700;\n  outline: 3px solid #000;\n  background-color: #000;\n}\n.user-profile__btn {\n  padding: 0.5rem 1rem !important;\n  position: relative;\n  z-index: 5000;\n}\n.user-profile__info {\n  margin-top: 2rem;\n}\n.user-profile__label {\n  display: inline-block;\n  width: 25%;\n  margin: 0.5rem 0;\n}\n.user-profile__gold {\n  color: #FFD700;\n}\n.user-profile__gems {\n  color: #6755b9;\n}\n.user-profile__guild {\n  color: #cb4154;\n}\n.user-profile__activity {\n  color: #00bfff;\n}\n.user-profile__data {\n  display: inline-block;\n  width: 70%;\n  text-align: right;\n}\n.user-profile__name {\n  font-size: 4rem;\n  font-weight: 300;\n  line-height: 1;\n}\n.user-profile__ban {\n  font-size: 1.5rem;\n  text-transform: uppercase;\n  color: #ec4853;\n}\n.user-profile__id {\n  font-size: 1.2rem;\n  text-transform: uppercase;\n}\n.user-profile__stats {\n  background-color: #2E2E36;\n  border: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n  margin: 1.5rem 0;\n  padding: 1rem 1.5rem;\n}\n.user-profile__stats-left {\n  display: inline-block;\n  width: 12rem;\n}\n.user-profile__nation {\n  width: 100%;\n}\n.user-profile__stats-right {\n  display: inline-block;\n  width: calc(100% - 12.5rem);\n  vertical-align: top;\n}\n.user-profile__level-label {\n  margin-top: 1rem;\n}\n.user-profile__level {\n  font-size: 4rem;\n  line-height: 1;\n  display: inline-block;\n}\n.user-profile__progress-bar {\n  display: inline-block;\n  width: calc(100% - 60px);\n  height: 2rem;\n  background: #d3d3d3;\n  border-radius: 3px;\n}\n.user-profile__progress {\n  width: 40%;\n  height: 100%;\n  background-image: repeating-linear-gradient(45deg, #FFD700, #FFD700 1rem, #e2c000 1rem, #e2c000 2rem);\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.user-profile__location {\n  margin: 1.5rem 0;\n}\n.user-profile__location-img {\n  width: 100%;\n  height: auto;\n  border: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n}", ""]);
 
 // exports
 
@@ -36294,6 +36326,48 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-1-of-3" }, [
+        _c("a", { staticClass: "item__link", attrs: { href: "#details_1" } }, [
+          _c("div", { staticClass: "item__content" }, [
+            _c("div", { staticClass: "item__left" }, [
+              _c("img", {
+                staticClass: "item__img",
+                attrs: { src: "/img/brand_logo.png", alt: "Item Image" }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "item__right" }, [
+              _c("h4", { staticClass: "item__name" }, [_vm._v("Item Name")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "item__info" }, [_vm._v("Class: Mage")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "item__info" }, [_vm._v("Armor: 24")])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-1-of-3" }, [
+        _c("a", { staticClass: "item__link", attrs: { href: "#details_1" } }, [
+          _c("div", { staticClass: "item__content" }, [
+            _c("div", { staticClass: "item__left" }, [
+              _c("img", {
+                staticClass: "item__img",
+                attrs: { src: "/img/brand_logo.png", alt: "Item Image" }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "item__right" }, [
+              _c("h4", { staticClass: "item__name" }, [_vm._v("Item Name")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "item__info" }, [_vm._v("Class: Mage")]),
+              _vm._v(" "),
+              _c("div", { staticClass: "item__info" }, [_vm._v("Armor: 24")])
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
       _c("div", { staticClass: "col-1-of-3" }, [
         _c("a", { staticClass: "item__link", attrs: { href: "#details_1" } }, [
           _c("div", { staticClass: "item__content" }, [
@@ -57606,7 +57680,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_Commands_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/Commands.vue */ "./resources/js/views/Commands.vue");
 /* harmony import */ var _views_Marketplace_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/Marketplace.vue */ "./resources/js/views/Marketplace.vue");
 /* harmony import */ var _views_User_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/User.vue */ "./resources/js/views/User.vue");
-/* harmony import */ var _views_UserSettings_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/UserSettings.vue */ "./resources/js/views/UserSettings.vue");
+/* harmony import */ var _views_UserSettings_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/UserSettings.vue */ "./resources/js/views/UserSettings.vue");
 
 
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
@@ -57649,7 +57723,7 @@ var routes = [{
 }, {
   path: '/user/settings',
   name: 'users.settings',
-  component: _views_UserSettings_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
+  component: _views_UserSettings_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
 }, {
   path: '/marketplace',
   name: 'marketplace',
