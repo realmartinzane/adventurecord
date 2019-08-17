@@ -31,13 +31,13 @@ section {
   width: 110rem;
 }
 
-@media screen and (max-width: 85em) {
+@media only screen and (max-width: 85em) {
   section {
     width: 80rem;
   }
 }
 
-@media screen and (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   section {
     width: 95%;
   }
@@ -52,7 +52,7 @@ section {
   margin: 2rem;
 }
 
-@media screen and (min-width: 62em) and (max-width: 85em) {
+@media only screen and (min-width: 62em) and (max-width: 85em) {
   .section-commands {
     width: 76.5rem !important;
   }
@@ -491,7 +491,7 @@ body {
   margin-right: 6rem;
 }
 
-@media screen and (max-width: 56.25em) {
+@media only screen and (max-width: 56.25em) {
   .row [class^=col-] {
     width: 46% !important;
     display: inline-block;
@@ -501,7 +501,7 @@ body {
   }
 }
 
-@media screen and (max-width: 37.5em) {
+@media only screen and (max-width: 37.5em) {
   .row [class^=col-] {
     width: 100% !important;
     margin-right: 0 !important;

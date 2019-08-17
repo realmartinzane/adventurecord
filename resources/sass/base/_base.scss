@@ -28,12 +28,12 @@ section
     margin: 0 auto;
     width: 110rem;
 
-    @media screen and (max-width: 85em)
+    @media only screen and (max-width: 85em)
     {
         width: 80rem;
     }
 
-    @media screen and (max-width: 56.25em)
+    @media only screen and (max-width: 56.25em)
     {
         width: 95%;
     }
@@ -53,7 +53,7 @@ section
 // Specific Media Queries
 .section-commands
 {
-    @media screen and (min-width: 62em) and (max-width: 85em)
+    @media only screen and (min-width: 62em) and (max-width: 85em)
     {
         width: 76.5rem !important;   
     }

@@ -84,7 +84,7 @@ export default {
             display: inline-block;
             width: 30%;
             padding: 3rem 6rem;
-            @media screen and (max-width: 85em)
+            @media only screen and (max-width: 85em)
             {
                 padding: 3rem;
             }
