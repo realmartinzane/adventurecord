@@ -10,6 +10,18 @@ html {
   font-size: 62.5%;
 }
 
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 55%;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  html {
+    font-size: 50%;
+  }
+}
+
 a {
   cursor: pointer;
 }
@@ -501,7 +513,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 32.5em) {
   .row [class^=col-] {
     width: 100% !important;
     margin-right: 0 !important;

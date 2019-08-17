@@ -9,7 +9,19 @@
 
 
 // Definition for 1rem
-html {font-size: 62.5%}
+html 
+{
+    font-size: 62.5%;
+    @media only screen and (max-width: 56.25em)
+    {
+        font-size: 55%;
+    }
+
+    @media only screen and (max-width: 37.5em)
+    {
+        font-size: 50%;
+    }
+}
 
 a {cursor: pointer}
 
