@@ -1,6 +1,15 @@
 <template>
     <section class="section-user">
         <div class="user-profile">
+
+            <header class="user-profile__header user-profile__header--sm">
+                    <h2 class="user-profile__name">
+                        VampY 
+                        <span class="user-profile__ban">Banned</span>
+                    </h2>
+                    <sub class="user-profile__id">ID: 393447523471196160 </sub>
+                </header>
+
             <div class="user-profile__left">
                 <img src="/img/brand_logo.png" alt="Profile Image" class="user-profile__img">
                 <router-link :to="'/user/settings'" class="user-profile__btn btn btn--primary">
@@ -38,7 +47,7 @@
                 </div>
             </div>
             <div class="user-profile__right">
-                <header class="user-profile__header">
+                <header class="user-profile__header user-profile__header--lg">
                     <h2 class="user-profile__name">
                         VampY 
                         <span class="user-profile__ban">Banned</span>
@@ -79,6 +88,31 @@ export default {
 
     .user-profile
     {
+
+        &__header
+        {
+            &--sm
+            {
+                display: none;
+                @media only screen and (max-width: 30em)
+                {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    margin: 3rem 0;
+                }
+            }
+
+            &--lg
+            {
+                display: block;
+                @media only screen and (max-width: 30em)
+                {
+                    display: none;
+                }
+            }
+        }
+
         &__left
         {
             display: inline-block;
@@ -87,6 +121,17 @@ export default {
             @media only screen and (max-width: 85em)
             {
                 padding: 3rem;
+            }
+            
+            @media only screen and (max-width: 41.25em)
+            {
+                padding: 1rem;
+            }
+
+            @media only screen and (max-width: 30em)
+            {
+                width: 100%;
+                margin-bottom: 3rem;
             }
             vertical-align: top;
             text-align: center;
@@ -97,6 +142,10 @@ export default {
             display: inline-block;
             width: 69%;
             padding: 3rem;
+            @media only screen and (max-width: 30em)
+            {
+                width: 100%;
+            }
         }
 
         // Left Styling
@@ -115,10 +164,21 @@ export default {
             padding: .5rem 1rem !important;
             position: relative;
             z-index: 5000;
+            @media only screen and (max-width: 30em)
+            {
+                display: block !important;
+                width: 10rem;
+                margin: auto;
+            }
         }
 
         &__info
         {
+            @media only screen and (max-width: 30em)
+            {
+                width: 25rem;
+                margin: auto;
+            }
             margin-top: 2rem;
         }
 
@@ -127,6 +187,7 @@ export default {
             display: inline-block;
             width: 25%;
             margin: .5rem 0;
+            text-align: left;
         }
 
         &__gold
