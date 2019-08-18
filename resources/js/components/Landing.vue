@@ -59,8 +59,6 @@ export default {
 
 @import '../../sass/abstracts/_variables.scss';
 
-    
-
     .carousel
     {
         margin-top: 5.5rem;
@@ -76,6 +74,7 @@ export default {
 
     .slide
     {
+        user-select: none;
         position: relative;
         background-size: cover;
         background-position: 50% 70%;;
