@@ -30,6 +30,13 @@
         resize: vertical;
         font-family: 'Lato', sans-serif;
         font-size: 1.6rem;
+
+        &:active, &:focus
+        {
+            border: 1px solid rgba($color-primary, .6);
+            box-shadow: 0 0 5px rgba($color-primary, .6);
+            outline: none;
+        }
     }
     &__feedback
     {

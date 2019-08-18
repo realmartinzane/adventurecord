@@ -345,6 +345,17 @@ body {
   font-size: 1.6rem;
 }
 
+.form__select:active,
+.form__select:focus,
+.form__input:active,
+.form__input:focus,
+.form__textarea:active,
+.form__textarea:focus {
+  border: 1px solid rgba(255, 215, 0, 0.6);
+  box-shadow: 0 0 5px rgba(255, 215, 0, 0.6);
+  outline: none;
+}
+
 .form__feedback {
   visibility: hidden;
   margin-top: 0.5rem;
