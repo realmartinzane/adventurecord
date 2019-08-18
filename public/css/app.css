@@ -34,6 +34,7 @@ body,
 }
 
 main {
+  position: relative;
   min-height: calc(100% - 78px);
 }
 
@@ -68,6 +69,14 @@ section {
   .section-commands {
     width: 76.5rem !important;
   }
+}
+
+.v-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 body {

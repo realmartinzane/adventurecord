@@ -31,7 +31,9 @@ html, body, #app, .container
     height: 100%;
 }
 
-main {min-height: calc(100% - 78px);}
+main { 
+    position: relative;
+    min-height: calc(100% - 78px);}
 
 // Global Element Styles & Media Queries
 section
@@ -69,4 +71,14 @@ section
     {
         width: 76.5rem !important;   
     }
+}
+
+// Other
+
+.v-spinner
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

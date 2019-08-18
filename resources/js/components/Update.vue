@@ -1,5 +1,6 @@
 <template>
     <section :class="{'section-update': isShowRoute, 'item-update': !isShowRoute}" id="#section_update">
+        <clip-loader v-if="!fetchedUpdate" :loading="true" color="#FFD700" size="5rem"></clip-loader>
         <div class="post" v-if="fetchedUpdate">
             <div class="post__left">
                 <div class="post__img-container">
@@ -88,10 +89,11 @@
 <script>
 
 import SocialSharingComponent from './SocialSharing.vue'
+import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
 
 export default {
     props: ['update'],
-    components: {SocialSharingComponent},
+    components: {SocialSharingComponent, ClipLoader},
     data(){return{
         id: this.$route.params.id,
         fetchedUpdate: null,

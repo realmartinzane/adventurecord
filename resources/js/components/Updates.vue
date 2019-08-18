@@ -1,6 +1,7 @@
 <template>
     <section class="section-updates">
-       <header class="u-center-text u-margin-bottom-lg">
+        <clip-loader v-if="isIndexRoute && !updates" :loading="true" color="#FFD700" size="5rem"></clip-loader>
+        <header class="u-center-text u-margin-bottom-lg">
             <h2 class="heading-secondary">Updates</h2>
         </header>
         <div class="posts">
@@ -16,9 +17,10 @@
 
 <script>
 import UpdateComponent from './Update.vue'
+import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
 
 export default {
-    components: {UpdateComponent},
+    components: {UpdateComponent, ClipLoader},
     data(){return{
         updates: null
     }},

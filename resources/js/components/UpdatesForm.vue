@@ -1,10 +1,12 @@
 <template>
     <section class="section-update-form">
+        <clip-loader v-if="isEditRoute && !form.title && !form.body" :loading="true" color="#FFD700" size="5rem"></clip-loader>
+
         <header class="u-center-text u-margin-bottom-lg">
             <h2 class="heading-secondary">{{ isEditRoute ? 'Edit Update' : 'Create a New Update' }}</h2>
         </header>
 
-         <form class="form">
+         <form class="form" v-if="(isEditRoute && form.title && form.body) || !isEditRoute">
             <div class="form__group">
                 <label for="title" class="form__label">Title</label>
                 <input
@@ -40,9 +42,11 @@
 <script>
 import { validationMixin } from 'vuelidate'
 import { required, maxLength } from 'vuelidate/lib/validators'
+import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
 
 export default {
     mixins: [validationMixin],
+    components: {ClipLoader},
     data(){return{
         form:
         {
