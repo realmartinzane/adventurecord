@@ -1,5 +1,5 @@
 <template>
-    <section class="section-marketplace" id="section-marketplace">
+    <section class="section-marketplace">
         <header class="u-center-text u-margin-bottom-lg">
             <h2 class="heading-secondary">Marketplace</h2>
         </header>
@@ -20,61 +20,27 @@
 
         <div class="row">
             <div class="col-1-of-3">
-                <a href="#details_1" class="item__link">
-                    <div class="item__content">
-                        <div class="item__left">
-                            <img src="/img/brand_logo_1x.png" alt="Item Image" class="item__img">
-                        </div>
-                        
-                        <div class="item__right">
-                            <h4 class="item__name">Item Name</h4>
-                            <div class="item__info">Class: Mage</div>
-                            <div class="item__info">Armor: 24</div>
-                        </div>
+                <div class="item__content" @click="showModal = true">
+                    <div class="item__left">
+                        <img src="/img/brand_logo_1x.png" alt="Item Image" class="item__img">
                     </div>
-                </a>
-            </div>
-
-            <div class="col-1-of-3">
-                <a href="#details_1" class="item__link">
-                    <div class="item__content">
-                        <div class="item__left">
-                            <img src="/img/brand_logo_1x.png" alt="Item Image" class="item__img">
-                        </div>
-                        
-                        <div class="item__right">
-                            <h4 class="item__name">Item Name</h4>
-                            <div class="item__info">Class: Mage</div>
-                            <div class="item__info">Armor: 24</div>
-                        </div>
+                    
+                    <div class="item__right">
+                        <h4 class="item__name">Item Name</h4>
+                        <div class="item__info">Class: Mage</div>
+                        <div class="item__info">Armor: 24</div>
                     </div>
-                </a>
-            </div>
-
-            <div class="col-1-of-3">
-                <a href="#details_1" class="item__link">
-                    <div class="item__content">
-                        <div class="item__left">
-                            <img src="/img/brand_logo_1x.png" alt="Item Image" class="item__img">
-                        </div>
-                        
-                        <div class="item__right">
-                            <h4 class="item__name">Item Name</h4>
-                            <div class="item__info">Class: Mage</div>
-                            <div class="item__info">Armor: 24</div>
-                        </div>
-                    </div>
-                </a>
+                </div>
             </div>
         </div>
 
-        <div class="popup" id="details_1">
+        <div class="popup" v-show="showModal">
             <div class="popup__content">
                 <header class="popup__header">
                     <h4 class="popup__header-text">Item Information</h4>
-                    <a href="#section-marketplace" class="popup__close">
+                    <button class="popup__close" @click="showModal = false">
                         <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
-                    </a>
+                    </button>
                 </header>
 
                 <div class="popup__body">
@@ -107,7 +73,9 @@
 <script>
 
 export default {
-    
+    data(){return{
+        showModal: false
+    }}
 }
 </script>
 

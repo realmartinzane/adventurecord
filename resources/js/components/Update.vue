@@ -14,9 +14,9 @@
                         <font-awesome-icon :icon="['far', 'edit']"></font-awesome-icon>
                     </router-link>
                     
-                    <a href="#delete_prompt" class="btn btn--primary-red post__left-btn" >
+                    <button @click="showModal = true" class="btn btn--primary-red post__left-btn" >
                         <font-awesome-icon :icon="['fas', 'trash-alt']"></font-awesome-icon>
-                    </a>
+                    </button>
                 </div>
             </div>
 
@@ -61,13 +61,13 @@
             </div>
         </div>
 
-        <div class="popup" id="delete_prompt">
+        <div class="popup" v-show="showModal">
             <div class="popup__content">
                 <header class="popup__header">
                     <h4 class="popup__header-text">Are you sure?</h4>
-                    <a href="#" class="popup__close">
+                    <button @click="showModal = false" class="popup__close">
                         <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
-                    </a>
+                    </button>
                 </header>
 
                 <div class="popup__body">
@@ -77,8 +77,8 @@
                 </div>
 
                 <footer class="popup__footer popup__footer--prompt">
-                    <button class="btn btn--secondary-gold popup__purchase">Ok</button>
-                    <button class="btn btn--secondary-gold popup__purchase">Cancel</button>
+                    <button class="btn btn--secondary-gold popup__purchase" @click="destroy">Ok</button>
+                    <button class="btn btn--secondary-gold popup__purchase" @click="showModal = false">Cancel</button>
                 </footer>
             </div>
         </div>

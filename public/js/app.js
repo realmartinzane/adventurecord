@@ -15976,41 +15976,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      showModal: false
+    };
+  }
+});
 
 /***/ }),
 
@@ -36179,43 +36151,65 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    {
-      staticClass: "section-marketplace",
-      attrs: { id: "section-marketplace" }
-    },
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("form", { staticClass: "form", attrs: { action: "#" } }, [
-        _c("div", { staticClass: "form__group" }, [
-          _c("input", {
-            staticClass: "form__input form__input--search",
-            attrs: {
-              type: "text",
-              id: "item",
-              placeholder: "Search for items..."
+  return _c("section", { staticClass: "section-marketplace" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("form", { staticClass: "form", attrs: { action: "#" } }, [
+      _c("div", { staticClass: "form__group" }, [
+        _c("input", {
+          staticClass: "form__input form__input--search",
+          attrs: {
+            type: "text",
+            id: "item",
+            placeholder: "Search for items..."
+          }
+        }),
+        _c(
+          "button",
+          {
+            staticClass:
+              "btn btn--secondary-gold form__search form__search--search",
+            attrs: { type: "submit" }
+          },
+          [_c("font-awesome-icon", { attrs: { icon: ["fas", "search"] } })],
+          1
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-1-of-3" }, [
+        _c(
+          "div",
+          {
+            staticClass: "item__content",
+            on: {
+              click: function($event) {
+                _vm.showModal = true
+              }
             }
-          }),
-          _c(
-            "button",
-            {
-              staticClass:
-                "btn btn--secondary-gold form__search form__search--search",
-              attrs: { type: "submit" }
-            },
-            [_c("font-awesome-icon", { attrs: { icon: ["fas", "search"] } })],
-            1
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _vm._m(2),
-      _vm._v(" "),
-      _c("div", { staticClass: "popup", attrs: { id: "details_1" } }, [
+          },
+          [_vm._m(2), _vm._v(" "), _vm._m(3)]
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.showModal,
+            expression: "showModal"
+          }
+        ],
+        staticClass: "popup"
+      },
+      [
         _c("div", { staticClass: "popup__content" }, [
           _c("header", { staticClass: "popup__header" }, [
             _c("h4", { staticClass: "popup__header-text" }, [
@@ -36223,23 +36217,27 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c(
-              "a",
+              "button",
               {
                 staticClass: "popup__close",
-                attrs: { href: "#section-marketplace" }
+                on: {
+                  click: function($event) {
+                    _vm.showModal = false
+                  }
+                }
               },
               [_c("font-awesome-icon", { attrs: { icon: ["fas", "times"] } })],
               1
             )
           ]),
           _vm._v(" "),
-          _vm._m(3),
+          _vm._m(4),
           _vm._v(" "),
-          _vm._m(4)
+          _vm._m(5)
         ])
-      ])
-    ]
-  )
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -36268,69 +36266,23 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-1-of-3" }, [
-        _c("a", { staticClass: "item__link", attrs: { href: "#details_1" } }, [
-          _c("div", { staticClass: "item__content" }, [
-            _c("div", { staticClass: "item__left" }, [
-              _c("img", {
-                staticClass: "item__img",
-                attrs: { src: "/img/brand_logo_1x.png", alt: "Item Image" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "item__right" }, [
-              _c("h4", { staticClass: "item__name" }, [_vm._v("Item Name")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "item__info" }, [_vm._v("Class: Mage")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "item__info" }, [_vm._v("Armor: 24")])
-            ])
-          ])
-        ])
-      ]),
+    return _c("div", { staticClass: "item__left" }, [
+      _c("img", {
+        staticClass: "item__img",
+        attrs: { src: "/img/brand_logo_1x.png", alt: "Item Image" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "item__right" }, [
+      _c("h4", { staticClass: "item__name" }, [_vm._v("Item Name")]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-1-of-3" }, [
-        _c("a", { staticClass: "item__link", attrs: { href: "#details_1" } }, [
-          _c("div", { staticClass: "item__content" }, [
-            _c("div", { staticClass: "item__left" }, [
-              _c("img", {
-                staticClass: "item__img",
-                attrs: { src: "/img/brand_logo_1x.png", alt: "Item Image" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "item__right" }, [
-              _c("h4", { staticClass: "item__name" }, [_vm._v("Item Name")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "item__info" }, [_vm._v("Class: Mage")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "item__info" }, [_vm._v("Armor: 24")])
-            ])
-          ])
-        ])
-      ]),
+      _c("div", { staticClass: "item__info" }, [_vm._v("Class: Mage")]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-1-of-3" }, [
-        _c("a", { staticClass: "item__link", attrs: { href: "#details_1" } }, [
-          _c("div", { staticClass: "item__content" }, [
-            _c("div", { staticClass: "item__left" }, [
-              _c("img", {
-                staticClass: "item__img",
-                attrs: { src: "/img/brand_logo_1x.png", alt: "Item Image" }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "item__right" }, [
-              _c("h4", { staticClass: "item__name" }, [_vm._v("Item Name")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "item__info" }, [_vm._v("Class: Mage")]),
-              _vm._v(" "),
-              _c("div", { staticClass: "item__info" }, [_vm._v("Armor: 24")])
-            ])
-          ])
-        ])
-      ])
+      _c("div", { staticClass: "item__info" }, [_vm._v("Armor: 24")])
     ])
   },
   function() {
@@ -37014,10 +36966,14 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c(
-                    "a",
+                    "button",
                     {
                       staticClass: "btn btn--primary-red post__left-btn",
-                      attrs: { href: "#delete_prompt" }
+                      on: {
+                        click: function($event) {
+                          _vm.showModal = true
+                        }
+                      }
                     },
                     [
                       _c("font-awesome-icon", {
@@ -37143,26 +37099,75 @@ var render = function() {
           ])
         : _vm._e(),
       _vm._v(" "),
-      _c("div", { staticClass: "popup", attrs: { id: "delete_prompt" } }, [
-        _c("div", { staticClass: "popup__content" }, [
-          _c("header", { staticClass: "popup__header" }, [
-            _c("h4", { staticClass: "popup__header-text" }, [
-              _vm._v("Are you sure?")
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.showModal,
+              expression: "showModal"
+            }
+          ],
+          staticClass: "popup"
+        },
+        [
+          _c("div", { staticClass: "popup__content" }, [
+            _c("header", { staticClass: "popup__header" }, [
+              _c("h4", { staticClass: "popup__header-text" }, [
+                _vm._v("Are you sure?")
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "popup__close",
+                  on: {
+                    click: function($event) {
+                      _vm.showModal = false
+                    }
+                  }
+                },
+                [
+                  _c("font-awesome-icon", { attrs: { icon: ["fas", "times"] } })
+                ],
+                1
+              )
             ]),
             _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
             _c(
-              "a",
-              { staticClass: "popup__close", attrs: { href: "#" } },
-              [_c("font-awesome-icon", { attrs: { icon: ["fas", "times"] } })],
-              1
+              "footer",
+              { staticClass: "popup__footer popup__footer--prompt" },
+              [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn--secondary-gold popup__purchase",
+                    on: { click: _vm.destroy }
+                  },
+                  [_vm._v("Ok")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn--secondary-gold popup__purchase",
+                    on: {
+                      click: function($event) {
+                        _vm.showModal = false
+                      }
+                    }
+                  },
+                  [_vm._v("Cancel")]
+                )
+              ]
             )
-          ]),
-          _vm._v(" "),
-          _vm._m(1),
-          _vm._v(" "),
-          _vm._m(2)
-        ])
-      ])
+          ])
+        ]
+      )
     ]
   )
 }
@@ -37205,28 +37210,6 @@ var staticRenderFns = [
         )
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "footer",
-      { staticClass: "popup__footer popup__footer--prompt" },
-      [
-        _c(
-          "button",
-          { staticClass: "btn btn--secondary-gold popup__purchase" },
-          [_vm._v("Ok")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn--secondary-gold popup__purchase" },
-          [_vm._v("Cancel")]
-        )
-      ]
-    )
   }
 ]
 render._withStripped = true
