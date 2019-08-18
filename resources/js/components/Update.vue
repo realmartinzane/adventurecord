@@ -45,7 +45,7 @@
                     </div>
                     <div class="post__footer-right">
                             <div class="post__likes-container">
-                                <div class="post__likes">{{ fetchedUpdate.likes }}</div> <font-awesome-icon :icon="['far', 'heart']"></font-awesome-icon>
+                                <div class="post__like">{{ fetchedUpdate.likes }}</div> <font-awesome-icon :icon="['far', 'heart']"></font-awesome-icon>
                             </div>
                             <div class="post__share u-margin-left-sm">
                                 <font-awesome-icon :icon="['far', 'share-square']" @click="showLinks = !showLinks"></font-awesome-icon>
@@ -314,17 +314,24 @@ export default {
 
         &__likes-container
         {
-            svg {color: $color-red;}
+            svg 
+            {
+                cursor: pointer;
+                color: $color-red;
+            }
         }
 
-        &__likes
+        &__like
         {
             color: $color-red;
         }
 
         &__share
         {
-           svg {color: $color-blue;}
+           svg 
+           {
+               cursor: pointer;
+               color: $color-blue;}
         }
     }
 </style>
