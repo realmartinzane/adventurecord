@@ -80,8 +80,22 @@ export default {
         background-size: cover;
         background-position: 50% 70%;;
         height: 100%;
-        &:nth-child(1) {background-image: url(/../img/slide_01.png);}
-        &:nth-child(2) {background-image: url(/../img/slide_02.png);}
+        &:nth-child(1) 
+        {
+            background-image: url(/../img/slide_01_small.png);
+            @media only screen and (min-width: 60em)
+            {
+                background-image: url(/../img/slide_01_large.png);
+            }
+        }
+        &:nth-child(2)
+        {
+            background-image: url(/../img/slide_02_small.png);
+            @media only screen and (min-width: 60em)
+            {
+                background-image: url(/../img/slide_02_large.png);
+            }
+        }
 
         &__container
         {
