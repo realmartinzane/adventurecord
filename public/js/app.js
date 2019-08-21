@@ -16028,16 +16028,13 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     AuthProvider: function AuthProvider(provider) {
       var self = this;
-      this.$auth.authenticate(provider).then(function (response) {
-        self.SocialLogin(provider, response);
-      })["catch"](function (err) {
-        console.log({
-          err: err
-        });
+      this.$store.dispatch('authenticate', {
+        provider: provider,
+        self: self
       });
     },
     SocialLogin: function SocialLogin(provider, response) {
-      this.$http.post('/sociallogin/' + provider, response).then(function (response) {
+      this.$http.post('/login/' + provider, response).then(function (response) {
         console.log(response.data);
       })["catch"](function (err) {
         console.log({
@@ -59091,9 +59088,45 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
-  state: {},
-  mutations: {},
-  actions: {},
+  state: {
+    id: null,
+    token: null
+  },
+  mutations: {
+    authUser: function authUser(state, data) {
+      state.id = data.id;
+      state.token = data.token;
+    }
+  },
+  actions: {
+    authenticate: function authenticate(_ref, data) {
+      var dispatch = _ref.dispatch;
+      data.self.$auth.authenticate(data.provider).then(function (response) {
+        dispatch('getUser', {
+          provider: data.provider,
+          response: response
+        });
+      })["catch"](function (err) {
+        console.log({
+          err: err
+        });
+      });
+    },
+    getUser: function getUser(_ref2, data) {
+      var commit = _ref2.commit;
+      axios.post('/getUser/' + data.provider, data.response).then(function (response) {
+        console.log(response.data);
+        commit('authUser', {
+          id: response.data.id,
+          token: response.data.token
+        });
+      })["catch"](function (err) {
+        console.log({
+          err: err
+        });
+      });
+    }
+  },
   getters: {}
 }));
 

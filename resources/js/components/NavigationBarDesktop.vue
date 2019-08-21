@@ -33,22 +33,13 @@ export default {
     {
         AuthProvider(provider) 
         {
-            var self = this
-            this.$auth.authenticate(provider)
-            .then(response =>
-            {
-                self.SocialLogin(provider, response)
-            })
-            .catch(err => 
-            {
-                console.log({err:err})
-            });
-            
+            const self = this
+            this.$store.dispatch('authenticate', {provider, self})
         },
 
         SocialLogin(provider, response)
         {
-            this.$http.post('/sociallogin/' + provider, response)
+            this.$http.post('/login/' + provider, response)
                 .then(response => {
                     console.log(response.data)
                 })

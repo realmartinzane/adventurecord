@@ -10,6 +10,13 @@ use App\User;
 
 class OAuthController extends Controller
 {
+    public function getUser($provider)
+    {
+        $user = Socialite::driver($provider)->stateless()->user();
+
+        return response()->json($user);
+    }
+
     public function login($provider)
     {
         $discordUser = Socialite::driver($provider)->stateless()->user();
@@ -27,6 +34,6 @@ class OAuthController extends Controller
             ]);
         }
 
-        return response()->json($discordUser);
+        return response()->json($user);
     }
 }
