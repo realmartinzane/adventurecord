@@ -35,17 +35,6 @@ export default {
         {
             const self = this
             this.$store.dispatch('authenticate', {provider, self})
-        },
-
-        SocialLogin(provider, response)
-        {
-            this.$http.post('/login/' + provider, response)
-                .then(response => {
-                    console.log(response.data)
-                })
-                .catch(err => {
-                    console.log({ err: err })
-                })
         }
 }
 }

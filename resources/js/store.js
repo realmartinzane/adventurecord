@@ -26,7 +26,7 @@ export default new VueX.Store(
                 data.self.$auth.authenticate(data.provider)
                     .then(response => 
                     {
-                        dispatch('getUser', {provider: data.provider, response})
+                        dispatch('storeUser', {provider: data.provider, response})
                     })
                     .catch(err => 
                     {
@@ -34,13 +34,14 @@ export default new VueX.Store(
                     });
             },
 
-            getUser({commit}, data)
+            storeUser({commit, dispatch}, data)
             {
-                axios.post('/getUser/' + data.provider, data.response)
+                console.log(data)
+                axios.post('/sociallogin/' + data.provider, data.response)
                     .then(response => 
                     {
                         console.log(response.data)
-                        commit('authUser', 
+                        commit('authUser',
                         {
                             id: response.data.id,
                             token: response.data.token

@@ -16032,15 +16032,6 @@ __webpack_require__.r(__webpack_exports__);
         provider: provider,
         self: self
       });
-    },
-    SocialLogin: function SocialLogin(provider, response) {
-      this.$http.post('/login/' + provider, response).then(function (response) {
-        console.log(response.data);
-      })["catch"](function (err) {
-        console.log({
-          err: err
-        });
-      });
     }
   }
 });
@@ -59102,7 +59093,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     authenticate: function authenticate(_ref, data) {
       var dispatch = _ref.dispatch;
       data.self.$auth.authenticate(data.provider).then(function (response) {
-        dispatch('getUser', {
+        dispatch('storeUser', {
           provider: data.provider,
           response: response
         });
@@ -59112,9 +59103,11 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
         });
       });
     },
-    getUser: function getUser(_ref2, data) {
-      var commit = _ref2.commit;
-      axios.post('/getUser/' + data.provider, data.response).then(function (response) {
+    storeUser: function storeUser(_ref2, data) {
+      var commit = _ref2.commit,
+          dispatch = _ref2.dispatch;
+      console.log(data);
+      axios.post('/sociallogin/' + data.provider, data.response).then(function (response) {
         console.log(response.data);
         commit('authUser', {
           id: response.data.id,
