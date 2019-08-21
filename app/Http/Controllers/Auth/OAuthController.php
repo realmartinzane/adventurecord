@@ -27,8 +27,6 @@ class OAuthController extends Controller
             ]);
         }
 
-        Auth::login($user, true);
-
         return response()->json(Auth::user());
     }
 }

@@ -8,8 +8,6 @@ class OutController extends Controller
 {
     public function index()
     {
-
       return view('layouts.app');
-
     }
 }

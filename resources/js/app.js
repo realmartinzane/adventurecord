@@ -72,12 +72,16 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 // Vue Router
 import router from './routes'
 
+// VueX
+import store from './store'
+
 // App
 import MyApp from './App.vue'
 
 const app = new Vue({
     el: '#app',
     router,
+    store,
     components:
     {
         MyApp

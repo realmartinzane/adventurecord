@@ -37,7 +37,7 @@ export default {
             this.$auth.authenticate(provider)
             .then(response =>
             {
-                self.SocialLogin(provider,response)
+                self.$store.dispatch('login', {provider, response})
             })
             .catch(err => 
             {
@@ -45,19 +45,7 @@ export default {
             });
         },
         
-        SocialLogin(provider,response)
-        {
 
-            this.$http.post('/sociallogin/'+provider,response)
-            .then(response => 
-            {
-                console.log(response.data)
-            })
-            .catch(err => 
-            {
-                console.log({err:err})
-            })
-        },
     }
 }
 </script>
