@@ -27,6 +27,6 @@ class OAuthController extends Controller
             ]);
         }
 
-        return response()->json(Auth::user());
+        return response()->json($discordUser);
     }
 }

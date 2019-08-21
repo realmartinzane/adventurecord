@@ -59086,12 +59086,21 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {},
-  mutations: {},
+  mutations: {
+    authUser: function authUser(state, data) {
+      state.token = data.token;
+      state.id = data.id;
+    }
+  },
   actions: {
     login: function login(_ref, data) {
       var commit = _ref.commit;
       axios.post('/sociallogin/' + data.provider, data.response).then(function (response) {
         console.log(response.data);
+        commit('authUser', {
+          token: response.data.token,
+          id: response.data.id
+        });
       })["catch"](function (err) {
         console.log({
           err: err
