@@ -36596,8 +36596,15 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "navigation__account" }, [
         _c(
-          "a",
-          { staticClass: "btn btn--secondary-discord", attrs: { href: "" } },
+          "button",
+          {
+            staticClass: "btn btn--secondary-discord",
+            on: {
+              click: function($event) {
+                return _vm.AuthProvider("discord")
+              }
+            }
+          },
           [
             _c("font-awesome-icon", {
               staticClass: "u-margin-right-sm",

@@ -16,7 +16,7 @@ Route::get('/', function ()
     return view('layouts.app');
 });
 
-Route::post('sociallogin/{provider}', 'Auth\AuthController@SocialSignup');
+Route::post('sociallogin/{provider}', 'Auth\OAuthController@login');
 Route::get('login/{provider}/callback', 'OutController@index')->where('provider', '.*');
 
 Route::get('updates/data', 'UpdateController@data');
