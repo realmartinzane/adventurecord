@@ -16024,6 +16024,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     isAuth: function isAuth() {
@@ -16998,7 +17009,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".navigation__brand {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 300;\n  width: 27rem;\n  height: 41rem;\n  background-image: linear-gradient(123.5deg, #252936 50%, transparent 50%);\n}\n.navigation__brand-content {\n  position: absolute;\n  top: 0;\n  z-index: 400;\n}\n.navigation__brand-name {\n  display: block;\n  width: 20rem;\n  margin-left: 1rem;\n  margin-top: 2.5rem;\n}\n.navigation__brand-logo {\n  display: block;\n  width: 10rem;\n  margin-left: 1rem;\n  margin-top: 2rem;\n}\n.navigation__nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 200;\n  width: 100%;\n  padding: 0.8rem 0;\n  background-color: #10121A;\n  border-bottom: 1px solid #3d3d49;\n}\n.navigation__list {\n  list-style: none;\n  margin-left: 27rem;\n  display: inline-block;\n  width: calc(76% - 27rem);\n}\n.navigation__item {\n  display: inline-block;\n  margin: 0 1rem;\n}\n.navigation__link, .navigation__link:link, .navigation__link:visited {\n  display: inline-block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n}\n.navigation__link:hover, .navigation__link:active, .navigation__link:focus {\n  color: #FFD700;\n}\n.navigation__account {\n  display: inline-block;\n  width: 22%;\n  text-align: right;\n}", ""]);
+exports.push([module.i, ".navigation__brand {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 300;\n  width: 27rem;\n  height: 41rem;\n  background-image: linear-gradient(123.5deg, #252936 50%, transparent 50%);\n}\n.navigation__brand-content {\n  position: absolute;\n  top: 0;\n  z-index: 400;\n}\n.navigation__brand-name {\n  display: block;\n  width: 20rem;\n  margin-left: 1rem;\n  margin-top: 2.5rem;\n}\n.navigation__brand-logo {\n  display: block;\n  width: 10rem;\n  margin-left: 1rem;\n  margin-top: 2rem;\n}\n.navigation__nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 200;\n  width: 100%;\n  background-color: #10121A;\n  border-bottom: 1px solid #3d3d49;\n  height: 5.5rem;\n}\n.navigation__list {\n  list-style: none;\n  display: inline-block;\n  width: calc(76% - 27rem);\n  position: absolute;\n  top: 50%;\n  left: 27rem;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n.navigation__item {\n  display: inline-block;\n  margin: 0 1rem;\n}\n.navigation__link, .navigation__link:link, .navigation__link:visited {\n  display: inline-block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n}\n.navigation__link:hover, .navigation__link:active, .navigation__link:focus {\n  color: #FFD700;\n}\n.navigation__login {\n  position: absolute;\n  top: 50%;\n  right: 2rem;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n.navigation__checkbox {\n  display: none;\n}\n.navigation__button {\n  position: absolute;\n  top: 50%;\n  right: 2rem;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  font-size: 1.4rem;\n  font-weight: 700;\n  cursor: pointer;\n}\n.navigation__button:hover {\n  color: #FFD700;\n}\n.navigation__account-list {\n  position: absolute;\n  top: 5.5rem;\n  right: 0;\n  width: 20rem;\n  height: 0;\n  overflow: hidden;\n  list-style: none;\n  text-align: left;\n  background-color: #212127;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n  border: none;\n  box-shadow: none;\n}\n.navigation__account-link, .navigation__account-link:link, .navigation__account-link:visited {\n  display: block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n  padding: 1rem 2rem;\n}\n.navigation__account-link:hover, .navigation__account-link:focus, .navigation__account-link:active {\n  color: #FFD700;\n  background-color: #2E2E36;\n}\n.navigation__checkbox:checked ~ .navigation__account-list {\n  height: 8.6rem;\n  border-left: 1px solid #494957;\n  border-bottom: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n}", ""]);
 
 // exports
 
@@ -17017,7 +17028,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".mobile-navigation {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 10000;\n  width: 100%;\n  padding: 1rem;\n  background-color: #10121A;\n  border-bottom: 1px solid #3d3d49;\n}\n.mobile-navigation__brand {\n  height: 5rem;\n  width: 69%;\n  display: inline-block;\n}\n.mobile-navigation__brand-img {\n  height: 100%;\n  width: auto;\n}\n.mobile-navigation__nav {\n  display: inline-block;\n  width: 29%;\n  text-align: right;\n  vertical-align: top;\n}\n.mobile-navigation__checkbox {\n  display: none;\n}\n.mobile-navigation__button {\n  display: inline-block;\n  cursor: pointer;\n  height: 5rem;\n  width: 5rem;\n  text-align: center;\n}\n.mobile-navigation__icon {\n  position: relative;\n  margin-top: 2.5rem;\n}\n.mobile-navigation__icon, .mobile-navigation__icon::before, .mobile-navigation__icon::after {\n  display: inline-block;\n  width: 3rem;\n  height: 2px;\n  background-color: #FFD700;\n}\n.mobile-navigation__icon::before, .mobile-navigation__icon::after {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n}\n.mobile-navigation__icon::before {\n  top: -0.8rem;\n}\n.mobile-navigation__icon::after {\n  bottom: -0.8rem;\n}\n.mobile-navigation__button:hover .mobile-navigation__icon::before {\n  top: -1rem;\n}\n.mobile-navigation__button:hover .mobile-navigation__icon::after {\n  top: 1rem;\n}\n.mobile-navigation__list {\n  position: absolute;\n  top: 8rem;\n  right: 0;\n  height: 0;\n  width: 20rem;\n  overflow: hidden;\n  list-style: none;\n  text-align: left;\n  background-color: #212127;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n  border: none;\n  box-shadow: none;\n}\n.mobile-navigation__link, .mobile-navigation__link:link, .mobile-navigation__link:visited {\n  display: block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n  padding: 1rem 2rem;\n}\n.mobile-navigation__link:hover, .mobile-navigation__link:focus, .mobile-navigation__link:active {\n  color: #FFD700;\n  background-color: #2E2E36;\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon {\n  background-color: transparent;\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon::before {\n  top: 0;\n  -webkit-transform: rotate(135deg);\n          transform: rotate(135deg);\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon::after {\n  top: 0;\n  -webkit-transform: rotate(-135deg);\n          transform: rotate(-135deg);\n}\n.mobile-navigation__checkbox:checked ~ .mobile-navigation__list {\n  height: 26rem;\n  border: 1px solid #494957;\n  border-right: none;\n  box-shadow: 0 0 10px #000;\n}", ""]);
+exports.push([module.i, ".mobile-navigation {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 10000;\n  width: 100%;\n  padding: 1rem;\n  background-color: #10121A;\n  border-bottom: 1px solid #3d3d49;\n}\n.mobile-navigation__brand {\n  height: 5rem;\n  width: 69%;\n  display: inline-block;\n}\n.mobile-navigation__brand-img {\n  height: 100%;\n  width: auto;\n}\n.mobile-navigation__nav {\n  display: inline-block;\n  width: 29%;\n  text-align: right;\n  vertical-align: top;\n}\n.mobile-navigation__checkbox {\n  display: none;\n}\n.mobile-navigation__button {\n  display: inline-block;\n  cursor: pointer;\n  height: 5rem;\n  width: 5rem;\n  text-align: center;\n}\n.mobile-navigation__icon {\n  position: relative;\n  margin-top: 2.5rem;\n}\n.mobile-navigation__icon, .mobile-navigation__icon::before, .mobile-navigation__icon::after {\n  display: inline-block;\n  width: 3rem;\n  height: 2px;\n  background-color: #FFD700;\n}\n.mobile-navigation__icon::before, .mobile-navigation__icon::after {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n}\n.mobile-navigation__icon::before {\n  top: -0.8rem;\n}\n.mobile-navigation__icon::after {\n  bottom: -0.8rem;\n}\n.mobile-navigation__button:hover .mobile-navigation__icon::before {\n  top: -1rem;\n}\n.mobile-navigation__button:hover .mobile-navigation__icon::after {\n  top: 1rem;\n}\n.mobile-navigation__list {\n  position: absolute;\n  top: 8rem;\n  right: 0;\n  height: 0;\n  width: 20rem;\n  overflow: hidden;\n  list-style: none;\n  text-align: left;\n  background-color: #212127;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n  border: none;\n  box-shadow: none;\n}\n.mobile-navigation__link, .mobile-navigation__link:link, .mobile-navigation__link:visited {\n  display: block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n  padding: 1rem 2rem;\n}\n.mobile-navigation__link:hover, .mobile-navigation__link:focus, .mobile-navigation__link:active {\n  color: #FFD700;\n  background-color: #2E2E36;\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon {\n  background-color: transparent;\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon::before {\n  top: 0;\n  -webkit-transform: rotate(135deg);\n          transform: rotate(135deg);\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon::after {\n  top: 0;\n  -webkit-transform: rotate(-135deg);\n          transform: rotate(-135deg);\n}\n.mobile-navigation__checkbox:checked ~ .mobile-navigation__list {\n  height: 26rem;\n  border-left: 1px solid #494957;\n  border-bottom: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n}", ""]);
 
 // exports
 
@@ -36587,29 +36598,85 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "navigation__account" }, [
-        !_vm.isAuth
-          ? _c(
-              "button",
-              {
-                staticClass: "btn btn--secondary-discord",
-                on: {
-                  click: function($event) {
-                    return _vm.AuthProvider("discord")
-                  }
+      !_vm.isAuth
+        ? _c(
+            "button",
+            {
+              staticClass: "btn btn--secondary-discord navigation__login",
+              staticStyle: { display: "none" },
+              on: {
+                click: function($event) {
+                  return _vm.AuthProvider("discord")
                 }
-              },
-              [
-                _c("font-awesome-icon", {
-                  staticClass: "u-margin-right-sm",
-                  attrs: { icon: ["fab", "discord"], size: "lg" }
-                }),
-                _vm._v(" "),
-                _c("span", [_vm._v("Log in with discord")])
-              ],
-              1
-            )
-          : _vm._e()
+              }
+            },
+            [
+              _c("font-awesome-icon", {
+                staticClass: "u-margin-right-sm",
+                attrs: { icon: ["fab", "discord"], size: "lg" }
+              }),
+              _vm._v(" "),
+              _c("span", [_vm._v("Log in with discord")])
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c("div", { staticClass: "navigation__account" }, [
+        _c("input", {
+          staticClass: "navigation__checkbox",
+          attrs: { type: "checkbox", id: "account_toggle" }
+        }),
+        _vm._v(" "),
+        _c(
+          "label",
+          {
+            staticClass: "navigation__button",
+            attrs: { for: "account_toggle" }
+          },
+          [
+            _vm._v("\n                My Account\n                "),
+            _c("font-awesome-icon", {
+              staticClass: "u-margin-left-xs",
+              attrs: { icon: ["fas", "caret-down"], size: "lg" }
+            })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("ul", { staticClass: "navigation__account-list" }, [
+          _c(
+            "li",
+            { staticClass: "navigation__account-item" },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "navigation__account-link",
+                  attrs: { to: "/user" }
+                },
+                [_vm._v("Profile")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "navigation__account-item" },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "navigation__account-link",
+                  attrs: { to: "/user/settings" }
+                },
+                [_vm._v("Profile")]
+              )
+            ],
+            1
+          )
+        ])
       ])
     ])
   ])
@@ -57913,7 +57980,7 @@ Vue.use(vue_social_sharing__WEBPACK_IMPORTED_MODULE_6___default.a); // FontAweso
 
 
 
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_7__["library"].add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faDiscord"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faEye"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faHeart"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faComment"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faShareSquare"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faEdit"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faTrashAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faFacebook"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faLine"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faLinkedin"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faOdnoklassniki"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faReddit"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faSkype"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faTelegram"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faTwitter"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faVk"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faWeibo"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faWhatsapp"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faEnvelope"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faComments"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faCog"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faCoins"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faGem"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faCampground"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faSignal"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faClock"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faSearch"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faTimes"]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_7__["library"].add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faDiscord"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faEye"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faHeart"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faComment"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faShareSquare"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faEdit"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faTrashAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faFacebook"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faLine"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faLinkedin"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faOdnoklassniki"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faReddit"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faSkype"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faTelegram"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faTwitter"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faVk"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faWeibo"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faWhatsapp"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faEnvelope"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faComments"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faCog"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faCoins"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faGem"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faCampground"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faSignal"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faClock"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faSearch"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faTimes"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faCaretDown"]);
 Vue.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_11__["FontAwesomeIcon"]); // Vue Router
 
  // VueX

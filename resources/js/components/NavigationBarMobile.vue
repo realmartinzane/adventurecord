@@ -204,8 +204,8 @@ export default {
         &__checkbox:checked ~ &__list
         {
             height: 26rem;
-            border: 1px solid $color-border-light;
-            border-right: none;
+            border-left: 1px solid $color-border-light;
+            border-bottom: 1px solid $color-border-light;
             box-shadow: 0 0 10px $color-black;
         }
     }
