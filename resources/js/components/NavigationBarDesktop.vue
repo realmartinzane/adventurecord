@@ -17,12 +17,12 @@
                 <li class="navigation__item"><router-link :to="'/marketplace'" class="navigation__link">Marketplace</router-link></li>
             </ul>
 
-            <button style="display: none" v-if="!isAuth" @click="AuthProvider('discord')" class="btn btn--secondary-discord navigation__login">
+            <button v-if="!isAuth" @click="AuthProvider('discord')" class="btn btn--secondary-discord navigation__login">
                 <font-awesome-icon :icon="['fab', 'discord']" size="lg" class="u-margin-right-sm"></font-awesome-icon>
                 <span>Log in with discord</span>
             </button>
 
-            <div class="navigation__account">
+            <div v-if="isAuth" class="navigation__account">
                 <input type="checkbox" class="navigation__checkbox" id="account_toggle">
                 <label for="account_toggle" class="navigation__button">
                     My Account
@@ -31,7 +31,7 @@
 
                 <ul class="navigation__account-list">
                     <li class="navigation__account-item"><router-link :to="'/user'" class="navigation__account-link">Profile</router-link ></li>
-                    <li class="navigation__account-item"><router-link :to="'/user/settings'" class="navigation__account-link">Profile</router-link ></li>
+                    <li class="navigation__account-item"><router-link :to="'/user/settings'" class="navigation__account-link">Settings</router-link ></li>
                 </ul>
             </div>
         </nav>
