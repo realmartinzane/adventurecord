@@ -1,6 +1,7 @@
 import VueRouter from 'vue-router';
 import Vue from 'vue';
-Vue.use(VueRouter)
+
+import store from './store'
 
 import HomeView from './views/Home.vue'
 import UpdatesView from './views/Updates.vue'
@@ -10,6 +11,8 @@ import CommandsView from './views/Commands.vue'
 import MarketplaceView from './views/Marketplace.vue'
 import UserView from './views/User.vue';
 import UserSettingsView from './views/UserSettings.vue';
+
+Vue.use(VueRouter)
 
 let routes =
     [
@@ -46,7 +49,19 @@ let routes =
         {
             path: '/user',
             name: 'users.show',
-            component: UserView
+            component: UserView,
+            beforeEnter(to, from, next)
+            {
+                console.log(store.state)
+                if(store.state.token)
+                {
+                    next()
+                }
+                else
+                {
+                    next('/')
+                }
+            }
         },
         {
             path: '/user/settings',

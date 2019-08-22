@@ -7,26 +7,33 @@ export default new VueX.Store(
     {
         state:
         {
-            id: null,
-            token: null
+            token: null,
+            user: null
         },
         mutations:
         {
-           authUser(state, data)
+           saveToken(state, data)
            {
-               state.id = data.id
                state.token = data.token
+           },
+           storeUser(state, user)
+           {
+               state.user = user
            }
         },
         actions:
         {
-            authenticate({dispatch}, data)
+            authenticate({commit, dispatch}, data)
             {
 
                 data.self.$auth.authenticate(data.provider)
-                    .then(response => 
+                    .then(token => 
                     {
-                        dispatch('storeUser', {provider: data.provider, response})
+                        commit('saveToken',
+                        {
+                            token: token.code
+                        })
+                        dispatch('storeUser', {provider: data.provider, token})
                     })
                     .catch(err => 
                     {
@@ -34,17 +41,19 @@ export default new VueX.Store(
                     });
             },
 
-            storeUser({commit, dispatch}, data)
+            storeUser({commit}, data)
             {
                 console.log(data)
-                axios.post('/sociallogin/' + data.provider, data.response)
+                axios.post('/sociallogin/' + data.provider, data.token)
                     .then(response => 
                     {
                         console.log(response.data)
-                        commit('authUser',
+                        commit('storeUser',
                         {
                             id: response.data.id,
-                            token: response.data.token
+                            name: response.data.name,
+                            discriminator: response.data.user.discriminator,
+                            email: response.data.email
                         })
                     })
                     .catch(err => 
@@ -55,6 +64,13 @@ export default new VueX.Store(
         },
         getters:
         {
-
+            user(state)
+            {
+                return state.user
+            },
+            isAuth(state)
+            {
+                return state.token !== null
+            }
         }
     })
