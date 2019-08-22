@@ -8,18 +8,13 @@ export default new VueX.Store(
     {
         state:
         {
-            token: null,
-            user: null
+            token: null
         },
         mutations:
         {
-           saveToken(state, data)
+           authUser(state, data)
            {
                state.token = data.token
-           },
-           storeUser(state, user)
-           {
-               state.user = user
            },
            clearAuth(state)
            {
@@ -31,15 +26,10 @@ export default new VueX.Store(
         {
             authenticate({commit, dispatch}, data)
             {
-
                 data.self.$auth.authenticate(data.provider)
-                    .then(token => 
+                    .then(code => 
                     {
-                        commit('saveToken',
-                        {
-                            token: token.code
-                        })
-                        dispatch('storeUser', {provider: data.provider, token})
+                        dispatch('storeUser', {provider: data.provider, code})
                     })
                     .catch(err => 
                     {
@@ -47,20 +37,22 @@ export default new VueX.Store(
                     });
             },
 
-            storeUser({commit}, data)
+            storeUser({commit, dispatch}, data)
             {
                 console.log(data)
-                axios.post('/sociallogin/' + data.provider, data.token)
+                axios.post('/sociallogin/' + data.provider, data.code)
                     .then(response => 
                     {
                         console.log(response.data)
-                        commit('storeUser',
+                        const now = new Date();
+                        const expirationDate = new Date(now.getTime() + response.data.expiresIn * 1000)
+                        localStorage.setItem('token', response.data.token);
+                        localStorage.setItem('expirationDate', expirationDate);
+                        commit('authUser',
                         {
-                            id: response.data.id,
-                            name: response.data.name,
-                            discriminator: response.data.user.discriminator,
-                            email: response.data.email
+                            token: response.data.token
                         })
+                        dispatch('setLogoutTimer', response.data.expiresIn * 1000)
                     })
                     .catch(err => 
                     {
@@ -71,15 +63,30 @@ export default new VueX.Store(
             logout({commit})
             {
                 commit('clearAuth')
+                localStorage.removeItem('expirationDate')
+                localStorage.removeItem('token')
                 router.replace('/')
+            },
+
+            setLogoutTimer({commit, dispatch}, expiration)
+            {
+                setTimeout(() =>
+                {
+                    dispatch('logout')
+                }, expiration)
+            },
+            tryAutoLogin({commit})
+            {
+                const token = localStorage.getItem('token');
+                if(!token) return;
+                const expirationDate = localStorage.getItem('expirationDate')
+                const now = new Date()
+                if(now >= expirationDate) return;
+                commit('authUser', {token})
             }
         },
         getters:
         {
-            user(state)
-            {
-                return state.user
-            },
             isAuth(state)
             {
                 return state.token !== null

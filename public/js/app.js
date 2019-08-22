@@ -15576,6 +15576,9 @@ __webpack_require__.r(__webpack_exports__);
     NavigationBarDesktopComponent: _components_NavigationBarDesktop_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     NavigationBarMobileComponent: _components_NavigationBarMobile_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     FooterComponent: _components_Footer_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  created: function created() {
+    this.$store.dispatch('tryAutoLogin');
   }
 });
 
@@ -59183,15 +59186,11 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
-    token: null,
-    user: null
+    token: null
   },
   mutations: {
-    saveToken: function saveToken(state, data) {
+    authUser: function authUser(state, data) {
       state.token = data.token;
-    },
-    storeUser: function storeUser(state, user) {
-      state.user = user;
     },
     clearAuth: function clearAuth(state) {
       state.token = null;
@@ -59202,13 +59201,10 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     authenticate: function authenticate(_ref, data) {
       var commit = _ref.commit,
           dispatch = _ref.dispatch;
-      data.self.$auth.authenticate(data.provider).then(function (token) {
-        commit('saveToken', {
-          token: token.code
-        });
+      data.self.$auth.authenticate(data.provider).then(function (code) {
         dispatch('storeUser', {
           provider: data.provider,
-          token: token
+          code: code
         });
       })["catch"](function (err) {
         console.log({
@@ -59217,16 +59213,19 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
       });
     },
     storeUser: function storeUser(_ref2, data) {
-      var commit = _ref2.commit;
+      var commit = _ref2.commit,
+          dispatch = _ref2.dispatch;
       console.log(data);
-      axios.post('/sociallogin/' + data.provider, data.token).then(function (response) {
+      axios.post('/sociallogin/' + data.provider, data.code).then(function (response) {
         console.log(response.data);
-        commit('storeUser', {
-          id: response.data.id,
-          name: response.data.name,
-          discriminator: response.data.user.discriminator,
-          email: response.data.email
+        var now = new Date();
+        var expirationDate = new Date(now.getTime() + response.data.expiresIn * 1000);
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('expirationDate', expirationDate);
+        commit('authUser', {
+          token: response.data.token
         });
+        dispatch('setLogoutTimer', response.data.expiresIn * 1000);
       })["catch"](function (err) {
         console.log({
           err: err
@@ -59236,13 +59235,30 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     logout: function logout(_ref3) {
       var commit = _ref3.commit;
       commit('clearAuth');
+      localStorage.removeItem('expirationDate');
+      localStorage.removeItem('token');
       _routes__WEBPACK_IMPORTED_MODULE_2__["default"].replace('/');
+    },
+    setLogoutTimer: function setLogoutTimer(_ref4, expiration) {
+      var commit = _ref4.commit,
+          dispatch = _ref4.dispatch;
+      setTimeout(function () {
+        dispatch('logout');
+      }, expiration);
+    },
+    tryAutoLogin: function tryAutoLogin(_ref5) {
+      var commit = _ref5.commit;
+      var token = localStorage.getItem('token');
+      if (!token) return;
+      var expirationDate = localStorage.getItem('expirationDate');
+      var now = new Date();
+      if (now >= expirationDate) return;
+      commit('authUser', {
+        token: token
+      });
     }
   },
   getters: {
-    user: function user(state) {
-      return state.user;
-    },
     isAuth: function isAuth(state) {
       return state.token !== null;
     }

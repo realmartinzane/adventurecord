@@ -18,6 +18,10 @@ export default {
         NavigationBarDesktopComponent,
         NavigationBarMobileComponent,
         FooterComponent
+    },
+    created()
+    {
+        this.$store.dispatch('tryAutoLogin')
     }
 }
 </script>
