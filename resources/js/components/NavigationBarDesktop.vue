@@ -32,7 +32,7 @@
                 <ul class="navigation__account-list">
                     <li class="navigation__account-item"><router-link :to="'/user'" class="navigation__account-link">Profile</router-link ></li>
                     <li class="navigation__account-item"><router-link :to="'/user/settings'" class="navigation__account-link">Settings</router-link ></li>
-                    <li class="navigation__account-item"><router-link :to="'/user/settings'" class="navigation__account-link">Log Out</router-link ></li>
+                    <li class="navigation__account-item"><button @click="logout" class="navigation__account-link">Log Out</button ></li>
                 </ul>
             </div>
         </nav>
@@ -54,8 +54,13 @@ export default {
         {
             const self = this
             this.$store.dispatch('authenticate', {provider, self})
+        },
+
+        logout()
+        {
+            this.$store.dispatch('logout')
         }
-}
+    }
 }
 </script>
 
@@ -203,6 +208,11 @@ export default {
                 font-size: 1.4rem;
                 font-weight: 700;
                 padding: 1rem 2rem;
+                border: none;
+                width: 100%;
+                background: transparent;
+                text-align: left;
+                cursor: pointer;
             }
             &:hover, &:focus, &:active
             {

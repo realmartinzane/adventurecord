@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueX from 'vuex'
+import router from './routes'
 
 Vue.use(VueX)
 
@@ -19,6 +20,11 @@ export default new VueX.Store(
            storeUser(state, user)
            {
                state.user = user
+           },
+           clearAuth(state)
+           {
+               state.token = null
+               state.user = null 
            }
         },
         actions:
@@ -60,6 +66,12 @@ export default new VueX.Store(
                     {
                         console.log({ err: err })
                     })
+            },
+
+            logout({commit})
+            {
+                commit('clearAuth')
+                router.replace('/')
             }
         },
         getters:
