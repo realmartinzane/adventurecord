@@ -32,6 +32,7 @@
                 <ul class="navigation__account-list">
                     <li class="navigation__account-item"><router-link :to="'/user'" class="navigation__account-link">Profile</router-link ></li>
                     <li class="navigation__account-item"><router-link :to="'/user/settings'" class="navigation__account-link">Settings</router-link ></li>
+                    <li class="navigation__account-item"><router-link :to="'/user/settings'" class="navigation__account-link">Log Out</router-link ></li>
                 </ul>
             </div>
         </nav>
@@ -213,7 +214,7 @@ export default {
         // Checkbox Functionality
         &__checkbox:checked ~ &__account-list
         {
-            height: 8.6rem;
+            height: 13rem;
             border-left: 1px solid $color-border-light;
             border-bottom: 1px solid $color-border-light;
             box-shadow: 0 0 10px $color-black;
