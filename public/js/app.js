@@ -59216,7 +59216,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
       var commit = _ref2.commit,
           dispatch = _ref2.dispatch;
       console.log(data);
-      axios.post('/sociallogin/' + data.provider, data.code).then(function (response) {
+      axios.post('/login/' + data.provider, data.code).then(function (response) {
         console.log(response.data);
         var now = new Date();
         var expirationDate = new Date(now.getTime() + response.data.expiresIn * 1000);

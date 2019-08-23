@@ -40,7 +40,7 @@ export default new VueX.Store(
             storeUser({commit, dispatch}, data)
             {
                 console.log(data)
-                axios.post('/sociallogin/' + data.provider, data.code)
+                axios.post('/login/' + data.provider, data.code)
                     .then(response => 
                     {
                         console.log(response.data)
