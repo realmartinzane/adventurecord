@@ -59186,11 +59186,13 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
-    token: null
+    token: null,
+    user: null
   },
   mutations: {
     authUser: function authUser(state, data) {
       state.token = data.token;
+      state.user = data.user;
     },
     clearAuth: function clearAuth(state) {
       state.token = null;
@@ -59199,8 +59201,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
   },
   actions: {
     authenticate: function authenticate(_ref, data) {
-      var commit = _ref.commit,
-          dispatch = _ref.dispatch;
+      var dispatch = _ref.dispatch;
       data.self.$auth.authenticate(data.provider).then(function (code) {
         dispatch('storeUser', {
           provider: data.provider,
@@ -59221,9 +59222,15 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
         var now = new Date();
         var expirationDate = new Date(now.getTime() + response.data.expiresIn * 1000);
         localStorage.setItem('token', response.data.token);
+        localStorage.setItem('userId', response.data.id);
         localStorage.setItem('expirationDate', expirationDate);
         commit('authUser', {
-          token: response.data.token
+          token: response.data.token,
+          user: {
+            id: response.data.id,
+            name: response.data.name,
+            discriminator: response.data.user.discriminator
+          }
         });
         dispatch('setLogoutTimer', response.data.expiresIn * 1000);
       })["catch"](function (err) {
@@ -59253,8 +59260,11 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
       var expirationDate = localStorage.getItem('expirationDate');
       var now = new Date();
       if (now >= expirationDate) return;
+      var userId = localStorage.getItem('userId');
+      if (!userId) return;
       commit('authUser', {
-        token: token
+        token: token,
+        userId: userId
       });
     }
   },

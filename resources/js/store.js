@@ -8,14 +8,17 @@ export default new VueX.Store(
     {
         state:
         {
-            token: null
+            token: null,
+            user: null
         },
         mutations:
         {
            authUser(state, data)
            {
                state.token = data.token
+               state.user = data.user
            },
+
            clearAuth(state)
            {
                state.token = null
@@ -24,7 +27,7 @@ export default new VueX.Store(
         },
         actions:
         {
-            authenticate({commit, dispatch}, data)
+            authenticate({dispatch}, data)
             {
                 data.self.$auth.authenticate(data.provider)
                     .then(code => 
@@ -44,13 +47,22 @@ export default new VueX.Store(
                     .then(response => 
                     {
                         console.log(response.data)
+                        
                         const now = new Date();
                         const expirationDate = new Date(now.getTime() + response.data.expiresIn * 1000)
                         localStorage.setItem('token', response.data.token);
+                        localStorage.setItem('userId', response.data.id);
                         localStorage.setItem('expirationDate', expirationDate);
+
                         commit('authUser',
                         {
-                            token: response.data.token
+                            token: response.data.token,
+                            user:
+                            {
+                                id: response.data.id,
+                                name: response.data.name,
+                                discriminator: response.data.user.discriminator,
+                            }
                         })
                         dispatch('setLogoutTimer', response.data.expiresIn * 1000)
                     })
@@ -79,10 +91,15 @@ export default new VueX.Store(
             {
                 const token = localStorage.getItem('token');
                 if(!token) return;
+
                 const expirationDate = localStorage.getItem('expirationDate')
                 const now = new Date()
                 if(now >= expirationDate) return;
-                commit('authUser', {token})
+
+                const userId = localStorage.getItem('userId');
+                if (!userId) return;
+
+                commit('authUser', {token, userId})
             }
         },
         getters:
