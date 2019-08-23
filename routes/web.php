@@ -16,10 +16,15 @@ Route::get('/', function ()
     return view('layouts.app');
 });
 
+// Auth
 Route::post('login/{provider}', 'Auth\OAuthController@login');
 Route::get('login/{provider}/callback', 'Auth\OAuthController@out')->where('provider', '.*');
 Route::get('login/{id}/user', 'Auth\OAuthController@user');
 
+// Users
+Route::get('users/{id}', 'UserController@get');
+
+// Updates
 Route::get('updates/data', 'UpdateController@data');
 Route::get('updates/{id}', 'UpdateController@get');
 Route::get('updates/{id}/single', 'UpdateController@getSingle');

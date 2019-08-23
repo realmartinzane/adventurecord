@@ -131,6 +131,10 @@ export default new VueX.Store(
             isAuth(state)
             {
                 return state.token !== null
+            },
+            user(state) 
+            {
+                return state.user
             }
         }
     })

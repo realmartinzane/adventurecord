@@ -16043,6 +16043,9 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     isAuth: function isAuth() {
       return this.$store.getters.isAuth;
+    },
+    user: function user() {
+      return this.$store.getters.user;
     }
   },
   methods: {
@@ -16656,7 +16659,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      id: this.$route.params.id,
+      fetchedUser: null
+    };
+  },
+  mounted: function mounted() {
+    this.fetch();
+  },
+  methods: {
+    fetch: function fetch() {
+      var _this = this;
+
+      axios.get("/users/".concat(this.id)).then(function (_ref) {
+        var data = _ref.data;
+        _this.fetchedUser = data;
+        console.log(_this.fetchedUser);
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -36660,7 +36684,7 @@ var render = function() {
                     "router-link",
                     {
                       staticClass: "navigation__account-link",
-                      attrs: { to: "/user" }
+                      attrs: { to: "/users/" + _vm.user.id }
                     },
                     [_vm._v("Profile")]
                   )
@@ -37725,186 +37749,200 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "section-user" }, [
-    _c("div", { staticClass: "user-profile" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "user-profile__left" },
-        [
-          _c("img", {
-            staticClass: "user-profile__img",
-            attrs: {
-              srcset:
-                "/img/brand_logo_1x.png" +
-                " 1x, " +
-                "/img/brand_logo_2x.png" +
-                " 2x",
-              alt: "Profile Image"
-            }
-          }),
+  return _vm.fetchedUser
+    ? _c("section", { staticClass: "section-user" }, [
+        _c("div", { staticClass: "user-profile" }, [
+          _c(
+            "header",
+            { staticClass: "user-profile__header user-profile__header--sm" },
+            [
+              _c("h2", { staticClass: "user-profile__name" }, [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(_vm.fetchedUser.name) +
+                    " \n                    "
+                ),
+                _c("span", { staticClass: "user-profile__ban" }, [
+                  _vm._v("Banned")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("sub", { staticClass: "user-profile__id" }, [
+                _vm._v("ID: " + _vm._s(_vm.fetchedUser.id) + "  ")
+              ])
+            ]
+          ),
           _vm._v(" "),
           _c(
-            "router-link",
-            {
-              staticClass: "user-profile__btn btn btn--primary",
-              attrs: { to: "/user/settings" }
-            },
+            "div",
+            { staticClass: "user-profile__left" },
             [
-              _c("font-awesome-icon", {
-                staticClass: "mr-1",
-                attrs: { icon: ["fas", "cog"] }
+              _c("img", {
+                staticClass: "user-profile__img",
+                attrs: {
+                  srcset:
+                    "/img/brand_logo_1x.png" +
+                    " 1x, " +
+                    "/img/brand_logo_2x.png" +
+                    " 2x",
+                  alt: "Profile Image"
+                }
               }),
-              _vm._v("\n                Settings\n            ")
+              _vm._v(" "),
+              _c(
+                "router-link",
+                {
+                  staticClass: "user-profile__btn btn btn--primary",
+                  attrs: { to: "/users/" + _vm.fetchedUser.id + "/settings" }
+                },
+                [
+                  _c("font-awesome-icon", {
+                    staticClass: "mr-1",
+                    attrs: { icon: ["fas", "cog"] }
+                  }),
+                  _vm._v("\n                Settings\n            ")
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "user-profile__info" }, [
+                _c(
+                  "div",
+                  { staticClass: "user-profile__label" },
+                  [
+                    _c("font-awesome-icon", {
+                      staticClass: "user-profile__gold",
+                      attrs: { icon: ["fas", "coins"] }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "user-profile__data" }, [
+                  _vm._v("\n                    12,753,964\n                ")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "user-profile__label" },
+                  [
+                    _c("font-awesome-icon", {
+                      staticClass: "user-profile__gems",
+                      attrs: { icon: ["far", "gem"] }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "user-profile__data" }, [
+                  _vm._v("\n                    11,607\n                ")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "user-profile__label" },
+                  [
+                    _c("font-awesome-icon", {
+                      staticClass: "user-profile__guild",
+                      attrs: { icon: ["fas", "campground"] }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "user-profile__data" }, [
+                  _vm._v("\n                    RandomGuild\n                ")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "user-profile__label" },
+                  [
+                    _c("font-awesome-icon", {
+                      staticClass: "user-profile__activity",
+                      attrs: { icon: ["far", "clock"] }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "user-profile__data" }, [
+                  _vm._v("\n                    06.07.2019\n                ")
+                ])
+              ])
             ],
             1
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "user-profile__info" }, [
+          _c("div", { staticClass: "user-profile__right" }, [
             _c(
-              "div",
-              { staticClass: "user-profile__label" },
+              "header",
+              { staticClass: "user-profile__header user-profile__header--lg" },
               [
-                _c("font-awesome-icon", {
-                  staticClass: "user-profile__gold",
-                  attrs: { icon: ["fas", "coins"] }
-                })
-              ],
-              1
+                _c("h2", { staticClass: "user-profile__name" }, [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.fetchedUser.name) +
+                      "  \n                    "
+                  ),
+                  _c("span", { staticClass: "user-profile__ban" }, [
+                    _vm._v("Banned")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("sub", { staticClass: "user-profile__id" }, [
+                  _vm._v("ID: " + _vm._s(_vm.fetchedUser.id) + "  ")
+                ])
+              ]
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "user-profile__data" }, [
-              _vm._v("\n                    12,753,964\n                ")
-            ]),
+            _vm._m(0),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "user-profile__label" },
-              [
-                _c("font-awesome-icon", {
-                  staticClass: "user-profile__gems",
-                  attrs: { icon: ["far", "gem"] }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "user-profile__data" }, [
-              _vm._v("\n                    11,607\n                ")
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "user-profile__label" },
-              [
-                _c("font-awesome-icon", {
-                  staticClass: "user-profile__guild",
-                  attrs: { icon: ["fas", "campground"] }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "user-profile__data" }, [
-              _vm._v("\n                    RandomGuild\n                ")
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "user-profile__label" },
-              [
-                _c("font-awesome-icon", {
-                  staticClass: "user-profile__activity",
-                  attrs: { icon: ["far", "clock"] }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "user-profile__data" }, [
-              _vm._v("\n                    06.07.2019\n                ")
-            ])
+            _vm._m(1)
           ])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _vm._m(1)
-    ])
-  ])
+        ])
+      ])
+    : _vm._e()
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "header",
-      { staticClass: "user-profile__header user-profile__header--sm" },
-      [
-        _c("h2", { staticClass: "user-profile__name" }, [
-          _vm._v("\n                    VampY \n                    "),
-          _c("span", { staticClass: "user-profile__ban" }, [_vm._v("Banned")])
+    return _c("div", { staticClass: "user-profile__stats" }, [
+      _c("div", { staticClass: "user-profile__stats-left" }, [
+        _c("img", {
+          staticClass: "user-profile__nation",
+          attrs: { src: "/img/humania.png", alt: "Humania Logo" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "user-profile__stats-right" }, [
+        _c("div", { staticClass: "user-profile__level-label" }, [
+          _vm._v("Level")
         ]),
         _vm._v(" "),
-        _c("sub", { staticClass: "user-profile__id" }, [
-          _vm._v("ID: 393447523471196160 ")
+        _c("div", { staticClass: "user-profile__level" }, [_vm._v("17")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "user-profile__progress-bar" }, [
+          _c("div", { staticClass: "user-profile__progress" })
         ])
-      ]
-    )
+      ])
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "user-profile__right" }, [
-      _c(
-        "header",
-        { staticClass: "user-profile__header user-profile__header--lg" },
-        [
-          _c("h2", { staticClass: "user-profile__name" }, [
-            _vm._v("\n                    VampY \n                    "),
-            _c("span", { staticClass: "user-profile__ban" }, [_vm._v("Banned")])
-          ]),
-          _vm._v(" "),
-          _c("sub", { staticClass: "user-profile__id" }, [
-            _vm._v("ID: 393447523471196160 ")
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "user-profile__stats" }, [
-        _c("div", { staticClass: "user-profile__stats-left" }, [
-          _c("img", {
-            staticClass: "user-profile__nation",
-            attrs: { src: "/img/humania.png", alt: "Humania Logo" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "user-profile__stats-right" }, [
-          _c("div", { staticClass: "user-profile__level-label" }, [
-            _vm._v("Level")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "user-profile__level" }, [_vm._v("17")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "user-profile__progress-bar" }, [
-            _c("div", { staticClass: "user-profile__progress" })
-          ])
-        ])
+    return _c("div", { staticClass: "user-profile__location" }, [
+      _c("div", { staticClass: "user-profile__location-label" }, [
+        _vm._v("Current Location:")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "user-profile__location" }, [
-        _c("div", { staticClass: "user-profile__location-label" }, [
-          _vm._v("Current Location:")
-        ]),
-        _vm._v(" "),
-        _c("img", {
-          staticClass: "user-profile__location-img",
-          attrs: { src: "/img/terassyia.png", alr: "Location Image" }
-        })
-      ])
+      _c("img", {
+        staticClass: "user-profile__location-img",
+        attrs: { src: "/img/terassyia.png", alr: "Location Image" }
+      })
     ])
   }
 ]
@@ -59129,20 +59167,11 @@ var routes = [{
   name: 'commands',
   component: _views_Commands_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
 }, {
-  path: '/user',
+  path: '/users/:id',
   name: 'users.show',
-  component: _views_User_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
-  beforeEnter: function beforeEnter(to, from, next) {
-    console.log(_store__WEBPACK_IMPORTED_MODULE_2__["default"].state);
-
-    if (_store__WEBPACK_IMPORTED_MODULE_2__["default"].state.token) {
-      next();
-    } else {
-      next('/');
-    }
-  }
+  component: _views_User_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
 }, {
-  path: '/user/settings',
+  path: '/users/:id/settings',
   name: 'users.settings',
   component: _views_UserSettings_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
 }, {
@@ -59289,6 +59318,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
   getters: {
     isAuth: function isAuth(state) {
       return state.token !== null;
+    },
+    user: function user(state) {
+      return state.user;
     }
   }
 }));

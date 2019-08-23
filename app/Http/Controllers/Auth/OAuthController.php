@@ -26,6 +26,14 @@ class OAuthController extends Controller
                 'email' => $discordUser->getEmail(),
             ]);
         }
+        else
+        {
+            if($user->name !== $discordUser->name)
+            {
+                $user->update(['name' => $discordUser->getName()]);
+            }
+        }
+
         return response()->json($discordUser);
     }
 

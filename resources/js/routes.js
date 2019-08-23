@@ -47,24 +47,12 @@ let routes =
             component: CommandsView
         },
         {
-            path: '/user',
+            path: '/users/:id',
             name: 'users.show',
             component: UserView,
-            beforeEnter(to, from, next)
-            {
-                console.log(store.state)
-                if(store.state.token)
-                {
-                    next()
-                }
-                else
-                {
-                    next('/')
-                }
-            }
         },
         {
-            path: '/user/settings',
+            path: '/users/:id/settings',
             name: 'users.settings',
             component: UserSettingsView
         },

@@ -1,18 +1,18 @@
 <template>
-    <section class="section-user">
+    <section v-if="fetchedUser" class="section-user">
         <div class="user-profile">
 
             <header class="user-profile__header user-profile__header--sm">
                     <h2 class="user-profile__name">
-                        VampY 
+                        {{ fetchedUser.name }} 
                         <span class="user-profile__ban">Banned</span>
                     </h2>
-                    <sub class="user-profile__id">ID: 393447523471196160 </sub>
+                    <sub class="user-profile__id">ID: {{ fetchedUser.id }}  </sub>
                 </header>
 
             <div class="user-profile__left">
                 <img srcset="/img/brand_logo_1x.png 1x, /img/brand_logo_2x.png 2x" alt="Profile Image" class="user-profile__img">
-                <router-link :to="'/user/settings'" class="user-profile__btn btn btn--primary">
+                <router-link :to="'/users/' + fetchedUser.id +'/settings'" class="user-profile__btn btn btn--primary">
                     <font-awesome-icon :icon="['fas', 'cog']" class="mr-1"></font-awesome-icon>
                     Settings
                 </router-link>
@@ -49,10 +49,10 @@
             <div class="user-profile__right">
                 <header class="user-profile__header user-profile__header--lg">
                     <h2 class="user-profile__name">
-                        VampY 
+                        {{ fetchedUser.name }}  
                         <span class="user-profile__ban">Banned</span>
                     </h2>
-                    <sub class="user-profile__id">ID: 393447523471196160 </sub>
+                    <sub class="user-profile__id">ID: {{ fetchedUser.id }}  </sub>
                 </header>
                 <div class="user-profile__stats">
                     <div class="user-profile__stats-left">
@@ -78,7 +78,27 @@
 
 <script>
 export default {
-    
+    data(){return{
+        id: this.$route.params.id,
+        fetchedUser: null
+    }},
+    mounted()
+    {
+        this.fetch()
+    },
+    methods:
+    {
+        fetch()
+        {
+            axios.get(`/users/${this.id}`)
+            .then(({data}) =>
+            {
+                this.fetchedUser = data;
+                console.log(this.fetchedUser)
+            })
+        }
+    }
+
 }
 </script>
 
