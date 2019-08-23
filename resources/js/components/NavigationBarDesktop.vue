@@ -31,7 +31,7 @@
 
                 <ul class="navigation__account-list">
                     <li class="navigation__account-item"><router-link :to="'/users/' + user.id" class="navigation__account-link">Profile</router-link ></li>
-                    <li class="navigation__account-item"><router-link :to="'/user/settings'" class="navigation__account-link">Settings</router-link ></li>
+                    <li class="navigation__account-item"><router-link :to="'/users/' + user.id + '/settings'" class="navigation__account-link">Settings</router-link ></li>
                     <li class="navigation__account-item"><button @click="logout" class="navigation__account-link">Log Out</button ></li>
                 </ul>
             </div>

@@ -36700,7 +36700,7 @@ var render = function() {
                     "router-link",
                     {
                       staticClass: "navigation__account-link",
-                      attrs: { to: "/user/settings" }
+                      attrs: { to: "/users/" + _vm.user.id + "/settings" }
                     },
                     [_vm._v("Settings")]
                   )
