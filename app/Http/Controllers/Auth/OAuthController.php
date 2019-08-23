@@ -29,13 +29,11 @@ class OAuthController extends Controller
         return response()->json($discordUser);
     }
 
-    public function user($provider)
+    public function user($id)
     {
-        $discordUser = Socialite::driver($provider)->stateless()->user();
-
-        $user = User::where('id', $discordUser->getId())->first();
-
-        return response()->json($discordUser);
+        $user = User::findOrFail($id);
+        
+        return response()->json($user);
     }
 
     public function out()

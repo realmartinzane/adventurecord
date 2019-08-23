@@ -72,6 +72,30 @@ export default new VueX.Store(
                     })
             },
 
+            getUser({commit}, data) 
+            {
+                console.log(data)
+                axios.get('/login/' + data.userId + '/user')
+                    .then(response => 
+                    {
+                        console.log(response.data)
+
+                        commit('authUser',
+                        {
+                            token: data.token,
+                            user:
+                            {
+                                id: response.data.id,
+                                name: response.data.name,
+                                discriminator: response.data.discriminator,
+                            }
+                        })
+                    })
+                    .catch(err => {
+                        console.log({ err: err })
+                    })
+            },
+
             logout({commit})
             {
                 commit('clearAuth')
@@ -80,14 +104,14 @@ export default new VueX.Store(
                 router.replace('/')
             },
 
-            setLogoutTimer({commit, dispatch}, expiration)
+            setLogoutTimer({dispatch}, expiration)
             {
                 setTimeout(() =>
                 {
                     dispatch('logout')
                 }, expiration)
             },
-            tryAutoLogin({commit})
+            tryAutoLogin({dispatch})
             {
                 const token = localStorage.getItem('token');
                 if(!token) return;
@@ -99,7 +123,7 @@ export default new VueX.Store(
                 const userId = localStorage.getItem('userId');
                 if (!userId) return;
 
-                commit('authUser', {token, userId})
+                dispatch('getUser', {token, userId})
             }
         },
         getters:

@@ -59239,22 +59239,40 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
         });
       });
     },
-    logout: function logout(_ref3) {
+    getUser: function getUser(_ref3, data) {
       var commit = _ref3.commit;
+      console.log(data);
+      axios.get('/login/' + data.userId + '/user').then(function (response) {
+        console.log(response.data);
+        commit('authUser', {
+          token: data.token,
+          user: {
+            id: response.data.id,
+            name: response.data.name,
+            discriminator: response.data.discriminator
+          }
+        });
+      })["catch"](function (err) {
+        console.log({
+          err: err
+        });
+      });
+    },
+    logout: function logout(_ref4) {
+      var commit = _ref4.commit;
       commit('clearAuth');
       localStorage.removeItem('expirationDate');
       localStorage.removeItem('token');
       _routes__WEBPACK_IMPORTED_MODULE_2__["default"].replace('/');
     },
-    setLogoutTimer: function setLogoutTimer(_ref4, expiration) {
-      var commit = _ref4.commit,
-          dispatch = _ref4.dispatch;
+    setLogoutTimer: function setLogoutTimer(_ref5, expiration) {
+      var dispatch = _ref5.dispatch;
       setTimeout(function () {
         dispatch('logout');
       }, expiration);
     },
-    tryAutoLogin: function tryAutoLogin(_ref5) {
-      var commit = _ref5.commit;
+    tryAutoLogin: function tryAutoLogin(_ref6) {
+      var dispatch = _ref6.dispatch;
       var token = localStorage.getItem('token');
       if (!token) return;
       var expirationDate = localStorage.getItem('expirationDate');
@@ -59262,7 +59280,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
       if (now >= expirationDate) return;
       var userId = localStorage.getItem('userId');
       if (!userId) return;
-      commit('authUser', {
+      dispatch('getUser', {
         token: token,
         userId: userId
       });
