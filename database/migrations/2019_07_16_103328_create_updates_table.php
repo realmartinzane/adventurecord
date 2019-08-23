@@ -20,6 +20,7 @@ class CreateUpdatesTable extends Migration
             $table->text('body');
             $table->integer('views')->unsigned()->default(0);
             $table->integer('likes')->unsigned()->default(0);
+            $table->string('author');
             $table->timestamps();
         });
     }

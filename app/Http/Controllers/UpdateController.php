@@ -25,7 +25,7 @@ class UpdateController extends Controller
     }
     public function store(PostUpdateRequest $request)
     {
-        Update::create($request->only('title', 'body'));
+        Update::create($request->only('title', 'body', 'author'));
         return response()->json('Your update has been created.');
     }
     public function update(PostUpdateRequest $request, $id)

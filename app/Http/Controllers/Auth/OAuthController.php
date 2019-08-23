@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use Socialite;
 use App\User;
+use App\Update;
 
 class OAuthController extends Controller
 {
@@ -30,7 +31,16 @@ class OAuthController extends Controller
         {
             if($user->name !== $discordUser->name)
             {
+                $oldName = $user->name;
+                $newName = $discordUser->name;
+
                 $user->update(['name' => $discordUser->getName()]);
+
+                $updates = Update::where('author', $oldName)->get();
+                foreach($updates as $update)
+                {
+                    $update->update(['author' => $newName]);
+                }
             }
         }
 

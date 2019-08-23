@@ -25,7 +25,7 @@
                 <header class="post__header">
                     <div class="post__header-left">
                         <h2 class="post__title">{{ fetchedUpdate.title }}</h2>
-                        <div class="post__author">Posted by VampY</div>
+                        <div class="post__author">Posted by {{ fetchedUpdate.author }}</div>
                     </div>
 
                     <div class="post__header-right">

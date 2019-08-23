@@ -8,7 +8,7 @@ use Carbon;
 class Update extends Model
 {
     protected $appends = ['created_date', 'body_html'];
-    protected $fillable = ['title', 'body'];
+    protected $fillable = ['title', 'body', 'author'];
 
     public function setTitleAttribute($value)
     {

@@ -16521,6 +16521,15 @@ __webpack_require__.r(__webpack_exports__);
     },
     endpoint: function endpoint() {
       return this.isEditRoute ? "/updates/".concat(this.id, "/update") : "updates/store";
+    },
+    isAuth: function isAuth() {
+      return this.$store.getters.isAuth;
+    },
+    user: function user() {
+      return this.$store.getters.user;
+    },
+    author: function author() {
+      return this.isAuth ? this.user.name : null;
     }
   },
   mounted: function mounted() {
@@ -16539,9 +16548,11 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
+      console.log(this.author);
       axios.post(this.endpoint, {
         title: this.form.title,
-        body: this.form.body
+        body: this.form.body,
+        author: this.author
       }).then(function (_ref) {
         var data = _ref.data;
 
@@ -37272,7 +37283,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "post__author" }, [
-                    _vm._v("Posted by VampY")
+                    _vm._v("Posted by " + _vm._s(_vm.fetchedUpdate.author))
                   ])
                 ]),
                 _vm._v(" "),
@@ -37588,144 +37599,155 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    { staticClass: "section-update-form" },
-    [
-      _vm.isEditRoute && !_vm.form.title && !_vm.form.body
-        ? _c("clip-loader", {
-            attrs: { loading: true, color: "#FFD700", size: "5rem" }
-          })
-        : _vm._e(),
-      _vm._v(" "),
-      _c("header", { staticClass: "u-center-text u-margin-bottom-lg" }, [
-        _c("h2", { staticClass: "heading-secondary" }, [
-          _vm._v(
-            _vm._s(_vm.isEditRoute ? "Edit Update" : "Create a New Update")
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      (_vm.isEditRoute && _vm.form.title && _vm.form.body) || !_vm.isEditRoute
-        ? _c("form", { staticClass: "form" }, [
-            _c("div", { staticClass: "form__group" }, [
-              _c(
-                "label",
-                { staticClass: "form__label", attrs: { for: "title" } },
-                [_vm._v("Title")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.$v.form.title.$model,
-                    expression: "$v.form.title.$model"
-                  }
-                ],
-                staticClass: "form__input",
-                attrs: {
-                  type: "text",
-                  name: "title",
-                  id: "title",
-                  state: _vm.$v.form.title.$dirty
-                    ? !_vm.$v.form.title.$error
-                    : null
-                },
-                domProps: { value: _vm.$v.form.title.$model },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.$v.form.title, "$model", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "p",
-                {
-                  staticClass: "form__feedback",
-                  class: { "u-show": _vm.$v.form.title.$error },
-                  attrs: { id: "title_feedback" }
-                },
-                [
-                  _vm._v(
-                    "This is a required field and cannot exceed 100 characters."
-                  )
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form__group" }, [
-              _c(
-                "label",
-                { staticClass: "form__label", attrs: { for: "body" } },
-                [_vm._v("Body")]
-              ),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.$v.form.body.$model,
-                    expression: "$v.form.body.$model"
-                  }
-                ],
-                staticClass: "form__textarea",
-                attrs: {
-                  name: "body",
-                  id: "body",
-                  rows: "8",
-                  state: _vm.$v.form.body.$dirty
-                    ? !_vm.$v.form.body.$error
-                    : null
-                },
-                domProps: { value: _vm.$v.form.body.$model },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.$v.form.body, "$model", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "p",
-                {
-                  staticClass: "form__feedback",
-                  class: { "u-show": _vm.$v.form.body.$error },
-                  attrs: { id: "body_feedback" }
-                },
-                [
-                  _vm._v(
-                    "This is a required field and cannot exceed 250 characters."
-                  )
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form__group u-margin-top-md" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "form__submit btn btn--primary",
-                  attrs: { type: "submit" },
-                  on: { click: _vm.submit }
-                },
-                [_vm._v("Submit")]
+  return _vm.isAuth
+    ? _c(
+        "section",
+        { staticClass: "section-update-form" },
+        [
+          _vm.isEditRoute && !_vm.form.title && !_vm.form.body
+            ? _c("clip-loader", {
+                attrs: { loading: true, color: "#FFD700", size: "5rem" }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _c("header", { staticClass: "u-center-text u-margin-bottom-lg" }, [
+            _c("h2", { staticClass: "heading-secondary" }, [
+              _vm._v(
+                _vm._s(_vm.isEditRoute ? "Edit Update" : "Create a New Update")
               )
             ])
-          ])
-        : _vm._e()
-    ],
-    1
-  )
+          ]),
+          _vm._v(" "),
+          (_vm.isEditRoute && _vm.form.title && _vm.form.body) ||
+          !_vm.isEditRoute
+            ? _c("form", { staticClass: "form" }, [
+                _c("div", { staticClass: "form__group" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form__label", attrs: { for: "title" } },
+                    [_vm._v("Title")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.$v.form.title.$model,
+                        expression: "$v.form.title.$model"
+                      }
+                    ],
+                    staticClass: "form__input",
+                    attrs: {
+                      type: "text",
+                      name: "title",
+                      id: "title",
+                      state: _vm.$v.form.title.$dirty
+                        ? !_vm.$v.form.title.$error
+                        : null
+                    },
+                    domProps: { value: _vm.$v.form.title.$model },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.$v.form.title,
+                          "$model",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      staticClass: "form__feedback",
+                      class: { "u-show": _vm.$v.form.title.$error },
+                      attrs: { id: "title_feedback" }
+                    },
+                    [
+                      _vm._v(
+                        "This is a required field and cannot exceed 100 characters."
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form__group" }, [
+                  _c(
+                    "label",
+                    { staticClass: "form__label", attrs: { for: "body" } },
+                    [_vm._v("Body")]
+                  ),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.$v.form.body.$model,
+                        expression: "$v.form.body.$model"
+                      }
+                    ],
+                    staticClass: "form__textarea",
+                    attrs: {
+                      name: "body",
+                      id: "body",
+                      rows: "8",
+                      state: _vm.$v.form.body.$dirty
+                        ? !_vm.$v.form.body.$error
+                        : null
+                    },
+                    domProps: { value: _vm.$v.form.body.$model },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.$v.form.body,
+                          "$model",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      staticClass: "form__feedback",
+                      class: { "u-show": _vm.$v.form.body.$error },
+                      attrs: { id: "body_feedback" }
+                    },
+                    [
+                      _vm._v(
+                        "This is a required field and cannot exceed 250 characters."
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form__group u-margin-top-md" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "form__submit btn btn--primary",
+                      attrs: { type: "submit" },
+                      on: { click: _vm.submit }
+                    },
+                    [_vm._v("Submit")]
+                  )
+                ])
+              ])
+            : _vm._e()
+        ],
+        1
+      )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true

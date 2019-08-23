@@ -1,5 +1,5 @@
 <template>
-    <section class="section-update-form">
+    <section v-if="isAuth" class="section-update-form">
         <clip-loader v-if="isEditRoute && !form.title && !form.body" :loading="true" color="#FFD700" size="5rem"></clip-loader>
 
         <header class="u-center-text u-margin-bottom-lg">
@@ -51,7 +51,7 @@ export default {
         form:
         {
             title: null,
-            body: null
+            body: null,
         },
         id: this.$route.params.id,
     }},
@@ -66,7 +66,19 @@ export default {
     computed:
     {
         isEditRoute() {return this.$route.name === 'updates.edit'},
-        endpoint() {return this.isEditRoute ? `/updates/${this.id}/update` : `updates/store`}
+        endpoint() {return this.isEditRoute ? `/updates/${this.id}/update` : `updates/store`},
+        isAuth()
+        {
+            return this.$store.getters.isAuth
+        },
+        user()
+        {
+            return this.$store.getters.user
+        },
+        author()
+        {
+            return this.isAuth ? this.user.name : null
+        }
     },
     mounted()
     {
@@ -84,11 +96,13 @@ export default {
                 if (this.$v.form.body.$dirty) this.$v.form.body.$error = true;
                 return
             }
+            console.log(this.author)
 
             axios.post(this.endpoint, 
             {
                 title: this.form.title,
-                body: this.form.body
+                body: this.form.body,
+                author: this.author
             })
             .then(({data}) => 
             {
