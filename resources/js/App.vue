@@ -13,6 +13,10 @@ import NavigationBarMobileComponent from './components/NavigationBarMobile.vue'
 import FooterComponent from './components/Footer.vue'
 
 export default {
+    created()
+    {
+        this.$store.dispatch('fetchUser')
+    },
     components:
     {
         NavigationBarDesktopComponent,

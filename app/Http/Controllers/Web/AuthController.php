@@ -14,9 +14,9 @@ class AuthController extends Controller
     {
         try
         {
-            return Socialite::with( $provider )->redirect();
+            return Socialite::with($provider)->redirect();
         }
-        catch( \InvalidArgumentException $e )
+        catch(\InvalidArgumentException $e)
         {
             return redirect('/login');
         }
@@ -48,6 +48,6 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect('/');
+        return redirect('/#/home');
     }
 }

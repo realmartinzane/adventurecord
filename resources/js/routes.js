@@ -19,6 +19,11 @@ let routes =
             component: HomeView
         },
         {
+            path: '/home',
+            name: 'home',
+            component: HomeView
+        },
+        {
             path: '/updates',
             name: 'updates.index',
             component: UpdatesView

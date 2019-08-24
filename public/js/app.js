@@ -15572,6 +15572,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    this.$store.dispatch('fetchUser');
+  },
   components: {
     NavigationBarDesktopComponent: _components_NavigationBarDesktop_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     NavigationBarMobileComponent: _components_NavigationBarMobile_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -16025,25 +16028,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  methods: {
-    AuthProvider: function AuthProvider(provider) {
-      var self = this;
-      this.$auth.authenticate(provider).then(function (response) {
-        self.SocialLogin(provider, response);
-      })["catch"](function (err) {
-        console.log({
-          err: err
-        });
-      });
+  computed: {
+    userLoad: function userLoad() {
+      return this.$store.getters.getUserLoad;
     },
-    SocialLogin: function SocialLogin(provider, response) {
-      this.$http.post('/sociallogin/' + provider, response).then(function (response) {
-        console.log(response.data);
-      })["catch"](function (err) {
-        console.log({
-          err: err
-        });
-      });
+    user: function user() {
+      return this.$store.getters.getUser;
     }
   }
 });
@@ -60334,6 +60324,10 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 var routes = [{
   path: '/',
+  name: 'home',
+  component: _views_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+}, {
+  path: '/home',
   name: 'home',
   component: _views_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
 }, {
