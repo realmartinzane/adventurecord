@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () 
-{
-    return view('layouts.app');
-});
+Route::get( '/', 'Web\AppController@getApp')->middleware('auth');
 
 Route::post('sociallogin/{provider}', 'Auth\AuthController@SocialSignup');
 Route::get('login/{provider}/callback', 'OutController@index')->where('provider', '.*');
