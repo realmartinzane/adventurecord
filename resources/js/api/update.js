@@ -1,5 +1,5 @@
 
-import { ADV_CONFIG } from '../config.js';
+import { ADV_CONFIG } from '../../config.js';
 
 export default {
     /*

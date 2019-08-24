@@ -33,6 +33,9 @@ if (token) {
  // Vue
 import Vue from 'vue'
 
+// Vuex Store
+import store from './store.js'
+
 // Vue Authenticate
 import VueAxios from 'vue-axios'
 import VueSocialauth from 'vue-social-auth'
@@ -104,6 +107,7 @@ import MyApp from './App.vue'
 const app = new Vue({
     el: '#app',
     router,
+    store,
     components:
     {
         MyApp
