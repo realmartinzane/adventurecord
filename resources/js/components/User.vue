@@ -85,6 +85,7 @@ export default {
     mounted()
     {
         this.fetch()
+        
     },
     methods:
     {
@@ -94,7 +95,7 @@ export default {
             .then(({data}) =>
             {
                 this.fetchedUser = data;
-                console.log(this.fetchedUser)
+                console.log(this.fetchedUser.role.details.name)
             })
         }
     }

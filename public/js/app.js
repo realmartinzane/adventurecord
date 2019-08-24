@@ -16687,7 +16687,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("/users/".concat(this.id)).then(function (_ref) {
         var data = _ref.data;
         _this.fetchedUser = data;
-        console.log(_this.fetchedUser);
+        console.log(_this.fetchedUser.role.details.name);
       });
     }
   }
