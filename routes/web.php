@@ -11,10 +11,16 @@
 |
 */
 
-Route::get( '/', 'Web\AppController@getApp')->middleware('auth');
+Route::get('/', 'Web\AppController@getApp')->middleware('auth');
 
+Route::get('/login', 'Web\AppController@getLogin')->name('login')->middleware('guest');
+Route::get('/login/{provider}', 'Web\AuthController@getSocialRedirect')->middleware('guest');
+Route::get('/login/{provider}/callback', 'Web\AuthController@getSocialCallback')->middleware('guest');
+
+/*
 Route::post('sociallogin/{provider}', 'Auth\AuthController@SocialSignup');
 Route::get('login/{provider}/callback', 'OutController@index')->where('provider', '.*');
+*/
 
 Route::get('updates/data', 'UpdateController@data');
 Route::get('updates/{id}', 'UpdateController@get');
@@ -22,5 +28,3 @@ Route::get('updates/{id}/single', 'UpdateController@getSingle');
 Route::post('updates/store', 'UpdateController@store');
 Route::post('updates/{id}/update', 'UpdateController@update');
 Route::post('updates/{id}/destroy', 'UpdateController@destroy');
-
-Auth::routes();

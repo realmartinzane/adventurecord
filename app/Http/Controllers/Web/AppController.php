@@ -11,4 +11,9 @@ class AppController extends Controller
     {
         return view('home');
     }
+
+    public function getLogin()
+    {
+        return view('login');
+    }
 }
