@@ -14,29 +14,14 @@ class UpdateController extends Controller
     | Get All Updates
     |-------------------------------------------------------------------------------
     | URL:            /api/updates/data
-    | Controller:     API\UpdateController@data
+    | Controller:     API\UpdateController@single
     | Method:         GET
     | Description:    Get all updates.
     */
 
-    public function data()
+    public function all()
     {
         return Update::orderby('created_at', 'desc')->get();
-    }
-
-    /*
-    |-------------------------------------------------------------------------------
-    | Get a Single Update (Index)
-    |-------------------------------------------------------------------------------
-    | URL:            /api/updates/{id}
-    | Controller:     API\UpdateController@get
-    | Method:         GET
-    | Description:    Get a single update in index view
-    */
-
-    public function get($id)
-    {
-        return Update::findOrFail($id);
     }
 
     /*
@@ -44,12 +29,12 @@ class UpdateController extends Controller
     | Get a Single Update (Show)
     |-------------------------------------------------------------------------------
     | URL:            /api/updates/{id}/single
-    | Controller:     API\UpdateController@getSingle
+    | Controller:     API\UpdateController@single
     | Method:         GET
     | Description:    Get a single update in show view
     */
 
-    public function getSingle($id)
+    public function single($id)
     {
         $update = Update::findOrFail($id);
         $update->views += 1;
@@ -75,12 +60,12 @@ class UpdateController extends Controller
 
     /*
     |-------------------------------------------------------------------------------
-    | Get Update Data (Edit)
+    | Update an Existing Update
     |-------------------------------------------------------------------------------
     | URL:            /api/updates/{id}/update
     | Controller:     API\UpdateController@update
-    | Method:         GET
-    | Description:    Get update data for edit view
+    | Method:         POST
+    | Description:    Update an existing update.
     */
 
     public function update(PostUpdateRequest $request, $id)
@@ -91,12 +76,12 @@ class UpdateController extends Controller
 
     /*
     |-------------------------------------------------------------------------------
-    | Get Update Data (Edit)
+    | Destroy an Existing Update
     |-------------------------------------------------------------------------------
     | URL:            /api/updates/{id}/destroy
     | Controller:     API\UpdateController@destroy
     | Method:         DELETE
-    | Description:    Delete an Update from the records
+    | Description:    Delete an Update from the records.
     */  
 
     public function destroy($id)

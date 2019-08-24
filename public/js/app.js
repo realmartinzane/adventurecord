@@ -16309,39 +16309,31 @@ __webpack_require__.r(__webpack_exports__);
     if (this.id && !this.isShowRoute) this.fetch();else if (this.id && this.isShowRoute) this.fetchSingle();else this.fetchedUpdate = this.update;
   },
   methods: {
-    fetch: function fetch() {
+    fetchSingle: function fetchSingle() {
       var _this = this;
 
-      axios.get("/updates/".concat(this.id)).then(function (_ref) {
+      axios.get("/updates/".concat(this.id, "/single")).then(function (_ref) {
         var data = _ref.data;
         _this.fetchedUpdate = data;
       });
     },
-    fetchSingle: function fetchSingle() {
+    destroy: function destroy() {
       var _this2 = this;
 
-      axios.get("/updates/".concat(this.id, "/single")).then(function (_ref2) {
+      axios.post("/updates/".concat(this.fetchedUpdate.id, "/destroy")).then(function (_ref2) {
         var data = _ref2.data;
-        _this2.fetchedUpdate = data;
-      });
-    },
-    destroy: function destroy() {
-      var _this3 = this;
 
-      axios.post("/updates/".concat(this.fetchedUpdate.id, "/destroy")).then(function (_ref3) {
-        var data = _ref3.data;
-
-        if (_this3.isShowRoute) {
-          _this3.$router.push('/updates', function () {
-            _this3.$toast.success({
+        if (_this2.isShowRoute) {
+          _this2.$router.push('/updates', function () {
+            _this2.$toast.success({
               title: 'Success',
               message: data
             });
           });
         } else {
-          _this3.$parent.fetch();
+          _this2.$parent.fetch();
 
-          _this3.$toast.success({
+          _this2.$toast.success({
             title: 'Success',
             message: data
           });
@@ -16525,7 +16517,7 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      axios.get(this.endpoint, {
+      axios.post(this.endpoint, {
         title: this.form.title,
         body: this.form.body
       }).then(function (_ref) {

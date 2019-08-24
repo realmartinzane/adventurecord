@@ -115,14 +115,6 @@ export default {
     },
     methods:
     {
-        fetch()
-        {
-            axios.get(`/updates/${this.id}`)
-            .then(({data}) =>
-            {
-                this.fetchedUpdate = data;
-            });
-        },
         fetchSingle()
         {
             axios.get(`/updates/${this.id}/single`)

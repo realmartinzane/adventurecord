@@ -18,19 +18,7 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
   | Description:    Get all updates.
 */
 
-Route::get('updates/data', 'UpdateController@data');
-
-/*
-  |-------------------------------------------------------------------------------
-  | Get a Single Update (Index)
-  |-------------------------------------------------------------------------------
-  | URL:            /api/updates/{id}
-  | Controller:     API\UpdateController@get
-  | Method:         GET
-  | Description:    Get a single update in index view
-*/
-
-Route::get('updates/{id}', 'UpdateController@get');
+Route::get('updates/all', 'UpdateController@all');
 
 /*
   |-------------------------------------------------------------------------------
@@ -39,10 +27,10 @@ Route::get('updates/{id}', 'UpdateController@get');
   | URL:            /api/updates/{id}/single
   | Controller:     API\UpdateController@getSingle
   | Method:         GET
-  | Description:    Get a single update in show view
+  | Description:    Get a single update in show view.
 */
 
-Route::get('updates/{id}/single', 'UpdateController@getSingle');
+Route::get('updates/{id}', 'UpdateController@single');
 
 /*
   |-------------------------------------------------------------------------------
@@ -58,24 +46,24 @@ Route::post('updates/store', 'UpdateController@store');
 
 /*
   |-------------------------------------------------------------------------------
-  | Get Update Data (Edit)
+  | Update an Existing Update
   |-------------------------------------------------------------------------------
   | URL:            /api/updates/{id}/update
   | Controller:     API\UpdateController@update
-  | Method:         GET
-  | Description:    Get update data for edit view
+  | Method:         POST
+  | Description:    Update an existing update.
 */
 
-Route::get('updates/{id}/update', 'UpdateController@update');
+Route::post('updates/{id}/update', 'UpdateController@update');
 
 /*
   |-------------------------------------------------------------------------------
-  | Get Update Data (Edit)
+  | Destroy an Existing Update
   |-------------------------------------------------------------------------------
   | URL:            /api/updates/{id}/destroy
   | Controller:     API\UpdateController@destroy
   | Method:         DELETE
-  | Description:    Delete an Update from the records
+  | Description:    Delete an Update from the records.
 */
 
 Route::post('updates/{id}/destroy', 'UpdateController@destroy');

@@ -85,7 +85,7 @@ export default {
                 return
             }
 
-            axios.get(this.endpoint, 
+            axios.post(this.endpoint, 
             {
                 title: this.form.title,
                 body: this.form.body
