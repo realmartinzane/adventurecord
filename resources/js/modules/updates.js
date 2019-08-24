@@ -56,7 +56,7 @@ export const updates =
         fetchSingle({ commit }, data) 
         {
             commit('setUpdateLoad', 1)
-            UpdateAPI.fetchSingle(1)
+            UpdateAPI.fetchSingle(data.id)
                 .then(response => 
                     {
                         commit('setUpdate', response.data)
@@ -72,22 +72,22 @@ export const updates =
     
     getters:
     {
-        setUpdates(state) 
+        getUpdates(state) 
         {
             return state.updates
         },
 
-        setUpdatesLoad(state) 
+        getUpdatesLoad(state) 
         {
             return state.updatesLoad
         },
 
-        setUpdate(state) 
+        getUpdate(state) 
         {
             return state.update
         },
 
-        setUpdateLoad(state) 
+        getUpdateLoad(state) 
         {
             return state.updateLoad
         }

@@ -16303,7 +16303,7 @@ __webpack_require__.r(__webpack_exports__);
       return this.fetchedUpdate.body_html.length < 250 ? this.fetchedUpdate.body_html : this.isShowRoute ? this.fetchedUpdate.body_html : this.fetchedUpdate.body_html.substring(0, 250) + "...";
     },
     fetchedUpdate: function fetchedUpdate() {
-      return this.$store.getters.update;
+      return this.$store.getters.getUpdate;
     }
   },
   created: function created() {
@@ -16312,7 +16312,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     fetchSingle: function fetchSingle() {
-      this.$store.dispatch('fetchSingle');
+      this.$store.dispatch('fetchSingle', {
+        id: this.id
+      });
     },
     destroy: function destroy() {
       var _this = this;
@@ -16385,7 +16387,7 @@ __webpack_require__.r(__webpack_exports__);
       return this.$store.getters.updatesLoad;
     },
     fetchedUpdates: function fetchedUpdates() {
-      return this.$store.getters.updates;
+      return this.$store.getters.getUpdates;
     }
   },
   created: function created() {
@@ -60257,7 +60259,7 @@ var updates = {
     fetchSingle: function fetchSingle(_ref2, data) {
       var commit = _ref2.commit;
       commit('setUpdateLoad', 1);
-      _api_update_js__WEBPACK_IMPORTED_MODULE_0__["default"].fetchSingle(1).then(function (response) {
+      _api_update_js__WEBPACK_IMPORTED_MODULE_0__["default"].fetchSingle(data.id).then(function (response) {
         commit('setUpdate', response.data);
         commit('setUpdateLoad', 2);
       })["catch"](function (err) {
@@ -60267,16 +60269,16 @@ var updates = {
     }
   },
   getters: {
-    setUpdates: function setUpdates(state) {
+    getUpdates: function getUpdates(state) {
       return state.updates;
     },
-    setUpdatesLoad: function setUpdatesLoad(state) {
+    getUpdatesLoad: function getUpdatesLoad(state) {
       return state.updatesLoad;
     },
-    setUpdate: function setUpdate(state) {
+    getUpdate: function getUpdate(state) {
       return state.update;
     },
-    setUpdateLoad: function setUpdateLoad(state) {
+    getUpdateLoad: function getUpdateLoad(state) {
       return state.updateLoad;
     }
   }

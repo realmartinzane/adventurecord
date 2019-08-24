@@ -104,7 +104,7 @@ export default {
     {
         isShowRoute() {return this.$route.name === 'updates.show'},
         body() {return this.fetchedUpdate.body_html.length < 250 ? this.fetchedUpdate.body_html : (this.isShowRoute ? this.fetchedUpdate.body_html : this.fetchedUpdate.body_html.substring(0,250) + "...")},
-        fetchedUpdate() {return this.$store.getters.update}
+        fetchedUpdate() {return this.$store.getters.getUpdate}
     },
     created()
     {
@@ -116,7 +116,7 @@ export default {
     {
         fetchSingle()
         {
-            this.$store.dispatch('fetchSingle');
+            this.$store.dispatch('fetchSingle', {id: this.id});
         },
         destroy()
         {

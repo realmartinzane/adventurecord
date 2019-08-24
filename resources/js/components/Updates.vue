@@ -27,7 +27,7 @@ export default {
 
         updatesLoad() {return this.$store.getters.updatesLoad},
 
-        fetchedUpdates() {return this.$store.getters.updates}
+        fetchedUpdates() {return this.$store.getters.getUpdates}
     },
     created()
     {
