@@ -1,7 +1,7 @@
 <template>
     <section :class="{'section-update': isShowRoute, 'item-update': !isShowRoute}" id="#section_update">
-        <clip-loader v-if="!fetchedUpdate" :loading="true" color="#FFD700" size="5rem"></clip-loader>
-        <div class="post" v-if="fetchedUpdate">
+        <clip-loader v-if="checkLoad !== 2" :loading="true" color="#FFD700" size="5rem"></clip-loader>
+        <div class="post" v-if="checkLoad === 2">
             <div class="post__left">
                 <div class="post__img-container">
                     <picture class="post__img">
@@ -104,8 +104,12 @@ export default {
     computed:
     {
         isShowRoute() {return this.$route.name === 'updates.show'},
+        
         body() {return this.fetchedUpdate.body_html.length < 250 ? this.fetchedUpdate.body_html : this.fetchedUpdate.body_html.substring(0,250) + "..."},
-        fetchedUpdate() {return this.id && this.isShowRoute ? this.$store.getters.getUpdate : this.update}
+        
+        fetchedUpdate() {return this.id && this.isShowRoute ? this.$store.getters.getUpdate : this.update},
+        
+        checkLoad() {return this.isShowRoute ? this.$store.getters.getUpdateLoad : this.$store.getters.getUpdatesLoad},
     },
     created()
     {

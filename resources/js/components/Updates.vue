@@ -1,10 +1,10 @@
 <template>
     <section class="section-updates">
-        <clip-loader v-if="isIndexRoute && !fetchedUpdates" :loading="true" color="#FFD700" size="5rem"></clip-loader>
+        <clip-loader v-if="isIndexRoute && updatesLoad !== 2" :loading="true" color="#FFD700" size="5rem"></clip-loader>
         <header class="u-center-text u-margin-bottom-lg">
             <h2 class="heading-secondary">Updates</h2>
         </header>
-        <div class="posts">
+        <div class="posts" v-if="updatesLoad == 2">
             <div class="posts__post" v-for="update in fetchedUpdates" :key="update.id">
                 <update-component :update="update"></update-component>
             </div>
@@ -25,7 +25,7 @@ export default {
     {
         isIndexRoute() {return this.$route.name === 'updates.index'},
 
-        updatesLoad() {return this.$store.getters.updatesLoad},
+        updatesLoad() {return this.$store.getters.getUpdatesLoad},
 
         fetchedUpdates() {return this.$store.getters.getUpdates}
     },

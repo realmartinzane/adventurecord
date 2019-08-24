@@ -16305,6 +16305,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     fetchedUpdate: function fetchedUpdate() {
       return this.id && this.isShowRoute ? this.$store.getters.getUpdate : this.update;
+    },
+    checkLoad: function checkLoad() {
+      return this.isShowRoute ? this.$store.getters.getUpdateLoad : this.$store.getters.getUpdatesLoad;
     }
   },
   created: function created() {
@@ -16385,7 +16388,7 @@ __webpack_require__.r(__webpack_exports__);
       return this.$route.name === 'updates.index';
     },
     updatesLoad: function updatesLoad() {
-      return this.$store.getters.updatesLoad;
+      return this.$store.getters.getUpdatesLoad;
     },
     fetchedUpdates: function fetchedUpdates() {
       return this.$store.getters.getUpdates;
@@ -38263,13 +38266,13 @@ var render = function() {
       attrs: { id: "#section_update" }
     },
     [
-      !_vm.fetchedUpdate
+      _vm.checkLoad !== 2
         ? _c("clip-loader", {
             attrs: { loading: true, color: "#FFD700", size: "5rem" }
           })
         : _vm._e(),
       _vm._v(" "),
-      _vm.fetchedUpdate
+      _vm.checkLoad === 2
         ? _c("div", { staticClass: "post" }, [
             _c("div", { staticClass: "post__left" }, [
               _vm._m(0),
@@ -38576,7 +38579,7 @@ var render = function() {
     "section",
     { staticClass: "section-updates" },
     [
-      _vm.isIndexRoute && !_vm.fetchedUpdates
+      _vm.isIndexRoute && _vm.updatesLoad !== 2
         ? _c("clip-loader", {
             attrs: { loading: true, color: "#FFD700", size: "5rem" }
           })
@@ -38584,36 +38587,38 @@ var render = function() {
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "posts" },
-        [
-          _vm._l(_vm.fetchedUpdates, function(update) {
-            return _c(
-              "div",
-              { key: update.id, staticClass: "posts__post" },
-              [_c("update-component", { attrs: { update: update } })],
-              1
-            )
-          }),
-          _vm._v(" "),
-          !_vm.isIndexRoute
-            ? _c(
-                "div",
-                { staticClass: "u-center-text" },
-                [
-                  _c(
-                    "router-link",
-                    { staticClass: "link", attrs: { to: "/updates" } },
-                    [_vm._v("View more updates")]
+      _vm.updatesLoad == 2
+        ? _c(
+            "div",
+            { staticClass: "posts" },
+            [
+              _vm._l(_vm.fetchedUpdates, function(update) {
+                return _c(
+                  "div",
+                  { key: update.id, staticClass: "posts__post" },
+                  [_c("update-component", { attrs: { update: update } })],
+                  1
+                )
+              }),
+              _vm._v(" "),
+              !_vm.isIndexRoute
+                ? _c(
+                    "div",
+                    { staticClass: "u-center-text" },
+                    [
+                      _c(
+                        "router-link",
+                        { staticClass: "link", attrs: { to: "/updates" } },
+                        [_vm._v("View more updates")]
+                      )
+                    ],
+                    1
                   )
-                ],
-                1
-              )
-            : _vm._e()
-        ],
-        2
-      )
+                : _vm._e()
+            ],
+            2
+          )
+        : _vm._e()
     ],
     1
   )
