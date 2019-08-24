@@ -44,12 +44,12 @@ let routes =
             component: CommandsView
         },
         {
-            path: '/user',
+            path: '/users/:id',
             name: 'users.show',
             component: UserView
         },
         {
-            path: '/user/settings',
+            path: '/users/:id/settings',
             name: 'users.settings',
             component: UserSettingsView
         },
@@ -57,11 +57,7 @@ let routes =
             path: '/marketplace',
             name: 'marketplace',
             component: MarketplaceView
-        },
-        {
-            path: '/login/:provider/callback',
-            component: {template: '<div class="auth-component"></div>'}
-        },
+        }
     ]
 
 export default new VueRouter({

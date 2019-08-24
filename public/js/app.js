@@ -16525,7 +16525,7 @@ __webpack_require__.r(__webpack_exports__);
         return;
       }
 
-      axios.post(this.endpoint, {
+      axios.get(this.endpoint, {
         title: this.form.title,
         body: this.form.body
       }).then(function (_ref) {
@@ -57984,22 +57984,17 @@ var routes = [{
   name: 'commands',
   component: _views_Commands_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
 }, {
-  path: '/user',
+  path: '/users/:id',
   name: 'users.show',
   component: _views_User_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
 }, {
-  path: '/user/settings',
+  path: '/users/:id/settings',
   name: 'users.settings',
   component: _views_UserSettings_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
 }, {
   path: '/marketplace',
   name: 'marketplace',
   component: _views_Marketplace_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
-}, {
-  path: '/login/:provider/callback',
-  component: {
-    template: '<div class="auth-component"></div>'
-  }
 }];
 /* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   routes: routes,
