@@ -9,6 +9,6 @@ switch (process.env.NODE_ENV) {
         break;
 }
 
-export const ROAST_CONFIG = {
+export const ADV_CONFIG = {
     API_URL: api_url,
 }
