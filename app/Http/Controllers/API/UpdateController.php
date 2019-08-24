@@ -3,17 +3,19 @@
 namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
-use App\Update;
-use App\Http\Requests\PostUpdateRequest;
+use App\Http\Controllers\Controller;
+use App\Models\Update;
 
 class UpdateController extends Controller
 {
+
+    
 
     /*
     |-------------------------------------------------------------------------------
     | Get All Updates
     |-------------------------------------------------------------------------------
-    | URL:            /api/updates/data
+    | URL:            /api/v1/updates/data
     | Controller:     API\UpdateController@single
     | Method:         GET
     | Description:    Get all updates.
@@ -28,7 +30,7 @@ class UpdateController extends Controller
     |-------------------------------------------------------------------------------
     | Get a Single Update (Show)
     |-------------------------------------------------------------------------------
-    | URL:            /api/updates/{id}/single
+    | URL:            /api/v1/updates/{id}/single
     | Controller:     API\UpdateController@single
     | Method:         GET
     | Description:    Get a single update in show view
@@ -46,7 +48,7 @@ class UpdateController extends Controller
     |-------------------------------------------------------------------------------
     | Store a New Update
     |-------------------------------------------------------------------------------
-    | URL:            /api/updates/store
+    | URL:            /api/v1/updates/store
     | Controller:     API\UpdateController@store
     | Method:         POST
     | Description:    Store a new update.
@@ -62,7 +64,7 @@ class UpdateController extends Controller
     |-------------------------------------------------------------------------------
     | Update an Existing Update
     |-------------------------------------------------------------------------------
-    | URL:            /api/updates/{id}/update
+    | URL:            /api/v1/updates/{id}/update
     | Controller:     API\UpdateController@update
     | Method:         POST
     | Description:    Update an existing update.
@@ -78,7 +80,7 @@ class UpdateController extends Controller
     |-------------------------------------------------------------------------------
     | Destroy an Existing Update
     |-------------------------------------------------------------------------------
-    | URL:            /api/updates/{id}/destroy
+    | URL:            /api/v1/updates/{id}/destroy
     | Controller:     API\UpdateController@destroy
     | Method:         DELETE
     | Description:    Delete an Update from the records.

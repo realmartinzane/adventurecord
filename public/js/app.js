@@ -16290,7 +16290,6 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       id: this.$route.params.id,
-      fetchedUpdate: null,
       showModal: false,
       showLinks: false,
       url: ''
@@ -16302,38 +16301,36 @@ __webpack_require__.r(__webpack_exports__);
     },
     body: function body() {
       return this.fetchedUpdate.body_html.length < 250 ? this.fetchedUpdate.body_html : this.isShowRoute ? this.fetchedUpdate.body_html : this.fetchedUpdate.body_html.substring(0, 250) + "...";
+    },
+    fetchedUpdate: function fetchedUpdate() {
+      return this.$store.getters.update;
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     this.url = window.location.href;
-    if (this.id && !this.isShowRoute) this.fetch();else if (this.id && this.isShowRoute) this.fetchSingle();else this.fetchedUpdate = this.update;
+    if (this.id && this.isShowRoute) this.fetchSingle();
   },
   methods: {
     fetchSingle: function fetchSingle() {
-      var _this = this;
-
-      axios.get("/updates/".concat(this.id, "/single")).then(function (_ref) {
-        var data = _ref.data;
-        _this.fetchedUpdate = data;
-      });
+      this.$store.dispatch('fetchSingle');
     },
     destroy: function destroy() {
-      var _this2 = this;
+      var _this = this;
 
-      axios.post("/updates/".concat(this.fetchedUpdate.id, "/destroy")).then(function (_ref2) {
-        var data = _ref2.data;
+      axios.post("/updates/".concat(this.fetchedUpdate.id, "/destroy")).then(function (_ref) {
+        var data = _ref.data;
 
-        if (_this2.isShowRoute) {
-          _this2.$router.push('/updates', function () {
-            _this2.$toast.success({
+        if (_this.isShowRoute) {
+          _this.$router.push('/updates', function () {
+            _this.$toast.success({
               title: 'Success',
               message: data
             });
           });
         } else {
-          _this2.$parent.fetch();
+          _this.$parent.fetch();
 
-          _this2.$toast.success({
+          _this.$toast.success({
             title: 'Success',
             message: data
           });
@@ -16380,31 +16377,21 @@ __webpack_require__.r(__webpack_exports__);
     UpdateComponent: _Update_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     ClipLoader: vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  data: function data() {
-    return {
-      updates: null
-    };
-  },
   computed: {
     isIndexRoute: function isIndexRoute() {
       return this.$route.name === 'updates.index';
     },
-    endpoint: function endpoint() {
-      return "/updates/data";
+    updatesLoad: function updatesLoad() {
+      return this.$store.getters.updatesLoad;
+    },
+    fetchedUpdates: function fetchedUpdates() {
+      return this.$store.getters.updates;
     }
   },
-  mounted: function mounted() {
-    this.fetch();
+  created: function created() {
+    this.$store.dispatch('fetchAll');
   },
-  methods: {
-    fetch: function fetch() {
-      var _this = this;
-
-      axios.get(this.endpoint).then(function (response) {
-        return _this.updates = response.data;
-      });
-    }
-  }
+  methods: {}
 });
 
 /***/ }),
@@ -38486,10 +38473,7 @@ var render = function() {
               [
                 _c(
                   "button",
-                  {
-                    staticClass: "btn btn--secondary-gold popup__purchase",
-                    on: { click: _vm.destroy }
-                  },
+                  { staticClass: "btn btn--secondary-gold popup__purchase" },
                   [_vm._v("Ok")]
                 ),
                 _vm._v(" "),
@@ -38580,7 +38564,7 @@ var render = function() {
     "section",
     { staticClass: "section-updates" },
     [
-      _vm.isIndexRoute && !_vm.updates
+      _vm.isIndexRoute && !_vm.fetchedUpdates
         ? _c("clip-loader", {
             attrs: { loading: true, color: "#FFD700", size: "5rem" }
           })
@@ -38592,7 +38576,7 @@ var render = function() {
         "div",
         { staticClass: "posts" },
         [
-          _vm._l(_vm.updates, function(update) {
+          _vm._l(_vm.fetchedUpdates, function(update) {
             return _c(
               "div",
               { key: update.id, staticClass: "posts__post" },
@@ -58930,11 +58914,11 @@ var api_url = '';
 
 switch ("development") {
   case 'development':
-    api_url = 'https://adventurecord.dev/api/';
+    api_url = 'http://adventurecord.test/api/v1';
     break;
 
   case 'production':
-    api_url = 'https://adventurecord.com/api/';
+    api_url = 'http://adventurecord.com/api/v1';
     break;
 }
 
@@ -59054,7 +59038,7 @@ __webpack_require__.r(__webpack_exports__);
       GET     /api/updates
   */
   fetchAll: function fetchAll() {
-    return axios.get("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates"));
+    return axios.get("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates/all"));
   },
 
   /*
@@ -60262,6 +60246,7 @@ var updates = {
       var commit = _ref.commit;
       commit('setUpdatesLoad', 1);
       _api_update_js__WEBPACK_IMPORTED_MODULE_0__["default"].fetchAll().then(function (response) {
+        console.log(response.data);
         commit('setUpdates', response.data);
         commit('setUpdatesLoad', 2);
       })["catch"](function (err) {
@@ -60272,7 +60257,7 @@ var updates = {
     fetchSingle: function fetchSingle(_ref2, data) {
       var commit = _ref2.commit;
       commit('setUpdateLoad', 1);
-      _api_update_js__WEBPACK_IMPORTED_MODULE_0__["default"].fetch().then(function (response) {
+      _api_update_js__WEBPACK_IMPORTED_MODULE_0__["default"].fetchSingle(1).then(function (response) {
         commit('setUpdate', response.data);
         commit('setUpdateLoad', 2);
       })["catch"](function (err) {

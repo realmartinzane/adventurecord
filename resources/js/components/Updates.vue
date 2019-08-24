@@ -1,11 +1,11 @@
 <template>
     <section class="section-updates">
-        <clip-loader v-if="isIndexRoute && !updates" :loading="true" color="#FFD700" size="5rem"></clip-loader>
+        <clip-loader v-if="isIndexRoute && !fetchedUpdates" :loading="true" color="#FFD700" size="5rem"></clip-loader>
         <header class="u-center-text u-margin-bottom-lg">
             <h2 class="heading-secondary">Updates</h2>
         </header>
         <div class="posts">
-            <div class="posts__post" v-for="update in updates" :key="update.id">
+            <div class="posts__post" v-for="update in fetchedUpdates" :key="update.id">
                 <update-component :update="update"></update-component>
             </div>
             <div v-if="!isIndexRoute" class="u-center-text">
@@ -21,26 +21,21 @@ import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
 
 export default {
     components: {UpdateComponent, ClipLoader},
-    data(){return{
-        updates: null
-    }},
     computed:
     {
         isIndexRoute() {return this.$route.name === 'updates.index'},
 
-        endpoint() {return `/updates/data`}
+        updatesLoad() {return this.$store.getters.updatesLoad},
+
+        fetchedUpdates() {return this.$store.getters.updates}
     },
-    mounted()
+    created()
     {
-        this.fetch()
+        this.$store.dispatch('fetchAll');
     },
     methods:
     {
-        fetch()
-        {
-            axios.get(this.endpoint)
-            .then(response => this.updates = response.data)
-        }
+        
     }
 }
 </script>

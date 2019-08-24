@@ -42,6 +42,7 @@ export const updates =
             UpdateAPI.fetchAll()
                 .then(response =>
                     {
+                        console.log(response.data)
                         commit('setUpdates', response.data)
                         commit('setUpdatesLoad', 2)
                     })
@@ -55,7 +56,7 @@ export const updates =
         fetchSingle({ commit }, data) 
         {
             commit('setUpdateLoad', 1)
-            UpdateAPI.fetch()
+            UpdateAPI.fetchSingle(1)
                 .then(response => 
                     {
                         commit('setUpdate', response.data)

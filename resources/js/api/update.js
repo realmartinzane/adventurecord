@@ -14,7 +14,7 @@ export default {
     */
     fetchAll() 
     {
-        return axios.get(`${ADV_CONFIG.API_URL}/updates`)
+        return axios.get(`${ADV_CONFIG.API_URL}/updates/all`)
     },
     /*
         POST     /api/updates/store

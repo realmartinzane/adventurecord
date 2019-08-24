@@ -78,7 +78,7 @@
                 </div>
 
                 <footer class="popup__footer popup__footer--prompt">
-                    <button class="btn btn--secondary-gold popup__purchase" @click="destroy">Ok</button>
+                    <button class="btn btn--secondary-gold popup__purchase">Ok</button>
                     <button class="btn btn--secondary-gold popup__purchase" @click="showModal = false">Cancel</button>
                 </footer>
             </div>
@@ -96,7 +96,6 @@ export default {
     components: {SocialSharingComponent, ClipLoader},
     data(){return{
         id: this.$route.params.id,
-        fetchedUpdate: null,
         showModal: false,
         showLinks: false,
         url: ''
@@ -104,24 +103,20 @@ export default {
     computed:
     {
         isShowRoute() {return this.$route.name === 'updates.show'},
-        body() {return this.fetchedUpdate.body_html.length < 250 ? this.fetchedUpdate.body_html : (this.isShowRoute ? this.fetchedUpdate.body_html : this.fetchedUpdate.body_html.substring(0,250) + "...")}
+        body() {return this.fetchedUpdate.body_html.length < 250 ? this.fetchedUpdate.body_html : (this.isShowRoute ? this.fetchedUpdate.body_html : this.fetchedUpdate.body_html.substring(0,250) + "...")},
+        fetchedUpdate() {return this.$store.getters.update}
     },
-    mounted()
+    created()
     {
         this.url = window.location.href;
-        if(this.id && !this.isShowRoute) this.fetch();
-        else if(this.id && this.isShowRoute) this.fetchSingle();
-        else this.fetchedUpdate = this.update;
+        
+        if(this.id && this.isShowRoute) this.fetchSingle();
     },
     methods:
     {
         fetchSingle()
         {
-            axios.get(`/updates/${this.id}/single`)
-            .then(({data}) =>
-            {
-                this.fetchedUpdate = data;
-            });
+            this.$store.dispatch('fetchSingle');
         },
         destroy()
         {

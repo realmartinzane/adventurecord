@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Carbon;
 
+
 class Update extends Model
 {
     protected $appends = ['created_date', 'body_html'];
