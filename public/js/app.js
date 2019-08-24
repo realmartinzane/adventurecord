@@ -56804,26 +56804,28 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.min.js");
-/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_social_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-social-auth */ "./node_modules/vue-social-auth/dist/vue-social-auth.es2017.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var cxlt_vue2_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! cxlt-vue2-toastr */ "./node_modules/cxlt-vue2-toastr/dist/js/cxlt-vue2-toastr.js");
-/* harmony import */ var cxlt_vue2_toastr__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(cxlt_vue2_toastr__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var cxlt_vue2_toastr_dist_css_cxlt_vue2_toastr_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css */ "./node_modules/cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css");
-/* harmony import */ var cxlt_vue2_toastr_dist_css_cxlt_vue2_toastr_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(cxlt_vue2_toastr_dist_css_cxlt_vue2_toastr_css__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-carousel */ "./node_modules/vue-carousel/dist/vue-carousel.min.js");
-/* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_carousel__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var vue_social_sharing__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-social-sharing */ "./node_modules/vue-social-sharing/dist/vue-social-sharing.common.js");
-/* harmony import */ var vue_social_sharing__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue_social_sharing__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js");
-/* harmony import */ var _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
-/* harmony import */ var _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @fortawesome/free-regular-svg-icons */ "./node_modules/@fortawesome/free-regular-svg-icons/index.es.js");
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-/* harmony import */ var _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @fortawesome/vue-fontawesome */ "./node_modules/@fortawesome/vue-fontawesome/index.es.js");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
-/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-axios */ "./node_modules/vue-axios/dist/vue-axios.min.js");
+/* harmony import */ var vue_axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_social_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-social-auth */ "./node_modules/vue-social-auth/dist/vue-social-auth.es2017.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var cxlt_vue2_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! cxlt-vue2-toastr */ "./node_modules/cxlt-vue2-toastr/dist/js/cxlt-vue2-toastr.js");
+/* harmony import */ var cxlt_vue2_toastr__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(cxlt_vue2_toastr__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var cxlt_vue2_toastr_dist_css_cxlt_vue2_toastr_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css */ "./node_modules/cxlt-vue2-toastr/dist/css/cxlt-vue2-toastr.css");
+/* harmony import */ var cxlt_vue2_toastr_dist_css_cxlt_vue2_toastr_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(cxlt_vue2_toastr_dist_css_cxlt_vue2_toastr_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-carousel */ "./node_modules/vue-carousel/dist/vue-carousel.min.js");
+/* harmony import */ var vue_carousel__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue_carousel__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var vue_social_sharing__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue-social-sharing */ "./node_modules/vue-social-sharing/dist/vue-social-sharing.common.js");
+/* harmony import */ var vue_social_sharing__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vue_social_sharing__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js");
+/* harmony import */ var _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @fortawesome/free-regular-svg-icons */ "./node_modules/@fortawesome/free-regular-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @fortawesome/vue-fontawesome */ "./node_modules/@fortawesome/vue-fontawesome/index.es.js");
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
+/* harmony import */ var _App_vue__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./App.vue */ "./resources/js/App.vue");
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -56851,14 +56853,16 @@ if (token) {
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-// Vue Authenticate
+// Vue
+
+
+ // Vue Authenticate
 
 
 
 
-
-Vue.use(vue_axios__WEBPACK_IMPORTED_MODULE_0___default.a, axios__WEBPACK_IMPORTED_MODULE_2___default.a);
-Vue.use(vue_social_auth__WEBPACK_IMPORTED_MODULE_1__["default"], {
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_axios__WEBPACK_IMPORTED_MODULE_1___default.a, axios__WEBPACK_IMPORTED_MODULE_3___default.a);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_social_auth__WEBPACK_IMPORTED_MODULE_2__["default"], {
   providers: {
     discord: {
       name: 'discord',
@@ -56887,30 +56891,30 @@ var toastrConfigs = {
   hideDuration: 300,
   timeOut: 4400
 };
-Vue.use(cxlt_vue2_toastr__WEBPACK_IMPORTED_MODULE_3___default.a, toastrConfigs); // Vue Carousel
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(cxlt_vue2_toastr__WEBPACK_IMPORTED_MODULE_4___default.a, toastrConfigs); // Vue Carousel
 
 
-Vue.use(vue_carousel__WEBPACK_IMPORTED_MODULE_5___default.a); // Vue Social Sharing
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_carousel__WEBPACK_IMPORTED_MODULE_6___default.a); // Vue Social Sharing
 
 
-Vue.use(vue_social_sharing__WEBPACK_IMPORTED_MODULE_6___default.a); // FontAwesome
-
-
-
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_social_sharing__WEBPACK_IMPORTED_MODULE_7___default.a); // FontAwesome
 
 
 
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_7__["library"].add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faDiscord"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faEye"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faHeart"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faComment"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faShareSquare"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faEdit"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faTrashAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faFacebook"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faLine"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faLinkedin"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faOdnoklassniki"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faReddit"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faSkype"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faTelegram"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faTwitter"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faVk"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faWeibo"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_8__["faWhatsapp"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faEnvelope"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faComments"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faCog"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faCoins"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faGem"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faCampground"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faSignal"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faClock"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faSearch"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faTimes"]);
-Vue.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_11__["FontAwesomeIcon"]); // Vue Router
+
+
+
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_8__["library"].add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faDiscord"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faEye"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faHeart"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faComment"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faShareSquare"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faEdit"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faTrashAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faFacebook"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faLine"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faLinkedin"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faOdnoklassniki"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faReddit"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faSkype"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faTelegram"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faTwitter"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faVk"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faWeibo"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_9__["faWhatsapp"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faEnvelope"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faComments"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faCog"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faCoins"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faGem"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faCampground"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faSignal"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faClock"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faSearch"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faTimes"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_12__["FontAwesomeIcon"]); // Vue Router
 
  // App
 
 
-var app = new Vue({
+var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
-  router: _routes__WEBPACK_IMPORTED_MODULE_12__["default"],
+  router: _routes__WEBPACK_IMPORTED_MODULE_13__["default"],
   components: {
-    MyApp: _App_vue__WEBPACK_IMPORTED_MODULE_13__["default"]
+    MyApp: _App_vue__WEBPACK_IMPORTED_MODULE_14__["default"]
   }
 });
 

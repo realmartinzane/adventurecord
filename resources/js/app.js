@@ -30,6 +30,9 @@ if (token) {
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+ // Vue
+import Vue from 'vue'
+
 // Vue Authenticate
 import VueAxios from 'vue-axios'
 import VueSocialauth from 'vue-social-auth'
