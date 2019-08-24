@@ -37,7 +37,8 @@
                     </div>
                 </header>
 
-                <div v-html="body" class="post__body"></div>
+                <div v-if="isShowRoute" v-html="fetchedUpdate.body_html" class="post__body"></div>
+                <div v-if="!isShowRoute" v-html="body" class="post__body"></div>
 
                 <footer class="post__footer">
                     <div class="post__footer-left">
@@ -103,8 +104,8 @@ export default {
     computed:
     {
         isShowRoute() {return this.$route.name === 'updates.show'},
-        body() {return this.fetchedUpdate.body_html.length < 250 ? this.fetchedUpdate.body_html : (this.isShowRoute ? this.fetchedUpdate.body_html : this.fetchedUpdate.body_html.substring(0,250) + "...")},
-        fetchedUpdate() {return this.$store.getters.getUpdate}
+        body() {return this.fetchedUpdate.body_html.length < 250 ? this.fetchedUpdate.body_html : this.fetchedUpdate.body_html.substring(0,250) + "..."},
+        fetchedUpdate() {return this.id && this.isShowRoute ? this.$store.getters.getUpdate : this.update}
     },
     created()
     {
@@ -283,6 +284,7 @@ export default {
         {
             margin: 2rem 0;
             color: $color-gray-light;
+            p {margin: 1rem 0}
         }
 
         &__footer-left
