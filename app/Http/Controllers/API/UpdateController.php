@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Update;
+use App\Http\Requests\PostUpdateRequest;
 
 class UpdateController extends Controller
 {

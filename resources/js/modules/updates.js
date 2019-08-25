@@ -1,4 +1,5 @@
 import UpdateAPI from '../api/update.js';
+import VueRouter from 'vue-router';
 
 export const updates = 
 {
@@ -8,7 +9,9 @@ export const updates =
         updatesLoad: 0,
 
         update: {},
-        updateLoad: 0
+        updateLoad: 0,
+
+        updateAdd: 0
     },
 
     mutations:
@@ -18,9 +21,9 @@ export const updates =
             state.updates = data
         },
         
-        setUpdatesLoad(state, load)
+        setUpdatesLoad(state, status)
         {
-            state.updatesLoad = load
+            state.updatesLoad = status
         },
 
         setUpdate(state, data) 
@@ -28,9 +31,14 @@ export const updates =
             state.update = data
         },
 
-        setUpdateLoad(state, load) 
+        setUpdateLoad(state, status) 
         {
-            state.updateLoad = load
+            state.updateLoad = status
+        },
+
+        setUpdateAdd(state, status) 
+        {
+            state.updateAdd = status
         }
     },
     
@@ -46,7 +54,7 @@ export const updates =
                         commit('setUpdates', response.data)
                         commit('setUpdatesLoad', 2)
                     })
-                .catch(err => 
+                .catch(() => 
                     {
                         commit('setUpdates', [])
                         commit('setUpdatesLoad', 3)
@@ -62,12 +70,25 @@ export const updates =
                         commit('setUpdate', response.data)
                         commit('setUpdateLoad', 2)
                     })
-                .catch(err => 
+                .catch(() => 
                     {
                         commit('setUpdate', {})
                         commit('setUpdateLoad', 3)
                     })
         },
+        storeUpdate({state, commit, dispatch}, data)
+        {
+            commit('setUpdateAdd', 1)
+            UpdateAPI.store(data)
+                .then(response =>
+                    {
+                        commit('setUpdateAdd', 2)
+                    })
+                .catch(() => 
+                    {
+                        commit('setUpdateAdd', 3)
+                    })
+        }
     },
     
     getters:
@@ -90,6 +111,11 @@ export const updates =
         getUpdateLoad(state) 
         {
             return state.updateLoad
+        },
+
+        getUpdateAdd(state) 
+        {
+            return state.updateAdd
         }
     }
 }

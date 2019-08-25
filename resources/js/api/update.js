@@ -19,21 +19,23 @@ export default {
     /*
         POST     /api/updates/store
     */
-    store(title, body)
+    store(data)
     {
         return axios.post(`${ADV_CONFIG.API_URL}/updates/store`,
         {
-            title, body
+            title: data.title,
+            body: data.body
         })
     },
     /*
         POST     /api/updates/{id}/update
     */
-    update(title, body) 
+    update(data) 
     {
         return axios.post(`${ADV_CONFIG.API_URL}/updates/update`,
         {
-            title, body
+            title: data.title,
+            body: data.body
         })
     },
     /*

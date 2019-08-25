@@ -78,6 +78,18 @@ export default {
         {
             event.preventDefault();
             this.$v.form.$touch()
+            if (this.$v.form.$anyError) return
+
+            if(!this.isEditRoute)
+            {
+                this.$store.dispatch('storeUpdate', this.form);
+            }
+        }
+        /*
+        submit()
+        {
+            event.preventDefault();
+            this.$v.form.$touch()
             if (this.$v.form.$anyError)
             {
                 if (this.$v.form.title.$dirty) this.$v.form.body.$error = true;
@@ -117,6 +129,7 @@ export default {
                 this.form.body = data.body;
             });
         }
+        */
     }
 }
 </script>

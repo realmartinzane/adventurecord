@@ -16519,45 +16519,59 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submit: function submit() {
-      var _this = this;
-
       event.preventDefault();
       this.$v.form.$touch();
+      if (this.$v.form.$anyError) return;
 
-      if (this.$v.form.$anyError) {
-        if (this.$v.form.title.$dirty) this.$v.form.body.$error = true;
-        if (this.$v.form.body.$dirty) this.$v.form.body.$error = true;
-        return;
+      if (!this.isEditRoute) {
+        this.$store.dispatch('storeUpdate', this.form);
       }
-
-      axios.post(this.endpoint, {
-        title: this.form.title,
-        body: this.form.body
-      }).then(function (_ref) {
-        var data = _ref.data;
-
-        _this.$router.push('/updates', function () {
-          _this.$toast.success({
-            title: 'Success',
-            message: data
-          });
-        });
-      })["catch"](function (error) {
-        _this.$toast.error({
-          title: 'Error!',
-          message: 'There was an error. Please try again later.'
-        });
-      });
-    },
-    fetch: function fetch() {
-      var _this2 = this;
-
-      axios.get('/updates/' + this.id).then(function (_ref2) {
-        var data = _ref2.data;
-        _this2.form.title = data.title;
-        _this2.form.body = data.body;
-      });
     }
+    /*
+    submit()
+    {
+        event.preventDefault();
+        this.$v.form.$touch()
+        if (this.$v.form.$anyError)
+        {
+            if (this.$v.form.title.$dirty) this.$v.form.body.$error = true;
+            if (this.$v.form.body.$dirty) this.$v.form.body.$error = true;
+            return
+        }
+          axios.post(this.endpoint, 
+        {
+            title: this.form.title,
+            body: this.form.body
+        })
+        .then(({data}) => 
+        {
+            this.$router.push('/updates', () =>
+            {
+                this.$toast.success({
+                    title:'Success',
+                    message: data
+                })
+            })
+        })
+        .catch(error =>
+        {
+            this.$toast.error({
+                title:'Error!',
+                message: 'There was an error. Please try again later.'
+            })
+        })
+    },
+    fetch()
+    {
+        axios.get('/updates/' + this.id )
+        .then(({data}) =>
+        {
+            this.form.title = data.title;
+            this.form.body = data.body;
+        });
+    }
+    */
+
   }
 });
 
@@ -59219,20 +59233,20 @@ __webpack_require__.r(__webpack_exports__);
   /*
       POST     /api/updates/store
   */
-  store: function store(title, body) {
+  store: function store(data) {
     return axios.post("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates/store"), {
-      title: title,
-      body: body
+      title: data.title,
+      body: data.body
     });
   },
 
   /*
       POST     /api/updates/{id}/update
   */
-  update: function update(title, body) {
+  update: function update(data) {
     return axios.post("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates/update"), {
-      title: title,
-      body: body
+      title: data.title,
+      body: data.body
     });
   },
 
@@ -60423,26 +60437,32 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updates", function() { return updates; });
 /* harmony import */ var _api_update_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../api/update.js */ "./resources/js/api/update.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+
 
 var updates = {
   state: {
     updates: [],
     updatesLoad: 0,
     update: {},
-    updateLoad: 0
+    updateLoad: 0,
+    updateAdd: 0
   },
   mutations: {
     setUpdates: function setUpdates(state, data) {
       state.updates = data;
     },
-    setUpdatesLoad: function setUpdatesLoad(state, load) {
-      state.updatesLoad = load;
+    setUpdatesLoad: function setUpdatesLoad(state, status) {
+      state.updatesLoad = status;
     },
     setUpdate: function setUpdate(state, data) {
       state.update = data;
     },
-    setUpdateLoad: function setUpdateLoad(state, load) {
-      state.updateLoad = load;
+    setUpdateLoad: function setUpdateLoad(state, status) {
+      state.updateLoad = status;
+    },
+    setUpdateAdd: function setUpdateAdd(state, status) {
+      state.updateAdd = status;
     }
   },
   actions: {
@@ -60453,7 +60473,7 @@ var updates = {
         console.log(response.data);
         commit('setUpdates', response.data);
         commit('setUpdatesLoad', 2);
-      })["catch"](function (err) {
+      })["catch"](function () {
         commit('setUpdates', []);
         commit('setUpdatesLoad', 3);
       });
@@ -60464,9 +60484,20 @@ var updates = {
       _api_update_js__WEBPACK_IMPORTED_MODULE_0__["default"].fetchSingle(data.id).then(function (response) {
         commit('setUpdate', response.data);
         commit('setUpdateLoad', 2);
-      })["catch"](function (err) {
+      })["catch"](function () {
         commit('setUpdate', {});
         commit('setUpdateLoad', 3);
+      });
+    },
+    storeUpdate: function storeUpdate(_ref3, data) {
+      var state = _ref3.state,
+          commit = _ref3.commit,
+          dispatch = _ref3.dispatch;
+      commit('setUpdateAdd', 1);
+      _api_update_js__WEBPACK_IMPORTED_MODULE_0__["default"].store(data).then(function (response) {
+        commit('setUpdateAdd', 2);
+      })["catch"](function () {
+        commit('setUpdateAdd', 3);
       });
     }
   },
@@ -60482,6 +60513,9 @@ var updates = {
     },
     getUpdateLoad: function getUpdateLoad(state) {
       return state.updateLoad;
+    },
+    getUpdateAdd: function getUpdateAdd(state) {
+      return state.updateAdd;
     }
   }
 };
