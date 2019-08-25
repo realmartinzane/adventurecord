@@ -1,14 +1,20 @@
 <template>
     <main>
-        <updates-form-component></updates-form-component>
+        <update-create-component v-if="isCreateRoute"></update-create-component>
+        <update-edit-component v-else></update-edit-component>
     </main>
 </template>
 
 <script>
 
-import UpdatesFormComponent from '../components/UpdatesForm.vue';
+import UpdateCreateComponent from '../components/UpdateCreate.vue';
+import UpdateEditComponent from '../components/UpdateEdit.vue';
 
 export default {
-    components: {UpdatesFormComponent}
+    components: {UpdateCreateComponent, UpdateEditComponent},
+    computed:
+    {
+        isCreateRoute() {return this.$route.name === 'updates.create'}
+    }
 }
 </script>

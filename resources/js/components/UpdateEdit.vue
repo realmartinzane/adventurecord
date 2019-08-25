@@ -1,16 +1,16 @@
 <template>
     <section class="section-update-form">
-        <clip-loader v-if="isEditRoute && updateLoad != 2" :loading="true" color="#FFD700" size="5rem"></clip-loader>
+        <clip-loader v-if="updateLoad != 2" :loading="true" color="#FFD700" size="5rem"></clip-loader>
 
-        <header v-if="(isEditRoute && updateLoad == 2) || !isEditRoute" class="u-center-text u-margin-bottom-lg">
-            <h2 class="heading-secondary">{{ isEditRoute ? 'Edit Update' : 'Create a New Update' }}</h2>
+        <header v-if="updateLoad == 2" class="u-center-text u-margin-bottom-lg">
+            <h2 class="heading-secondary">Edit Update</h2>
         </header>
 
-         <form class="form" v-if="(isEditRoute && updateLoad == 2) || !isEditRoute">
+         <form class="form" v-if="updateLoad == 2">
             <div class="form__group">
                 <label for="title" class="form__label">Title</label>
                 <input
-                    type="text" 
+                    type="text"
                     name="title" 
                     id="title" 
                     class="form__input" 
@@ -33,7 +33,7 @@
             </div>
 
             <div class="form__group u-margin-top-md">
-                <button type="submit" class="form__submit btn btn--primary" @click="submit">Submit</button>
+                <button type="submit" class="form__submit btn btn--primary" @click="update">Submit</button>
             </div>
         </form>
     </section>
@@ -68,77 +68,33 @@ export default {
 
     computed:
     {
-        isEditRoute() {return this.$route.name === 'updates.edit'},
-
         updateLoad() {return this.$store.getters.getUpdateLoad},
-
         fetchedUpdate() {return this.$store.getters.getUpdate}
     },
 
-    created()
+    async created()
     {
-        if(this.isEditRoute) this.$store.dispatch('fetchUpdate', {id: this.id})
+        try {await this.$store.dispatch('fetchUpdate', {id: this.id})}
+        catch(ex) {return}
+        finally 
+        {
+            this.form.title = this.fetchedUpdate.title
+            this.form.body = this.fetchedUpdate.body
+        }
     },
     
     methods:
     {
-        submit()
+        update()
         {
             event.preventDefault();
+
             this.$v.form.$touch()
+
             if (this.$v.form.$anyError) return
 
-            if(!this.isEditRoute)
-            {
-                this.$store.dispatch('storeUpdate', this.form)
-            }
-        },
-
-        /*
-        submit()
-        {
-            event.preventDefault();
-            this.$v.form.$touch()
-            if (this.$v.form.$anyError)
-            {
-                if (this.$v.form.title.$dirty) this.$v.form.body.$error = true;
-                if (this.$v.form.body.$dirty) this.$v.form.body.$error = true;
-                return
-            }
-
-            axios.post(this.endpoint, 
-            {
-                title: this.form.title,
-                body: this.form.body
-            })
-            .then(({data}) => 
-            {
-                this.$router.push('/updates', () =>
-                {
-                    this.$toast.success({
-                        title:'Success',
-                        message: data
-                    })
-                })
-            })
-            .catch(error =>
-            {
-                this.$toast.error({
-                    title:'Error!',
-                    message: 'There was an error. Please try again later.'
-                })
-            })
-        },
-        fetch()
-        {
-            axios.get('/updates/' + this.id )
-            .then(({data}) =>
-            {
-                this.form.title = data.title;
-                this.form.body = data.body;
-            });
+            this.$store.dispatch('updateUpdate', {id: this.id, form: this.form})
         }
-        */
     }
 }
 </script>

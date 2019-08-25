@@ -30,9 +30,10 @@ export default {
     /*
         POST     /api/updates/{id}/update
     */
-    update(data) 
+    update(id, data)
     {
-        return axios.post(`${ADV_CONFIG.API_URL}/updates/update`,
+        console.log(id, data)
+        return axios.post(`${ADV_CONFIG.API_URL}/updates/${id}/update`,
         {
             title: data.title,
             body: data.body

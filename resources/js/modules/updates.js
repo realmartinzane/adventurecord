@@ -50,7 +50,6 @@ export const updates =
             UpdateAPI.fetchAll()
                 .then(response =>
                     {
-                        console.log(response.data)
                         commit('setUpdates', response.data)
                         commit('setUpdatesLoad', 2)
                     })
@@ -61,26 +60,42 @@ export const updates =
                     })
         },
 
-        fetchUpdate({ commit }, data) 
+        async fetchUpdate({ commit }, data) 
         {
             commit('setUpdateLoad', 1)
-            UpdateAPI.fetchSingle(data.id)
-                .then(response => 
-                    {
-                        commit('setUpdate', response.data)
-                        commit('setUpdateLoad', 2)
-                    })
-                .catch(() => 
-                    {
-                        commit('setUpdate', {})
-                        commit('setUpdateLoad', 3)
-                    })
+            let response;
+            try
+            {
+                response = await UpdateAPI.fetchSingle(data.id)
+            }
+            catch(ex)
+            {
+                commit('setUpdate', {})
+                commit('setUpdateLoad', 3)
+                return
+            }
+            commit('setUpdate', response.data)
+            commit('setUpdateLoad', 2)
         },
-        storeUpdate({state, commit, dispatch}, data)
+        storeUpdate({commit}, data)
         {
             commit('setUpdateAdd', 1)
             UpdateAPI.store(data)
                 .then(response =>
+                    {
+                        commit('setUpdateAdd', 2)
+                    })
+                .catch(() => 
+                    {
+                        commit('setUpdateAdd', 3)
+                    })
+        },
+
+        updateUpdate({ commit }, data) 
+        {
+            commit('setUpdateAdd', 1)
+            UpdateAPI.update(data.id, data.form)
+                .then(response => 
                     {
                         commit('setUpdateAdd', 2)
                     })
