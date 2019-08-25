@@ -38,6 +38,11 @@ export const users =
                         commit('setUser', {})
                         commit('setUserLoad', 3)
                     })
+        },
+        logout({ commit }) 
+        {
+            commit('setUserLoad', 0);
+            commit('setUser', {});
         }
     },
 

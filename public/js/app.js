@@ -16054,6 +16054,12 @@ __webpack_require__.r(__webpack_exports__);
     user: function user() {
       return this.$store.getters.getUser;
     }
+  },
+  methods: {
+    logout: function logout() {
+      this.$store.dispatch('logout');
+      window.location = '/logout';
+    }
   }
 });
 
@@ -37855,7 +37861,20 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _vm._m(3)
+                _c("li", { staticClass: "navigation__account-item" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "navigation__account-link",
+                      on: {
+                        click: function($event) {
+                          return _vm.logout()
+                        }
+                      }
+                    },
+                    [_vm._v("Log Out")]
+                  )
+                ])
               ])
             ])
           : _vm._e()
@@ -37928,16 +37947,6 @@ var staticRenderFns = [
         },
         [_vm._v("Wiki")]
       )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "navigation__account-item" }, [
-      _c("button", { staticClass: "navigation__account-link" }, [
-        _vm._v("Log Out")
-      ])
     ])
   }
 ]
@@ -60452,6 +60461,11 @@ var users = {
         commit('setUser', {});
         commit('setUserLoad', 3);
       });
+    },
+    logout: function logout(_ref2) {
+      var commit = _ref2.commit;
+      commit('setUserLoad', 0);
+      commit('setUser', {});
     }
   },
   getters: {
