@@ -15998,6 +15998,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-spinner/src/ClipLoader.vue */ "./node_modules/vue-spinner/src/ClipLoader.vue");
 //
 //
 //
@@ -16027,7 +16028,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    ClipLoader: vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   computed: {
     userLoad: function userLoad() {
       return this.$store.getters.getUserLoad;
@@ -16980,7 +16999,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".navigation__brand {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 300;\n  width: 27rem;\n  height: 41rem;\n  background-image: linear-gradient(123.5deg, #252936 50%, transparent 50%);\n}\n.navigation__brand-content {\n  position: absolute;\n  top: 0;\n  z-index: 400;\n}\n.navigation__brand-name {\n  display: block;\n  width: 20rem;\n  margin-left: 1rem;\n  margin-top: 2.5rem;\n}\n.navigation__brand-logo {\n  display: block;\n  width: 10rem;\n  margin-left: 1rem;\n  margin-top: 2rem;\n}\n.navigation__nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 200;\n  width: 100%;\n  padding: 0.8rem 0;\n  background-color: #10121A;\n  border-bottom: 1px solid #3d3d49;\n}\n.navigation__list {\n  list-style: none;\n  margin-left: 27rem;\n  display: inline-block;\n  width: calc(76% - 27rem);\n}\n.navigation__item {\n  display: inline-block;\n  margin: 0 1rem;\n}\n.navigation__link, .navigation__link:link, .navigation__link:visited {\n  display: inline-block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n}\n.navigation__link:hover, .navigation__link:active, .navigation__link:focus {\n  color: #FFD700;\n}\n.navigation__account {\n  display: inline-block;\n  width: 22%;\n  text-align: right;\n}", ""]);
+exports.push([module.i, ".navigation__brand {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 300;\n  width: 27rem;\n  height: 41rem;\n  background-image: linear-gradient(123.5deg, #252936 50%, transparent 50%);\n}\n.navigation__brand-content {\n  position: absolute;\n  top: 0;\n  z-index: 400;\n}\n.navigation__brand-name {\n  display: block;\n  width: 20rem;\n  margin-left: 1rem;\n  margin-top: 2.5rem;\n}\n.navigation__brand-logo {\n  display: block;\n  width: 10rem;\n  margin-left: 1rem;\n  margin-top: 2rem;\n}\n.navigation__nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 200;\n  width: 100%;\n  background-color: #10121A;\n  border-bottom: 1px solid #3d3d49;\n  height: 5.5rem;\n}\n.navigation__list {\n  list-style: none;\n  display: inline-block;\n  width: calc(76% - 27rem);\n  position: absolute;\n  top: 50%;\n  left: 27rem;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n.navigation__item {\n  display: inline-block;\n  margin: 0 1rem;\n}\n.navigation__link, .navigation__link:link, .navigation__link:visited {\n  display: inline-block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n}\n.navigation__link:hover, .navigation__link:active, .navigation__link:focus {\n  color: #FFD700;\n}\n.navigation__login {\n  position: absolute;\n  top: 50%;\n  right: 2rem;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n.navigation__checkbox {\n  display: none;\n}\n.navigation__spinner {\n  position: absolute;\n  top: 50%;\n  right: 4rem !important;\n  left: auto !important;\n  -webkit-transform: translate(-50%, -40%) !important;\n          transform: translate(-50%, -40%) !important;\n}\n.navigation__button {\n  position: absolute;\n  top: 50%;\n  right: 2rem;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  font-size: 1.4rem;\n  font-weight: 700;\n  cursor: pointer;\n}\n.navigation__button:hover {\n  color: #FFD700;\n}\n.navigation__account-list {\n  position: absolute;\n  top: 5.5rem;\n  right: 0;\n  width: 20rem;\n  height: 0;\n  overflow: hidden;\n  list-style: none;\n  text-align: left;\n  background-color: #212127;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n  border: none;\n  box-shadow: none;\n}\n.navigation__account-link, .navigation__account-link:link, .navigation__account-link:visited {\n  display: block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n  padding: 1rem 2rem;\n  border: none;\n  width: 100%;\n  background: transparent;\n  text-align: left;\n  cursor: pointer;\n}\n.navigation__account-link:hover, .navigation__account-link:focus, .navigation__account-link:active {\n  color: #FFD700;\n  background-color: #2E2E36;\n}\n.navigation__checkbox:checked ~ .navigation__account-list {\n  height: 13rem;\n  border-left: 1px solid #494957;\n  border-bottom: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n}", ""]);
 
 // exports
 
@@ -37692,84 +37711,157 @@ var render = function() {
   return _c("div", { staticClass: "navigation" }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("nav", { staticClass: "navigation__nav" }, [
-      _c("ul", { staticClass: "navigation__list" }, [
-        _c(
-          "li",
-          { staticClass: "navigation__item" },
-          [
-            _c(
-              "router-link",
-              { staticClass: "navigation__link", attrs: { to: "/" } },
-              [_vm._v("Home")]
+    _c(
+      "nav",
+      { staticClass: "navigation__nav" },
+      [
+        _c("ul", { staticClass: "navigation__list" }, [
+          _c(
+            "li",
+            { staticClass: "navigation__item" },
+            [
+              _c(
+                "router-link",
+                { staticClass: "navigation__link", attrs: { to: "/" } },
+                [_vm._v("Home")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "navigation__item" },
+            [
+              _c(
+                "router-link",
+                { staticClass: "navigation__link", attrs: { to: "/updates" } },
+                [_vm._v("Updates")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "navigation__item" },
+            [
+              _c(
+                "router-link",
+                { staticClass: "navigation__link", attrs: { to: "/commands" } },
+                [_vm._v("Commands")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _vm._m(2),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "navigation__item" },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "navigation__link",
+                  attrs: { to: "/marketplace" }
+                },
+                [_vm._v("Marketplace")]
+              )
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _vm.user == ""
+          ? _c(
+              "button",
+              { staticClass: "btn btn--secondary-discord navigation__login" },
+              [
+                _c("font-awesome-icon", {
+                  staticClass: "u-margin-right-sm",
+                  attrs: { icon: ["fab", "discord"], size: "lg" }
+                }),
+                _vm._v(" "),
+                _c("span", [_vm._v("Log in with discord")])
+              ],
+              1
             )
-          ],
-          1
-        ),
+          : _vm._e(),
         _vm._v(" "),
-        _c(
-          "li",
-          { staticClass: "navigation__item" },
-          [
-            _c(
-              "router-link",
-              { staticClass: "navigation__link", attrs: { to: "/updates" } },
-              [_vm._v("Updates")]
-            )
-          ],
-          1
-        ),
+        _vm.userLoad != 2
+          ? _c("clip-loader", {
+              staticClass: "navigation__spinner",
+              attrs: { loading: true, color: "#FFD700", size: "2rem" }
+            })
+          : _vm._e(),
         _vm._v(" "),
-        _c(
-          "li",
-          { staticClass: "navigation__item" },
-          [
-            _c(
-              "router-link",
-              { staticClass: "navigation__link", attrs: { to: "/commands" } },
-              [_vm._v("Commands")]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
-        _c(
-          "li",
-          { staticClass: "navigation__item" },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "navigation__link",
-                attrs: { to: "/marketplace" }
-              },
-              [_vm._v("Marketplace")]
-            )
-          ],
-          1
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "navigation__account" }, [
-        _c(
-          "a",
-          { staticClass: "btn btn--secondary-discord", attrs: { href: "" } },
-          [
-            _c("font-awesome-icon", {
-              staticClass: "u-margin-right-sm",
-              attrs: { icon: ["fab", "discord"], size: "lg" }
-            }),
-            _vm._v(" "),
-            _c("span", [_vm._v("Log in with discord")])
-          ],
-          1
-        )
-      ])
-    ])
+        _vm.user != "" && _vm.userLoad == 2
+          ? _c("div", { staticClass: "navigation__account" }, [
+              _c("input", {
+                staticClass: "navigation__checkbox",
+                attrs: { type: "checkbox", id: "account_toggle" }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "navigation__button",
+                  attrs: { for: "account_toggle" }
+                },
+                [
+                  _vm._v("\n                My Account\n                "),
+                  _c("font-awesome-icon", {
+                    staticClass: "u-margin-left-xs",
+                    attrs: { icon: ["fas", "caret-down"], size: "lg" }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("ul", { staticClass: "navigation__account-list" }, [
+                _c(
+                  "li",
+                  { staticClass: "navigation__account-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "navigation__account-link",
+                        attrs: { to: "/users/" + _vm.user.id }
+                      },
+                      [_vm._v("Profile")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "navigation__account-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "navigation__account-link",
+                        attrs: { to: "/users/" + _vm.user.id + "/settings" }
+                      },
+                      [_vm._v("Settings")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm._m(3)
+              ])
+            ])
+          : _vm._e()
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = [
@@ -37836,6 +37928,16 @@ var staticRenderFns = [
         },
         [_vm._v("Wiki")]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "navigation__account-item" }, [
+      _c("button", { staticClass: "navigation__account-link" }, [
+        _vm._v("Log Out")
+      ])
     ])
   }
 ]
@@ -59212,7 +59314,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_social_sharing__WEBPACK_IMPOR
 
 
 
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_9__["library"].add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faDiscord"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faEye"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faHeart"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faComment"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faShareSquare"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faEdit"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faTrashAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faFacebook"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faLine"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faLinkedin"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faOdnoklassniki"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faReddit"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faSkype"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faTelegram"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faTwitter"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faVk"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faWeibo"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faWhatsapp"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faEnvelope"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faComments"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faCog"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faCoins"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faGem"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faCampground"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faSignal"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faClock"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faSearch"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faTimes"]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_9__["library"].add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faDiscord"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faEye"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faHeart"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faComment"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faShareSquare"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faEdit"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faTrashAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faFacebook"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faLine"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faLinkedin"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faOdnoklassniki"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faReddit"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faSkype"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faTelegram"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faTwitter"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faVk"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faWeibo"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faWhatsapp"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faEnvelope"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faComments"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faCog"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faCoins"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faGem"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faCampground"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faSignal"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faClock"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faSearch"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faTimes"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faCaretDown"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_13__["FontAwesomeIcon"]); // Vue Router
 
  // App

@@ -90,12 +90,12 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faDiscord, faFacebook, faLine, faLinkedin, faOdnoklassniki, faReddit, faSkype, faTelegram,
          faTwitter, faVk, faWeibo, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import { faHeart, faEye, faComment, faShareSquare, faEdit, faEnvelope, faComments, faGem, faClock} from '@fortawesome/free-regular-svg-icons'
-import { faTrashAlt, faBars, faCog, faCoins, faCampground, faSignal, faSearch, faTimes} from '@fortawesome/free-solid-svg-icons'
+import { faTrashAlt, faBars, faCog, faCoins, faCampground, faSignal, faSearch, faTimes, faCaretDown} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 library.add(faDiscord, faEye, faHeart, faComment, faShareSquare, faEdit, faTrashAlt,
             faFacebook, faLine, faLinkedin, faOdnoklassniki, faReddit, faSkype, faTelegram, 
             faTwitter, faVk, faWeibo, faWhatsapp, faEnvelope, faComments, faBars, faCog, faCoins, 
-            faGem, faCampground, faSignal, faClock, faSearch, faTimes)
+            faGem, faCampground, faSignal, faClock, faSearch, faTimes, faCaretDown)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 // Vue Router

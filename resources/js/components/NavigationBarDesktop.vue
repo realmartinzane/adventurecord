@@ -17,18 +17,36 @@
                 <li class="navigation__item"><router-link :to="'/marketplace'" class="navigation__link">Marketplace</router-link></li>
             </ul>
 
-            <div class="navigation__account">
-                <a href="" class="btn btn--secondary-discord">
-                    <font-awesome-icon :icon="['fab', 'discord']" size="lg" class="u-margin-right-sm"></font-awesome-icon>
-                    <span>Log in with discord</span>
-                </a>
+            <button v-if="user == ''" class="btn btn--secondary-discord navigation__login">
+                <font-awesome-icon :icon="['fab', 'discord']" size="lg" class="u-margin-right-sm"></font-awesome-icon>
+                <span>Log in with discord</span>
+            </button>
+
+            <clip-loader class="navigation__spinner" v-if="userLoad != 2" :loading="true" color="#FFD700" size="2rem"></clip-loader>
+
+            <div v-if="user != '' && userLoad == 2" class="navigation__account">
+                <input type="checkbox" class="navigation__checkbox" id="account_toggle">
+                <label for="account_toggle" class="navigation__button">
+                    My Account
+                    <font-awesome-icon :icon="['fas', 'caret-down']" size="lg" class="u-margin-left-xs"></font-awesome-icon>
+                </label>
+
+                <ul class="navigation__account-list">
+                    <li class="navigation__account-item"><router-link :to="'/users/' + user.id" class="navigation__account-link">Profile</router-link ></li>
+                    <li class="navigation__account-item"><router-link :to="'/users/' + user.id + '/settings'" class="navigation__account-link">Settings</router-link ></li>
+                    <li class="navigation__account-item"><button class="navigation__account-link">Log Out</button ></li>
+                </ul>
             </div>
         </nav>
     </div>
 </template>
 
 <script>
+
+import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
+
 export default {
+    components: {ClipLoader},
     computed: 
     {
         userLoad() {return this.$store.getters.getUserLoad;},
@@ -87,17 +105,20 @@ export default {
             left: 0;
             z-index: 200;
             width: 100%;
-            padding: .8rem 0;
             background-color: $color-secondary-dark;
             border-bottom: 1px solid $color-border-dark;
+            height: 5.5rem;
         }
 
         &__list
         {
             list-style: none;
-            margin-left: 27rem;
             display: inline-block;
             width: calc(76% - 27rem);
+            position: absolute;
+            top: 50%;
+            left: 27rem;
+            transform: translateY(-50%);
         }
 
         &__item
@@ -123,11 +144,93 @@ export default {
             }
         }
 
-        &__account
+        &__login
         {
-            display: inline-block;
-            width: 22%;
-            text-align: right;
+            position: absolute;
+            top: 50%;
+            right: 2rem;
+            transform: translateY(-50%);
+        }
+
+        
+
+        &__checkbox
+        {
+            display: none;
+        }
+
+        &__spinner
+        {
+            position: absolute;
+            top: 50%;
+            right: 4rem !important;
+            left: auto !important;
+            transform: translate(-50%, -40%) !important;
+        }
+
+        &__button
+        {
+            position: absolute;
+            top: 50%;
+            right: 2rem;
+            transform: translateY(-50%);
+
+            font-size: 1.4rem;
+            font-weight: 700;
+            cursor: pointer;
+
+            &:hover
+            {
+                color: $color-primary;
+            }
+        }
+
+        &__account-list
+        {
+            position: absolute;
+            top: 5.5rem;
+            right: 0;
+            width: 20rem;
+            height: 0;
+            overflow: hidden;
+            list-style: none;
+            text-align: left;
+            background-color: $color-secondary;
+            transition: all 200ms;
+            border: none;
+            box-shadow: none;
+        }
+
+        &__account-link
+        {
+            &, &:link, &:visited
+            {
+                display: block;
+                text-decoration: none;
+                color: inherit;
+                font-size: 1.4rem;
+                font-weight: 700;
+                padding: 1rem 2rem;
+                border: none;
+                width: 100%;
+                background: transparent;
+                text-align: left;
+                cursor: pointer;
+            }
+            &:hover, &:focus, &:active
+            {
+                color: $color-primary;
+                background-color: $color-secondary-light;
+            }
+        }
+
+        // Checkbox Functionality
+        &__checkbox:checked ~ &__account-list
+        {
+            height: 13rem;
+            border-left: 1px solid $color-border-light;
+            border-bottom: 1px solid $color-border-light;
+            box-shadow: 0 0 10px $color-black;
         }
     }
 
