@@ -15573,7 +15573,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {
-    this.$store.dispatch('fetchUser');
+    this.$store.dispatch('fetchAuthUser');
   },
   components: {
     NavigationBarDesktopComponent: _components_NavigationBarDesktop_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -16306,7 +16306,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     fetchSingle: function fetchSingle() {
-      this.$store.dispatch('fetchSingle', {
+      this.$store.dispatch('fetchUpdate', {
         id: this.id
       });
     },
@@ -16385,7 +16385,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
-    this.$store.dispatch('fetchAll');
+    this.$store.dispatch('fetchUpdates');
   },
   methods: {}
 });
@@ -59078,6 +59078,28 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/api/user.js":
+/*!**********************************!*\
+  !*** ./resources/js/api/user.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../config.js */ "./resources/config.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  /*
+      GET   /api/v1/user
+  */
+  fetchAuth: function fetchAuth() {
+    return axios.get(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL + '/user');
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -60249,7 +60271,7 @@ var updates = {
     }
   },
   actions: {
-    fetchAll: function fetchAll(_ref) {
+    fetchUpdates: function fetchUpdates(_ref) {
       var commit = _ref.commit;
       commit('setUpdatesLoad', 1);
       _api_update_js__WEBPACK_IMPORTED_MODULE_0__["default"].fetchAll().then(function (response) {
@@ -60261,7 +60283,7 @@ var updates = {
         commit('setUpdatesLoad', 3);
       });
     },
-    fetchSingle: function fetchSingle(_ref2, data) {
+    fetchUpdate: function fetchUpdate(_ref2, data) {
       var commit = _ref2.commit;
       commit('setUpdateLoad', 1);
       _api_update_js__WEBPACK_IMPORTED_MODULE_0__["default"].fetchSingle(data.id).then(function (response) {
@@ -60285,6 +60307,57 @@ var updates = {
     },
     getUpdateLoad: function getUpdateLoad(state) {
       return state.updateLoad;
+    }
+  }
+};
+
+/***/ }),
+
+/***/ "./resources/js/modules/users.js":
+/*!***************************************!*\
+  !*** ./resources/js/modules/users.js ***!
+  \***************************************/
+/*! exports provided: users */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "users", function() { return users; });
+/* harmony import */ var _api_user_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../api/user.js */ "./resources/js/api/user.js");
+
+var users = {
+  state: {
+    user: null,
+    userLoad: 0
+  },
+  mutations: {
+    setUser: function setUser(state, user) {
+      state.user = user;
+    },
+    setUserLoad: function setUserLoad(state, status) {
+      state.userLoad = status;
+    }
+  },
+  actions: {
+    fetchAuthUser: function fetchAuthUser(_ref) {
+      var commit = _ref.commit;
+      commit('setUserLoad', 1);
+      _api_user_js__WEBPACK_IMPORTED_MODULE_0__["default"].fetchAuth().then(function (response) {
+        console.log(response.data);
+        commit('setUser', response.data);
+        commit('setUserLoad', 2);
+      })["catch"](function (err) {
+        commit('setUser', {});
+        commit('setUserLoad', 3);
+      });
+    }
+  },
+  getters: {
+    getUser: function getUser(state) {
+      return state.user;
+    },
+    getUserLoad: function getUserLoad(state) {
+      return state.userLoad;
     }
   }
 };
@@ -60324,7 +60397,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 var routes = [{
   path: '/',
-  name: 'home',
+  name: 'landing',
   component: _views_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
 }, {
   path: '/home',
@@ -60388,6 +60461,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modules_updates_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/updates.js */ "./resources/js/modules/updates.js");
+/* harmony import */ var _modules_users_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/users.js */ "./resources/js/modules/users.js");
 /*
   Adds the promise polyfill for IE 11
 */
@@ -60397,9 +60471,11 @@ __webpack_require__(/*! es6-promise */ "./node_modules/es6-promise/dist/es6-prom
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
+
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   modules: {
-    updates: _modules_updates_js__WEBPACK_IMPORTED_MODULE_2__["updates"]
+    updates: _modules_updates_js__WEBPACK_IMPORTED_MODULE_2__["updates"],
+    users: _modules_users_js__WEBPACK_IMPORTED_MODULE_3__["users"]
   }
 }));
 

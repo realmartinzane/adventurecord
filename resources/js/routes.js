@@ -15,7 +15,7 @@ let routes =
     [
         {
             path: '/',
-            name: 'home',
+            name: 'landing',
             component: HomeView
         },
         {

@@ -36,7 +36,7 @@ export const updates =
     
     actions:
     {
-        fetchAll({commit})
+        fetchUpdates({commit})
         {
             commit('setUpdatesLoad', 1)
             UpdateAPI.fetchAll()
@@ -53,7 +53,7 @@ export const updates =
                     })
         },
 
-        fetchSingle({ commit }, data) 
+        fetchUpdate({ commit }, data) 
         {
             commit('setUpdateLoad', 1)
             UpdateAPI.fetchSingle(data.id)

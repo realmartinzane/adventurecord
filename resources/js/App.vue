@@ -15,7 +15,7 @@ import FooterComponent from './components/Footer.vue'
 export default {
     created()
     {
-        this.$store.dispatch('fetchUser')
+        this.$store.dispatch('fetchAuthUser')
     },
     components:
     {

@@ -121,7 +121,7 @@ export default {
     {
         fetchSingle()
         {
-            this.$store.dispatch('fetchSingle', {id: this.id});
+            this.$store.dispatch('fetchUpdate', {id: this.id});
         },
         destroy()
         {
