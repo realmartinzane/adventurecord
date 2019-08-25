@@ -28,12 +28,12 @@ class UpdateController extends Controller
 
     /*
     |-------------------------------------------------------------------------------
-    | Get a Single Update (Show)
+    | Get a Single Update
     |-------------------------------------------------------------------------------
-    | URL:            /api/v1/updates/{id}/single
+    | URL:            /api/v1/updates/{id}
     | Controller:     API\UpdateController@single
     | Method:         GET
-    | Description:    Get a single update in show view
+    | Description:    Get a single update.
     */
 
     public function single($id)

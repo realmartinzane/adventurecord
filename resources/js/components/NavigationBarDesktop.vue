@@ -17,14 +17,14 @@
                 <li class="navigation__item"><router-link :to="'/marketplace'" class="navigation__link">Marketplace</router-link></li>
             </ul>
 
-            <button v-if="user == ''" class="btn btn--secondary-discord navigation__login">
+            <button v-if="authUser == ''" class="btn btn--secondary-discord navigation__login">
                 <font-awesome-icon :icon="['fab', 'discord']" size="lg" class="u-margin-right-sm"></font-awesome-icon>
                 <span>Log in with discord</span>
             </button>
 
-            <clip-loader class="navigation__spinner" v-if="userLoad != 2" :loading="true" color="#FFD700" size="2rem"></clip-loader>
+            <clip-loader class="navigation__spinner" v-if="authUserLoad != 2" :loading="true" color="#FFD700" size="2rem"></clip-loader>
 
-            <div v-if="user != '' && userLoad == 2" class="navigation__account">
+            <div v-if="authUser != '' && authUserLoad == 2" class="navigation__account">
                 <input type="checkbox" class="navigation__checkbox" id="account_toggle">
                 <label for="account_toggle" class="navigation__button">
                     My Account
@@ -32,8 +32,8 @@
                 </label>
 
                 <ul class="navigation__account-list">
-                    <li class="navigation__account-item"><router-link :to="'/users/' + user.id" class="navigation__account-link">Profile</router-link ></li>
-                    <li class="navigation__account-item"><router-link :to="'/users/' + user.id + '/settings'" class="navigation__account-link">Settings</router-link ></li>
+                    <li class="navigation__account-item"><router-link :to="'/users/' + authUser.id" class="navigation__account-link">Profile</router-link ></li>
+                    <li class="navigation__account-item"><router-link :to="'/users/' + authUser.id + '/settings'" class="navigation__account-link">Settings</router-link ></li>
                     <li class="navigation__account-item"><button @click="logout()" class="navigation__account-link">Log Out</button ></li>
                 </ul>
             </div>
@@ -49,17 +49,17 @@ export default {
     components: {ClipLoader},
     computed: 
     {
-        userLoad() {return this.$store.getters.getUserLoad;},
+        authUserLoad() {return this.$store.getters.getAuthUserLoad},
         
-        user() {return this.$store.getters.getUser;}
+        authUser() {return this.$store.getters.getAuthUser}
     },
     methods:
     {
         logout()
         {
-            this.$store.dispatch('logout');
-            window.location = '/logout';
-      },
+            this.$store.dispatch('logout')
+            window.location = '/logout'
+        },
     }
 }
 </script>

@@ -12,12 +12,24 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
     | Get Auth User
     |-------------------------------------------------------------------------------
     | URL:            /api/v1/user
-    | Controller:     API\UsersController@getAuthUser
+    | Controller:     API\UsersController@auth
     | Method:         GET
     | Description:    Get the authenticated user
     */
     
-    Route::get('/user', 'API\UserController@getAuthUser');
+    Route::get('/user', 'API\UserController@auth');
+
+    /*
+    |-------------------------------------------------------------------------------
+    | Get a Single User
+    |-------------------------------------------------------------------------------
+    | URL:            /api/v1/users/{id}
+    | Controller:     API\UsersController@single
+    | Method:         GET
+    | Description:    Get the authenticated user
+    */
+    
+    Route::get('/users/{id}', 'API\UserController@single');
 
     /*
     |-------------------------------------------------------------------------------
@@ -33,12 +45,12 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
 
   /*
     |-------------------------------------------------------------------------------
-    | Get a Single Update (Show)
+    | Get a Single Update
     |-------------------------------------------------------------------------------
     | URL:            /api/v1/updates/{id}/single
     | Controller:     API\UpdateController@getSingle
     | Method:         GET
-    | Description:    Get a single update in show view.
+    | Description:    Get a single update.
   */
 
   Route::get('updates/{id}', 'API\UpdateController@single');

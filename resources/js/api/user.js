@@ -9,4 +9,11 @@ export default {
     {
         return axios.get(ADV_CONFIG.API_URL + '/user');
     },
+    /*
+        GET   /api/v1/users/{id}
+    */
+    fetchSingle(id) 
+    {
+        return axios.get(`${ADV_CONFIG.API_URL}/users/${id}`);
+    },
 }

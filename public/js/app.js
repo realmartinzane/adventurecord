@@ -15572,13 +15572,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  created: function created() {
-    this.$store.dispatch('fetchAuthUser');
-  },
   components: {
     NavigationBarDesktopComponent: _components_NavigationBarDesktop_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     NavigationBarMobileComponent: _components_NavigationBarMobile_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     FooterComponent: _components_Footer_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  created: function created() {
+    this.fetchAuthUser();
+  },
+  methods: {
+    fetchAuthUser: function fetchAuthUser() {
+      this.$store.dispatch('fetchAuthUser');
+    }
   }
 });
 
@@ -16048,11 +16053,11 @@ __webpack_require__.r(__webpack_exports__);
     ClipLoader: vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   computed: {
-    userLoad: function userLoad() {
-      return this.$store.getters.getUserLoad;
+    authUserLoad: function authUserLoad() {
+      return this.$store.getters.getAuthUserLoad;
     },
-    user: function user() {
-      return this.$store.getters.getUser;
+    authUser: function authUser() {
+      return this.$store.getters.getAuthUser;
     }
   },
   methods: {
@@ -16567,6 +16572,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-spinner/src/ClipLoader.vue */ "./node_modules/vue-spinner/src/ClipLoader.vue");
 //
 //
 //
@@ -16645,7 +16651,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    ClipLoader: vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      id: this.$route.params.id
+    };
+  },
+  computed: {
+    userLoad: function userLoad() {
+      return this.$store.getters.getUserLoad;
+    },
+    user: function user() {
+      return this.$store.getters.getUser;
+    }
+  },
+  created: function created() {
+    this.fetchSingle();
+  },
+  methods: {
+    fetchSingle: function fetchSingle() {
+      this.$store.dispatch('fetchUser', {
+        id: this.id
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -17100,7 +17135,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".user-profile__header--sm {\n  display: none;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__header--sm {\n    display: block;\n    width: 100%;\n    text-align: center;\n    margin: 3rem 0;\n}\n}\n.user-profile__header--lg {\n  display: block;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__header--lg {\n    display: none;\n}\n}\n.user-profile__left {\n  display: inline-block;\n  width: 30%;\n  padding: 3rem 6rem;\n  vertical-align: top;\n  text-align: center;\n}\n@media only screen and (max-width: 85em) {\n.user-profile__left {\n    padding: 3rem;\n}\n}\n@media only screen and (max-width: 41.25em) {\n.user-profile__left {\n    padding: 1rem;\n}\n}\n@media only screen and (max-width: 30em) {\n.user-profile__left {\n    width: 100%;\n    margin-bottom: 3rem;\n}\n}\n.user-profile__right {\n  display: inline-block;\n  width: 69%;\n  padding: 3rem;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__right {\n    width: 100%;\n}\n}\n.user-profile__img {\n  width: 12rem;\n  height: 12rem;\n  border: 5px solid #FFD700;\n  outline: 3px solid #000;\n  background-color: #000;\n}\n.user-profile__btn {\n  padding: 0.5rem 1rem !important;\n  position: relative;\n  z-index: 5000;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__btn {\n    display: block !important;\n    width: 10rem;\n    margin: auto;\n}\n}\n.user-profile__info {\n  margin-top: 2rem;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__info {\n    width: 25rem;\n    margin: auto;\n}\n}\n.user-profile__label {\n  display: inline-block;\n  width: 25%;\n  margin: 0.5rem 0;\n  text-align: left;\n}\n.user-profile__gold {\n  color: #FFD700;\n}\n.user-profile__gems {\n  color: #6755b9;\n}\n.user-profile__guild {\n  color: #cb4154;\n}\n.user-profile__activity {\n  color: #00bfff;\n}\n.user-profile__data {\n  display: inline-block;\n  width: 70%;\n  text-align: right;\n}\n.user-profile__name {\n  font-size: 4rem;\n  font-weight: 300;\n  line-height: 1;\n}\n.user-profile__ban {\n  font-size: 1.5rem;\n  text-transform: uppercase;\n  color: #ec4853;\n}\n.user-profile__id {\n  font-size: 1.2rem;\n  text-transform: uppercase;\n}\n.user-profile__stats {\n  background-color: #2E2E36;\n  border: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n  margin: 1.5rem 0;\n  padding: 1rem 1.5rem;\n}\n.user-profile__stats-left {\n  display: inline-block;\n  width: 10rem;\n}\n.user-profile__nation {\n  width: 100%;\n}\n.user-profile__stats-right {\n  display: inline-block;\n  width: calc(100% - 10.5rem);\n  vertical-align: top;\n}\n.user-profile__level-label {\n  margin-top: 1rem;\n}\n.user-profile__level {\n  font-size: 4rem;\n  line-height: 1;\n  display: inline-block;\n}\n.user-profile__progress-bar {\n  display: inline-block;\n  width: calc(100% - 60px);\n  height: 2rem;\n  background: #d3d3d3;\n  border-radius: 3px;\n}\n.user-profile__progress {\n  width: 40%;\n  height: 100%;\n  background-image: repeating-linear-gradient(45deg, #FFD700, #FFD700 1rem, #e2c000 1rem, #e2c000 2rem);\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.user-profile__location {\n  margin: 1.5rem 0;\n}\n.user-profile__location-img {\n  width: 100%;\n  height: auto;\n  border: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n}", ""]);
+exports.push([module.i, ".user-profile__header--sm {\n  display: none;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__header--sm {\n    display: block;\n    width: 100%;\n    text-align: center;\n    margin: 3rem 0;\n}\n}\n.user-profile__header--lg {\n  display: block;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__header--lg {\n    display: none;\n}\n}\n.user-profile__left {\n  display: inline-block;\n  width: 30%;\n  padding: 3rem 6rem;\n  vertical-align: top;\n  text-align: center;\n}\n@media only screen and (max-width: 85em) {\n.user-profile__left {\n    padding: 3rem;\n}\n}\n@media only screen and (max-width: 41.25em) {\n.user-profile__left {\n    padding: 1rem;\n}\n}\n@media only screen and (max-width: 30em) {\n.user-profile__left {\n    width: 100%;\n    margin-bottom: 3rem;\n}\n}\n.user-profile__right {\n  display: inline-block;\n  width: 69%;\n  padding: 3rem;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__right {\n    width: 100%;\n}\n}\n.user-profile__img {\n  width: 12rem;\n  height: 12rem;\n  border: 3px solid #000;\n  outline: 5px solid #c9b350;\n  background-color: #000;\n}\n.user-profile__btn {\n  margin-top: 1rem;\n  padding: 0.5rem 1rem !important;\n  position: relative;\n  z-index: 5000;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__btn {\n    display: block !important;\n    width: 10rem;\n    margin: auto;\n    margin-top: 1rem;\n}\n}\n.user-profile__info {\n  margin-top: 2rem;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__info {\n    width: 25rem;\n    margin: auto;\n}\n}\n.user-profile__label {\n  display: inline-block;\n  width: 25%;\n  margin: 0.5rem 0;\n  text-align: left;\n}\n.user-profile__gold {\n  color: #FFD700;\n}\n.user-profile__gems {\n  color: #6755b9;\n}\n.user-profile__guild {\n  color: #cb4154;\n}\n.user-profile__activity {\n  color: #00bfff;\n}\n.user-profile__data {\n  display: inline-block;\n  width: 70%;\n  text-align: right;\n}\n.user-profile__name {\n  font-size: 4rem;\n  font-weight: 300;\n  line-height: 1;\n}\n.user-profile__ban {\n  font-size: 1.5rem;\n  text-transform: uppercase;\n  color: #ec4853;\n}\n.user-profile__id {\n  font-size: 1.2rem;\n  text-transform: uppercase;\n}\n.user-profile__stats {\n  background-color: #2E2E36;\n  border: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n  margin: 1.5rem 0;\n  padding: 1rem 1.5rem;\n}\n.user-profile__stats-left {\n  display: inline-block;\n  width: 10rem;\n}\n.user-profile__nation {\n  width: 100%;\n}\n.user-profile__stats-right {\n  display: inline-block;\n  width: calc(100% - 10.5rem);\n  vertical-align: top;\n}\n.user-profile__level-label {\n  margin-top: 1rem;\n}\n.user-profile__level {\n  font-size: 4rem;\n  line-height: 1;\n  display: inline-block;\n}\n.user-profile__progress-bar {\n  display: inline-block;\n  width: calc(100% - 60px);\n  height: 2rem;\n  background: #d3d3d3;\n  border-radius: 3px;\n}\n.user-profile__progress {\n  width: 40%;\n  height: 100%;\n  background-image: repeating-linear-gradient(45deg, #FFD700, #FFD700 1rem, #e2c000 1rem, #e2c000 2rem);\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.user-profile__location {\n  margin: 1.5rem 0;\n}\n.user-profile__location-img {\n  width: 100%;\n  height: auto;\n  border: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n}", ""]);
 
 // exports
 
@@ -37782,7 +37817,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm.user == ""
+        _vm.authUser == ""
           ? _c(
               "button",
               { staticClass: "btn btn--secondary-discord navigation__login" },
@@ -37798,14 +37833,14 @@ var render = function() {
             )
           : _vm._e(),
         _vm._v(" "),
-        _vm.userLoad != 2
+        _vm.authUserLoad != 2
           ? _c("clip-loader", {
               staticClass: "navigation__spinner",
               attrs: { loading: true, color: "#FFD700", size: "2rem" }
             })
           : _vm._e(),
         _vm._v(" "),
-        _vm.user != "" && _vm.userLoad == 2
+        _vm.authUser != "" && _vm.authUserLoad == 2
           ? _c("div", { staticClass: "navigation__account" }, [
               _c("input", {
                 staticClass: "navigation__checkbox",
@@ -37837,7 +37872,7 @@ var render = function() {
                       "router-link",
                       {
                         staticClass: "navigation__account-link",
-                        attrs: { to: "/users/" + _vm.user.id }
+                        attrs: { to: "/users/" + _vm.authUser.id }
                       },
                       [_vm._v("Profile")]
                     )
@@ -37853,7 +37888,7 @@ var render = function() {
                       "router-link",
                       {
                         staticClass: "navigation__account-link",
-                        attrs: { to: "/users/" + _vm.user.id + "/settings" }
+                        attrs: { to: "/users/" + _vm.authUser.id + "/settings" }
                       },
                       [_vm._v("Settings")]
                     )
@@ -38916,186 +38951,208 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "section-user" }, [
-    _c("div", { staticClass: "user-profile" }, [
-      _vm._m(0),
+  return _c(
+    "section",
+    { staticClass: "section-user" },
+    [
+      _vm.userLoad !== 2
+        ? _c("clip-loader", {
+            attrs: { loading: true, color: "#FFD700", size: "5rem" }
+          })
+        : _vm._e(),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "user-profile__left" },
-        [
-          _c("img", {
-            staticClass: "user-profile__img",
-            attrs: {
-              srcset:
-                "/img/brand_logo_1x.png" +
-                " 1x, " +
-                "/img/brand_logo_2x.png" +
-                " 2x",
-              alt: "Profile Image"
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            {
-              staticClass: "user-profile__btn btn btn--primary",
-              attrs: { to: "/user/settings" }
-            },
-            [
-              _c("font-awesome-icon", {
-                staticClass: "mr-1",
-                attrs: { icon: ["fas", "cog"] }
-              }),
-              _vm._v("\n                Settings\n            ")
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "user-profile__info" }, [
+      _vm.userLoad == 2
+        ? _c("div", { staticClass: "user-profile" }, [
+            _c(
+              "header",
+              { staticClass: "user-profile__header user-profile__header--sm" },
+              [
+                _c("h2", { staticClass: "user-profile__name" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.user.name) +
+                      " \n                "
+                  ),
+                  _c("span", { staticClass: "user-profile__ban" }, [
+                    _vm._v("Banned")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("sub", { staticClass: "user-profile__id" }, [
+                  _vm._v("ID: " + _vm._s(_vm.user.provider_id) + " ")
+                ])
+              ]
+            ),
+            _vm._v(" "),
             _c(
               "div",
-              { staticClass: "user-profile__label" },
+              { staticClass: "user-profile__left" },
               [
-                _c("font-awesome-icon", {
-                  staticClass: "user-profile__gold",
-                  attrs: { icon: ["fas", "coins"] }
-                })
+                _c("img", {
+                  staticClass: "user-profile__img",
+                  attrs: { src: _vm.user.avatar, alt: "Profile Image" }
+                }),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "user-profile__btn btn btn--primary",
+                    attrs: { to: "/user/settings" }
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      staticClass: "mr-1",
+                      attrs: { icon: ["fas", "cog"] }
+                    }),
+                    _vm._v("\n                Settings\n            ")
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "user-profile__info" }, [
+                  _c(
+                    "div",
+                    { staticClass: "user-profile__label" },
+                    [
+                      _c("font-awesome-icon", {
+                        staticClass: "user-profile__gold",
+                        attrs: { icon: ["fas", "coins"] }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "user-profile__data" }, [
+                    _vm._v("\n                    12,753,964\n                ")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "user-profile__label" },
+                    [
+                      _c("font-awesome-icon", {
+                        staticClass: "user-profile__gems",
+                        attrs: { icon: ["far", "gem"] }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "user-profile__data" }, [
+                    _vm._v("\n                    11,607\n                ")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "user-profile__label" },
+                    [
+                      _c("font-awesome-icon", {
+                        staticClass: "user-profile__guild",
+                        attrs: { icon: ["fas", "campground"] }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "user-profile__data" }, [
+                    _vm._v(
+                      "\n                    RandomGuild\n                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "user-profile__label" },
+                    [
+                      _c("font-awesome-icon", {
+                        staticClass: "user-profile__activity",
+                        attrs: { icon: ["far", "clock"] }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "user-profile__data" }, [
+                    _vm._v("\n                    06.07.2019\n                ")
+                  ])
+                ])
               ],
               1
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "user-profile__data" }, [
-              _vm._v("\n                    12,753,964\n                ")
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "user-profile__label" },
-              [
-                _c("font-awesome-icon", {
-                  staticClass: "user-profile__gems",
-                  attrs: { icon: ["far", "gem"] }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "user-profile__data" }, [
-              _vm._v("\n                    11,607\n                ")
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "user-profile__label" },
-              [
-                _c("font-awesome-icon", {
-                  staticClass: "user-profile__guild",
-                  attrs: { icon: ["fas", "campground"] }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "user-profile__data" }, [
-              _vm._v("\n                    RandomGuild\n                ")
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "user-profile__label" },
-              [
-                _c("font-awesome-icon", {
-                  staticClass: "user-profile__activity",
-                  attrs: { icon: ["far", "clock"] }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "user-profile__data" }, [
-              _vm._v("\n                    06.07.2019\n                ")
+            _c("div", { staticClass: "user-profile__right" }, [
+              _c(
+                "header",
+                {
+                  staticClass: "user-profile__header user-profile__header--lg"
+                },
+                [
+                  _c("h2", { staticClass: "user-profile__name" }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(_vm.user.name) +
+                        " \n                    "
+                    ),
+                    _c("span", { staticClass: "user-profile__ban" }, [
+                      _vm._v("Banned")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("sub", { staticClass: "user-profile__id" }, [
+                    _vm._v("ID: " + _vm._s(_vm.user.provider_id) + " ")
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(0),
+              _vm._v(" "),
+              _vm._m(1)
             ])
           ])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _vm._m(1)
-    ])
-  ])
+        : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "header",
-      { staticClass: "user-profile__header user-profile__header--sm" },
-      [
-        _c("h2", { staticClass: "user-profile__name" }, [
-          _vm._v("\n                    VampY \n                    "),
-          _c("span", { staticClass: "user-profile__ban" }, [_vm._v("Banned")])
+    return _c("div", { staticClass: "user-profile__stats" }, [
+      _c("div", { staticClass: "user-profile__stats-left" }, [
+        _c("img", {
+          staticClass: "user-profile__nation",
+          attrs: { src: "/img/humania.png", alt: "Humania Logo" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "user-profile__stats-right" }, [
+        _c("div", { staticClass: "user-profile__level-label" }, [
+          _vm._v("Level")
         ]),
         _vm._v(" "),
-        _c("sub", { staticClass: "user-profile__id" }, [
-          _vm._v("ID: 393447523471196160 ")
+        _c("div", { staticClass: "user-profile__level" }, [_vm._v("17")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "user-profile__progress-bar" }, [
+          _c("div", { staticClass: "user-profile__progress" })
         ])
-      ]
-    )
+      ])
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "user-profile__right" }, [
-      _c(
-        "header",
-        { staticClass: "user-profile__header user-profile__header--lg" },
-        [
-          _c("h2", { staticClass: "user-profile__name" }, [
-            _vm._v("\n                    VampY \n                    "),
-            _c("span", { staticClass: "user-profile__ban" }, [_vm._v("Banned")])
-          ]),
-          _vm._v(" "),
-          _c("sub", { staticClass: "user-profile__id" }, [
-            _vm._v("ID: 393447523471196160 ")
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "user-profile__stats" }, [
-        _c("div", { staticClass: "user-profile__stats-left" }, [
-          _c("img", {
-            staticClass: "user-profile__nation",
-            attrs: { src: "/img/humania.png", alt: "Humania Logo" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "user-profile__stats-right" }, [
-          _c("div", { staticClass: "user-profile__level-label" }, [
-            _vm._v("Level")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "user-profile__level" }, [_vm._v("17")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "user-profile__progress-bar" }, [
-            _c("div", { staticClass: "user-profile__progress" })
-          ])
-        ])
+    return _c("div", { staticClass: "user-profile__location" }, [
+      _c("div", { staticClass: "user-profile__location-label" }, [
+        _vm._v("Current Location:")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "user-profile__location" }, [
-        _c("div", { staticClass: "user-profile__location-label" }, [
-          _vm._v("Current Location:")
-        ]),
-        _vm._v(" "),
-        _c("img", {
-          staticClass: "user-profile__location-img",
-          attrs: { src: "/img/terassyia.png", alr: "Location Image" }
-        })
-      ])
+      _c("img", {
+        staticClass: "user-profile__location-img",
+        attrs: { src: "/img/terassyia.png", alr: "Location Image" }
+      })
     ])
   }
 ]
@@ -59206,6 +59263,13 @@ __webpack_require__.r(__webpack_exports__);
   */
   fetchAuth: function fetchAuth() {
     return axios.get(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL + '/user');
+  },
+
+  /*
+      GET   /api/v1/users/{id}
+  */
+  fetchSingle: function fetchSingle(id) {
+    return axios.get("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/users/").concat(id));
   }
 });
 
@@ -60438,10 +60502,18 @@ __webpack_require__.r(__webpack_exports__);
 
 var users = {
   state: {
+    authUser: null,
+    authUserLoad: 0,
     user: null,
     userLoad: 0
   },
   mutations: {
+    setAuthUser: function setAuthUser(state, user) {
+      state.authUser = user;
+    },
+    setAuthUserLoad: function setAuthUserLoad(state, status) {
+      state.authUserLoad = status;
+    },
     setUser: function setUser(state, user) {
       state.user = user;
     },
@@ -60452,8 +60524,26 @@ var users = {
   actions: {
     fetchAuthUser: function fetchAuthUser(_ref) {
       var commit = _ref.commit;
-      commit('setUserLoad', 1);
+      commit('setAuthUserLoad', 1);
       _api_user_js__WEBPACK_IMPORTED_MODULE_0__["default"].fetchAuth().then(function (response) {
+        console.log(response.data);
+        commit('setAuthUser', response.data);
+        commit('setAuthUserLoad', 2);
+      })["catch"](function (err) {
+        commit('setAuthUser', {});
+        commit('setAuthUserLoad', 3);
+      });
+    },
+    logout: function logout(_ref2) {
+      var commit = _ref2.commit;
+      commit('setUserLoad', 0);
+      commit('setUser', {});
+    },
+    fetchUser: function fetchUser(_ref3, data) {
+      var commit = _ref3.commit;
+      console.log(data.id);
+      commit('setUserLoad', 1);
+      _api_user_js__WEBPACK_IMPORTED_MODULE_0__["default"].fetchSingle(data.id).then(function (response) {
         console.log(response.data);
         commit('setUser', response.data);
         commit('setUserLoad', 2);
@@ -60461,14 +60551,15 @@ var users = {
         commit('setUser', {});
         commit('setUserLoad', 3);
       });
-    },
-    logout: function logout(_ref2) {
-      var commit = _ref2.commit;
-      commit('setUserLoad', 0);
-      commit('setUser', {});
     }
   },
   getters: {
+    getAuthUser: function getAuthUser(state) {
+      return state.authUser;
+    },
+    getAuthUserLoad: function getAuthUserLoad(state) {
+      return state.authUserLoad;
+    },
     getUser: function getUser(state) {
       return state.user;
     },

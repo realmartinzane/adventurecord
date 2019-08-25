@@ -1,17 +1,18 @@
 <template>
     <section class="section-user">
-        <div class="user-profile">
+        <clip-loader v-if="userLoad !== 2" :loading="true" color="#FFD700" size="5rem"></clip-loader>
+        <div class="user-profile" v-if="userLoad == 2">
 
             <header class="user-profile__header user-profile__header--sm">
-                    <h2 class="user-profile__name">
-                        VampY 
-                        <span class="user-profile__ban">Banned</span>
-                    </h2>
-                    <sub class="user-profile__id">ID: 393447523471196160 </sub>
-                </header>
+                <h2 class="user-profile__name">
+                    {{ user.name }} 
+                    <span class="user-profile__ban">Banned</span>
+                </h2>
+                <sub class="user-profile__id">ID: {{ user.provider_id }} </sub>
+            </header>
 
             <div class="user-profile__left">
-                <img srcset="/img/brand_logo_1x.png 1x, /img/brand_logo_2x.png 2x" alt="Profile Image" class="user-profile__img">
+                <img :src="user.avatar" alt="Profile Image" class="user-profile__img">
                 <router-link :to="'/user/settings'" class="user-profile__btn btn btn--primary">
                     <font-awesome-icon :icon="['fas', 'cog']" class="mr-1"></font-awesome-icon>
                     Settings
@@ -49,10 +50,10 @@
             <div class="user-profile__right">
                 <header class="user-profile__header user-profile__header--lg">
                     <h2 class="user-profile__name">
-                        VampY 
+                        {{ user.name }} 
                         <span class="user-profile__ban">Banned</span>
                     </h2>
-                    <sub class="user-profile__id">ID: 393447523471196160 </sub>
+                    <sub class="user-profile__id">ID: {{ user.provider_id }} </sub>
                 </header>
                 <div class="user-profile__stats">
                     <div class="user-profile__stats-left">
@@ -77,8 +78,31 @@
 </template>
 
 <script>
+
+import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
+
 export default {
-    
+    components: {ClipLoader},
+    data(){return{
+        id: this.$route.params.id,
+    }},
+    computed:
+    {
+        userLoad() {return this.$store.getters.getUserLoad},
+        
+        user() {return this.$store.getters.getUser}
+    },
+    created()
+    {
+        this.fetchSingle();
+    },
+    methods:
+    {
+        fetchSingle()
+        {
+            this.$store.dispatch('fetchUser', {id: this.id})
+        }
+    }
 }
 </script>
 
@@ -154,13 +178,14 @@ export default {
             width: 12rem;
             height: 12rem;
             
-            border: 5px solid $color-primary;
-            outline: 3px solid $color-black;
+            border: 3px solid $color-black;
+            outline: 5px solid $color-primary-dark;
             background-color: $color-black;
         }
 
         &__btn
         {
+            margin-top: 1rem;
             padding: .5rem 1rem !important;
             position: relative;
             z-index: 5000;
@@ -169,6 +194,7 @@ export default {
                 display: block !important;
                 width: 10rem;
                 margin: auto;
+                margin-top: 1rem;
             }
         }
 

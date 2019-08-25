@@ -4,12 +4,25 @@ export const users =
 {
     state:
     {
+        authUser: null,
+        authUserLoad: 0,
+
         user: null,
-        userLoad: 0
+        userLoad: 0,
     },
 
     mutations:
     {
+        setAuthUser(state, user) 
+        {
+            state.authUser = user
+        },
+
+        setAuthUserLoad(state, status) 
+        {
+            state.authUserLoad = status
+        },
+
         setUser(state, user)
         {
             state.user = user
@@ -25,8 +38,32 @@ export const users =
     {
         fetchAuthUser({commit})
         {
-            commit('setUserLoad', 1)
+            commit('setAuthUserLoad', 1)
             UserAPI.fetchAuth()
+                .then(response => 
+                    {
+                        console.log(response.data)
+                        commit('setAuthUser', response.data)
+                        commit('setAuthUserLoad', 2)
+                    })
+                .catch(err => 
+                    {
+                        commit('setAuthUser', {})
+                        commit('setAuthUserLoad', 3)
+                    })
+        },
+
+        logout({ commit }) 
+        {
+            commit('setUserLoad', 0);
+            commit('setUser', {});
+        },
+
+        fetchUser({ commit }, data) 
+        {
+            console.log(data.id)
+            commit('setUserLoad', 1)
+            UserAPI.fetchSingle(data.id)
                 .then(response => 
                     {
                         console.log(response.data)
@@ -39,15 +76,20 @@ export const users =
                         commit('setUserLoad', 3)
                     })
         },
-        logout({ commit }) 
-        {
-            commit('setUserLoad', 0);
-            commit('setUser', {});
-        }
     },
 
     getters:
     {
+        getAuthUser(state) 
+        {
+            return state.authUser
+        },
+
+        getAuthUserLoad(state) 
+        {
+            return state.authUserLoad
+        },
+
         getUser(state)
         {
             return state.user
