@@ -45,6 +45,15 @@ class AuthController extends Controller
 
             $user = $newUser;
         }
+        else
+        {
+            $socialName = $socialUser->getName();
+            if($user->name !== $socialName)
+            {
+                $user->name = $socialName;
+                $user->save();
+            }
+        }
 
         Auth::login($user);
 
