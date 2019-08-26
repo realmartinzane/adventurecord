@@ -42,7 +42,6 @@ export const users =
             UserAPI.fetchAuth()
                 .then(response => 
                     {
-                        console.log(response.data)
                         commit('setAuthUser', response.data)
                         commit('setAuthUserLoad', 2)
                     })
@@ -61,12 +60,10 @@ export const users =
 
         fetchUser({ commit }, data) 
         {
-            console.log(data.id)
             commit('setUserLoad', 1)
             UserAPI.fetchSingle(data.id)
                 .then(response => 
                     {
-                        console.log(response.data)
                         commit('setUser', response.data)
                         commit('setUserLoad', 2)
                     })

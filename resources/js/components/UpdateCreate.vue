@@ -32,7 +32,7 @@
             </div>
 
             <div class="form__group u-margin-top-md">
-                <button type="submit" class="form__submit btn btn--primary" @click="store">Submit</button>
+                <button type="submit" class="form__submit btn btn--primary" @click="submit">Submit</button>
             </div>
         </form>
     </section>
@@ -55,6 +55,11 @@ export default {
         },
     }},
 
+    computed:
+    {
+        updateAdd() {return this.$store.getters.getUpdateAdd}
+    },
+
     validations:
     {
         form:
@@ -66,7 +71,30 @@ export default {
     
     methods:
     {
-        store()
+        async store()
+        {
+            let response = await this.$store.dispatch('storeUpdate', this.form)
+            if(this.updateAdd == 2)
+            {
+                this.$router.push('/updates', () =>
+                {
+                    this.$toast.success(
+                        {
+                            title:'Success',
+                            message: response
+                        })
+                })
+            }
+            else if(this.updateAdd == 3)
+            {
+                this.$toast.error(
+                    {
+                        title:'Error!',
+                        message: response
+                    })
+            }
+        },
+        submit()
         {
             event.preventDefault();
 
@@ -74,7 +102,7 @@ export default {
 
             if (this.$v.form.$anyError) return
 
-            this.$store.dispatch('storeUpdate', this.form)
+            this.store()
         },
     }
 }

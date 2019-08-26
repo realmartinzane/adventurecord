@@ -16389,11 +16389,19 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuelidate__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate */ "./node_modules/vuelidate/lib/index.js");
-/* harmony import */ var vuelidate__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
-/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-spinner/src/ClipLoader.vue */ "./node_modules/vue-spinner/src/ClipLoader.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuelidate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuelidate */ "./node_modules/vuelidate/lib/index.js");
+/* harmony import */ var vuelidate__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuelidate__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-spinner/src/ClipLoader.vue */ "./node_modules/vue-spinner/src/ClipLoader.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -16438,9 +16446,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [vuelidate__WEBPACK_IMPORTED_MODULE_0__["validationMixin"]],
+  mixins: [vuelidate__WEBPACK_IMPORTED_MODULE_1__["validationMixin"]],
   components: {
-    ClipLoader: vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    ClipLoader: vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
@@ -16450,24 +16458,74 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
+  computed: {
+    updateAdd: function updateAdd() {
+      return this.$store.getters.getUpdateAdd;
+    }
+  },
   validations: {
     form: {
       title: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"],
-        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["maxLength"])(100)
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["required"],
+        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["maxLength"])(100)
       },
       body: {
-        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["required"],
-        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__["maxLength"])(2500)
+        required: vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["required"],
+        maxLength: Object(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__["maxLength"])(2500)
       }
     }
   },
   methods: {
-    store: function store() {
+    store: function () {
+      var _store = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _this = this;
+
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return this.$store.dispatch('storeUpdate', this.form);
+
+              case 2:
+                response = _context.sent;
+
+                if (this.updateAdd == 2) {
+                  this.$router.push('/updates', function () {
+                    _this.$toast.success({
+                      title: 'Success',
+                      message: response
+                    });
+                  });
+                } else if (this.updateAdd == 3) {
+                  this.$toast.error({
+                    title: 'Error!',
+                    message: response
+                  });
+                }
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function store() {
+        return _store.apply(this, arguments);
+      }
+
+      return store;
+    }(),
+    submit: function submit() {
       event.preventDefault();
       this.$v.form.$touch();
       if (this.$v.form.$anyError) return;
-      this.$store.dispatch('storeUpdate', this.form);
+      this.store();
     }
   }
 });
@@ -39675,7 +39733,7 @@ var render = function() {
           {
             staticClass: "form__submit btn btn--primary",
             attrs: { type: "submit" },
-            on: { click: _vm.store }
+            on: { click: _vm.submit }
           },
           [_vm._v("Submit")]
         )
@@ -61597,15 +61655,50 @@ var updates = {
 
       return fetchUpdate;
     }(),
-    storeUpdate: function storeUpdate(_ref3, data) {
-      var commit = _ref3.commit;
-      commit('setUpdateAdd', 1);
-      _api_update_js__WEBPACK_IMPORTED_MODULE_1__["default"].store(data).then(function (response) {
-        commit('setUpdateAdd', 2);
-      })["catch"](function () {
-        commit('setUpdateAdd', 3);
-      });
-    },
+    storeUpdate: function () {
+      var _storeUpdate = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(_ref3, data) {
+        var commit, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                commit = _ref3.commit;
+                commit('setUpdateAdd', 1);
+                _context2.prev = 2;
+                _context2.next = 5;
+                return _api_update_js__WEBPACK_IMPORTED_MODULE_1__["default"].store(data);
+
+              case 5:
+                response = _context2.sent;
+                _context2.next = 12;
+                break;
+
+              case 8:
+                _context2.prev = 8;
+                _context2.t0 = _context2["catch"](2);
+                commit('setUpdateAdd', 3);
+                return _context2.abrupt("return", 'There was an error. Please try again later.');
+
+              case 12:
+                commit('setUpdateAdd', 2);
+                return _context2.abrupt("return", response.data);
+
+              case 14:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[2, 8]]);
+      }));
+
+      function storeUpdate(_x3, _x4) {
+        return _storeUpdate.apply(this, arguments);
+      }
+
+      return storeUpdate;
+    }(),
     updateUpdate: function updateUpdate(_ref4, data) {
       var commit = _ref4.commit;
       commit('setUpdateAdd', 1);
@@ -61675,7 +61768,6 @@ var users = {
       var commit = _ref.commit;
       commit('setAuthUserLoad', 1);
       _api_user_js__WEBPACK_IMPORTED_MODULE_0__["default"].fetchAuth().then(function (response) {
-        console.log(response.data);
         commit('setAuthUser', response.data);
         commit('setAuthUserLoad', 2);
       })["catch"](function (err) {
@@ -61690,10 +61782,8 @@ var users = {
     },
     fetchUser: function fetchUser(_ref3, data) {
       var commit = _ref3.commit;
-      console.log(data.id);
       commit('setUserLoad', 1);
       _api_user_js__WEBPACK_IMPORTED_MODULE_0__["default"].fetchSingle(data.id).then(function (response) {
-        console.log(response.data);
         commit('setUser', response.data);
         commit('setUserLoad', 2);
       })["catch"](function (err) {

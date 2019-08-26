@@ -82,6 +82,7 @@ export default {
     
     methods:
     {
+        /*
         submit()
         {
             event.preventDefault();
@@ -94,7 +95,7 @@ export default {
             }
         },
 
-        /*
+        
         submit()
         {
             event.preventDefault();

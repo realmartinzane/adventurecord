@@ -72,23 +72,27 @@ export const updates =
             {
                 commit('setUpdate', {})
                 commit('setUpdateLoad', 3)
-                return
+                return 
             }
             commit('setUpdate', response.data)
             commit('setUpdateLoad', 2)
         },
-        storeUpdate({commit}, data)
+
+        async storeUpdate({commit}, data)
         {
             commit('setUpdateAdd', 1)
-            UpdateAPI.store(data)
-                .then(response =>
-                    {
-                        commit('setUpdateAdd', 2)
-                    })
-                .catch(() => 
-                    {
-                        commit('setUpdateAdd', 3)
-                    })
+            let response
+            try 
+            {
+                response = await UpdateAPI.store(data)
+            }
+            catch(ex)
+            {
+                commit('setUpdateAdd', 3)
+                return 'There was an error. Please try again later.'
+            }
+            commit('setUpdateAdd', 2)
+            return response.data
         },
 
         updateUpdate({ commit }, data) 
