@@ -2,11 +2,8 @@
 
 use Illuminate\Http\Request;
 
-Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
-  Route::get('/user', function( Request $request ){
-    return $request->user();
-  });
-
+Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function()
+{
     /*
     |-------------------------------------------------------------------------------
     | Get Auth User
@@ -55,7 +52,13 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
 
   Route::get('updates/{id}', 'API\UpdateController@single');
 
-  /*
+  
+
+});
+
+Route::group(['prefix' => 'v1', 'middleware' => ['auth:api', 'role:Admin']], function()
+{
+/*
     |-------------------------------------------------------------------------------
     | Store a New Update
     |-------------------------------------------------------------------------------
@@ -90,5 +93,4 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function(){
   */
 
   Route::post('updates/{id}/destroy', 'API\UpdateController@destroy');
-
 });

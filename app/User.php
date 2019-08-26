@@ -10,6 +10,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, Notifiable;
 
+    protected $with = ['role'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -36,4 +38,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function role()
+    {
+        return $this->hasOne('App\Models\Role', 'user_id', 'id');
+    }
+
+    public function hasRole($role)
+    {
+        return $this->role->name == $role ? true : false;
+    }
 }
