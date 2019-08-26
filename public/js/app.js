@@ -16059,6 +16059,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -16091,6 +16093,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-spinner/src/ClipLoader.vue */ "./node_modules/vue-spinner/src/ClipLoader.vue");
 //
 //
 //
@@ -16116,26 +16119,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  methods: {
-    AuthProvider: function AuthProvider(provider) {
-      var self = this;
-      this.$auth.authenticate(provider).then(function (response) {
-        self.SocialLogin(provider, response);
-      })["catch"](function (err) {
-        console.log({
-          err: err
-        });
-      });
+  components: {
+    ClipLoader: vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  computed: {
+    authUserLoad: function authUserLoad() {
+      return this.$store.getters.getAuthUserLoad;
     },
-    SocialLogin: function SocialLogin(provider, response) {
-      this.$http.post('/sociallogin/' + provider, response).then(function (response) {
-        console.log(response.data);
-      })["catch"](function (err) {
-        console.log({
-          err: err
-        });
-      });
+    authUser: function authUser() {
+      return this.$store.getters.getAuthUser;
+    }
+  },
+  methods: {
+    logout: function logout() {
+      this.$store.dispatch('logout');
+      window.location = '/logout';
     }
   }
 });
@@ -17323,7 +17333,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".navigation__brand {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 300;\n  width: 27rem;\n  height: 41rem;\n  background-image: linear-gradient(123.5deg, #252936 50%, transparent 50%);\n}\n.navigation__brand-content {\n  position: absolute;\n  top: 0;\n  z-index: 400;\n}\n.navigation__brand-name {\n  display: block;\n  width: 20rem;\n  margin-left: 1rem;\n  margin-top: 2.5rem;\n}\n.navigation__brand-logo {\n  display: block;\n  width: 10rem;\n  margin-left: 1rem;\n  margin-top: 2rem;\n}\n.navigation__nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 200;\n  width: 100%;\n  background-color: #10121A;\n  border-bottom: 1px solid #3d3d49;\n  height: 5.5rem;\n}\n.navigation__list {\n  list-style: none;\n  display: inline-block;\n  width: calc(76% - 27rem);\n  position: absolute;\n  top: 50%;\n  left: 27rem;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n.navigation__item {\n  display: inline-block;\n  margin: 0 1rem;\n}\n.navigation__link, .navigation__link:link, .navigation__link:visited {\n  display: inline-block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n}\n.navigation__link:hover, .navigation__link:active, .navigation__link:focus {\n  color: #FFD700;\n}\n.navigation__login {\n  position: absolute;\n  top: 50%;\n  right: 2rem;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n.navigation__checkbox {\n  display: none;\n}\n.navigation__spinner {\n  position: absolute;\n  top: 50%;\n  right: 4rem !important;\n  left: auto !important;\n  -webkit-transform: translate(-50%, -40%) !important;\n          transform: translate(-50%, -40%) !important;\n}\n.navigation__button {\n  position: absolute;\n  top: 50%;\n  right: 2rem;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  font-size: 1.4rem;\n  font-weight: 700;\n  cursor: pointer;\n}\n.navigation__button:hover {\n  color: #FFD700;\n}\n.navigation__account-list {\n  position: absolute;\n  top: 5.5rem;\n  right: 0;\n  width: 20rem;\n  height: 0;\n  overflow: hidden;\n  list-style: none;\n  text-align: left;\n  background-color: #212127;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n  border: none;\n  box-shadow: none;\n}\n.navigation__account-link, .navigation__account-link:link, .navigation__account-link:visited {\n  display: block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n  padding: 1rem 2rem;\n  border: none;\n  width: 100%;\n  background: transparent;\n  text-align: left;\n  cursor: pointer;\n}\n.navigation__account-link:hover, .navigation__account-link:focus, .navigation__account-link:active {\n  color: #FFD700;\n  background-color: #2E2E36;\n}\n.navigation__checkbox:checked ~ .navigation__account-list {\n  height: 13rem;\n  border-left: 1px solid #494957;\n  border-bottom: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n}", ""]);
+exports.push([module.i, ".navigation__brand {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 300;\n  width: 27rem;\n  height: 41rem;\n  background-image: linear-gradient(123.5deg, #252936 50%, transparent 50%);\n}\n.navigation__brand-content {\n  position: absolute;\n  top: 0;\n  z-index: 400;\n}\n.navigation__brand-name {\n  display: block;\n  width: 20rem;\n  margin-left: 1rem;\n  margin-top: 2.5rem;\n}\n.navigation__brand-logo {\n  display: block;\n  width: 10rem;\n  margin-left: 1rem;\n  margin-top: 2rem;\n}\n.navigation__nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 200;\n  width: 100%;\n  background-color: #10121A;\n  border-bottom: 1px solid #3d3d49;\n  height: 5.5rem;\n}\n.navigation__list {\n  list-style: none;\n  display: inline-block;\n  width: calc(76% - 27rem);\n  position: absolute;\n  top: 50%;\n  left: 27rem;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n.navigation__item {\n  display: inline-block;\n  margin: 0 1rem;\n}\n.navigation__link, .navigation__link:link, .navigation__link:visited {\n  display: inline-block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n}\n.navigation__link:hover, .navigation__link:active, .navigation__link:focus {\n  color: #FFD700;\n}\n.navigation__login {\n  position: absolute;\n  top: 50%;\n  right: 2rem;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n.navigation__checkbox {\n  display: none;\n}\n.navigation__spinner {\n  position: absolute;\n  top: 50%;\n  right: 4rem !important;\n  left: auto !important;\n  -webkit-transform: translate(-50%, -40%) !important;\n          transform: translate(-50%, -40%) !important;\n}\n.navigation__button {\n  position: absolute;\n  top: 50%;\n  right: 2rem;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  font-size: 1.4rem;\n  font-weight: 700;\n  cursor: pointer;\n}\n.navigation__button:hover {\n  color: #FFD700;\n}\n.navigation__account-list {\n  position: absolute;\n  top: 5.5rem;\n  right: 0;\n  width: 20rem;\n  height: 0;\n  overflow: hidden;\n  list-style: none;\n  text-align: left;\n  background-color: #212127;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n  border: none;\n  box-shadow: none;\n}\n.navigation__account-link, .navigation__account-link:link, .navigation__account-link:visited {\n  display: block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n  padding: 1rem 2rem;\n  border: none;\n  width: 100%;\n  background: transparent;\n  text-align: left;\n  cursor: pointer;\n}\n.navigation__account-link:hover, .navigation__account-link:focus, .navigation__account-link:active {\n  color: #FFD700;\n  background-color: #2E2E36;\n}\n.navigation__checkbox:checked ~ .navigation__account-list {\n  height: 20rem;\n  border-left: 1px solid #494957;\n  border-bottom: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n}", ""]);
 
 // exports
 
@@ -17342,7 +17352,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".mobile-navigation {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 10000;\n  width: 100%;\n  padding: 1rem;\n  background-color: #10121A;\n  border-bottom: 1px solid #3d3d49;\n}\n.mobile-navigation__brand {\n  height: 5rem;\n  width: 69%;\n  display: inline-block;\n}\n.mobile-navigation__brand-img {\n  height: 100%;\n  width: auto;\n}\n.mobile-navigation__nav {\n  display: inline-block;\n  width: 29%;\n  text-align: right;\n  vertical-align: top;\n}\n.mobile-navigation__checkbox {\n  display: none;\n}\n.mobile-navigation__button {\n  display: inline-block;\n  cursor: pointer;\n  height: 5rem;\n  width: 5rem;\n  text-align: center;\n}\n.mobile-navigation__icon {\n  position: relative;\n  margin-top: 2.5rem;\n}\n.mobile-navigation__icon, .mobile-navigation__icon::before, .mobile-navigation__icon::after {\n  display: inline-block;\n  width: 3rem;\n  height: 2px;\n  background-color: #FFD700;\n}\n.mobile-navigation__icon::before, .mobile-navigation__icon::after {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n}\n.mobile-navigation__icon::before {\n  top: -0.8rem;\n}\n.mobile-navigation__icon::after {\n  bottom: -0.8rem;\n}\n.mobile-navigation__button:hover .mobile-navigation__icon::before {\n  top: -1rem;\n}\n.mobile-navigation__button:hover .mobile-navigation__icon::after {\n  top: 1rem;\n}\n.mobile-navigation__list {\n  position: absolute;\n  top: 8rem;\n  right: 0;\n  height: 0;\n  width: 20rem;\n  overflow: hidden;\n  list-style: none;\n  text-align: left;\n  background-color: #212127;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n  border: none;\n  box-shadow: none;\n}\n.mobile-navigation__link, .mobile-navigation__link:link, .mobile-navigation__link:visited {\n  display: block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n  padding: 1rem 2rem;\n}\n.mobile-navigation__link:hover, .mobile-navigation__link:focus, .mobile-navigation__link:active {\n  color: #FFD700;\n  background-color: #2E2E36;\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon {\n  background-color: transparent;\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon::before {\n  top: 0;\n  -webkit-transform: rotate(135deg);\n          transform: rotate(135deg);\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon::after {\n  top: 0;\n  -webkit-transform: rotate(-135deg);\n          transform: rotate(-135deg);\n}\n.mobile-navigation__checkbox:checked ~ .mobile-navigation__list {\n  height: 26rem;\n  border: 1px solid #494957;\n  border-right: none;\n  box-shadow: 0 0 10px #000;\n}", ""]);
+exports.push([module.i, ".mobile-navigation {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 10000;\n  width: 100%;\n  padding: 1rem;\n  background-color: #10121A;\n  border-bottom: 1px solid #3d3d49;\n}\n.mobile-navigation__brand {\n  height: 5rem;\n  width: 69%;\n  display: inline-block;\n}\n.mobile-navigation__brand-img {\n  height: 100%;\n  width: auto;\n}\n.mobile-navigation__nav {\n  display: inline-block;\n  width: 29%;\n  text-align: right;\n  vertical-align: top;\n}\n.mobile-navigation__checkbox {\n  display: none;\n}\n.mobile-navigation__button {\n  display: inline-block;\n  cursor: pointer;\n  height: 5rem;\n  width: 5rem;\n  text-align: center;\n}\n.mobile-navigation__icon {\n  position: relative;\n  margin-top: 2.5rem;\n}\n.mobile-navigation__icon, .mobile-navigation__icon::before, .mobile-navigation__icon::after {\n  display: inline-block;\n  width: 3rem;\n  height: 2px;\n  background-color: #FFD700;\n}\n.mobile-navigation__icon::before, .mobile-navigation__icon::after {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n}\n.mobile-navigation__icon::before {\n  top: -0.8rem;\n}\n.mobile-navigation__icon::after {\n  bottom: -0.8rem;\n}\n.mobile-navigation__button:hover .mobile-navigation__icon::before {\n  top: -1rem;\n}\n.mobile-navigation__button:hover .mobile-navigation__icon::after {\n  top: 1rem;\n}\n.mobile-navigation__list {\n  position: absolute;\n  top: 8rem;\n  right: 0;\n  height: 0;\n  width: 20rem;\n  overflow: hidden;\n  list-style: none;\n  text-align: left;\n  background-color: #212127;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n  border: none;\n  box-shadow: none;\n}\n.mobile-navigation__spinner {\n  position: absolute;\n  top: 1.5rem !important;\n  left: 50% !important;\n  -webkit-transform: translateX(-50%) !important;\n          transform: translateX(-50%) !important;\n}\n.mobile-navigation__link, .mobile-navigation__link:link, .mobile-navigation__link:visited {\n  display: block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n  padding: 1rem 2rem;\n}\n.mobile-navigation__link:hover, .mobile-navigation__link:focus, .mobile-navigation__link:active {\n  color: #FFD700;\n  background-color: #2E2E36;\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon {\n  background-color: transparent;\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon::before {\n  top: 0;\n  -webkit-transform: rotate(135deg);\n          transform: rotate(135deg);\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon::after {\n  top: 0;\n  -webkit-transform: rotate(-135deg);\n          transform: rotate(-135deg);\n}\n.mobile-navigation__checkbox:checked ~ .mobile-navigation__list {\n  height: 47rem;\n  border: 1px solid #494957;\n  border-right: none;\n  box-shadow: 0 0 10px #000;\n}", ""]);
 
 // exports
 
@@ -38892,6 +38902,24 @@ var render = function() {
                       "router-link",
                       {
                         staticClass: "navigation__account-link",
+                        attrs: { to: "/updates/create" }
+                      },
+                      [_vm._v("Create a New Update")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("li", { staticClass: "u-horizontal-line" }),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "navigation__account-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "navigation__account-link",
                         attrs: { to: "/users/" + _vm.authUser.id }
                       },
                       [_vm._v("Profile")]
@@ -39037,72 +39065,155 @@ var render = function() {
       _vm._v(" "),
       _vm._m(1),
       _vm._v(" "),
-      _c("ul", { staticClass: "mobile-navigation__list" }, [
-        _c(
-          "li",
-          { staticClass: "mobile-navigation__item" },
-          [
-            _c(
-              "router-link",
-              { staticClass: "mobile-navigation__link", attrs: { to: "/" } },
-              [_vm._v("Home")]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          { staticClass: "mobile-navigation__item" },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "mobile-navigation__link",
-                attrs: { to: "/updates" }
-              },
-              [_vm._v("Updates")]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          { staticClass: "mobile-navigation__item" },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "mobile-navigation__link",
-                attrs: { to: "/commands" }
-              },
-              [_vm._v("Commands")]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
-        _vm._m(3),
-        _vm._v(" "),
-        _c(
-          "li",
-          { staticClass: "mobile-navigation__item" },
-          [
-            _c(
-              "router-link",
-              {
-                staticClass: "mobile-navigation__link",
-                attrs: { to: "/marketplace" }
-              },
-              [_vm._v("Marketplace")]
-            )
-          ],
-          1
-        )
-      ])
+      _c(
+        "ul",
+        { staticClass: "mobile-navigation__list" },
+        [
+          _vm.authUserLoad != 2
+            ? _c("clip-loader", {
+                staticClass: "mobile-navigation__spinner",
+                attrs: { loading: true, color: "#FFD700", size: "2rem" }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.authUserLoad != 2
+            ? _c("div", { staticClass: "u-spacer-sm" })
+            : _c("div", [
+                _c(
+                  "li",
+                  { staticClass: "navigation__account-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "navigation__account-link",
+                        attrs: { to: "/updates/create" }
+                      },
+                      [_vm._v("Create a New Update")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("li", { staticClass: "u-horizontal-line" }),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "navigation__account-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "navigation__account-link",
+                        attrs: { to: "/users/" + _vm.authUser.id }
+                      },
+                      [_vm._v("Profile")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "navigation__account-item" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "navigation__account-link",
+                        attrs: { to: "/users/" + _vm.authUser.id + "/settings" }
+                      },
+                      [_vm._v("Settings")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("li", { staticClass: "navigation__account-item" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "navigation__account-link",
+                      on: {
+                        click: function($event) {
+                          return _vm.logout()
+                        }
+                      }
+                    },
+                    [_vm._v("Log Out")]
+                  )
+                ])
+              ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "u-horizontal-line" }),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "mobile-navigation__item" },
+            [
+              _c(
+                "router-link",
+                { staticClass: "mobile-navigation__link", attrs: { to: "/" } },
+                [_vm._v("Home")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "mobile-navigation__item" },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "mobile-navigation__link",
+                  attrs: { to: "/updates" }
+                },
+                [_vm._v("Updates")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "mobile-navigation__item" },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "mobile-navigation__link",
+                  attrs: { to: "/commands" }
+                },
+                [_vm._v("Commands")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _vm._m(2),
+          _vm._v(" "),
+          _vm._m(3),
+          _vm._v(" "),
+          _c(
+            "li",
+            { staticClass: "mobile-navigation__item" },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "mobile-navigation__link",
+                  attrs: { to: "/marketplace" }
+                },
+                [_vm._v("Marketplace")]
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
     ])
   ])
 }

@@ -206,8 +206,20 @@ body {
   margin-top: 10rem !important;
 }
 
+.u-spacer-sm {
+  height: 4rem !important;
+  display: block;
+}
+
 .u-show {
   visibility: visible !important;
+}
+
+.u-horizontal-line {
+  display: block;
+  height: 2px;
+  background-color: #494957;
+  margin: 1rem 0;
 }
 
 .btn,

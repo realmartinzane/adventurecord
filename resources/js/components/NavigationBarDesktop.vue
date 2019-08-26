@@ -32,6 +32,8 @@
                 </label>
 
                 <ul class="navigation__account-list">
+                    <li class="navigation__account-item"><router-link :to="'/updates/create'" class="navigation__account-link">Create a New Update</router-link ></li>
+                    <li class="u-horizontal-line"></li>
                     <li class="navigation__account-item"><router-link :to="'/users/' + authUser.id" class="navigation__account-link">Profile</router-link ></li>
                     <li class="navigation__account-item"><router-link :to="'/users/' + authUser.id + '/settings'" class="navigation__account-link">Settings</router-link ></li>
                     <li class="navigation__account-item"><button @click="logout()" class="navigation__account-link">Log Out</button ></li>
@@ -235,7 +237,7 @@ export default {
         // Checkbox Functionality
         &__checkbox:checked ~ &__account-list
         {
-            height: 13rem;
+            height: 20rem;
             border-left: 1px solid $color-border-light;
             border-bottom: 1px solid $color-border-light;
             box-shadow: 0 0 10px $color-black;

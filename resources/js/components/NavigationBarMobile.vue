@@ -12,6 +12,16 @@
             </label>
 
             <ul class="mobile-navigation__list">
+                <clip-loader class="mobile-navigation__spinner" v-if="authUserLoad != 2" :loading="true" color="#FFD700" size="2rem"></clip-loader>
+                <div class="u-spacer-sm" v-if="authUserLoad != 2"></div>
+                <div v-else>
+                    <li class="navigation__account-item"><router-link :to="'/updates/create'" class="navigation__account-link">Create a New Update</router-link ></li>
+                    <li class="u-horizontal-line"></li>
+                    <li class="navigation__account-item"><router-link :to="'/users/' + authUser.id" class="navigation__account-link">Profile</router-link ></li>
+                    <li class="navigation__account-item"><router-link :to="'/users/' + authUser.id + '/settings'" class="navigation__account-link">Settings</router-link ></li>
+                    <li class="navigation__account-item"><button @click="logout()" class="navigation__account-link">Log Out</button ></li>
+                </div>
+                <li class="u-horizontal-line"></li>
                 <li class="mobile-navigation__item"><router-link :to="'/'" class="mobile-navigation__link">Home</router-link ></li>
                 <li class="mobile-navigation__item"><router-link :to="'/updates'" class="mobile-navigation__link">Updates</router-link></li>
                 <li class="mobile-navigation__item"><router-link :to="'/commands'" class="mobile-navigation__link">Commands</router-link></li>
@@ -24,35 +34,23 @@
 </template>
 
 <script>
-export default {
-    methods: 
-    {
-        AuthProvider(provider) 
-        {
-            var self = this
-            this.$auth.authenticate(provider)
-            .then(response =>
-            {
-                self.SocialLogin(provider,response)
-            })
-            .catch(err => 
-            {
-                console.log({err:err})
-            });
-        },
-        
-        SocialLogin(provider,response)
-        {
 
-            this.$http.post('/sociallogin/'+provider,response)
-            .then(response => 
-            {
-                console.log(response.data)
-            })
-            .catch(err => 
-            {
-                console.log({err:err})
-            })
+import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
+
+export default {
+    components: {ClipLoader},
+    computed: 
+    {
+        authUserLoad() {return this.$store.getters.getAuthUserLoad},
+        
+        authUser() {return this.$store.getters.getAuthUser}
+    },
+    methods:
+    {
+        logout()
+        {
+            this.$store.dispatch('logout')
+            window.location = '/logout'
         },
     }
 }
@@ -164,6 +162,14 @@ export default {
             box-shadow: none;
         }
 
+        &__spinner
+        {
+            position: absolute;
+            top: 1.5rem !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+        }
+
         &__link
         {
             &, &:link, &:visited
@@ -203,7 +209,7 @@ export default {
         // Checkbox Functionality
         &__checkbox:checked ~ &__list
         {
-            height: 26rem;
+            height: 47rem;
             border: 1px solid $color-border-light;
             border-right: none;
             box-shadow: 0 0 10px $color-black;

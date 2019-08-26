@@ -24,4 +24,18 @@
 .u-margin-top-lg {margin-top: 8rem !important;}
 .u-margin-top-xl {margin-top: 10rem !important;}
 
+.u-spacer-sm 
+{
+    height: 4rem !important;
+    display: block;
+}
+
 .u-show {visibility: visible !important;}
+
+.u-horizontal-line
+{
+    display: block;
+    height: 2px;
+    background-color: $color-border-light;
+    margin: 1rem 0;
+}
