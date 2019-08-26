@@ -39654,7 +39654,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn--secondary-gold popup__purchase",
+                    staticClass: "btn btn--secondary-gray popup__purchase",
                     on: {
                       click: function($event) {
                         _vm.showModal = false

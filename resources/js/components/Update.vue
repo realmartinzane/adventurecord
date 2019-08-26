@@ -80,7 +80,7 @@
 
                 <footer class="popup__footer popup__footer--prompt">
                     <button class="btn btn--secondary-gold popup__purchase" @click="destroy">Ok</button>
-                    <button class="btn btn--secondary-gold popup__purchase" @click="showModal = false">Cancel</button>
+                    <button class="btn btn--secondary-gray popup__purchase" @click="showModal = false">Cancel</button>
                 </footer>
             </div>
         </div>

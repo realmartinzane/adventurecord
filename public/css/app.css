@@ -285,6 +285,20 @@ body {
   border: 1px solid rgba(255, 215, 0, 0.9);
 }
 
+.btn--secondary-gray {
+  background-color: rgba(153, 153, 153, 0.7);
+  border: 1px solid rgba(153, 153, 153, 0.7);
+  color: #fff;
+}
+
+.btn--secondary-gray:hover,
+.btn--secondary-gray:active,
+.btn--secondary-gray:focus {
+  color: #fff;
+  background-color: rgba(153, 153, 153, 0.9);
+  border: 1px solid rgba(153, 153, 153, 0.9);
+}
+
 .btn--secondary-discord {
   color: #fff;
   background-color: rgba(114, 137, 218, 0.8);
