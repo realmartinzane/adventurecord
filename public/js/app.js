@@ -16630,6 +16630,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     fetchedUpdate: function fetchedUpdate() {
       return this.$store.getters.getUpdate;
+    },
+    updateAdd: function updateAdd() {
+      return this.$store.getters.getUpdateAdd;
     }
   },
   created: function () {
@@ -16676,14 +16679,59 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return created;
   }(),
   methods: {
-    update: function update() {
+    update: function () {
+      var _update = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var _this = this;
+
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return this.$store.dispatch('updateUpdate', {
+                  id: this.id,
+                  form: this.form
+                });
+
+              case 2:
+                response = _context2.sent;
+
+                if (this.updateAdd == 2) {
+                  this.$router.push('/updates', function () {
+                    _this.$toast.success({
+                      title: 'Success',
+                      message: response
+                    });
+                  });
+                } else if (this.updateAdd == 3) {
+                  this.$toast.error({
+                    title: 'Error!',
+                    message: response
+                  });
+                }
+
+              case 4:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, this);
+      }));
+
+      function update() {
+        return _update.apply(this, arguments);
+      }
+
+      return update;
+    }(),
+    submit: function submit() {
       event.preventDefault();
       this.$v.form.$touch();
       if (this.$v.form.$anyError) return;
-      this.$store.dispatch('updateUpdate', {
-        id: this.id,
-        form: this.form
-      });
+      this.update();
     }
   }
 });
@@ -39902,7 +39950,7 @@ var render = function() {
                 {
                   staticClass: "form__submit btn btn--primary",
                   attrs: { type: "submit" },
-                  on: { click: _vm.update }
+                  on: { click: _vm.submit }
                 },
                 [_vm._v("Submit")]
               )
@@ -61699,15 +61747,50 @@ var updates = {
 
       return storeUpdate;
     }(),
-    updateUpdate: function updateUpdate(_ref4, data) {
-      var commit = _ref4.commit;
-      commit('setUpdateAdd', 1);
-      _api_update_js__WEBPACK_IMPORTED_MODULE_1__["default"].update(data.id, data.form).then(function (response) {
-        commit('setUpdateAdd', 2);
-      })["catch"](function () {
-        commit('setUpdateAdd', 3);
-      });
-    }
+    updateUpdate: function () {
+      var _updateUpdate = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(_ref4, data) {
+        var commit, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                commit = _ref4.commit;
+                commit('setUpdateAdd', 1);
+                _context3.prev = 2;
+                _context3.next = 5;
+                return _api_update_js__WEBPACK_IMPORTED_MODULE_1__["default"].update(data.id, data.form);
+
+              case 5:
+                response = _context3.sent;
+                _context3.next = 12;
+                break;
+
+              case 8:
+                _context3.prev = 8;
+                _context3.t0 = _context3["catch"](2);
+                commit('setUpdateAdd', 3);
+                return _context3.abrupt("return", 'There was an error. Please try again later.');
+
+              case 12:
+                commit('setUpdateAdd', 2);
+                return _context3.abrupt("return", response.data);
+
+              case 14:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[2, 8]]);
+      }));
+
+      function updateUpdate(_x5, _x6) {
+        return _updateUpdate.apply(this, arguments);
+      }
+
+      return updateUpdate;
+    }()
   },
   getters: {
     getUpdates: function getUpdates(state) {

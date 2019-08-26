@@ -33,7 +33,7 @@
             </div>
 
             <div class="form__group u-margin-top-md">
-                <button type="submit" class="form__submit btn btn--primary" @click="update">Submit</button>
+                <button type="submit" class="form__submit btn btn--primary" @click="submit">Submit</button>
             </div>
         </form>
     </section>
@@ -69,7 +69,8 @@ export default {
     computed:
     {
         updateLoad() {return this.$store.getters.getUpdateLoad},
-        fetchedUpdate() {return this.$store.getters.getUpdate}
+        fetchedUpdate() {return this.$store.getters.getUpdate},
+        updateAdd() {return this.$store.getters.getUpdateAdd}
     },
 
     async created()
@@ -85,7 +86,31 @@ export default {
     
     methods:
     {
-        update()
+        async update()
+        {
+            let response = await this.$store.dispatch('updateUpdate', {id: this.id, form: this.form})
+            if(this.updateAdd == 2)
+            {
+                this.$router.push('/updates', () =>
+                {
+                    this.$toast.success(
+                        {
+                            title:'Success',
+                            message: response
+                        })
+                })
+            }
+            else if(this.updateAdd == 3)
+            {
+                this.$toast.error(
+                    {
+                        title:'Error!',
+                        message: response
+                    })
+            }
+        },
+
+        submit()
         {
             event.preventDefault();
 
@@ -93,7 +118,7 @@ export default {
 
             if (this.$v.form.$anyError) return
 
-            this.$store.dispatch('updateUpdate', {id: this.id, form: this.form})
+            this.update()
         }
     }
 }
