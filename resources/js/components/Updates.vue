@@ -31,7 +31,14 @@ export default {
     },
     created()
     {
-        this.$store.dispatch('fetchUpdates');
+        this.fetchAll()
+    },
+    methods:
+    {
+        fetchAll()
+        {
+            this.$store.dispatch('fetchUpdates');
+        }
     }
 }
 </script>

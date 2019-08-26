@@ -57,7 +57,7 @@ export default {
 
     computed:
     {
-        updateAdd() {return this.$store.getters.getUpdateAdd}
+        updateStatus() {return this.$store.getters.getUpdateStatus}
     },
 
     validations:
@@ -74,7 +74,7 @@ export default {
         async store()
         {
             let response = await this.$store.dispatch('storeUpdate', this.form)
-            if(this.updateAdd == 2)
+            if(this.updateStatus == 2)
             {
                 this.$router.push('/updates', () =>
                 {
@@ -85,7 +85,7 @@ export default {
                         })
                 })
             }
-            else if(this.updateAdd == 3)
+            else if(this.updateStatus == 3)
             {
                 this.$toast.error(
                     {

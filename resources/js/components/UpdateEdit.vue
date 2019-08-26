@@ -70,7 +70,7 @@ export default {
     {
         updateLoad() {return this.$store.getters.getUpdateLoad},
         fetchedUpdate() {return this.$store.getters.getUpdate},
-        updateAdd() {return this.$store.getters.getUpdateAdd}
+        updateStatus() {return this.$store.getters.getUpdateStatus}
     },
 
     async created()
@@ -89,7 +89,7 @@ export default {
         async update()
         {
             let response = await this.$store.dispatch('updateUpdate', {id: this.id, form: this.form})
-            if(this.updateAdd == 2)
+            if(this.updateStatus == 2)
             {
                 this.$router.push('/updates', () =>
                 {
@@ -100,7 +100,7 @@ export default {
                         })
                 })
             }
-            else if(this.updateAdd == 3)
+            else if(this.updateStatus == 3)
             {
                 this.$toast.error(
                     {

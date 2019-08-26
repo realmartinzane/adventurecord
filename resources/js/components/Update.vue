@@ -79,7 +79,7 @@
                 </div>
 
                 <footer class="popup__footer popup__footer--prompt">
-                    <button class="btn btn--secondary-gold popup__purchase">Ok</button>
+                    <button class="btn btn--secondary-gold popup__purchase" @click="destroy">Ok</button>
                     <button class="btn btn--secondary-gold popup__purchase" @click="showModal = false">Cancel</button>
                 </footer>
             </div>
@@ -110,6 +110,8 @@ export default {
         fetchedUpdate() {return this.id && this.isShowRoute ? this.$store.getters.getUpdate : this.update},
         
         checkLoad() {return this.isShowRoute ? this.$store.getters.getUpdateLoad : this.$store.getters.getUpdatesLoad},
+
+        updateStatus() {return this.$store.getters.getUpdateStatus}
     },
     created()
     {
@@ -123,30 +125,37 @@ export default {
         {
             this.$store.dispatch('fetchUpdate', {id: this.id});
         },
-        destroy()
+        
+        async destroy()
         {
-            axios.post(`/updates/${this.fetchedUpdate.id}/destroy`)
-            .then(({data})=> 
+            let response = await this.$store.dispatch('destroyUpdate', {id: this.fetchedUpdate.id})
+            if(this.updateStatus == 2 && this.isShowRoute)
             {
-                if(this.isShowRoute)
+                this.$router.push('/updates', () =>
                 {
-                    this.$router.push('/updates', () =>
+                    this.$toast.success(
+                        {
+                            title:'Success',
+                            message: response
+                        })
+                })
+            }
+            else if(this.updateStatus == 2 && !this.isShowRoute)
+            {
+                this.$parent.fetchAll();
+                this.$toast.success({
+                        title:'Success',
+                        message: response
+                    })
+            }
+            else if(this.updateStatus == 3)
+            {
+                this.$toast.error(
                     {
-                        this.$toast.success({
-                            title:'Success',
-                            message: data
-                        })
-                    });
-                }
-                else
-                {
-                    this.$parent.fetch();
-                    this.$toast.success({
-                            title:'Success',
-                            message: data
-                        })
-                }
-            });
+                        title:'Error!',
+                        message: response
+                    })
+            }
         }
     }
 }

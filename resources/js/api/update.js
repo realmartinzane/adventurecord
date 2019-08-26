@@ -44,6 +44,6 @@ export default {
     */
     destroy(id)
     {
-        return axios.post(`/updates/${id}/destroy`)
+        return axios.post(`${ADV_CONFIG.API_URL}/updates/${id}/destroy`)
     }
 }

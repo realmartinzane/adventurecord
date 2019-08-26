@@ -16221,8 +16221,16 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _SocialSharing_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SocialSharing.vue */ "./resources/js/components/SocialSharing.vue");
-/* harmony import */ var vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-spinner/src/ClipLoader.vue */ "./node_modules/vue-spinner/src/ClipLoader.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _SocialSharing_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SocialSharing.vue */ "./resources/js/components/SocialSharing.vue");
+/* harmony import */ var vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-spinner/src/ClipLoader.vue */ "./node_modules/vue-spinner/src/ClipLoader.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -16317,8 +16325,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['update'],
   components: {
-    SocialSharingComponent: _SocialSharing_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    ClipLoader: vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    SocialSharingComponent: _SocialSharing_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    ClipLoader: vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -16340,6 +16348,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     checkLoad: function checkLoad() {
       return this.isShowRoute ? this.$store.getters.getUpdateLoad : this.$store.getters.getUpdatesLoad;
+    },
+    updateStatus: function updateStatus() {
+      return this.$store.getters.getUpdateStatus;
     }
   },
   created: function created() {
@@ -16352,29 +16363,59 @@ __webpack_require__.r(__webpack_exports__);
         id: this.id
       });
     },
-    destroy: function destroy() {
-      var _this = this;
+    destroy: function () {
+      var _destroy = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _this = this;
 
-      axios.post("/updates/".concat(this.fetchedUpdate.id, "/destroy")).then(function (_ref) {
-        var data = _ref.data;
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return this.$store.dispatch('destroyUpdate', {
+                  id: this.fetchedUpdate.id
+                });
 
-        if (_this.isShowRoute) {
-          _this.$router.push('/updates', function () {
-            _this.$toast.success({
-              title: 'Success',
-              message: data
-            });
-          });
-        } else {
-          _this.$parent.fetch();
+              case 2:
+                response = _context.sent;
 
-          _this.$toast.success({
-            title: 'Success',
-            message: data
-          });
-        }
-      });
-    }
+                if (this.updateStatus == 2 && this.isShowRoute) {
+                  this.$router.push('/updates', function () {
+                    _this.$toast.success({
+                      title: 'Success',
+                      message: response
+                    });
+                  });
+                } else if (this.updateStatus == 2 && !this.isShowRoute) {
+                  this.$parent.fetchAll();
+                  this.$toast.success({
+                    title: 'Success',
+                    message: response
+                  });
+                } else if (this.updateStatus == 3) {
+                  this.$toast.error({
+                    title: 'Error!',
+                    message: response
+                  });
+                }
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function destroy() {
+        return _destroy.apply(this, arguments);
+      }
+
+      return destroy;
+    }()
   }
 });
 
@@ -16459,8 +16500,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   computed: {
-    updateAdd: function updateAdd() {
-      return this.$store.getters.getUpdateAdd;
+    updateStatus: function updateStatus() {
+      return this.$store.getters.getUpdateStatus;
     }
   },
   validations: {
@@ -16493,14 +16534,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 2:
                 response = _context.sent;
 
-                if (this.updateAdd == 2) {
+                if (this.updateStatus == 2) {
                   this.$router.push('/updates', function () {
                     _this.$toast.success({
                       title: 'Success',
                       message: response
                     });
                   });
-                } else if (this.updateAdd == 3) {
+                } else if (this.updateStatus == 3) {
                   this.$toast.error({
                     title: 'Error!',
                     message: response
@@ -16631,8 +16672,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     fetchedUpdate: function fetchedUpdate() {
       return this.$store.getters.getUpdate;
     },
-    updateAdd: function updateAdd() {
-      return this.$store.getters.getUpdateAdd;
+    updateStatus: function updateStatus() {
+      return this.$store.getters.getUpdateStatus;
     }
   },
   created: function () {
@@ -16699,14 +16740,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 2:
                 response = _context2.sent;
 
-                if (this.updateAdd == 2) {
+                if (this.updateStatus == 2) {
                   this.$router.push('/updates', function () {
                     _this.$toast.success({
                       title: 'Success',
                       message: response
                     });
                   });
-                } else if (this.updateAdd == 3) {
+                } else if (this.updateStatus == 3) {
                   this.$toast.error({
                     title: 'Error!',
                     message: response
@@ -16785,7 +16826,12 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
-    this.$store.dispatch('fetchUpdates');
+    this.fetchAll();
+  },
+  methods: {
+    fetchAll: function fetchAll() {
+      this.$store.dispatch('fetchUpdates');
+    }
   }
 });
 
@@ -39598,7 +39644,10 @@ var render = function() {
               [
                 _c(
                   "button",
-                  { staticClass: "btn btn--secondary-gold popup__purchase" },
+                  {
+                    staticClass: "btn btn--secondary-gold popup__purchase",
+                    on: { click: _vm.destroy }
+                  },
                   [_vm._v("Ok")]
                 ),
                 _vm._v(" "),
@@ -60358,7 +60407,7 @@ __webpack_require__.r(__webpack_exports__);
       POST     /api/updates/destroy
   */
   destroy: function destroy(id) {
-    return axios.post("/updates/".concat(id, "/destroy"));
+    return axios.post("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates/").concat(id, "/destroy"));
   }
 });
 
@@ -61627,7 +61676,7 @@ var updates = {
     updatesLoad: 0,
     update: {},
     updateLoad: 0,
-    updateAdd: 0
+    updateStatus: 0
   },
   mutations: {
     setUpdates: function setUpdates(state, data) {
@@ -61642,8 +61691,8 @@ var updates = {
     setUpdateLoad: function setUpdateLoad(state, status) {
       state.updateLoad = status;
     },
-    setUpdateAdd: function setUpdateAdd(state, status) {
-      state.updateAdd = status;
+    setUpdateStatus: function setUpdateStatus(state, status) {
+      state.updateStatus = status;
     }
   },
   actions: {
@@ -61713,7 +61762,7 @@ var updates = {
             switch (_context2.prev = _context2.next) {
               case 0:
                 commit = _ref3.commit;
-                commit('setUpdateAdd', 1);
+                commit('setUpdateStatus', 1);
                 _context2.prev = 2;
                 _context2.next = 5;
                 return _api_update_js__WEBPACK_IMPORTED_MODULE_1__["default"].store(data);
@@ -61726,11 +61775,11 @@ var updates = {
               case 8:
                 _context2.prev = 8;
                 _context2.t0 = _context2["catch"](2);
-                commit('setUpdateAdd', 3);
+                commit('setUpdateStatus', 3);
                 return _context2.abrupt("return", 'There was an error. Please try again later.');
 
               case 12:
-                commit('setUpdateAdd', 2);
+                commit('setUpdateStatus', 2);
                 return _context2.abrupt("return", response.data);
 
               case 14:
@@ -61757,7 +61806,7 @@ var updates = {
             switch (_context3.prev = _context3.next) {
               case 0:
                 commit = _ref4.commit;
-                commit('setUpdateAdd', 1);
+                commit('setUpdateStatus', 1);
                 _context3.prev = 2;
                 _context3.next = 5;
                 return _api_update_js__WEBPACK_IMPORTED_MODULE_1__["default"].update(data.id, data.form);
@@ -61770,11 +61819,11 @@ var updates = {
               case 8:
                 _context3.prev = 8;
                 _context3.t0 = _context3["catch"](2);
-                commit('setUpdateAdd', 3);
+                commit('setUpdateStatus', 3);
                 return _context3.abrupt("return", 'There was an error. Please try again later.');
 
               case 12:
-                commit('setUpdateAdd', 2);
+                commit('setUpdateStatus', 2);
                 return _context3.abrupt("return", response.data);
 
               case 14:
@@ -61790,6 +61839,50 @@ var updates = {
       }
 
       return updateUpdate;
+    }(),
+    destroyUpdate: function () {
+      var _destroyUpdate = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(_ref5, data) {
+        var commit, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                commit = _ref5.commit;
+                commit('setUpdateStatus', 1);
+                _context4.prev = 2;
+                _context4.next = 5;
+                return _api_update_js__WEBPACK_IMPORTED_MODULE_1__["default"].destroy(data.id);
+
+              case 5:
+                response = _context4.sent;
+                _context4.next = 12;
+                break;
+
+              case 8:
+                _context4.prev = 8;
+                _context4.t0 = _context4["catch"](2);
+                commit('setUpdateStatus', 3);
+                return _context4.abrupt("return", 'There was an error. Please try again later.');
+
+              case 12:
+                commit('setUpdateStatus', 2);
+                return _context4.abrupt("return", response.data);
+
+              case 14:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, null, [[2, 8]]);
+      }));
+
+      function destroyUpdate(_x7, _x8) {
+        return _destroyUpdate.apply(this, arguments);
+      }
+
+      return destroyUpdate;
     }()
   },
   getters: {
@@ -61805,8 +61898,8 @@ var updates = {
     getUpdateLoad: function getUpdateLoad(state) {
       return state.updateLoad;
     },
-    getUpdateAdd: function getUpdateAdd(state) {
-      return state.updateAdd;
+    getUpdateStatus: function getUpdateStatus(state) {
+      return state.updateStatus;
     }
   }
 };

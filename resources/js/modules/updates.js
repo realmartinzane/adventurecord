@@ -11,7 +11,7 @@ export const updates =
         update: {},
         updateLoad: 0,
 
-        updateAdd: 0
+        updateStatus: 0
     },
 
     mutations:
@@ -36,9 +36,9 @@ export const updates =
             state.updateLoad = status
         },
 
-        setUpdateAdd(state, status) 
+        setUpdateStatus(state, status) 
         {
-            state.updateAdd = status
+            state.updateStatus = status
         }
     },
     
@@ -80,7 +80,7 @@ export const updates =
 
         async storeUpdate({commit}, data)
         {
-            commit('setUpdateAdd', 1)
+            commit('setUpdateStatus', 1)
             let response
             try 
             {
@@ -88,16 +88,16 @@ export const updates =
             }
             catch(ex)
             {
-                commit('setUpdateAdd', 3)
+                commit('setUpdateStatus', 3)
                 return 'There was an error. Please try again later.'
             }
-            commit('setUpdateAdd', 2)
+            commit('setUpdateStatus', 2)
             return response.data
         },
 
         async updateUpdate({ commit }, data) 
         {
-            commit('setUpdateAdd', 1)
+            commit('setUpdateStatus', 1)
             let response
             try 
             {
@@ -105,10 +105,27 @@ export const updates =
             }
             catch (ex) 
             {
-                commit('setUpdateAdd', 3)
+                commit('setUpdateStatus', 3)
                 return 'There was an error. Please try again later.'
             }
-            commit('setUpdateAdd', 2)
+            commit('setUpdateStatus', 2)
+            return response.data
+        },
+
+        async destroyUpdate({ commit }, data) 
+        {
+            commit('setUpdateStatus', 1)
+            let response
+            try 
+            {
+                response = await UpdateAPI.destroy(data.id)
+            }
+            catch (ex) 
+            {
+                commit('setUpdateStatus', 3)
+                return 'There was an error. Please try again later.'
+            }
+            commit('setUpdateStatus', 2)
             return response.data
         }
     },
@@ -135,9 +152,9 @@ export const updates =
             return state.updateLoad
         },
 
-        getUpdateAdd(state) 
+        getUpdateStatus(state) 
         {
-            return state.updateAdd
+            return state.updateStatus
         }
     }
 }
