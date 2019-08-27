@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('discriminator');
             $table->string('email');
             $table->text('avatar');
+            $table->integer('role_id')->unsigned()->default(4);
             $table->timestamps();
         });
     }

@@ -41,11 +41,11 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->hasOne('App\Models\Role', 'user_id', 'id');
+        return $this->belongsTo('App\Models\Role');
     }
 
     public function hasRole($role)
     {
-        return $this->role->name == $role ? true : false;
+        return $this->role_id == $role ? true : false;
     }
 }

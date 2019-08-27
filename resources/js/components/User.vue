@@ -13,7 +13,7 @@
 
             <div class="user-profile__left">
                 <img :src="user.avatar" alt="Profile Image" class="user-profile__img">
-                <router-link :to="'/user/settings'" class="user-profile__btn btn btn--primary">
+                <router-link :to="{name: 'users.settings', params: {id: user.id}}" class="user-profile__btn btn btn--primary">
                     <font-awesome-icon :icon="['fas', 'cog']" class="mr-1"></font-awesome-icon>
                     Settings
                 </router-link>

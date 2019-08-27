@@ -39143,23 +39143,27 @@ var render = function() {
           _vm._v(" "),
           _vm.authUser != "" && _vm.authUserLoad == 2
             ? _c("div", [
-                _c(
-                  "li",
-                  { staticClass: "mobile-navigation__item" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "mobile-navigation__link",
-                        attrs: { to: "/updates/create" }
-                      },
-                      [_vm._v("Create a New Update")]
+                _vm.authUser.role.name == "Admin"
+                  ? _c(
+                      "li",
+                      { staticClass: "mobile-navigation__item" },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            staticClass: "mobile-navigation__link",
+                            attrs: { to: "/updates/create" }
+                          },
+                          [_vm._v("Create a New Update")]
+                        )
+                      ],
+                      1
                     )
-                  ],
-                  1
-                ),
+                  : _vm._e(),
                 _vm._v(" "),
-                _c("li", { staticClass: "u-horizontal-line" }),
+                _vm.authUser.role.name == "Admin"
+                  ? _c("li", { staticClass: "u-horizontal-line" })
+                  : _vm._e(),
                 _vm._v(" "),
                 _c(
                   "li",
@@ -39594,7 +39598,9 @@ var render = function() {
             _c("div", { staticClass: "post__left" }, [
               _vm._m(0),
               _vm._v(" "),
-              _vm.authUser != "" && _vm.authUserLoad == 2
+              _vm.authUser != "" &&
+              _vm.authUserLoad == 2 &&
+              _vm.authUser.role.name == "Admin"
                 ? _c(
                     "div",
                     { staticClass: "post__btn-container" },
@@ -40318,7 +40324,12 @@ var render = function() {
                   "router-link",
                   {
                     staticClass: "user-profile__btn btn btn--primary",
-                    attrs: { to: "/user/settings" }
+                    attrs: {
+                      to: {
+                        name: "users.settings",
+                        params: { id: _vm.user.id }
+                      }
+                    }
                   },
                   [
                     _c("font-awesome-icon", {

@@ -58,7 +58,7 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function()
     
 });
 
-Route::group(['prefix' => 'v1', 'middleware' => ['auth:api', 'role:Admin']], function()
+Route::group(['prefix' => 'v1', 'middleware' => ['auth:api', 'role:1']], function()
 {
 /*
     |-------------------------------------------------------------------------------

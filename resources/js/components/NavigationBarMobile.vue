@@ -24,8 +24,8 @@
                 </li>
                 
                 <div v-if="authUser != '' && authUserLoad == 2">
-                    <li class="mobile-navigation__item"><router-link :to="'/updates/create'" class="mobile-navigation__link">Create a New Update</router-link ></li>
-                    <li class="u-horizontal-line"></li>
+                    <li v-if="authUser.role.name == 'Admin'" class="mobile-navigation__item"><router-link :to="'/updates/create'" class="mobile-navigation__link">Create a New Update</router-link ></li>
+                    <li v-if="authUser.role.name == 'Admin'" class="u-horizontal-line"></li>
                     <li class="mobile-navigation__item"><router-link :to="'/users/' + authUser.id" class="mobile-navigation__link">Profile</router-link ></li>
                     <li class="mobile-navigation__item"><router-link :to="'/users/' + authUser.id + '/settings'" class="mobile-navigation__link">Settings</router-link ></li>
                     <li class="mobile-navigation__item"><button @click="logout()" class="mobile-navigation__link">Log Out</button ></li>
