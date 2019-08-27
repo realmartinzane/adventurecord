@@ -39074,7 +39074,26 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "mobile-navigation" }, [
-    _vm._m(0),
+    _c(
+      "div",
+      { staticClass: "mobile-navigation__brand" },
+      [
+        _c("router-link", { attrs: { to: "/home" } }, [
+          _c("img", {
+            staticClass: "mobile-navigation__brand-img",
+            attrs: {
+              srcset:
+                "/img/nav_brand_1x.png" +
+                " 1x, " +
+                "/img/nav_brand_2x.png" +
+                " 2x",
+              alt: "Brand Image"
+            }
+          })
+        ])
+      ],
+      1
+    ),
     _vm._v(" "),
     _c("nav", { staticClass: "mobile-navigation__nav" }, [
       _c("input", {
@@ -39082,7 +39101,7 @@ var render = function() {
         attrs: { type: "checkbox", id: "nav_toggle" }
       }),
       _vm._v(" "),
-      _vm._m(1),
+      _vm._m(0),
       _vm._v(" "),
       _c(
         "ul",
@@ -39238,9 +39257,9 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _vm._m(2),
+          _vm._m(1),
           _vm._v(" "),
-          _vm._m(3),
+          _vm._m(2),
           _vm._v(" "),
           _c(
             "li",
@@ -39264,21 +39283,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mobile-navigation__brand" }, [
-      _c("img", {
-        staticClass: "mobile-navigation__brand-img",
-        attrs: {
-          srcset:
-            "/img/nav_brand_1x.png" + " 1x, " + "/img/nav_brand_2x.png" + " 2x",
-          alt: "Brand Image"
-        }
-      })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
