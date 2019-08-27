@@ -16139,6 +16139,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -17349,7 +17351,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".navigation__brand {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 300;\n  width: 27rem;\n  height: 41rem;\n  background-image: linear-gradient(123.5deg, #252936 50%, transparent 50%);\n}\n.navigation__brand-content {\n  position: absolute;\n  top: 0;\n  z-index: 400;\n}\n.navigation__brand-name {\n  display: block;\n  width: 20rem;\n  margin-left: 1rem;\n  margin-top: 2.5rem;\n}\n.navigation__brand-logo {\n  display: block;\n  width: 10rem;\n  margin-left: 1rem;\n  margin-top: 2rem;\n}\n.navigation__nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 200;\n  width: 100%;\n  background-color: #10121A;\n  border-bottom: 1px solid #3d3d49;\n  height: 5.5rem;\n}\n.navigation__list {\n  list-style: none;\n  display: inline-block;\n  width: calc(76% - 27rem);\n  position: absolute;\n  top: 50%;\n  left: 27rem;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n.navigation__item {\n  display: inline-block;\n  margin: 0 1rem;\n}\n.navigation__link, .navigation__link:link, .navigation__link:visited {\n  display: inline-block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n}\n.navigation__link:hover, .navigation__link:active, .navigation__link:focus {\n  color: #FFD700;\n}\n.navigation__login {\n  position: absolute;\n  top: 50%;\n  right: 2rem;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n.navigation__checkbox {\n  display: none;\n}\n.navigation__spinner {\n  position: absolute;\n  top: 50%;\n  right: 4rem !important;\n  left: auto !important;\n  -webkit-transform: translate(-50%, -40%) !important;\n          transform: translate(-50%, -40%) !important;\n}\n.navigation__button {\n  position: absolute;\n  top: 50%;\n  right: 2rem;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  font-size: 1.4rem;\n  font-weight: 700;\n  cursor: pointer;\n}\n.navigation__button:hover {\n  color: #FFD700;\n}\n.navigation__account-list {\n  position: absolute;\n  top: 5.5rem;\n  right: 0;\n  width: 20rem;\n  height: 0;\n  overflow: hidden;\n  list-style: none;\n  text-align: left;\n  background-color: #212127;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n  border: none;\n  box-shadow: none;\n}\n.navigation__account-link, .navigation__account-link:link, .navigation__account-link:visited {\n  display: block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n  padding: 1rem 2rem;\n  border: none;\n  width: 100%;\n  background: transparent;\n  text-align: left;\n  cursor: pointer;\n}\n.navigation__account-link:hover, .navigation__account-link:focus, .navigation__account-link:active {\n  color: #FFD700;\n  background-color: #2E2E36;\n}\n.navigation__checkbox:checked ~ .navigation__account-list {\n  height: 20rem;\n  border-left: 1px solid #494957;\n  border-bottom: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n}", ""]);
+exports.push([module.i, ".navigation__brand {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 300;\n  width: 27rem;\n  height: 41rem;\n  background-image: linear-gradient(123.5deg, #252936 50%, transparent 50%);\n}\n.navigation__brand-content {\n  position: absolute;\n  top: 0;\n  z-index: 400;\n}\n.navigation__brand-name {\n  display: block;\n  width: 20rem;\n  margin-left: 1rem;\n  margin-top: 2.5rem;\n}\n.navigation__brand-logo {\n  display: block;\n  width: 10rem;\n  margin-left: 1rem;\n  margin-top: 2rem;\n}\n.navigation__nav {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 200;\n  width: 100%;\n  background-color: #10121A;\n  border-bottom: 1px solid #3d3d49;\n  height: 5.5rem;\n}\n.navigation__list {\n  list-style: none;\n  display: inline-block;\n  width: calc(76% - 27rem);\n  position: absolute;\n  top: 50%;\n  left: 27rem;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n.navigation__item {\n  display: inline-block;\n  margin: 0 1rem;\n}\n.navigation__link, .navigation__link:link, .navigation__link:visited {\n  display: inline-block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n}\n.navigation__link:hover, .navigation__link:active, .navigation__link:focus {\n  color: #FFD700;\n}\n.navigation__login {\n  position: absolute;\n  top: 50%;\n  right: 2rem;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n}\n.navigation__checkbox {\n  display: none;\n}\n.navigation__spinner {\n  position: absolute;\n  top: 50%;\n  right: 4rem !important;\n  left: auto !important;\n  -webkit-transform: translate(-50%, -40%) !important;\n          transform: translate(-50%, -40%) !important;\n}\n.navigation__button {\n  position: absolute;\n  top: 50%;\n  right: 2rem;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  font-size: 1.4rem;\n  font-weight: 700;\n  cursor: pointer;\n}\n.navigation__button:hover {\n  color: #FFD700;\n}\n.navigation__account-list {\n  position: absolute;\n  top: 5.5rem;\n  right: 0;\n  width: 20rem;\n  height: 0;\n  overflow: hidden;\n  list-style: none;\n  text-align: left;\n  background-color: #212127;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n  border: none;\n  box-shadow: none;\n}\n.navigation__account-link, .navigation__account-link:link, .navigation__account-link:visited {\n  display: block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n  padding: 1rem 2rem;\n  border: none;\n  width: 100%;\n  background: transparent;\n  text-align: left;\n  cursor: pointer;\n}\n.navigation__account-link:hover, .navigation__account-link:focus, .navigation__account-link:active {\n  color: #FFD700;\n  background-color: #2E2E36;\n}\n.navigation__checkbox:checked ~ .navigation__account-list {\n  height: 20rem;\n  border-left: 1px solid #494957;\n  border-bottom: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n}\n.navigation__checkbox:checked ~ .desktop-no-admin {\n  height: 12.5rem !important;\n}", ""]);
 
 // exports
 
@@ -17368,7 +17370,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".mobile-navigation {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 10000;\n  width: 100%;\n  padding: 1rem;\n  background-color: #10121A;\n  border-bottom: 1px solid #3d3d49;\n}\n.mobile-navigation__brand {\n  height: 5rem;\n  width: 69%;\n  display: inline-block;\n}\n.mobile-navigation__brand-img {\n  height: 100%;\n  width: auto;\n}\n.mobile-navigation__nav {\n  display: inline-block;\n  width: 29%;\n  text-align: right;\n  vertical-align: top;\n}\n.mobile-navigation__checkbox {\n  display: none;\n}\n.mobile-navigation__button {\n  display: inline-block;\n  cursor: pointer;\n  height: 5rem;\n  width: 5rem;\n  text-align: center;\n}\n.mobile-navigation__icon {\n  position: relative;\n  margin-top: 2.5rem;\n}\n.mobile-navigation__icon, .mobile-navigation__icon::before, .mobile-navigation__icon::after {\n  display: inline-block;\n  width: 3rem;\n  height: 2px;\n  background-color: #FFD700;\n}\n.mobile-navigation__icon::before, .mobile-navigation__icon::after {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n}\n.mobile-navigation__icon::before {\n  top: -0.8rem;\n}\n.mobile-navigation__icon::after {\n  bottom: -0.8rem;\n}\n.mobile-navigation__button:hover .mobile-navigation__icon::before {\n  top: -1rem;\n}\n.mobile-navigation__button:hover .mobile-navigation__icon::after {\n  top: 1rem;\n}\n.mobile-navigation__list {\n  position: absolute;\n  top: 8rem;\n  right: 0;\n  height: 0;\n  width: 20rem;\n  overflow: hidden;\n  list-style: none;\n  text-align: left;\n  background-color: #212127;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n  border: none;\n  box-shadow: none;\n}\n.mobile-navigation__spinner {\n  position: absolute;\n  top: 1.5rem !important;\n  left: 50% !important;\n  -webkit-transform: translateX(-50%) !important;\n          transform: translateX(-50%) !important;\n}\n.mobile-navigation__link, .mobile-navigation__link:link, .mobile-navigation__link:visited {\n  display: block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n  padding: 1rem 2rem;\n  border: none;\n  width: 100%;\n  background: transparent;\n  text-align: left;\n  cursor: pointer;\n}\n.mobile-navigation__link:hover, .mobile-navigation__link:focus, .mobile-navigation__link:active {\n  color: #FFD700;\n  background-color: #2E2E36;\n}\n.mobile-navigation__link--discord:hover, .mobile-navigation__link--discord:focus, .mobile-navigation__link--discord:active {\n  color: #7289da;\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon {\n  background-color: transparent;\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon::before {\n  top: 0;\n  -webkit-transform: rotate(135deg);\n          transform: rotate(135deg);\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon::after {\n  top: 0;\n  -webkit-transform: rotate(-135deg);\n          transform: rotate(-135deg);\n}\n.mobile-navigation__checkbox:checked ~ .mobile-navigation__list {\n  height: 47rem;\n  border: 1px solid #494957;\n  border-right: none;\n  box-shadow: 0 0 10px #000;\n}", ""]);
+exports.push([module.i, ".mobile-navigation {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 10000;\n  width: 100%;\n  padding: 1rem;\n  background-color: #10121A;\n  border-bottom: 1px solid #3d3d49;\n}\n.mobile-navigation__brand {\n  height: 5rem;\n  width: 69%;\n  display: inline-block;\n}\n.mobile-navigation__brand-img {\n  height: 100%;\n  width: auto;\n}\n.mobile-navigation__nav {\n  display: inline-block;\n  width: 29%;\n  text-align: right;\n  vertical-align: top;\n}\n.mobile-navigation__checkbox {\n  display: none;\n}\n.mobile-navigation__button {\n  display: inline-block;\n  cursor: pointer;\n  height: 5rem;\n  width: 5rem;\n  text-align: center;\n}\n.mobile-navigation__icon {\n  position: relative;\n  margin-top: 2.5rem;\n}\n.mobile-navigation__icon, .mobile-navigation__icon::before, .mobile-navigation__icon::after {\n  display: inline-block;\n  width: 3rem;\n  height: 2px;\n  background-color: #FFD700;\n}\n.mobile-navigation__icon::before, .mobile-navigation__icon::after {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n}\n.mobile-navigation__icon::before {\n  top: -0.8rem;\n}\n.mobile-navigation__icon::after {\n  bottom: -0.8rem;\n}\n.mobile-navigation__button:hover .mobile-navigation__icon::before {\n  top: -1rem;\n}\n.mobile-navigation__button:hover .mobile-navigation__icon::after {\n  top: 1rem;\n}\n.mobile-navigation__list {\n  position: absolute;\n  top: 8rem;\n  right: 0;\n  height: 0;\n  width: 20rem;\n  overflow: hidden;\n  list-style: none;\n  text-align: left;\n  background-color: #212127;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n  border: none;\n  box-shadow: none;\n}\n.mobile-navigation__spinner {\n  position: absolute;\n  top: 1.5rem !important;\n  left: 50% !important;\n  -webkit-transform: translateX(-50%) !important;\n          transform: translateX(-50%) !important;\n}\n.mobile-navigation__link, .mobile-navigation__link:link, .mobile-navigation__link:visited {\n  display: block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n  padding: 1rem 2rem;\n  border: none;\n  width: 100%;\n  background: transparent;\n  text-align: left;\n  cursor: pointer;\n}\n.mobile-navigation__link:hover, .mobile-navigation__link:focus, .mobile-navigation__link:active {\n  color: #FFD700;\n  background-color: #2E2E36;\n}\n.mobile-navigation__link--discord:hover, .mobile-navigation__link--discord:focus, .mobile-navigation__link--discord:active {\n  color: #7289da;\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon {\n  background-color: transparent;\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon::before {\n  top: 0;\n  -webkit-transform: rotate(135deg);\n          transform: rotate(135deg);\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon::after {\n  top: 0;\n  -webkit-transform: rotate(-135deg);\n          transform: rotate(-135deg);\n}\n.mobile-navigation__checkbox:checked ~ .mobile-navigation__list {\n  height: 47rem;\n  border: 1px solid #494957;\n  border-right: none;\n  box-shadow: 0 0 10px #000;\n}\n.mobile-navigation__checkbox:checked ~ .mobile-no-auth {\n  height: 33rem !important;\n}\n.mobile-navigation__checkbox:checked ~ .mobile-no-admin {\n  height: 40.5rem !important;\n}", ""]);
 
 // exports
 
@@ -38912,72 +38914,94 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _c("ul", { staticClass: "navigation__account-list" }, [
-                _c(
-                  "li",
-                  { staticClass: "navigation__account-item" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "navigation__account-link",
-                        attrs: { to: "/updates/create" }
-                      },
-                      [_vm._v("Create a New Update")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("li", { staticClass: "u-horizontal-line" }),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "navigation__account-item" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "navigation__account-link",
-                        attrs: { to: "/users/" + _vm.authUser.id }
-                      },
-                      [_vm._v("Profile")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "li",
-                  { staticClass: "navigation__account-item" },
-                  [
-                    _c(
-                      "router-link",
-                      {
-                        staticClass: "navigation__account-link",
-                        attrs: { to: "/users/" + _vm.authUser.id + "/settings" }
-                      },
-                      [_vm._v("Settings")]
-                    )
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c("li", { staticClass: "navigation__account-item" }, [
+              _c(
+                "ul",
+                {
+                  staticClass: "navigation__account-list",
+                  class: {
+                    "desktop-no-admin":
+                      _vm.authUser != "" &&
+                      _vm.authUserLoad == 2 &&
+                      _vm.authUser.role.id != 1
+                  }
+                },
+                [
+                  _vm.authUser != "" &&
+                  _vm.authUserLoad == 2 &&
+                  _vm.authUser.role.id == 1
+                    ? _c(
+                        "li",
+                        { staticClass: "navigation__account-item" },
+                        [
+                          _c(
+                            "router-link",
+                            {
+                              staticClass: "navigation__account-link",
+                              attrs: { to: "/updates/create" }
+                            },
+                            [_vm._v("Create a New Update")]
+                          )
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.authUser != "" &&
+                  _vm.authUserLoad == 2 &&
+                  _vm.authUser.role.id == 1
+                    ? _c("li", { staticClass: "u-horizontal-line" })
+                    : _vm._e(),
+                  _vm._v(" "),
                   _c(
-                    "button",
-                    {
-                      staticClass: "navigation__account-link",
-                      on: {
-                        click: function($event) {
-                          return _vm.logout()
+                    "li",
+                    { staticClass: "navigation__account-item" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "navigation__account-link",
+                          attrs: { to: "/users/" + _vm.authUser.id }
+                        },
+                        [_vm._v("Profile")]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    { staticClass: "navigation__account-item" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "navigation__account-link",
+                          attrs: {
+                            to: "/users/" + _vm.authUser.id + "/settings"
+                          }
+                        },
+                        [_vm._v("Settings")]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "navigation__account-item" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "navigation__account-link",
+                        on: {
+                          click: function($event) {
+                            return _vm.logout()
+                          }
                         }
-                      }
-                    },
-                    [_vm._v("Log Out")]
-                  )
-                ])
-              ])
+                      },
+                      [_vm._v("Log Out")]
+                    )
+                  ])
+                ]
+              )
             ])
           : _vm._e()
       ],
@@ -39105,7 +39129,16 @@ var render = function() {
       _vm._v(" "),
       _c(
         "ul",
-        { staticClass: "mobile-navigation__list" },
+        {
+          staticClass: "mobile-navigation__list",
+          class: {
+            "mobile-no-auth": _vm.authUser == "" && _vm.authUserLoad == 2,
+            "mobile-no-admin":
+              _vm.authUser != "" &&
+              _vm.authUserLoad == 2 &&
+              _vm.authUser.role.id != 1
+          }
+        },
         [
           _vm.authUserLoad != 2
             ? _c("clip-loader", {
@@ -39143,7 +39176,7 @@ var render = function() {
           _vm._v(" "),
           _vm.authUser != "" && _vm.authUserLoad == 2
             ? _c("div", [
-                _vm.authUser.role.name == "Admin"
+                _vm.authUser.role.id == 1
                   ? _c(
                       "li",
                       { staticClass: "mobile-navigation__item" },
@@ -39161,7 +39194,7 @@ var render = function() {
                     )
                   : _vm._e(),
                 _vm._v(" "),
-                _vm.authUser.role.name == "Admin"
+                _vm.authUser.role.id == 1
                   ? _c("li", { staticClass: "u-horizontal-line" })
                   : _vm._e(),
                 _vm._v(" "),

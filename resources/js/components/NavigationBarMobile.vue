@@ -11,7 +11,9 @@
                 <span class="mobile-navigation__icon">&nbsp;</span>
             </label>
 
-            <ul class="mobile-navigation__list">
+            <ul class="mobile-navigation__list" 
+                :class="{'mobile-no-auth': authUser == '' && authUserLoad == 2,
+                        'mobile-no-admin': authUser != '' && authUserLoad == 2 && authUser.role.id != 1}">
                 <clip-loader class="mobile-navigation__spinner" v-if="authUserLoad != 2" :loading="true" color="#FFD700" size="2rem"></clip-loader>
                 
                 <div class="u-spacer-sm" v-if="authUserLoad != 2"></div>
@@ -24,8 +26,8 @@
                 </li>
                 
                 <div v-if="authUser != '' && authUserLoad == 2">
-                    <li v-if="authUser.role.name == 'Admin'" class="mobile-navigation__item"><router-link :to="'/updates/create'" class="mobile-navigation__link">Create a New Update</router-link ></li>
-                    <li v-if="authUser.role.name == 'Admin'" class="u-horizontal-line"></li>
+                    <li v-if="authUser.role.id == 1" class="mobile-navigation__item"><router-link :to="'/updates/create'" class="mobile-navigation__link">Create a New Update</router-link ></li>
+                    <li v-if="authUser.role.id == 1" class="u-horizontal-line"></li>
                     <li class="mobile-navigation__item"><router-link :to="'/users/' + authUser.id" class="mobile-navigation__link">Profile</router-link ></li>
                     <li class="mobile-navigation__item"><router-link :to="'/users/' + authUser.id + '/settings'" class="mobile-navigation__link">Settings</router-link ></li>
                     <li class="mobile-navigation__item"><button @click="logout()" class="mobile-navigation__link">Log Out</button ></li>
@@ -235,6 +237,14 @@ export default {
             border: 1px solid $color-border-light;
             border-right: none;
             box-shadow: 0 0 10px $color-black;
+        }
+        &__checkbox:checked ~ .mobile-no-auth
+        {
+            height: 33rem !important;
+        }
+        &__checkbox:checked ~ .mobile-no-admin
+        {
+            height: 40.5rem !important;
         }
     }
 

@@ -31,9 +31,9 @@
                     <font-awesome-icon :icon="['fas', 'caret-down']" size="lg" class="u-margin-left-xs"></font-awesome-icon>
                 </label>
 
-                <ul class="navigation__account-list">
-                    <li class="navigation__account-item"><router-link :to="'/updates/create'" class="navigation__account-link">Create a New Update</router-link ></li>
-                    <li class="u-horizontal-line"></li>
+                <ul class="navigation__account-list" :class="{'desktop-no-admin': authUser != '' && authUserLoad == 2 && authUser.role.id != 1}">
+                    <li v-if="authUser != '' && authUserLoad == 2 && authUser.role.id == 1" class="navigation__account-item"><router-link :to="'/updates/create'" class="navigation__account-link">Create a New Update</router-link ></li>
+                    <li v-if="authUser != '' && authUserLoad == 2 && authUser.role.id == 1" class="u-horizontal-line"></li>
                     <li class="navigation__account-item"><router-link :to="'/users/' + authUser.id" class="navigation__account-link">Profile</router-link ></li>
                     <li class="navigation__account-item"><router-link :to="'/users/' + authUser.id + '/settings'" class="navigation__account-link">Settings</router-link ></li>
                     <li class="navigation__account-item"><button @click="logout()" class="navigation__account-link">Log Out</button ></li>
@@ -241,6 +241,11 @@ export default {
             border-left: 1px solid $color-border-light;
             border-bottom: 1px solid $color-border-light;
             box-shadow: 0 0 10px $color-black;
+        }
+
+        &__checkbox:checked ~ .desktop-no-admin
+        {
+            height: 12.5rem !important;
         }
     }
 

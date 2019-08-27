@@ -222,18 +222,6 @@ body {
   margin: 1rem 0;
 }
 
-.desktop-no-admin {
-  height: 12.5rem !important;
-}
-
-.mobile-no-auth {
-  height: 33rem !important;
-}
-
-.mobile-no-admin {
-  height: 40.5rem !important;
-}
-
 .btn,
 .btn:visited,
 .btn:link {
