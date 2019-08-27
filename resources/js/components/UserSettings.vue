@@ -36,9 +36,8 @@ export default {
     created()
     {
         if(this.user.id != this.id)
-        {
             this.$router.replace('/')
-        }
+        
     }
 }
 </script>

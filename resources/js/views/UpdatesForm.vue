@@ -21,9 +21,8 @@ export default {
     created()
     {
         if(this.user.role.id !== 1)
-        {
             this.$router.replace('/')
-        }
+        
     }
 }
 </script>

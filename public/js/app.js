@@ -17043,9 +17043,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
-    if (this.user.id != this.id) {
-      this.$router.replace('/');
-    }
+    if (this.user.id != this.id) this.$router.replace('/');
   }
 });
 
@@ -17214,9 +17212,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
-    if (this.user.role.id !== 1) {
-      this.$router.replace('/');
-    }
+    if (this.user.role.id !== 1) this.$router.replace('/');
   }
 });
 

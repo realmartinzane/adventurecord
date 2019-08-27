@@ -10,6 +10,6 @@ $factory->define(App\Models\Update::class, function (Faker $faker) {
         'title' => rtrim($faker->sentence(rand(5, 10)), '.'),
         'body' => $faker->paragraphs(rand(3, 7), true),
         'views' => rand(50, 100),
-        'likes' => rand(20, 40)
+        'author_id' => 1
     ];
 });

@@ -14,12 +14,11 @@ class CreateUpdatesTable extends Migration
     public function up()
     {
         Schema::create('updates', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('title')->unique();
             $table->string('slug')->unique();
             $table->text('body');
             $table->integer('views')->unsigned()->default(0);
-            $table->integer('likes')->unsigned()->default(0);
             $table->timestamps();
         });
     }
