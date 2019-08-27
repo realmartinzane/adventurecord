@@ -10,7 +10,7 @@
                     </picture>
                 </div>
                 
-                <div class="post__btn-container">
+                <div class="post__btn-container" v-if="authUser != '' && authUserLoad == 2">
                     <router-link class="btn btn--primary-blue post__left-btn" :to="{name: 'updates.edit', params: {id: fetchedUpdate.id}}">
                         <font-awesome-icon :icon="['far', 'edit']"></font-awesome-icon>
                     </router-link>
@@ -111,7 +111,11 @@ export default {
         
         checkLoad() {return this.isShowRoute ? this.$store.getters.getUpdateLoad : this.$store.getters.getUpdatesLoad},
 
-        updateStatus() {return this.$store.getters.getUpdateStatus}
+        updateStatus() {return this.$store.getters.getUpdateStatus},
+        
+        authUserLoad() {return this.$store.getters.getAuthUserLoad},
+        
+        authUser() {return this.$store.getters.getAuthUser}
     },
     created()
     {

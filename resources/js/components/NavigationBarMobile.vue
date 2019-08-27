@@ -13,14 +13,24 @@
 
             <ul class="mobile-navigation__list">
                 <clip-loader class="mobile-navigation__spinner" v-if="authUserLoad != 2" :loading="true" color="#FFD700" size="2rem"></clip-loader>
+                
                 <div class="u-spacer-sm" v-if="authUserLoad != 2"></div>
-                <div v-else>
-                    <li class="navigation__account-item"><router-link :to="'/updates/create'" class="navigation__account-link">Create a New Update</router-link ></li>
+                
+                <li class="navigation__account-item" v-if="authUser == '' && authUserLoad == 2" >
+                    <a href="/login/discord" class="mobile-navigation__link mobile-navigation__link--discord">
+                        <font-awesome-icon :icon="['fab', 'discord']" size="lg" class="u-margin-right-sm"></font-awesome-icon>
+                        Login with Discord
+                    </a>
+                </li>
+                
+                <div v-if="authUser != '' && authUserLoad == 2">
+                    <li class="mobile-navigation__item"><router-link :to="'/updates/create'" class="mobile-navigation__link">Create a New Update</router-link ></li>
                     <li class="u-horizontal-line"></li>
-                    <li class="navigation__account-item"><router-link :to="'/users/' + authUser.id" class="navigation__account-link">Profile</router-link ></li>
-                    <li class="navigation__account-item"><router-link :to="'/users/' + authUser.id + '/settings'" class="navigation__account-link">Settings</router-link ></li>
-                    <li class="navigation__account-item"><button @click="logout()" class="navigation__account-link">Log Out</button ></li>
+                    <li class="mobile-navigation__item"><router-link :to="'/users/' + authUser.id" class="mobile-navigation__link">Profile</router-link ></li>
+                    <li class="mobile-navigation__item"><router-link :to="'/users/' + authUser.id + '/settings'" class="mobile-navigation__link">Settings</router-link ></li>
+                    <li class="mobile-navigation__item"><button @click="logout()" class="mobile-navigation__link">Log Out</button ></li>
                 </div>
+
                 <li class="u-horizontal-line"></li>
                 <li class="mobile-navigation__item"><router-link :to="'/'" class="mobile-navigation__link">Home</router-link ></li>
                 <li class="mobile-navigation__item"><router-link :to="'/updates'" class="mobile-navigation__link">Updates</router-link></li>
@@ -180,11 +190,23 @@ export default {
                 font-size: 1.4rem;
                 font-weight: 700;
                 padding: 1rem 2rem;
+                border: none;
+                width: 100%;
+                background: transparent;
+                text-align: left;
+                cursor: pointer;
             }
             &:hover, &:focus, &:active
             {
                 color: $color-primary;
                 background-color: $color-secondary-light;
+            }
+            &--discord
+            {
+                &:hover, &:focus, &:active
+                {
+                    color: $color-discord;
+                }
             }
         }
 

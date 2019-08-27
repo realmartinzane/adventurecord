@@ -16129,6 +16129,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -16361,6 +16371,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     updateStatus: function updateStatus() {
       return this.$store.getters.getUpdateStatus;
+    },
+    authUserLoad: function authUserLoad() {
+      return this.$store.getters.getAuthUserLoad;
+    },
+    authUser: function authUser() {
+      return this.$store.getters.getAuthUser;
     }
   },
   created: function created() {
@@ -17352,7 +17368,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".mobile-navigation {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 10000;\n  width: 100%;\n  padding: 1rem;\n  background-color: #10121A;\n  border-bottom: 1px solid #3d3d49;\n}\n.mobile-navigation__brand {\n  height: 5rem;\n  width: 69%;\n  display: inline-block;\n}\n.mobile-navigation__brand-img {\n  height: 100%;\n  width: auto;\n}\n.mobile-navigation__nav {\n  display: inline-block;\n  width: 29%;\n  text-align: right;\n  vertical-align: top;\n}\n.mobile-navigation__checkbox {\n  display: none;\n}\n.mobile-navigation__button {\n  display: inline-block;\n  cursor: pointer;\n  height: 5rem;\n  width: 5rem;\n  text-align: center;\n}\n.mobile-navigation__icon {\n  position: relative;\n  margin-top: 2.5rem;\n}\n.mobile-navigation__icon, .mobile-navigation__icon::before, .mobile-navigation__icon::after {\n  display: inline-block;\n  width: 3rem;\n  height: 2px;\n  background-color: #FFD700;\n}\n.mobile-navigation__icon::before, .mobile-navigation__icon::after {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n}\n.mobile-navigation__icon::before {\n  top: -0.8rem;\n}\n.mobile-navigation__icon::after {\n  bottom: -0.8rem;\n}\n.mobile-navigation__button:hover .mobile-navigation__icon::before {\n  top: -1rem;\n}\n.mobile-navigation__button:hover .mobile-navigation__icon::after {\n  top: 1rem;\n}\n.mobile-navigation__list {\n  position: absolute;\n  top: 8rem;\n  right: 0;\n  height: 0;\n  width: 20rem;\n  overflow: hidden;\n  list-style: none;\n  text-align: left;\n  background-color: #212127;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n  border: none;\n  box-shadow: none;\n}\n.mobile-navigation__spinner {\n  position: absolute;\n  top: 1.5rem !important;\n  left: 50% !important;\n  -webkit-transform: translateX(-50%) !important;\n          transform: translateX(-50%) !important;\n}\n.mobile-navigation__link, .mobile-navigation__link:link, .mobile-navigation__link:visited {\n  display: block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n  padding: 1rem 2rem;\n}\n.mobile-navigation__link:hover, .mobile-navigation__link:focus, .mobile-navigation__link:active {\n  color: #FFD700;\n  background-color: #2E2E36;\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon {\n  background-color: transparent;\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon::before {\n  top: 0;\n  -webkit-transform: rotate(135deg);\n          transform: rotate(135deg);\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon::after {\n  top: 0;\n  -webkit-transform: rotate(-135deg);\n          transform: rotate(-135deg);\n}\n.mobile-navigation__checkbox:checked ~ .mobile-navigation__list {\n  height: 47rem;\n  border: 1px solid #494957;\n  border-right: none;\n  box-shadow: 0 0 10px #000;\n}", ""]);
+exports.push([module.i, ".mobile-navigation {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 10000;\n  width: 100%;\n  padding: 1rem;\n  background-color: #10121A;\n  border-bottom: 1px solid #3d3d49;\n}\n.mobile-navigation__brand {\n  height: 5rem;\n  width: 69%;\n  display: inline-block;\n}\n.mobile-navigation__brand-img {\n  height: 100%;\n  width: auto;\n}\n.mobile-navigation__nav {\n  display: inline-block;\n  width: 29%;\n  text-align: right;\n  vertical-align: top;\n}\n.mobile-navigation__checkbox {\n  display: none;\n}\n.mobile-navigation__button {\n  display: inline-block;\n  cursor: pointer;\n  height: 5rem;\n  width: 5rem;\n  text-align: center;\n}\n.mobile-navigation__icon {\n  position: relative;\n  margin-top: 2.5rem;\n}\n.mobile-navigation__icon, .mobile-navigation__icon::before, .mobile-navigation__icon::after {\n  display: inline-block;\n  width: 3rem;\n  height: 2px;\n  background-color: #FFD700;\n}\n.mobile-navigation__icon::before, .mobile-navigation__icon::after {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n}\n.mobile-navigation__icon::before {\n  top: -0.8rem;\n}\n.mobile-navigation__icon::after {\n  bottom: -0.8rem;\n}\n.mobile-navigation__button:hover .mobile-navigation__icon::before {\n  top: -1rem;\n}\n.mobile-navigation__button:hover .mobile-navigation__icon::after {\n  top: 1rem;\n}\n.mobile-navigation__list {\n  position: absolute;\n  top: 8rem;\n  right: 0;\n  height: 0;\n  width: 20rem;\n  overflow: hidden;\n  list-style: none;\n  text-align: left;\n  background-color: #212127;\n  -webkit-transition: all 200ms;\n  transition: all 200ms;\n  border: none;\n  box-shadow: none;\n}\n.mobile-navigation__spinner {\n  position: absolute;\n  top: 1.5rem !important;\n  left: 50% !important;\n  -webkit-transform: translateX(-50%) !important;\n          transform: translateX(-50%) !important;\n}\n.mobile-navigation__link, .mobile-navigation__link:link, .mobile-navigation__link:visited {\n  display: block;\n  text-decoration: none;\n  color: inherit;\n  font-size: 1.4rem;\n  font-weight: 700;\n  padding: 1rem 2rem;\n  border: none;\n  width: 100%;\n  background: transparent;\n  text-align: left;\n  cursor: pointer;\n}\n.mobile-navigation__link:hover, .mobile-navigation__link:focus, .mobile-navigation__link:active {\n  color: #FFD700;\n  background-color: #2E2E36;\n}\n.mobile-navigation__link--discord:hover, .mobile-navigation__link--discord:focus, .mobile-navigation__link--discord:active {\n  color: #7289da;\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon {\n  background-color: transparent;\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon::before {\n  top: 0;\n  -webkit-transform: rotate(135deg);\n          transform: rotate(135deg);\n}\n.mobile-navigation__checkbox:checked + .mobile-navigation__button .mobile-navigation__icon::after {\n  top: 0;\n  -webkit-transform: rotate(-135deg);\n          transform: rotate(-135deg);\n}\n.mobile-navigation__checkbox:checked ~ .mobile-navigation__list {\n  height: 47rem;\n  border: 1px solid #494957;\n  border-right: none;\n  box-shadow: 0 0 10px #000;\n}", ""]);
 
 // exports
 
@@ -38847,10 +38863,13 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm.authUser == ""
+        _vm.authUser == "" && _vm.authUserLoad == 2
           ? _c(
-              "button",
-              { staticClass: "btn btn--secondary-discord navigation__login" },
+              "a",
+              {
+                staticClass: "btn btn--secondary-discord navigation__login",
+                attrs: { href: "/login/discord" }
+              },
               [
                 _c("font-awesome-icon", {
                   staticClass: "u-margin-right-sm",
@@ -39078,15 +39097,41 @@ var render = function() {
           _vm._v(" "),
           _vm.authUserLoad != 2
             ? _c("div", { staticClass: "u-spacer-sm" })
-            : _c("div", [
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.authUser == "" && _vm.authUserLoad == 2
+            ? _c("li", { staticClass: "navigation__account-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "mobile-navigation__link mobile-navigation__link--discord",
+                    attrs: { href: "/login/discord" }
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      staticClass: "u-margin-right-sm",
+                      attrs: { icon: ["fab", "discord"], size: "lg" }
+                    }),
+                    _vm._v(
+                      "\n                    Login with Discord\n                "
+                    )
+                  ],
+                  1
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.authUser != "" && _vm.authUserLoad == 2
+            ? _c("div", [
                 _c(
                   "li",
-                  { staticClass: "navigation__account-item" },
+                  { staticClass: "mobile-navigation__item" },
                   [
                     _c(
                       "router-link",
                       {
-                        staticClass: "navigation__account-link",
+                        staticClass: "mobile-navigation__link",
                         attrs: { to: "/updates/create" }
                       },
                       [_vm._v("Create a New Update")]
@@ -39099,12 +39144,12 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "li",
-                  { staticClass: "navigation__account-item" },
+                  { staticClass: "mobile-navigation__item" },
                   [
                     _c(
                       "router-link",
                       {
-                        staticClass: "navigation__account-link",
+                        staticClass: "mobile-navigation__link",
                         attrs: { to: "/users/" + _vm.authUser.id }
                       },
                       [_vm._v("Profile")]
@@ -39115,12 +39160,12 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "li",
-                  { staticClass: "navigation__account-item" },
+                  { staticClass: "mobile-navigation__item" },
                   [
                     _c(
                       "router-link",
                       {
-                        staticClass: "navigation__account-link",
+                        staticClass: "mobile-navigation__link",
                         attrs: { to: "/users/" + _vm.authUser.id + "/settings" }
                       },
                       [_vm._v("Settings")]
@@ -39129,11 +39174,11 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _c("li", { staticClass: "navigation__account-item" }, [
+                _c("li", { staticClass: "mobile-navigation__item" }, [
                   _c(
                     "button",
                     {
-                      staticClass: "navigation__account-link",
+                      staticClass: "mobile-navigation__link",
                       on: {
                         click: function($event) {
                           return _vm.logout()
@@ -39143,7 +39188,8 @@ var render = function() {
                     [_vm._v("Log Out")]
                   )
                 ])
-              ]),
+              ])
+            : _vm._e(),
           _vm._v(" "),
           _c("li", { staticClass: "u-horizontal-line" }),
           _vm._v(" "),
@@ -39544,49 +39590,51 @@ var render = function() {
             _c("div", { staticClass: "post__left" }, [
               _vm._m(0),
               _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "post__btn-container" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "btn btn--primary-blue post__left-btn",
-                      attrs: {
-                        to: {
-                          name: "updates.edit",
-                          params: { id: _vm.fetchedUpdate.id }
-                        }
-                      }
-                    },
+              _vm.authUser != "" && _vm.authUserLoad == 2
+                ? _c(
+                    "div",
+                    { staticClass: "post__btn-container" },
                     [
-                      _c("font-awesome-icon", {
-                        attrs: { icon: ["far", "edit"] }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn--primary-red post__left-btn",
-                      on: {
-                        click: function($event) {
-                          _vm.showModal = true
-                        }
-                      }
-                    },
-                    [
-                      _c("font-awesome-icon", {
-                        attrs: { icon: ["fas", "trash-alt"] }
-                      })
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "btn btn--primary-blue post__left-btn",
+                          attrs: {
+                            to: {
+                              name: "updates.edit",
+                              params: { id: _vm.fetchedUpdate.id }
+                            }
+                          }
+                        },
+                        [
+                          _c("font-awesome-icon", {
+                            attrs: { icon: ["far", "edit"] }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn--primary-red post__left-btn",
+                          on: {
+                            click: function($event) {
+                              _vm.showModal = true
+                            }
+                          }
+                        },
+                        [
+                          _c("font-awesome-icon", {
+                            attrs: { icon: ["fas", "trash-alt"] }
+                          })
+                        ],
+                        1
+                      )
                     ],
                     1
                   )
-                ],
-                1
-              )
+                : _vm._e()
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "post__right" }, [
@@ -62130,6 +62178,13 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 var routes = [{
   path: '/',
+  name: 'landing',
+  redirect: {
+    name: 'home'
+  },
+  component: _views_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+}, {
+  path: '/home',
   name: 'home',
   component: _views_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
 }, {

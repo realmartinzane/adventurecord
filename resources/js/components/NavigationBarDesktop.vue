@@ -17,10 +17,10 @@
                 <li class="navigation__item"><router-link :to="'/marketplace'" class="navigation__link">Marketplace</router-link></li>
             </ul>
 
-            <button v-if="authUser == ''" class="btn btn--secondary-discord navigation__login">
+            <a href="/login/discord" v-if="authUser == '' && authUserLoad == 2" class="btn btn--secondary-discord navigation__login">
                 <font-awesome-icon :icon="['fab', 'discord']" size="lg" class="u-margin-right-sm"></font-awesome-icon>
                 <span>Log in with discord</span>
-            </button>
+            </a>
 
             <clip-loader class="navigation__spinner" v-if="authUserLoad != 2" :loading="true" color="#FFD700" size="2rem"></clip-loader>
 
