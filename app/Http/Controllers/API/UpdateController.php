@@ -9,9 +9,6 @@ use App\Http\Requests\PostUpdateRequest;
 
 class UpdateController extends Controller
 {
-
-    
-
     /*
     |-------------------------------------------------------------------------------
     | Get All Updates

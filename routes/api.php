@@ -51,6 +51,8 @@ Route::group(['prefix' => 'v1'], function()
   */
 
   Route::get('updates/{id}', 'API\UpdateController@single');
+
+  Route::get('profiles/{id}', 'Adv\ProfileController@single');
 });
 
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function()
