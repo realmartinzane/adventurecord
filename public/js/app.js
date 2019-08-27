@@ -62130,10 +62130,6 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 var routes = [{
   path: '/',
-  name: 'landing',
-  component: _views_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
-}, {
-  path: '/home',
   name: 'home',
   component: _views_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
 }, {

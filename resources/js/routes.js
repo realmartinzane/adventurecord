@@ -15,11 +15,6 @@ let routes =
     [
         {
             path: '/',
-            name: 'landing',
-            component: HomeView
-        },
-        {
-            path: '/home',
             name: 'home',
             component: HomeView
         },
