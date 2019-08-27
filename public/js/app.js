@@ -15996,11 +15996,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       showModal: false
     };
+  },
+  computed: {
+    authUserLoad: function authUserLoad() {
+      return this.$store.getters.getAuthUserLoad();
+    },
+    authUser: function authUser() {
+      return this.$store.getters.getAuthUser;
+    }
   }
 });
 
@@ -38660,7 +38669,23 @@ var render = function() {
           _vm._v(" "),
           _vm._m(4),
           _vm._v(" "),
-          _vm._m(5)
+          _c("footer", { staticClass: "popup__footer" }, [
+            _vm.authUser != "" && _vm.authUserLoad == 2
+              ? _c(
+                  "button",
+                  { staticClass: "btn btn--secondary-gold popup__purchase" },
+                  [_vm._v("Purchase")]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.authUser == "" && _vm.authUserLoad == 2
+              ? _c(
+                  "a",
+                  { staticClass: "link", attrs: { href: "/login/discord" } },
+                  [_vm._v("Log in to purchase this item")]
+                )
+              : _vm._e()
+          ])
         ])
       ]
     )
@@ -38762,16 +38787,6 @@ var staticRenderFns = [
           _c("span", { staticClass: "popup__label" }, [_vm._v("Obtainable:")]),
           _vm._v("Yes")
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("footer", { staticClass: "popup__footer" }, [
-      _c("button", { staticClass: "btn btn--secondary-gold popup__purchase" }, [
-        _vm._v("Purchase")
       ])
     ])
   }
@@ -39633,7 +39648,7 @@ var render = function() {
               _vm._v(" "),
               _vm.authUser != "" &&
               _vm.authUserLoad == 2 &&
-              _vm.authUser.role.name == "Admin"
+              _vm.authUser.role.id == 1
                 ? _c(
                     "div",
                     { staticClass: "post__btn-container" },

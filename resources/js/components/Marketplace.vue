@@ -63,7 +63,8 @@
                 </div>
 
                 <footer class="popup__footer">
-                    <button class="btn btn--secondary-gold popup__purchase">Purchase</button>
+                    <button v-if="authUser != '' && authUserLoad == 2" class="btn btn--secondary-gold popup__purchase">Purchase</button>
+                    <a v-if="authUser == '' && authUserLoad == 2" href="/login/discord" class="link">Log in to purchase this item</a>
                 </footer>
             </div>
         </div>
@@ -75,7 +76,13 @@
 export default {
     data(){return{
         showModal: false
-    }}
+    }},
+    computed:
+    {
+        authUserLoad() {return this.$store.getters.getAuthUserLoad()},
+        
+        authUser() {return this.$store.getters.getAuthUser}
+    }
 }
 </script>
 

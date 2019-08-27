@@ -10,7 +10,7 @@
                     </picture>
                 </div>
                 
-                <div class="post__btn-container" v-if="authUser != '' && authUserLoad == 2 && authUser.role.name == 'Admin'">
+                <div class="post__btn-container" v-if="authUser != '' && authUserLoad == 2 && authUser.role.id == 1">
                     <router-link class="btn btn--primary-blue post__left-btn" :to="{name: 'updates.edit', params: {id: fetchedUpdate.id}}">
                         <font-awesome-icon :icon="['far', 'edit']"></font-awesome-icon>
                     </router-link>
