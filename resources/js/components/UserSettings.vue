@@ -26,8 +26,20 @@ export default {
         [
             {text: "English", value: 'en'},
             {text: "Swedish", value: 'se'}
-        ]
-    }}
+        ],
+        id: this.$route.params.id
+    }},
+    computed:
+    {        
+        user() {return this.$store.getters.getAuthUser}
+    },
+    created()
+    {
+        if(this.user.id != this.id)
+        {
+            this.$router.replace('/')
+        }
+    }
 }
 </script>
 

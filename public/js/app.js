@@ -17033,8 +17033,19 @@ __webpack_require__.r(__webpack_exports__);
       }, {
         text: "Swedish",
         value: 'se'
-      }]
+      }],
+      id: this.$route.params.id
     };
+  },
+  computed: {
+    user: function user() {
+      return this.$store.getters.getAuthUser;
+    }
+  },
+  created: function created() {
+    if (this.user.id != this.id) {
+      this.$router.replace('/');
+    }
   }
 });
 
@@ -17197,6 +17208,14 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     isCreateRoute: function isCreateRoute() {
       return this.$route.name === 'updates.create';
+    },
+    user: function user() {
+      return this.$store.getters.getAuthUser;
+    }
+  },
+  created: function created() {
+    if (this.user.role.id !== 1) {
+      this.$router.replace('/');
     }
   }
 });

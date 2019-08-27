@@ -14,7 +14,16 @@ export default {
     components: {UpdateCreateComponent, UpdateEditComponent},
     computed:
     {
-        isCreateRoute() {return this.$route.name === 'updates.create'}
+        isCreateRoute() {return this.$route.name === 'updates.create'},
+        
+        user() {return this.$store.getters.getAuthUser}
+    },
+    created()
+    {
+        if(this.user.role.id !== 1)
+        {
+            this.$router.replace('/')
+        }
     }
 }
 </script>
