@@ -9,12 +9,12 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function()
     | Get Auth User
     |-------------------------------------------------------------------------------
     | URL:            /api/v1/user
-    | Controller:     API\UsersController@auth
+    | Controller:     API\UsersController@user
     | Method:         GET
     | Description:    Get the authenticated user
     */
     
-    Route::get('/user', 'API\UserController@auth');
+    Route::get('/user', 'API\UserController@user');
 
     /*
     |-------------------------------------------------------------------------------

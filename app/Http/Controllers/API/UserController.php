@@ -18,7 +18,7 @@ class UserController extends Controller
     | Description:    Gets the authenticated user
     */
 
-    public function auth()
+    public function user()
     {
         return Auth::guard('api')->user();
     }
