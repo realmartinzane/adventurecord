@@ -84,7 +84,10 @@ export const users =
 
         getAuthUserLoad(state) 
         {
-            return state.authUserLoad
+            return function()
+            {
+                return state.authUserLoad
+            }
         },
 
         getUser(state)

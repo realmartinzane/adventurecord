@@ -16068,7 +16068,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     authUserLoad: function authUserLoad() {
-      return this.$store.getters.getAuthUserLoad;
+      return this.$store.getters.getAuthUserLoad();
     },
     authUser: function authUser() {
       return this.$store.getters.getAuthUser;
@@ -16146,7 +16146,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     authUserLoad: function authUserLoad() {
-      return this.$store.getters.getAuthUserLoad;
+      return this.$store.getters.getAuthUserLoad();
     },
     authUser: function authUser() {
       return this.$store.getters.getAuthUser;
@@ -16373,7 +16373,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return this.$store.getters.getUpdateStatus;
     },
     authUserLoad: function authUserLoad() {
-      return this.$store.getters.getAuthUserLoad;
+      return this.$store.getters.getAuthUserLoad();
     },
     authUser: function authUser() {
       return this.$store.getters.getAuthUser;
@@ -62132,7 +62132,9 @@ var users = {
       return state.authUser;
     },
     getAuthUserLoad: function getAuthUserLoad(state) {
-      return state.authUserLoad;
+      return function () {
+        return state.authUserLoad;
+      };
     },
     getUser: function getUser(state) {
       return state.user;
@@ -62157,14 +62159,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _views_Home_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/Home.vue */ "./resources/js/views/Home.vue");
-/* harmony import */ var _views_Updates_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/Updates.vue */ "./resources/js/views/Updates.vue");
-/* harmony import */ var _views_Update_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/Update.vue */ "./resources/js/views/Update.vue");
-/* harmony import */ var _views_UpdatesForm_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/UpdatesForm.vue */ "./resources/js/views/UpdatesForm.vue");
-/* harmony import */ var _views_Commands_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/Commands.vue */ "./resources/js/views/Commands.vue");
-/* harmony import */ var _views_Marketplace_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/Marketplace.vue */ "./resources/js/views/Marketplace.vue");
-/* harmony import */ var _views_User_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/User.vue */ "./resources/js/views/User.vue");
-/* harmony import */ var _views_UserSettings_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/UserSettings.vue */ "./resources/js/views/UserSettings.vue");
+/* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store.js */ "./resources/js/store.js");
+/* harmony import */ var _views_Home_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/Home.vue */ "./resources/js/views/Home.vue");
+/* harmony import */ var _views_Updates_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/Updates.vue */ "./resources/js/views/Updates.vue");
+/* harmony import */ var _views_Update_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/Update.vue */ "./resources/js/views/Update.vue");
+/* harmony import */ var _views_UpdatesForm_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/UpdatesForm.vue */ "./resources/js/views/UpdatesForm.vue");
+/* harmony import */ var _views_Commands_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/Commands.vue */ "./resources/js/views/Commands.vue");
+/* harmony import */ var _views_Marketplace_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/Marketplace.vue */ "./resources/js/views/Marketplace.vue");
+/* harmony import */ var _views_User_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/User.vue */ "./resources/js/views/User.vue");
+/* harmony import */ var _views_UserSettings_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/UserSettings.vue */ "./resources/js/views/UserSettings.vue");
+
 
 
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]);
@@ -62176,49 +62180,68 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 
 
+
+function requireAuth(to, from, next) {
+  function proceed() {
+    if (_store_js__WEBPACK_IMPORTED_MODULE_2__["default"].getters.getAuthUserLoad() == 2) {
+      if (_store_js__WEBPACK_IMPORTED_MODULE_2__["default"].getters.getAuthUser != '') next();else next('/home');
+    }
+  }
+
+  if (_store_js__WEBPACK_IMPORTED_MODULE_2__["default"].getters.getAuthUserLoad != 2) {
+    _store_js__WEBPACK_IMPORTED_MODULE_2__["default"].dispatch('fetchAuthUser');
+    _store_js__WEBPACK_IMPORTED_MODULE_2__["default"].watch(_store_js__WEBPACK_IMPORTED_MODULE_2__["default"].getters.getAuthUserLoad, function () {
+      if (_store_js__WEBPACK_IMPORTED_MODULE_2__["default"].getters.getAuthUserLoad() == 2) proceed();
+    });
+  } else proceed();
+}
+
 var routes = [{
   path: '/',
   name: 'landing',
   redirect: {
     name: 'home'
   },
-  component: _views_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  component: _views_Home_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
 }, {
   path: '/home',
   name: 'home',
-  component: _views_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  component: _views_Home_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
 }, {
   path: '/updates',
   name: 'updates.index',
-  component: _views_Updates_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  component: _views_Updates_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
 }, {
   path: '/updates/create',
   name: 'updates.create',
-  component: _views_UpdatesForm_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+  component: _views_UpdatesForm_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+  beforeEnter: requireAuth
 }, {
   path: '/updates/:id',
   name: 'updates.show',
-  component: _views_Update_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+  component: _views_Update_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
 }, {
   path: '/updates/:id/edit',
   name: 'updates.edit',
-  component: _views_UpdatesForm_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+  component: _views_UpdatesForm_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+  beforeEnter: requireAuth
 }, {
   path: '/commands',
   name: 'commands',
-  component: _views_Commands_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+  component: _views_Commands_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
 }, {
   path: '/users/:id',
   name: 'users.show',
-  component: _views_User_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
+  component: _views_User_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
 }, {
   path: '/users/:id/settings',
   name: 'users.settings',
-  component: _views_UserSettings_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
+  component: _views_UserSettings_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
+  beforeEnter: requireAuth
 }, {
   path: '/marketplace',
   name: 'marketplace',
-  component: _views_Marketplace_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
+  component: _views_Marketplace_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
 }];
 /* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
   routes: routes,

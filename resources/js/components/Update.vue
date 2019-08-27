@@ -113,7 +113,7 @@ export default {
 
         updateStatus() {return this.$store.getters.getUpdateStatus},
         
-        authUserLoad() {return this.$store.getters.getAuthUserLoad},
+        authUserLoad() {return this.$store.getters.getAuthUserLoad()},
         
         authUser() {return this.$store.getters.getAuthUser}
     },

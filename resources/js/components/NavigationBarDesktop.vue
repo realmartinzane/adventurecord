@@ -51,7 +51,7 @@ export default {
     components: {ClipLoader},
     computed: 
     {
-        authUserLoad() {return this.$store.getters.getAuthUserLoad},
+        authUserLoad() {return this.$store.getters.getAuthUserLoad()},
         
         authUser() {return this.$store.getters.getAuthUser}
     },

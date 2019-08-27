@@ -1,5 +1,6 @@
 import VueRouter from 'vue-router';
 import Vue from 'vue';
+import store from './store.js';
 Vue.use(VueRouter)
 
 import HomeView from './views/Home.vue'
@@ -10,6 +11,32 @@ import CommandsView from './views/Commands.vue'
 import MarketplaceView from './views/Marketplace.vue'
 import UserView from './views/User.vue';
 import UserSettingsView from './views/UserSettings.vue';
+
+function requireAuth(to, from, next) 
+{
+    function proceed() 
+    {
+        if (store.getters.getAuthUserLoad() == 2) 
+        {
+            if (store.getters.getAuthUser != '') 
+                next();
+            else 
+                next('/home');
+        }
+    }
+
+    if (store.getters.getAuthUserLoad != 2) 
+    {
+        store.dispatch('fetchAuthUser');
+        store.watch(store.getters.getAuthUserLoad, function () 
+        {
+            if (store.getters.getAuthUserLoad() == 2) 
+                proceed();
+        });
+    }
+    else 
+        proceed()
+}
 
 let routes =
     [
@@ -32,7 +59,8 @@ let routes =
         {
             path: '/updates/create',
             name: 'updates.create',
-            component: UpdatesFormView
+            component: UpdatesFormView,
+            beforeEnter: requireAuth
         },
         {
             path: '/updates/:id',
@@ -42,7 +70,8 @@ let routes =
         {
             path: '/updates/:id/edit',
             name: 'updates.edit',
-            component: UpdatesFormView
+            component: UpdatesFormView,
+            beforeEnter: requireAuth
         },
         {
             path: '/commands',
@@ -57,7 +86,8 @@ let routes =
         {
             path: '/users/:id/settings',
             name: 'users.settings',
-            component: UserSettingsView
+            component: UserSettingsView,
+            beforeEnter: requireAuth
         },
         {
             path: '/marketplace',
