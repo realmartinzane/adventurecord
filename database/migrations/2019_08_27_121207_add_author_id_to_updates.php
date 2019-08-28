@@ -15,7 +15,7 @@ class AddAuthorIdToUpdates extends Migration
     {
         Schema::table('updates', function (Blueprint $table) {
             $table->integer('author_id')->unsigned()->default(4)->after('id');
-            $table->foreign('author_id')->references('id')->on('updates')->onDelete('cascade');;
+            $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');;
         });
     }
 

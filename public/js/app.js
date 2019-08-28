@@ -39733,7 +39733,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "post__author" }, [
-                    _vm._v("Posted by VampY")
+                    _vm._v("Posted by " + _vm._s(_vm.fetchedUpdate.author.name))
                   ])
                 ]),
                 _vm._v(" "),

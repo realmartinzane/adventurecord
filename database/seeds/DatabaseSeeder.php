@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Update::class, 3)->create();
+        // factory(App\Models\Update::class, 3)->create();
         
         /*
         DB::table('users')->insert([

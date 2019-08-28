@@ -48,6 +48,7 @@ class AuthController extends Controller
         else
         {
             $socialName = $socialUser->getName();
+            
             if($user->name !== $socialName)
             {
                 $user->name = $socialName;

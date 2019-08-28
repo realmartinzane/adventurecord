@@ -10,6 +10,7 @@ class Update extends Model
 {
     protected $appends = ['created_date', 'body_html'];
     protected $fillable = ['title', 'body'];
+    protected $with = ['author'];
 
     public function setTitleAttribute($value)
     {
@@ -25,5 +26,10 @@ class Update extends Model
     public function getBodyHtmlAttribute()
     {
         return \Parsedown::instance()->text($this->body);
+    }
+
+    public function author()
+    {
+        return $this->belongsTo('App\User', 'author_id', 'id');
     }
 }

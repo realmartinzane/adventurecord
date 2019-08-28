@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Update;
 use App\Http\Requests\PostUpdateRequest;
+use Auth;
 
 class UpdateController extends Controller
 {
@@ -54,7 +55,12 @@ class UpdateController extends Controller
 
     public function store(PostUpdateRequest $request)
     {
-        Update::create($request->only('title', 'body'));
+        $update = new Update();
+        $update->title = $request->title;
+        $update->body = $request->body;
+        $update->author_id = Auth::user()->id;
+        $update->save();
+
         return response()->json('Your update has been created.');
     }
 
