@@ -75,8 +75,7 @@ section {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 ::-moz-selection {
@@ -112,8 +111,7 @@ body {
   position: absolute;
   left: 50%;
   bottom: 0;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   height: 3px;
   width: 5rem;
   border-bottom: 3px solid #FFD700;
@@ -230,7 +228,6 @@ body {
   padding: 0.9rem 1.8rem;
   display: inline-block;
   border-radius: 3px;
-  -webkit-transition: all 200ms;
   transition: all 200ms;
   font-size: 1.2rem;
   cursor: pointer;
@@ -446,8 +443,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   z-index: 15000;
   background: #2E2E36;
   border: 1px solid #494957;
@@ -647,14 +643,12 @@ body {
 .tooltip[aria-hidden=true] {
   visibility: hidden;
   opacity: 0;
-  -webkit-transition: opacity 0.15s, visibility 0.15s;
   transition: opacity 0.15s, visibility 0.15s;
 }
 
 .tooltip[aria-hidden=false] {
   visibility: visible;
   opacity: 1;
-  -webkit-transition: opacity 0.15s;
   transition: opacity 0.15s;
 }
 
