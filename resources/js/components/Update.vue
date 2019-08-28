@@ -11,11 +11,11 @@
                 </div>
                 
                 <div class="post__btn-container" v-if="authUser != '' && authUserLoad == 2 && authUser.role.id == 1">
-                    <router-link class="btn btn--primary-blue post__left-btn" :to="{name: 'updates.edit', params: {id: fetchedUpdate.id}}">
+                    <router-link class="btn btn--primary-blue post__left-btn" :to="{name: 'updates.edit', params: {id: fetchedUpdate.id}}" v-tooltip.bottom="'Edit'">
                         <font-awesome-icon :icon="['far', 'edit']"></font-awesome-icon>
                     </router-link>
                     
-                    <button @click="showModal = true" class="btn btn--primary-red post__left-btn" >
+                    <button @click="showModal = true" class="btn btn--primary-red post__left-btn" v-tooltip.bottom="'Delete'" >
                         <font-awesome-icon :icon="['fas', 'trash-alt']"></font-awesome-icon>
                     </button>
                 </div>
@@ -32,7 +32,7 @@
                         <div class="post__date">{{ fetchedUpdate.created_date }}</div>
                         <div class="post__views">
                             {{ fetchedUpdate.views }}
-                            <font-awesome-icon :icon="['far', 'eye']"></font-awesome-icon>
+                            <font-awesome-icon :icon="['far', 'eye']" v-tooltip.bottom="'Views'"></font-awesome-icon>
                         </div>
                     </div>
                 </header>
@@ -46,10 +46,10 @@
                     </div>
                     <div class="post__footer-right">
                             <div class="post__likes-container">
-                                <div class="post__like">{{ fetchedUpdate.likes }}</div> <font-awesome-icon :icon="['far', 'heart']"></font-awesome-icon>
+                                <div class="post__like">{{ fetchedUpdate.likes }}</div> <font-awesome-icon :icon="['far', 'heart']" v-tooltip.bottom="'Like'"></font-awesome-icon>
                             </div>
                             <div class="post__share u-margin-left-sm">
-                                <font-awesome-icon :icon="['far', 'share-square']" @click="showLinks = !showLinks"></font-awesome-icon>
+                                <font-awesome-icon :icon="['far', 'share-square']" v-tooltip.bottom="'Share'" @click="showLinks = !showLinks"></font-awesome-icon>
                                 <social-sharing-component
                                     v-if="showLinks"
                                     :url="url"

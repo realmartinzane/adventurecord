@@ -85,6 +85,10 @@ Vue.use(VueCarousel);
 import SocialSharing from 'vue-social-sharing'
 Vue.use(SocialSharing)
 
+// Vue Tooltip
+import VTooltip from 'v-tooltip'
+Vue.use(VTooltip)
+
 // FontAwesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faDiscord, faFacebook, faLine, faLinkedin, faOdnoklassniki, faReddit, faSkype, faTelegram,

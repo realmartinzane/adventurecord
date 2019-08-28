@@ -21,35 +21,35 @@
                     Settings
                 </router-link>
                 <div class="user-profile__info">
-                    <div class="user-profile__label">
+                    <div class="user-profile__label" v-tooltip.left="'Experience'">
                         <font-awesome-icon :icon="['fas', 'bolt']" class="user-profile__exp"></font-awesome-icon>
                     </div>
                     <div class="user-profile__data">
                         {{ user.profile.experience_amount }}
                     </div>
 
-                    <div class="user-profile__label">
+                    <div class="user-profile__label" v-tooltip.left="'Gold'">
                         <font-awesome-icon :icon="['fas', 'coins']" class="user-profile__gold"></font-awesome-icon>
                     </div>
                     <div class="user-profile__data">
                         {{ user.profile.gold_amount }}
                     </div>
 
-                    <div class="user-profile__label">
+                    <div class="user-profile__label" v-tooltip.left="'Gems'">
                         <font-awesome-icon :icon="['far', 'gem']" class="user-profile__gems"></font-awesome-icon>
                     </div>
                     <div class="user-profile__data">
                         {{ user.profile.gems_amount }}
                     </div>
 
-                    <div class="user-profile__label">
+                    <div class="user-profile__label" v-tooltip.left="'Guild'">
                         <font-awesome-icon :icon="['fas', 'campground']" class="user-profile__guild"></font-awesome-icon>
                     </div>
                     <div class="user-profile__data">
                         RandomGuild
                     </div>
 
-                    <div class="user-profile__label">
+                    <div class="user-profile__label" v-tooltip.left="'Last Active'">
                         <font-awesome-icon :icon="['far', 'clock']" class="user-profile__activity"></font-awesome-icon>
                     </div>
                     <div class="user-profile__data">
@@ -227,6 +227,8 @@ export default {
             width: 25%;
             margin: .5rem 0;
             text-align: left;
+            position: relative;
+            z-index: 5000;
         }
 
         &__exp
