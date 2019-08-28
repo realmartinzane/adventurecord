@@ -12,7 +12,7 @@ Route::group(['prefix' => 'v1'], function()
     | Controller:     API\UsersController@user
     | Method:         GET
     | Description:    Get the authenticated user
-    */
+  */
     
     Route::get('/user', 'API\UserController@user');
 
@@ -24,11 +24,23 @@ Route::group(['prefix' => 'v1'], function()
     | Controller:     API\UsersController@single
     | Method:         GET
     | Description:    Get the authenticated user
-    */
+  */
     
     Route::get('/users/{id}', 'API\UserController@single');
 
-    /*
+  /*
+    |-------------------------------------------------------------------------------
+    | Get an Adventure Cord Profile
+    |-------------------------------------------------------------------------------
+    | URL:            /api/v1/profiles/{id}/single
+    | Controller:     API\UpdateController@single
+    | Method:         GET
+    | Description:    Get an adventure cord profile.
+  */
+
+  Route::get('profiles/{id}', 'Adv\ProfileController@single');
+
+  /*
     |-------------------------------------------------------------------------------
     | Get All Updates
     |-------------------------------------------------------------------------------
@@ -45,14 +57,12 @@ Route::group(['prefix' => 'v1'], function()
     | Get a Single Update
     |-------------------------------------------------------------------------------
     | URL:            /api/v1/updates/{id}/single
-    | Controller:     API\UpdateController@getSingle
+    | Controller:     API\UpdateController@single
     | Method:         GET
     | Description:    Get a single update.
   */
 
   Route::get('updates/{id}', 'API\UpdateController@single');
-
-  Route::get('profiles/{id}', 'Adv\ProfileController@single');
 });
 
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function()
@@ -84,7 +94,7 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth:api', 'role:1']], functio
     | Description:    Update an existing update.
   */
 
-  Route::post('updates/{id}/update', 'API\UpdateController@update');
+  Route::put('updates/{id}/update', 'API\UpdateController@update');
 
   /*
     |-------------------------------------------------------------------------------
@@ -96,5 +106,5 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth:api', 'role:1']], functio
     | Description:    Delete an Update from the records.
   */
 
-  Route::post('updates/{id}/destroy', 'API\UpdateController@destroy');
+  Route::delete('updates/{id}/destroy', 'API\UpdateController@destroy');
 });

@@ -33,7 +33,7 @@ export default {
     update(id, data)
     {
         console.log(id, data)
-        return axios.post(`${ADV_CONFIG.API_URL}/updates/${id}/update`,
+        return axios.put(`${ADV_CONFIG.API_URL}/updates/${id}/update`,
         {
             title: data.title,
             body: data.body
@@ -44,6 +44,6 @@ export default {
     */
     destroy(id)
     {
-        return axios.post(`${ADV_CONFIG.API_URL}/updates/${id}/destroy`)
+        return axios.delete(`${ADV_CONFIG.API_URL}/updates/${id}/destroy`)
     }
 }

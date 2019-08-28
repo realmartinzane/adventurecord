@@ -60704,7 +60704,7 @@ __webpack_require__.r(__webpack_exports__);
   */
   update: function update(id, data) {
     console.log(id, data);
-    return axios.post("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates/").concat(id, "/update"), {
+    return axios.put("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates/").concat(id, "/update"), {
       title: data.title,
       body: data.body
     });
@@ -60714,7 +60714,7 @@ __webpack_require__.r(__webpack_exports__);
       POST     /api/updates/destroy
   */
   destroy: function destroy(id) {
-    return axios.post("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates/").concat(id, "/destroy"));
+    return axios["delete"]("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates/").concat(id, "/destroy"));
   }
 });
 
