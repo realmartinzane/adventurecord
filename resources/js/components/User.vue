@@ -1,13 +1,16 @@
 <template>
     <section class="section-user">
-        <clip-loader v-if="userLoad !== 2" :loading="true" color="#FFD700" size="5rem"></clip-loader>
-        <div class="user-profile" v-if="userLoad == 2">
+        <clip-loader v-if="profileLoad != 2" :loading="true" color="#FFD700" size="5rem"></clip-loader>
+        <div class="u-center-text" v-if="profileLoad == 2 && !user.profile">
+            <p>No AdventureCord profile found for this user. Make sure to <a class="link" href="#">use the bot on our server</a> first.</p>
+        </div>
+        <div class="user-profile" v-if="profileLoad == 2 && user.profile">
 
             <header class="user-profile__header user-profile__header--sm">
                 <h2 class="user-profile__name">
                     {{ user.name }} 
-                    <span class="user-profile__ban">Banned</span>
                 </h2>
+                <p v-if="user.profile.Banned == 'Y'" class="user-profile__ban">Banned for {{ user.profile.BanReason }}</p>
                 <sub class="user-profile__id">ID: {{ user.provider_id }} </sub>
             </header>
 
@@ -19,17 +22,24 @@
                 </router-link>
                 <div class="user-profile__info">
                     <div class="user-profile__label">
+                        <font-awesome-icon :icon="['fas', 'bolt']" class="user-profile__exp"></font-awesome-icon>
+                    </div>
+                    <div class="user-profile__data">
+                        {{ user.profile.Experience }}
+                    </div>
+
+                    <div class="user-profile__label">
                         <font-awesome-icon :icon="['fas', 'coins']" class="user-profile__gold"></font-awesome-icon>
                     </div>
                     <div class="user-profile__data">
-                        12,753,964
+                        {{ user.profile.Gold }}
                     </div>
 
                     <div class="user-profile__label">
                         <font-awesome-icon :icon="['far', 'gem']" class="user-profile__gems"></font-awesome-icon>
                     </div>
                     <div class="user-profile__data">
-                        11,607
+                        {{ user.profile.Gems }}
                     </div>
 
                     <div class="user-profile__label">
@@ -43,7 +53,7 @@
                         <font-awesome-icon :icon="['far', 'clock']" class="user-profile__activity"></font-awesome-icon>
                     </div>
                     <div class="user-profile__data">
-                        06.07.2019
+                        {{ user.profile.last_active }}
                     </div>
                 </div>
             </div>
@@ -51,13 +61,13 @@
                 <header class="user-profile__header user-profile__header--lg">
                     <h2 class="user-profile__name">
                         {{ user.name }} 
-                        <span class="user-profile__ban">Banned</span>
+                        <span v-if="user.profile.Banned == 'Y'" class="user-profile__ban">Banned for {{ user.profile.BanReason }}</span>
                     </h2>
                     <sub class="user-profile__id">ID: {{ user.provider_id }} </sub>
                 </header>
                 <div class="user-profile__stats">
                     <div class="user-profile__stats-left">
-                        <img src="/img/humania.png" alt="Humania Logo" class="user-profile__nation">
+                        <img :src="'/img/' + user.profile.Nation + '.png'" alt="Humania Logo" class="user-profile__nation">
                     </div>
                     <div class="user-profile__stats-right">
                         <div class="user-profile__level-label">Level</div>
@@ -70,7 +80,7 @@
 
                 <div class="user-profile__location">
                     <div class="user-profile__location-label">Current Location:</div>
-                    <img src="/img/terassyia.png" alr="Location Image" class="user-profile__location-img">
+                    <img :src="'/img/' + user.profile.Location + '.png'" alr="Location Image" class="user-profile__location-img">
                 </div>
             </div>
         </div>
@@ -90,18 +100,22 @@ export default {
     {
         userLoad() {return this.$store.getters.getUserLoad},
         
-        user() {return this.$store.getters.getUser}
+        user() {return this.$store.getters.getUser},
+
+        profileLoad() {return this.$store.getters.getProfileLoad}
     },
     created()
     {
+        console.log(this.id)
         this.fetchSingle();
+        console.log(this.id)
     },
     methods:
     {
         fetchSingle()
         {
             this.$store.dispatch('fetchUser', {id: this.id})
-        }
+        },
     }
 }
 </script>
@@ -112,7 +126,6 @@ export default {
 
     .user-profile
     {
-
         &__header
         {
             &--sm
@@ -216,6 +229,11 @@ export default {
             text-align: left;
         }
 
+        &__exp
+        {
+            color: $color-exp;
+        }
+
         &__gold
         {
             color: $color-primary;
@@ -223,17 +241,17 @@ export default {
 
         &__gems
         {
-            color: #6755b9; // Add variable later
+            color: $color-gems;
         }
 
         &__guild
         {
-            color: #cb4154; // Add variable later
+            color: $color-guild;
         }
 
         &__activity
         {
-            color: #00bfff; // Add variable later
+            color: $color-activity;
         }
 
         &__data

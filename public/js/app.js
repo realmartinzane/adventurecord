@@ -16963,6 +16963,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -16979,10 +16989,15 @@ __webpack_require__.r(__webpack_exports__);
     },
     user: function user() {
       return this.$store.getters.getUser;
+    },
+    profileLoad: function profileLoad() {
+      return this.$store.getters.getProfileLoad;
     }
   },
   created: function created() {
+    console.log(this.id);
     this.fetchSingle();
+    console.log(this.id);
   },
   methods: {
     fetchSingle: function fetchSingle() {
@@ -17470,7 +17485,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".user-profile__header--sm {\n  display: none;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__header--sm {\n    display: block;\n    width: 100%;\n    text-align: center;\n    margin: 3rem 0;\n}\n}\n.user-profile__header--lg {\n  display: block;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__header--lg {\n    display: none;\n}\n}\n.user-profile__left {\n  display: inline-block;\n  width: 30%;\n  padding: 3rem 6rem;\n  vertical-align: top;\n  text-align: center;\n}\n@media only screen and (max-width: 85em) {\n.user-profile__left {\n    padding: 3rem;\n}\n}\n@media only screen and (max-width: 41.25em) {\n.user-profile__left {\n    padding: 1rem;\n}\n}\n@media only screen and (max-width: 30em) {\n.user-profile__left {\n    width: 100%;\n    margin-bottom: 3rem;\n}\n}\n.user-profile__right {\n  display: inline-block;\n  width: 69%;\n  padding: 3rem;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__right {\n    width: 100%;\n}\n}\n.user-profile__img {\n  width: 12rem;\n  height: 12rem;\n  border: 3px solid #000;\n  outline: 5px solid #c9b350;\n  background-color: #000;\n}\n.user-profile__btn {\n  margin-top: 1rem;\n  padding: 0.5rem 1rem !important;\n  position: relative;\n  z-index: 5000;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__btn {\n    display: block !important;\n    width: 10rem;\n    margin: auto;\n    margin-top: 1rem;\n}\n}\n.user-profile__info {\n  margin-top: 2rem;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__info {\n    width: 25rem;\n    margin: auto;\n}\n}\n.user-profile__label {\n  display: inline-block;\n  width: 25%;\n  margin: 0.5rem 0;\n  text-align: left;\n}\n.user-profile__gold {\n  color: #FFD700;\n}\n.user-profile__gems {\n  color: #6755b9;\n}\n.user-profile__guild {\n  color: #cb4154;\n}\n.user-profile__activity {\n  color: #00bfff;\n}\n.user-profile__data {\n  display: inline-block;\n  width: 70%;\n  text-align: right;\n}\n.user-profile__name {\n  font-size: 4rem;\n  font-weight: 300;\n  line-height: 1;\n}\n.user-profile__ban {\n  font-size: 1.5rem;\n  text-transform: uppercase;\n  color: #ec4853;\n}\n.user-profile__id {\n  font-size: 1.2rem;\n  text-transform: uppercase;\n}\n.user-profile__stats {\n  background-color: #2E2E36;\n  border: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n  margin: 1.5rem 0;\n  padding: 1rem 1.5rem;\n}\n.user-profile__stats-left {\n  display: inline-block;\n  width: 10rem;\n}\n.user-profile__nation {\n  width: 100%;\n}\n.user-profile__stats-right {\n  display: inline-block;\n  width: calc(100% - 10.5rem);\n  vertical-align: top;\n}\n.user-profile__level-label {\n  margin-top: 1rem;\n}\n.user-profile__level {\n  font-size: 4rem;\n  line-height: 1;\n  display: inline-block;\n}\n.user-profile__progress-bar {\n  display: inline-block;\n  width: calc(100% - 60px);\n  height: 2rem;\n  background: #d3d3d3;\n  border-radius: 3px;\n}\n.user-profile__progress {\n  width: 40%;\n  height: 100%;\n  background-image: repeating-linear-gradient(45deg, #FFD700, #FFD700 1rem, #e2c000 1rem, #e2c000 2rem);\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.user-profile__location {\n  margin: 1.5rem 0;\n}\n.user-profile__location-img {\n  width: 100%;\n  height: auto;\n  border: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n}", ""]);
+exports.push([module.i, ".user-profile__header--sm {\n  display: none;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__header--sm {\n    display: block;\n    width: 100%;\n    text-align: center;\n    margin: 3rem 0;\n}\n}\n.user-profile__header--lg {\n  display: block;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__header--lg {\n    display: none;\n}\n}\n.user-profile__left {\n  display: inline-block;\n  width: 30%;\n  padding: 3rem 6rem;\n  vertical-align: top;\n  text-align: center;\n}\n@media only screen and (max-width: 85em) {\n.user-profile__left {\n    padding: 3rem;\n}\n}\n@media only screen and (max-width: 41.25em) {\n.user-profile__left {\n    padding: 1rem;\n}\n}\n@media only screen and (max-width: 30em) {\n.user-profile__left {\n    width: 100%;\n    margin-bottom: 3rem;\n}\n}\n.user-profile__right {\n  display: inline-block;\n  width: 69%;\n  padding: 3rem;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__right {\n    width: 100%;\n}\n}\n.user-profile__img {\n  width: 12rem;\n  height: 12rem;\n  border: 3px solid #000;\n  outline: 5px solid #c9b350;\n  background-color: #000;\n}\n.user-profile__btn {\n  margin-top: 1rem;\n  padding: 0.5rem 1rem !important;\n  position: relative;\n  z-index: 5000;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__btn {\n    display: block !important;\n    width: 10rem;\n    margin: auto;\n    margin-top: 1rem;\n}\n}\n.user-profile__info {\n  margin-top: 2rem;\n}\n@media only screen and (max-width: 30em) {\n.user-profile__info {\n    width: 25rem;\n    margin: auto;\n}\n}\n.user-profile__label {\n  display: inline-block;\n  width: 25%;\n  margin: 0.5rem 0;\n  text-align: left;\n}\n.user-profile__exp {\n  color: #C65D3D;\n}\n.user-profile__gold {\n  color: #FFD700;\n}\n.user-profile__gems {\n  color: #6755b9;\n}\n.user-profile__guild {\n  color: #cb4154;\n}\n.user-profile__activity {\n  color: #00bfff;\n}\n.user-profile__data {\n  display: inline-block;\n  width: 70%;\n  text-align: right;\n}\n.user-profile__name {\n  font-size: 4rem;\n  font-weight: 300;\n  line-height: 1;\n}\n.user-profile__ban {\n  font-size: 1.5rem;\n  text-transform: uppercase;\n  color: #ec4853;\n}\n.user-profile__id {\n  font-size: 1.2rem;\n  text-transform: uppercase;\n}\n.user-profile__stats {\n  background-color: #2E2E36;\n  border: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n  margin: 1.5rem 0;\n  padding: 1rem 1.5rem;\n}\n.user-profile__stats-left {\n  display: inline-block;\n  width: 10rem;\n}\n.user-profile__nation {\n  width: 100%;\n}\n.user-profile__stats-right {\n  display: inline-block;\n  width: calc(100% - 10.5rem);\n  vertical-align: top;\n}\n.user-profile__level-label {\n  margin-top: 1rem;\n}\n.user-profile__level {\n  font-size: 4rem;\n  line-height: 1;\n  display: inline-block;\n}\n.user-profile__progress-bar {\n  display: inline-block;\n  width: calc(100% - 60px);\n  height: 2rem;\n  background: #d3d3d3;\n  border-radius: 3px;\n}\n.user-profile__progress {\n  width: 40%;\n  height: 100%;\n  background-image: repeating-linear-gradient(45deg, #FFD700, #FFD700 1rem, #e2c000 1rem, #e2c000 2rem);\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.user-profile__location {\n  margin: 1.5rem 0;\n}\n.user-profile__location-img {\n  width: 100%;\n  height: auto;\n  border: 1px solid #494957;\n  box-shadow: 0 0 10px #000;\n}", ""]);
 
 // exports
 
@@ -40345,13 +40360,17 @@ var render = function() {
     "section",
     { staticClass: "section-user" },
     [
-      _vm.userLoad !== 2
+      _vm.profileLoad != 2
         ? _c("clip-loader", {
             attrs: { loading: true, color: "#FFD700", size: "5rem" }
           })
         : _vm._e(),
       _vm._v(" "),
-      _vm.userLoad == 2
+      _vm.profileLoad == 2 && !_vm.user.profile
+        ? _c("div", { staticClass: "u-center-text" }, [_vm._m(0)])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.profileLoad == 2 && _vm.user.profile
         ? _c("div", { staticClass: "user-profile" }, [
             _c(
               "header",
@@ -40361,12 +40380,15 @@ var render = function() {
                   _vm._v(
                     "\n                " +
                       _vm._s(_vm.user.name) +
-                      " \n                "
-                  ),
-                  _c("span", { staticClass: "user-profile__ban" }, [
-                    _vm._v("Banned")
-                  ])
+                      " \n            "
+                  )
                 ]),
+                _vm._v(" "),
+                _vm.user.profile.Banned == "Y"
+                  ? _c("p", { staticClass: "user-profile__ban" }, [
+                      _vm._v("Banned for " + _vm._s(_vm.user.profile.BanReason))
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
                 _c("sub", { staticClass: "user-profile__id" }, [
                   _vm._v("ID: " + _vm._s(_vm.user.provider_id) + " ")
@@ -40410,6 +40432,26 @@ var render = function() {
                     { staticClass: "user-profile__label" },
                     [
                       _c("font-awesome-icon", {
+                        staticClass: "user-profile__exp",
+                        attrs: { icon: ["fas", "bolt"] }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "user-profile__data" }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(_vm.user.profile.Experience) +
+                        "\n                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "user-profile__label" },
+                    [
+                      _c("font-awesome-icon", {
                         staticClass: "user-profile__gold",
                         attrs: { icon: ["fas", "coins"] }
                       })
@@ -40418,7 +40460,11 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "user-profile__data" }, [
-                    _vm._v("\n                    12,753,964\n                ")
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(_vm.user.profile.Gold) +
+                        "\n                "
+                    )
                   ]),
                   _vm._v(" "),
                   _c(
@@ -40434,7 +40480,11 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "user-profile__data" }, [
-                    _vm._v("\n                    11,607\n                ")
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(_vm.user.profile.Gems) +
+                        "\n                "
+                    )
                   ]),
                   _vm._v(" "),
                   _c(
@@ -40468,7 +40518,11 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "user-profile__data" }, [
-                    _vm._v("\n                    06.07.2019\n                ")
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(_vm.user.profile.last_active) +
+                        "\n                "
+                    )
                   ])
                 ])
               ],
@@ -40488,9 +40542,13 @@ var render = function() {
                         _vm._s(_vm.user.name) +
                         " \n                    "
                     ),
-                    _c("span", { staticClass: "user-profile__ban" }, [
-                      _vm._v("Banned")
-                    ])
+                    _vm.user.profile.Banned == "Y"
+                      ? _c("span", { staticClass: "user-profile__ban" }, [
+                          _vm._v(
+                            "Banned for " + _vm._s(_vm.user.profile.BanReason)
+                          )
+                        ])
+                      : _vm._e()
                   ]),
                   _vm._v(" "),
                   _c("sub", { staticClass: "user-profile__id" }, [
@@ -40499,9 +40557,33 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _vm._m(0),
+              _c("div", { staticClass: "user-profile__stats" }, [
+                _c("div", { staticClass: "user-profile__stats-left" }, [
+                  _c("img", {
+                    staticClass: "user-profile__nation",
+                    attrs: {
+                      src: "/img/" + _vm.user.profile.Nation + ".png",
+                      alt: "Humania Logo"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _vm._m(1)
+              ]),
               _vm._v(" "),
-              _vm._m(1)
+              _c("div", { staticClass: "user-profile__location" }, [
+                _c("div", { staticClass: "user-profile__location-label" }, [
+                  _vm._v("Current Location:")
+                ]),
+                _vm._v(" "),
+                _c("img", {
+                  staticClass: "user-profile__location-img",
+                  attrs: {
+                    src: "/img/" + _vm.user.profile.Location + ".png",
+                    alr: "Location Image"
+                  }
+                })
+              ])
             ])
           ])
         : _vm._e()
@@ -40514,40 +40596,28 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "user-profile__stats" }, [
-      _c("div", { staticClass: "user-profile__stats-left" }, [
-        _c("img", {
-          staticClass: "user-profile__nation",
-          attrs: { src: "/img/humania.png", alt: "Humania Logo" }
-        })
+    return _c("p", [
+      _vm._v("No AdventureCord profile found for this user. Make sure to "),
+      _c("a", { staticClass: "link", attrs: { href: "#" } }, [
+        _vm._v("use the bot on our server")
       ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "user-profile__stats-right" }, [
-        _c("div", { staticClass: "user-profile__level-label" }, [
-          _vm._v("Level")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "user-profile__level" }, [_vm._v("17")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "user-profile__progress-bar" }, [
-          _c("div", { staticClass: "user-profile__progress" })
-        ])
-      ])
+      _vm._v(" first.")
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "user-profile__location" }, [
-      _c("div", { staticClass: "user-profile__location-label" }, [
-        _vm._v("Current Location:")
+    return _c("div", { staticClass: "user-profile__stats-right" }, [
+      _c("div", { staticClass: "user-profile__level-label" }, [
+        _vm._v("Level")
       ]),
       _vm._v(" "),
-      _c("img", {
-        staticClass: "user-profile__location-img",
-        attrs: { src: "/img/terassyia.png", alr: "Location Image" }
-      })
+      _c("div", { staticClass: "user-profile__level" }, [_vm._v("17")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "user-profile__progress-bar" }, [
+        _c("div", { staticClass: "user-profile__progress" })
+      ])
     ])
   }
 ]
@@ -60674,6 +60744,9 @@ __webpack_require__.r(__webpack_exports__);
   */
   fetchSingle: function fetchSingle(id) {
     return axios.get("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/users/").concat(id));
+  },
+  fetchProfile: function fetchProfile(id) {
+    return axios.get("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/profiles/").concat(id));
   }
 });
 
@@ -60791,7 +60864,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_social_sharing__WEBPACK_IMPOR
 
 
 
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_9__["library"].add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faDiscord"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faEye"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faHeart"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faComment"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faShareSquare"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faEdit"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faTrashAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faFacebook"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faLine"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faLinkedin"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faOdnoklassniki"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faReddit"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faSkype"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faTelegram"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faTwitter"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faVk"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faWeibo"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faWhatsapp"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faEnvelope"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faComments"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faCog"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faCoins"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faGem"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faCampground"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faSignal"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faClock"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faSearch"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faTimes"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faCaretDown"]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_9__["library"].add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faDiscord"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faEye"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faHeart"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faComment"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faShareSquare"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faEdit"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faTrashAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faFacebook"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faLine"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faLinkedin"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faOdnoklassniki"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faReddit"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faSkype"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faTelegram"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faTwitter"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faVk"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faWeibo"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_10__["faWhatsapp"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faEnvelope"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faComments"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faCog"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faCoins"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faGem"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faCampground"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faSignal"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faClock"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faSearch"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faTimes"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faCaretDown"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faBolt"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_13__["FontAwesomeIcon"]); // Vue Router
 
  // App
@@ -62160,7 +62233,8 @@ var users = {
     authUser: null,
     authUserLoad: 0,
     user: null,
-    userLoad: 0
+    userLoad: 0,
+    profileLoad: 0
   },
   mutations: {
     setAuthUser: function setAuthUser(state, user) {
@@ -62174,6 +62248,12 @@ var users = {
     },
     setUserLoad: function setUserLoad(state, status) {
       state.userLoad = status;
+    },
+    setProfile: function setProfile(state, profile) {
+      state.user.profile = profile;
+    },
+    setProfileLoad: function setProfileLoad(state, status) {
+      state.profileLoad = status;
     }
   },
   actions: {
@@ -62194,14 +62274,27 @@ var users = {
       commit('setUser', {});
     },
     fetchUser: function fetchUser(_ref3, data) {
-      var commit = _ref3.commit;
+      var commit = _ref3.commit,
+          dispatch = _ref3.dispatch;
       commit('setUserLoad', 1);
       _api_user_js__WEBPACK_IMPORTED_MODULE_0__["default"].fetchSingle(data.id).then(function (response) {
         commit('setUser', response.data);
         commit('setUserLoad', 2);
+        dispatch('fetchProfile', response.data.provider_id);
       })["catch"](function (err) {
         commit('setUser', {});
         commit('setUserLoad', 3);
+      });
+    },
+    fetchProfile: function fetchProfile(_ref4, data) {
+      var commit = _ref4.commit;
+      commit('setProfileLoad', 1);
+      _api_user_js__WEBPACK_IMPORTED_MODULE_0__["default"].fetchProfile(data).then(function (response) {
+        commit('setProfile', response.data);
+        commit('setProfileLoad', 2);
+      })["catch"](function (err) {
+        commit('setUser', {});
+        commit('setProfileLoad', 3);
       });
     }
   },
@@ -62219,6 +62312,9 @@ var users = {
     },
     getUserLoad: function getUserLoad(state) {
       return state.userLoad;
+    },
+    getProfileLoad: function getProfileLoad(state) {
+      return state.profileLoad;
     }
   }
 };

@@ -9,6 +9,8 @@ export const users =
 
         user: null,
         userLoad: 0,
+
+        profileLoad: 0
     },
 
     mutations:
@@ -31,6 +33,16 @@ export const users =
         setUserLoad(state, status)
         {
             state.userLoad = status
+        },
+
+        setProfile(state, profile)
+        {
+            state.user.profile = profile
+        },
+
+        setProfileLoad(state, status) 
+        {
+            state.profileLoad = status
         }
     },
 
@@ -58,7 +70,7 @@ export const users =
             commit('setUser', {});
         },
 
-        fetchUser({ commit }, data) 
+        fetchUser({commit, dispatch}, data) 
         {
             commit('setUserLoad', 1)
             UserAPI.fetchSingle(data.id)
@@ -66,11 +78,28 @@ export const users =
                     {
                         commit('setUser', response.data)
                         commit('setUserLoad', 2)
+                        dispatch('fetchProfile', response.data.provider_id)
                     })
                 .catch(err => 
                     {
                         commit('setUser', {})
                         commit('setUserLoad', 3)
+                    })
+        },
+
+        fetchProfile({ commit }, data) 
+        {
+            commit('setProfileLoad', 1)
+            UserAPI.fetchProfile(data)
+                .then(response => 
+                    {
+                        commit('setProfile', response.data)
+                        commit('setProfileLoad', 2)
+                    })
+                .catch(err => 
+                    {
+                        commit('setUser', {})
+                        commit('setProfileLoad', 3)
                     })
         },
     },
@@ -98,6 +127,11 @@ export const users =
         getUserLoad(state)
         {
             return state.userLoad
+        },
+
+        getProfileLoad(state)
+        {
+            return state.profileLoad
         }
     }
 }

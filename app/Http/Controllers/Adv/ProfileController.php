@@ -10,8 +10,8 @@ class ProfileController extends Controller
 {
     public function single($id)
     {
-        $profile = Profile::findOrFail($id);
+        $profile = Profile::where('DiscordId', '=', $id)->first();
 
-        dd($profile);
+        return response()->json($profile);
     }
 }

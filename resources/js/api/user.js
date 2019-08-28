@@ -16,4 +16,9 @@ export default {
     {
         return axios.get(`${ADV_CONFIG.API_URL}/users/${id}`);
     },
+
+    fetchProfile(id)
+    {
+        return axios.get(`${ADV_CONFIG.API_URL}/profiles/${id}`);
+    }
 }
