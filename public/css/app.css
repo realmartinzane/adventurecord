@@ -652,6 +652,21 @@ body {
   transition: opacity 0.15s;
 }
 
+body::-webkit-scrollbar-track {
+  border-radius: 12px;
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background-color: #FFD700;
+}
+
 .row {
   max-width: 114rem;
   margin: 0 auto;
