@@ -40442,7 +40442,7 @@ var render = function() {
                   _c("div", { staticClass: "user-profile__data" }, [
                     _vm._v(
                       "\n                    " +
-                        _vm._s(_vm.user.profile.Experience) +
+                        _vm._s(_vm.user.profile.experience_amount) +
                         "\n                "
                     )
                   ]),
@@ -40462,7 +40462,7 @@ var render = function() {
                   _c("div", { staticClass: "user-profile__data" }, [
                     _vm._v(
                       "\n                    " +
-                        _vm._s(_vm.user.profile.Gold) +
+                        _vm._s(_vm.user.profile.gold_amount) +
                         "\n                "
                     )
                   ]),
@@ -40482,7 +40482,7 @@ var render = function() {
                   _c("div", { staticClass: "user-profile__data" }, [
                     _vm._v(
                       "\n                    " +
-                        _vm._s(_vm.user.profile.Gems) +
+                        _vm._s(_vm.user.profile.gems_amount) +
                         "\n                "
                     )
                   ]),

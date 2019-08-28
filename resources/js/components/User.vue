@@ -25,21 +25,21 @@
                         <font-awesome-icon :icon="['fas', 'bolt']" class="user-profile__exp"></font-awesome-icon>
                     </div>
                     <div class="user-profile__data">
-                        {{ user.profile.Experience }}
+                        {{ user.profile.experience_amount }}
                     </div>
 
                     <div class="user-profile__label">
                         <font-awesome-icon :icon="['fas', 'coins']" class="user-profile__gold"></font-awesome-icon>
                     </div>
                     <div class="user-profile__data">
-                        {{ user.profile.Gold }}
+                        {{ user.profile.gold_amount }}
                     </div>
 
                     <div class="user-profile__label">
                         <font-awesome-icon :icon="['far', 'gem']" class="user-profile__gems"></font-awesome-icon>
                     </div>
                     <div class="user-profile__data">
-                        {{ user.profile.Gems }}
+                        {{ user.profile.gems_amount }}
                     </div>
 
                     <div class="user-profile__label">
