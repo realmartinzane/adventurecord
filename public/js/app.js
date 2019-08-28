@@ -16348,9 +16348,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -17447,7 +17444,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".post {\n  width: 95%;\n}\n@media only screen and (max-width: 30em) {\n.post {\n    width: 98%;\n    margin: auto;\n}\n}\n.post__left {\n  display: inline-block;\n  margin: 0 3rem;\n  vertical-align: top;\n}\n@media only screen and (max-width: 30em) {\n.post__left {\n    margin-left: 0;\n    margin-right: 1.5rem;\n}\n}\n.post__img-container {\n  height: 10rem;\n  width: 10rem;\n  padding: 0.5rem;\n  background-color: #000;\n  outline: 3px solid #000;\n  border: 5px solid #FFD700;\n}\n@media only screen and (max-width: 30em) {\n.post__img-container {\n    height: 7.5rem;\n    width: 7.5rem;\n    outline: 1px solid #000;\n    border: 3px solid #FFD700;\n}\n}\n.post__img {\n  width: 100%;\n}\n.post__btn-container {\n  text-align: center;\n}\n.post__left-btn, .post__left-btn:link, .post__left-btn:visited {\n  display: inline-block;\n  padding: 0.5rem 1rem !important;\n  margin-top: 2rem;\n  line-height: 1;\n  font-size: 1.4rem;\n  position: relative;\n  z-index: 5000;\n}\n.post__right {\n  display: inline-block;\n  width: calc(100% - 18rem);\n}\n@media only screen and (max-width: 30em) {\n.post__right {\n    width: calc(100% - 10rem);\n}\n}\n.post__header-left {\n  display: inline-block;\n  width: 79%;\n}\n@media only screen and (max-width: 37.5em) {\n.post__header-left {\n    width: 100%;\n}\n}\n.post__title {\n  font-size: 3rem;\n  font-weight: 400;\n  line-height: 1.15;\n  margin-bottom: 1rem;\n}\n@media only screen and (max-width: 30em) {\n.post__title {\n    font-size: 2rem;\n}\n}\n.post__author {\n  color: #d3d3d3;\n}\n.post__header-right {\n  display: inline-block;\n  width: 20%;\n  text-align: right;\n  vertical-align: top;\n}\n@media only screen and (max-width: 37.5em) {\n.post__header-right {\n    display: none;\n}\n}\n.post__date {\n  font-size: 1.4rem;\n  color: #d3d3d3;\n}\n.post__views {\n  font-size: 1.8rem;\n}\n.post__body {\n  margin: 2rem 0;\n  color: #d3d3d3;\n}\n.post__body p {\n  margin: 1rem 0;\n}\n.post__footer-left {\n  display: inline-block;\n  width: 14rem;\n}\n.post__footer-right {\n  display: inline-block;\n  width: calc(100% - 15rem);\n  text-align: right;\n}\n.post__footer-right * {\n  display: inline-block;\n}\n.post__likes-container svg {\n  cursor: pointer;\n  color: #ec4853;\n}\n.post__like {\n  color: #ec4853;\n}\n.post__share svg {\n  cursor: pointer;\n  color: #3CB1B6;\n}", ""]);
+exports.push([module.i, ".post {\n  width: 95%;\n}\n@media only screen and (max-width: 30em) {\n.post {\n    width: 98%;\n    margin: auto;\n}\n}\n.post__left {\n  display: inline-block;\n  margin: 0 3rem;\n  vertical-align: top;\n}\n@media only screen and (max-width: 30em) {\n.post__left {\n    margin-left: 0;\n    margin-right: 1.5rem;\n}\n}\n.post__img-container {\n  height: 10rem;\n  width: 10rem;\n  background-color: #000;\n  border: 3px solid #000;\n  outline: 5px solid #c9b350;\n}\n@media only screen and (max-width: 30em) {\n.post__img-container {\n    height: 7.5rem;\n    width: 7.5rem;\n    border: 2px solid #000;\n    outline: 2px solid #c9b350;\n}\n}\n.post__img {\n  width: 100%;\n}\n.post__btn-container {\n  text-align: center;\n}\n.post__left-btn, .post__left-btn:link, .post__left-btn:visited {\n  display: inline-block;\n  padding: 0.5rem 1rem !important;\n  margin-top: 2rem;\n  line-height: 1;\n  font-size: 1.4rem;\n  position: relative;\n  z-index: 5000;\n}\n.post__right {\n  display: inline-block;\n  width: calc(100% - 18rem);\n}\n@media only screen and (max-width: 30em) {\n.post__right {\n    width: calc(100% - 10rem);\n}\n}\n.post__header-left {\n  display: inline-block;\n  width: 79%;\n}\n@media only screen and (max-width: 37.5em) {\n.post__header-left {\n    width: 100%;\n}\n}\n.post__title {\n  font-size: 3rem;\n  font-weight: 400;\n  line-height: 1.15;\n  margin-bottom: 1rem;\n}\n@media only screen and (max-width: 30em) {\n.post__title {\n    font-size: 2rem;\n}\n}\n.post__author {\n  color: #d3d3d3;\n}\n.post__link:link, .post__link:visited {\n  color: #FFD700;\n  text-decoration: none;\n}\n.post__link:hover, .post__link:active, .post__link:focus {\n  text-decoration: underline;\n}\n.post__header-right {\n  display: inline-block;\n  width: 20%;\n  text-align: right;\n  vertical-align: top;\n}\n@media only screen and (max-width: 37.5em) {\n.post__header-right {\n    display: none;\n}\n}\n.post__date {\n  font-size: 1.4rem;\n  color: #d3d3d3;\n}\n.post__views {\n  font-size: 1.8rem;\n}\n.post__body {\n  margin: 2rem 0;\n  color: #d3d3d3;\n}\n.post__body p {\n  margin: 1rem 0;\n}\n.post__footer-left {\n  display: inline-block;\n  width: 14rem;\n}\n.post__footer-right {\n  display: inline-block;\n  width: calc(100% - 15rem);\n  text-align: right;\n}\n.post__footer-right * {\n  display: inline-block;\n}\n.post__likes-container svg {\n  cursor: pointer;\n  color: #ec4853;\n}\n.post__like {\n  color: #ec4853;\n}\n.post__share svg {\n  cursor: pointer;\n  color: #3CB1B6;\n}", ""]);
 
 // exports
 
@@ -46696,7 +46693,15 @@ var render = function() {
       _vm.checkLoad === 2
         ? _c("div", { staticClass: "post" }, [
             _c("div", { staticClass: "post__left" }, [
-              _vm._m(0),
+              _c("div", { staticClass: "post__img-container" }, [
+                _c("img", {
+                  staticClass: "post__img",
+                  attrs: {
+                    src: _vm.fetchedUpdate.author.avatar,
+                    alt: "Update Source Image"
+                  }
+                })
+              ]),
               _vm._v(" "),
               _vm.authUser != "" &&
               _vm.authUserLoad == 2 &&
@@ -46772,9 +46777,27 @@ var render = function() {
                     _vm._v(_vm._s(_vm.fetchedUpdate.title))
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "post__author" }, [
-                    _vm._v("Posted by " + _vm._s(_vm.fetchedUpdate.author.name))
-                  ])
+                  _c(
+                    "div",
+                    { staticClass: "post__author" },
+                    [
+                      _vm._v("Posted by "),
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "post__link",
+                          attrs: {
+                            to: {
+                              name: "users.show",
+                              params: { id: _vm.fetchedUpdate.author_id }
+                            }
+                          }
+                        },
+                        [_vm._v(_vm._s(_vm.fetchedUpdate.author.name))]
+                      )
+                    ],
+                    1
+                  )
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "post__header-right" }, [
@@ -46950,7 +46973,7 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _vm._m(1),
+            _vm._m(0),
             _vm._v(" "),
             _c(
               "footer",
@@ -46987,33 +47010,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "post__img-container" }, [
-      _c("picture", { staticClass: "post__img" }, [
-        _c("source", {
-          attrs: {
-            srcset: "/img/brand_logo_1x.png",
-            media: "(max-width: 30em)"
-          }
-        }),
-        _vm._v(" "),
-        _c("img", {
-          staticClass: "post__img",
-          attrs: {
-            srcset:
-              "/img/brand_logo_1x.png" +
-              " 1x, " +
-              "/img/brand_logo_2x.png" +
-              " 2x",
-            alt: "Update Source Image"
-          }
-        })
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

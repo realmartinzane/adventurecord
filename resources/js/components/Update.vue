@@ -4,10 +4,7 @@
         <div class="post" v-if="checkLoad === 2">
             <div class="post__left">
                 <div class="post__img-container">
-                    <picture class="post__img">
-                        <source srcset="/img/brand_logo_1x.png" media="(max-width: 30em)">
-                        <img srcset="/img/brand_logo_1x.png 1x, /img/brand_logo_2x.png 2x" alt="Update Source Image" class="post__img">
-                    </picture>
+                    <img :src="fetchedUpdate.author.avatar" alt="Update Source Image" class="post__img">
                 </div>
                 
                 <div class="post__btn-container" v-if="authUser != '' && authUserLoad == 2 && authUser.role.id == 1">
@@ -25,7 +22,7 @@
                 <header class="post__header">
                     <div class="post__header-left">
                         <h2 class="post__title">{{ fetchedUpdate.title }}</h2>
-                        <div class="post__author">Posted by {{ fetchedUpdate.author.name }}</div>
+                        <div class="post__author">Posted by <router-link :to="{name: 'users.show', params: {id: fetchedUpdate.author_id}}" class="post__link">{{ fetchedUpdate.author.name }}</router-link></div>
                     </div>
 
                     <div class="post__header-right">
@@ -198,17 +195,16 @@ export default {
         {
             height: 10rem;
             width: 10rem;
-            padding: .5rem;
             background-color: $color-black;
-            outline: 3px solid $color-black;
-            border: 5px solid $color-primary;
+            border: 3px solid $color-black;
+            outline: 5px solid $color-primary-dark;
 
             @media only screen and (max-width: 30em)
             {
                 height: 7.5rem;
                 width: 7.5rem;
-                outline: 1px solid $color-black;
-                border: 3px solid $color-primary;
+                border: 2px solid $color-black;
+                outline: 2px solid $color-primary-dark;
             }
         }
 
@@ -272,6 +268,19 @@ export default {
         &__author
         {
             color: $color-gray-light;
+        }
+
+        &__link
+        {
+            &:link, &:visited
+            {
+                color: $color-primary;
+                text-decoration: none;
+            }
+            &:hover, &:active, &:focus
+            {
+                text-decoration: underline;
+            }
         }
 
         &__header-right
