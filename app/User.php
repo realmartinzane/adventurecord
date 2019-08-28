@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->role_id == $role ? true : false;
     }
+
+    public function likes()
+    {
+        return $this->belongsToMany('App\Models\Update', 'likes')->withTimestamps();
+    }
 }

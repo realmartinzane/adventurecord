@@ -43,7 +43,7 @@
                     </div>
                     <div class="post__footer-right">
                             <div class="post__likes-container">
-                                <div class="post__like">{{ fetchedUpdate.likes }}</div> <font-awesome-icon :icon="['far', 'heart']" v-tooltip.bottom="'Like'"></font-awesome-icon>
+                                <div class="post__like">{{ fetchedUpdate.likes_count}}</div> <font-awesome-icon :icon="['far', 'heart']" v-tooltip.bottom="'Like'"></font-awesome-icon>
                             </div>
                             <div class="post__share u-margin-left-sm">
                                 <font-awesome-icon :icon="['far', 'share-square']" v-tooltip.bottom="'Share'" @click="showLinks = !showLinks"></font-awesome-icon>
@@ -333,11 +333,14 @@ export default {
             {
                 cursor: pointer;
                 color: $color-red;
+                font-size: 2rem;
             }
         }
 
         &__like
         {
+            
+            font-size: 2rem;
             color: $color-red;
         }
 
@@ -345,8 +348,10 @@ export default {
         {
            svg 
            {
+               font-size: 2rem;
                cursor: pointer;
-               color: $color-blue;}
+               color: $color-blue;
+            }
         }
     }
 </style>

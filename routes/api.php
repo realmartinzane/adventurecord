@@ -67,7 +67,8 @@ Route::group(['prefix' => 'v1'], function()
 
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function()
 {
-    
+    Route::post('updates/{id}/like', 'LikeController@like');
+    Route::delete('updates/{id}/unlike', 'LikeController@unlike');
 });
 
 Route::group(['prefix' => 'v1', 'middleware' => ['auth:api', 'role:1']], function()
