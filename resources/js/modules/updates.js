@@ -11,7 +11,11 @@ export const updates =
         update: {},
         updateLoad: 0,
 
-        updateStatus: 0
+        updateStatus: 0,
+
+        likeUpdateAction: 0,
+        unlikeUpdateAction: 0,
+        updateLiked: false
     },
 
     mutations:
@@ -39,6 +43,21 @@ export const updates =
         setUpdateStatus(state, status) 
         {
             state.updateStatus = status
+        },
+
+        setLikeUpdateAction(state, status)
+        {
+            state.likeUpdateAction = status
+        },
+
+        setUnlikeUpdateAction(state, status)
+        {
+            state.unlikeUpdateAction = status
+        },
+
+        setUpdateLiked(state, status)
+        {
+            state.updateLiked = status
         }
     },
     
@@ -62,6 +81,7 @@ export const updates =
 
         async fetchUpdate({ commit }, data) 
         {
+            commit('setUpdateLiked', false);
             commit('setUpdateLoad', 1)
             let response;
             try
@@ -74,7 +94,12 @@ export const updates =
                 commit('setUpdateLoad', 3)
                 return 
             }
+
+            console.log(response.data)
             commit('setUpdate', response.data)
+            if (response.data.user_like.length > 0) 
+                commit('setUpdateLiked', true);
+            
             commit('setUpdateLoad', 2)
         },
 
@@ -127,7 +152,39 @@ export const updates =
             }
             commit('setUpdateStatus', 2)
             return response.data
-        }
+        },
+
+        likeUpdate({commit}, data) 
+        {
+            commit('setLikeUpdateAction', 1);
+
+            UpdateAPI.like(data.id)
+                .then(function (response) 
+                    {
+                        commit('setUpdateLiked', true);
+                        commit('setLikeUpdateAction', 2);
+                    })
+                .catch(function () 
+                    {
+                        commit('setLikeUpdateAction', 3);
+                    });
+        },
+
+        unlikeUpdate({commit}, data) 
+        {
+            commit('setUnlikeUpdateAction', 1);
+
+            UpdateAPI.unlike(data.id)
+                .then(function (response) 
+                    {
+                        commit('setUpdateLiked', false);
+                        commit('setUnlikeUpdateAction', 2);
+                    })
+                .catch(function () 
+                    {
+                        commit('setUnlikeUpdateAction', 3);
+                    });
+        },
     },
     
     getters:
@@ -155,6 +212,21 @@ export const updates =
         getUpdateStatus(state) 
         {
             return state.updateStatus
+        },
+
+        getLikeUpdateAction(state)
+        {
+            return state.likeUpdateAction
+        },
+
+        getUnlikeUpdateAction(state)
+        {
+            return state.unlikeUpdateAction
+        },
+
+        getUpdateLiked(state)
+        {
+            return state.updateLiked
         }
     }
 }

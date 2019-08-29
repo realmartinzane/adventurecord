@@ -9,7 +9,7 @@ Route::group(['prefix' => 'v1'], function()
     | Get Auth User
     |-------------------------------------------------------------------------------
     | URL:            /api/v1/user
-    | Controller:     API\UsersController@user
+    | Controller:     API\UserController@user
     | Method:         GET
     | Description:    Get the authenticated user
   */
@@ -21,7 +21,7 @@ Route::group(['prefix' => 'v1'], function()
     | Get a Single User
     |-------------------------------------------------------------------------------
     | URL:            /api/v1/users/{id}
-    | Controller:     API\UsersController@single
+    | Controller:     API\UserController@single
     | Method:         GET
     | Description:    Get the authenticated user
   */
@@ -33,7 +33,7 @@ Route::group(['prefix' => 'v1'], function()
     | Get an Adventure Cord Profile
     |-------------------------------------------------------------------------------
     | URL:            /api/v1/profiles/{id}/single
-    | Controller:     API\UpdateController@single
+    | Controller:     API\ProfileController@single
     | Method:         GET
     | Description:    Get an adventure cord profile.
   */
@@ -67,13 +67,34 @@ Route::group(['prefix' => 'v1'], function()
 
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function()
 {
-    Route::post('updates/{id}/like', 'LikeController@like');
-    Route::delete('updates/{id}/unlike', 'LikeController@unlike');
+  /*
+    |-------------------------------------------------------------------------------
+    | Like an Update
+    |-------------------------------------------------------------------------------
+    | URL:            /api/v1/updates/{id}/like
+    | Controller:     API\LikeController@like
+    | Method:         POST
+    | Description:    Like an update.
+  */
+
+    Route::post('updates/{id}/like', 'API\LikeController@like');
+
+  /*
+    |-------------------------------------------------------------------------------
+    | Unlike an Update
+    |-------------------------------------------------------------------------------
+    | URL:            /api/v1/updates/{id}/unlike
+    | Controller:     API\LikeController@unlike
+    | Method:         POST
+    | Description:    Unlike an update.
+  */
+
+    Route::delete('updates/{id}/unlike', 'API\LikeController@unlike');
 });
 
 Route::group(['prefix' => 'v1', 'middleware' => ['auth:api', 'role:1']], function()
 {
-/*
+  /*
     |-------------------------------------------------------------------------------
     | Store a New Update
     |-------------------------------------------------------------------------------

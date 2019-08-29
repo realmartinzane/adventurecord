@@ -93,10 +93,11 @@ Vue.use(VTooltip)
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faDiscord, faFacebook, faLine, faLinkedin, faOdnoklassniki, faReddit, faSkype, faTelegram,
          faTwitter, faVk, faWeibo, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
-import { faHeart, faEye, faComment, faShareSquare, faEdit, faEnvelope, faComments, faGem, faClock} from '@fortawesome/free-regular-svg-icons'
-import { faTrashAlt, faBars, faCog, faCoins, faCampground, faSignal, faSearch, faTimes, faCaretDown, faBolt} from '@fortawesome/free-solid-svg-icons'
+import { faHeart as faHeartRegular, faEye, faComment, faShareSquare, faEdit, faEnvelope, faComments, faGem, faClock} from '@fortawesome/free-regular-svg-icons'
+import { faTrashAlt, faBars, faCog, faCoins, faCampground, faSignal, faSearch, faTimes, faCaretDown, faBolt,
+         faHeart as faHeartSolid} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-library.add(faDiscord, faEye, faHeart, faComment, faShareSquare, faEdit, faTrashAlt,
+library.add(faDiscord, faEye, faHeartRegular, faHeartSolid, faComment, faShareSquare, faEdit, faTrashAlt,
             faFacebook, faLine, faLinkedin, faOdnoklassniki, faReddit, faSkype, faTelegram, 
             faTwitter, faVk, faWeibo, faWhatsapp, faEnvelope, faComments, faBars, faCog, faCoins, 
             faGem, faCampground, faSignal, faClock, faSearch, faTimes, faCaretDown, faBolt)

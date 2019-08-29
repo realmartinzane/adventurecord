@@ -16298,6 +16298,61 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ToggleLike.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ToggleLike.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-spinner/src/ClipLoader.vue */ "./node_modules/vue-spinner/src/ClipLoader.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    ClipLoader: vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  props: ['fetchedUpdate'],
+  computed: {
+    liked: function liked() {
+      return this.$store.getters.getUpdateLiked;
+    },
+    LikeUpdateAction: function LikeUpdateAction() {
+      return this.$store.getters.getLikeUpdateAction;
+    },
+    UnlikeUpdateAction: function UnlikeUpdateAction() {
+      return this.$store.getters.getUnlikeUpdateAction;
+    }
+  },
+  methods: {
+    toggleLike: function toggleLike() {
+      return this.liked ? this.unlike() : this.like();
+    },
+    like: function like() {
+      this.$store.dispatch('likeUpdate', {
+        id: this.fetchedUpdate.id
+      });
+    },
+    unlike: function unlike() {
+      this.$store.dispatch('unlikeUpdate', {
+        id: this.fetchedUpdate.id
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Update.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Update.vue?vue&type=script&lang=js& ***!
@@ -16311,6 +16366,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _SocialSharing_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SocialSharing.vue */ "./resources/js/components/SocialSharing.vue");
 /* harmony import */ var vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-spinner/src/ClipLoader.vue */ "./node_modules/vue-spinner/src/ClipLoader.vue");
+/* harmony import */ var _ToggleLike_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ToggleLike.vue */ "./resources/js/components/ToggleLike.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -16402,14 +16458,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['update'],
   components: {
     SocialSharingComponent: _SocialSharing_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    ClipLoader: vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    ClipLoader: vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    ToggleLikeComponent: _ToggleLike_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
@@ -16451,6 +16508,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.$store.dispatch('fetchUpdate', {
         id: this.id
       });
+    },
+    toggleLike: function toggleLike() {
+      console.log(this.fetchedUpdate.is_liked);
     },
     destroy: function () {
       var _destroy = _asyncToGenerator(
@@ -17487,6 +17547,25 @@ exports.push([module.i, ".post__share {\n  position: relative;\n}\n.post__share 
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ToggleLike.vue?vue&type=style&index=0&lang=scss&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ToggleLike.vue?vue&type=style&index=0&lang=scss& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".post__spinner {\n  left: auto !important;\n  right: 0 !important;\n  transform: translateY(-65%) !important;\n}\n.post__likes-container {\n  position: relative;\n  min-width: 5rem;\n  min-height: 2.5rem;\n}\n.post__likes-container svg {\n  cursor: pointer;\n  color: #ec4853;\n  font-size: 2rem;\n}\n.post__like {\n  font-size: 2rem;\n  color: #ec4853;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Update.vue?vue&type=style&index=0&lang=scss&":
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Update.vue?vue&type=style&index=0&lang=scss& ***!
@@ -17499,7 +17578,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".post {\n  width: 95%;\n}\n@media only screen and (max-width: 30em) {\n.post {\n    width: 98%;\n    margin: auto;\n}\n}\n.post__left {\n  display: inline-block;\n  margin: 0 3rem;\n  vertical-align: top;\n}\n@media only screen and (max-width: 30em) {\n.post__left {\n    margin-left: 0;\n    margin-right: 1.5rem;\n}\n}\n.post__img-container {\n  height: 10rem;\n  width: 10rem;\n  background-color: #000;\n  border: 3px solid #000;\n  outline: 5px solid #c9b350;\n}\n@media only screen and (max-width: 30em) {\n.post__img-container {\n    height: 7.5rem;\n    width: 7.5rem;\n    border: 2px solid #000;\n    outline: 2px solid #c9b350;\n}\n}\n.post__img {\n  width: 100%;\n}\n.post__btn-container {\n  text-align: center;\n}\n.post__left-btn, .post__left-btn:link, .post__left-btn:visited {\n  display: inline-block;\n  padding: 0.5rem 1rem !important;\n  margin-top: 2rem;\n  line-height: 1;\n  font-size: 1.4rem;\n  position: relative;\n  z-index: 5000;\n}\n.post__right {\n  display: inline-block;\n  width: calc(100% - 18rem);\n}\n@media only screen and (max-width: 30em) {\n.post__right {\n    width: calc(100% - 10rem);\n}\n}\n.post__header-left {\n  display: inline-block;\n  width: 79%;\n}\n@media only screen and (max-width: 37.5em) {\n.post__header-left {\n    width: 100%;\n}\n}\n.post__title {\n  font-size: 3rem;\n  font-weight: 400;\n  line-height: 1.15;\n  margin-bottom: 1rem;\n}\n@media only screen and (max-width: 30em) {\n.post__title {\n    font-size: 2rem;\n}\n}\n.post__author {\n  color: #d3d3d3;\n}\n.post__link:link, .post__link:visited {\n  color: #FFD700;\n  text-decoration: none;\n}\n.post__link:hover, .post__link:active, .post__link:focus {\n  text-decoration: underline;\n}\n.post__header-right {\n  display: inline-block;\n  width: 20%;\n  text-align: right;\n  vertical-align: top;\n}\n@media only screen and (max-width: 37.5em) {\n.post__header-right {\n    display: none;\n}\n}\n.post__date {\n  font-size: 1.4rem;\n  color: #d3d3d3;\n}\n.post__views {\n  font-size: 1.8rem;\n}\n.post__body {\n  margin: 2rem 0;\n  color: #d3d3d3;\n}\n.post__body p {\n  margin: 1rem 0;\n}\n.post__footer-left {\n  display: inline-block;\n  width: 14rem;\n}\n.post__footer-right {\n  display: inline-block;\n  width: calc(100% - 15rem);\n  text-align: right;\n}\n.post__footer-right * {\n  display: inline-block;\n}\n.post__likes-container svg {\n  cursor: pointer;\n  color: #ec4853;\n  font-size: 2rem;\n}\n.post__like {\n  font-size: 2rem;\n  color: #ec4853;\n}\n.post__share svg {\n  font-size: 2rem;\n  cursor: pointer;\n  color: #3CB1B6;\n}", ""]);
+exports.push([module.i, ".post {\n  width: 95%;\n}\n@media only screen and (max-width: 30em) {\n.post {\n    width: 98%;\n    margin: auto;\n}\n}\n.post__left {\n  display: inline-block;\n  margin: 0 3rem;\n  vertical-align: top;\n}\n@media only screen and (max-width: 30em) {\n.post__left {\n    margin-left: 0;\n    margin-right: 1.5rem;\n}\n}\n.post__img-container {\n  height: 10rem;\n  width: 10rem;\n  background-color: #000;\n  border: 3px solid #000;\n  outline: 5px solid #c9b350;\n}\n@media only screen and (max-width: 30em) {\n.post__img-container {\n    height: 7.5rem;\n    width: 7.5rem;\n    border: 2px solid #000;\n    outline: 2px solid #c9b350;\n}\n}\n.post__img {\n  width: 100%;\n}\n.post__btn-container {\n  text-align: center;\n}\n.post__left-btn, .post__left-btn:link, .post__left-btn:visited {\n  display: inline-block;\n  padding: 0.5rem 1rem !important;\n  margin-top: 2rem;\n  line-height: 1;\n  font-size: 1.4rem;\n  position: relative;\n  z-index: 5000;\n}\n.post__right {\n  display: inline-block;\n  width: calc(100% - 18rem);\n}\n@media only screen and (max-width: 30em) {\n.post__right {\n    width: calc(100% - 10rem);\n}\n}\n.post__header-left {\n  display: inline-block;\n  width: 79%;\n}\n@media only screen and (max-width: 37.5em) {\n.post__header-left {\n    width: 100%;\n}\n}\n.post__title {\n  font-size: 3rem;\n  font-weight: 400;\n  line-height: 1.15;\n  margin-bottom: 1rem;\n}\n@media only screen and (max-width: 30em) {\n.post__title {\n    font-size: 2rem;\n}\n}\n.post__author {\n  color: #d3d3d3;\n}\n.post__link:link, .post__link:visited {\n  color: #FFD700;\n  text-decoration: none;\n}\n.post__link:hover, .post__link:active, .post__link:focus {\n  text-decoration: underline;\n}\n.post__header-right {\n  display: inline-block;\n  width: 20%;\n  text-align: right;\n  vertical-align: top;\n}\n@media only screen and (max-width: 37.5em) {\n.post__header-right {\n    display: none;\n}\n}\n.post__date {\n  font-size: 1.4rem;\n  color: #d3d3d3;\n}\n.post__views {\n  font-size: 1.8rem;\n}\n.post__body {\n  margin: 2rem 0;\n  color: #d3d3d3;\n}\n.post__body p {\n  margin: 1rem 0;\n}\n.post__footer-left {\n  display: inline-block;\n  width: 14rem;\n}\n.post__footer-right {\n  display: inline-block;\n  width: calc(100% - 15rem);\n  text-align: right;\n}\n.post__footer-right * {\n  display: inline-block;\n  line-height: 2rem;\n  vertical-align: top;\n}\n.post__share svg {\n  font-size: 2rem;\n  cursor: pointer;\n  color: #3CB1B6;\n}", ""]);
 
 // exports
 
@@ -40022,6 +40101,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ToggleLike.vue?vue&type=style&index=0&lang=scss&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ToggleLike.vue?vue&type=style&index=0&lang=scss& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./ToggleLike.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ToggleLike.vue?vue&type=style&index=0&lang=scss&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Update.vue?vue&type=style&index=0&lang=scss&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Update.vue?vue&type=style&index=0&lang=scss& ***!
@@ -46714,6 +46823,78 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ToggleLike.vue?vue&type=template&id=22ff4436&":
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ToggleLike.vue?vue&type=template&id=22ff4436& ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "post__likes-container" },
+    [
+      _vm.LikeUpdateAction != 1 && _vm.UnlikeUpdateAction != 1
+        ? _c("div", { staticClass: "post__like" }, [_vm._v("22 ")])
+        : _vm._e(),
+      _vm._v(" "),
+      !_vm.liked && _vm.LikeUpdateAction != 1 && _vm.UnlikeUpdateAction != 1
+        ? _c("font-awesome-icon", {
+            directives: [
+              {
+                name: "tooltip",
+                rawName: "v-tooltip.bottom",
+                value: "Like",
+                expression: "'Like'",
+                modifiers: { bottom: true }
+              }
+            ],
+            attrs: { icon: ["far", "heart"] },
+            on: { click: _vm.toggleLike }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.liked && _vm.LikeUpdateAction != 1 && _vm.UnlikeUpdateAction != 1
+        ? _c("font-awesome-icon", {
+            directives: [
+              {
+                name: "tooltip",
+                rawName: "v-tooltip.bottom",
+                value: "Like",
+                expression: "'Like'",
+                modifiers: { bottom: true }
+              }
+            ],
+            attrs: { icon: ["fas", "heart"] },
+            on: { click: _vm.toggleLike }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.LikeUpdateAction == 1 || _vm.UnlikeUpdateAction == 1
+        ? _c("clip-loader", {
+            staticClass: "post__spinner",
+            attrs: { loading: true, color: "#ec4853", size: "2rem" }
+          })
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Update.vue?vue&type=template&id=68dc5a74&":
 /*!*********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Update.vue?vue&type=template&id=68dc5a74& ***!
@@ -46925,67 +47106,52 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "post__footer-right" }, [
-                  _c(
-                    "div",
-                    { staticClass: "post__likes-container" },
-                    [
-                      _c("div", { staticClass: "post__like" }, [
-                        _vm._v(_vm._s(_vm.fetchedUpdate.likes_count))
-                      ]),
-                      _vm._v(" "),
-                      _c("font-awesome-icon", {
-                        directives: [
-                          {
-                            name: "tooltip",
-                            rawName: "v-tooltip.bottom",
-                            value: "Like",
-                            expression: "'Like'",
-                            modifiers: { bottom: true }
-                          }
-                        ],
-                        attrs: { icon: ["far", "heart"] }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "post__share u-margin-left-sm" },
-                    [
-                      _c("font-awesome-icon", {
-                        directives: [
-                          {
-                            name: "tooltip",
-                            rawName: "v-tooltip.bottom",
-                            value: "Share",
-                            expression: "'Share'",
-                            modifiers: { bottom: true }
-                          }
-                        ],
-                        attrs: { icon: ["far", "share-square"] },
-                        on: {
-                          click: function($event) {
-                            _vm.showLinks = !_vm.showLinks
-                          }
-                        }
-                      }),
-                      _vm._v(" "),
-                      _vm.showLinks
-                        ? _c("social-sharing-component", {
-                            attrs: {
-                              url: _vm.url,
-                              title: _vm.fetchedUpdate.title,
-                              quote: _vm.fetchedUpdate.title,
-                              hashtags: "adventurecord"
+                _c(
+                  "div",
+                  { staticClass: "post__footer-right" },
+                  [
+                    _c("toggle-like-component", {
+                      attrs: { fetchedUpdate: _vm.fetchedUpdate }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "post__share u-margin-left-sm" },
+                      [
+                        _c("font-awesome-icon", {
+                          directives: [
+                            {
+                              name: "tooltip",
+                              rawName: "v-tooltip.bottom",
+                              value: "Share",
+                              expression: "'Share'",
+                              modifiers: { bottom: true }
                             }
-                          })
-                        : _vm._e()
-                    ],
-                    1
-                  )
-                ])
+                          ],
+                          attrs: { icon: ["far", "share-square"] },
+                          on: {
+                            click: function($event) {
+                              _vm.showLinks = !_vm.showLinks
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.showLinks
+                          ? _c("social-sharing-component", {
+                              attrs: {
+                                url: _vm.url,
+                                title: _vm.fetchedUpdate.title,
+                                quote: _vm.fetchedUpdate.title,
+                                hashtags: "adventurecord"
+                              }
+                            })
+                          : _vm._e()
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
               ])
             ])
           ])
@@ -68183,6 +68349,20 @@ __webpack_require__.r(__webpack_exports__);
   */
   destroy: function destroy(id) {
     return axios["delete"]("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates/").concat(id, "/destroy"));
+  },
+
+  /*
+      POST     /api/updates/{id}/like
+  */
+  like: function like(id) {
+    return axios.post("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates/").concat(id, "/like"));
+  },
+
+  /*
+      DELETE     /api/updates/{id}/unlike
+  */
+  unlike: function unlike(id) {
+    return axios["delete"]("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates/").concat(id, "/unlike"));
   }
 });
 
@@ -68336,7 +68516,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(v_tooltip__WEBPACK_IMPORTED_MODUL
 
 
 
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_10__["library"].add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faDiscord"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faEye"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faHeart"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faComment"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faShareSquare"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faEdit"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faTrashAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faFacebook"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faLine"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faLinkedin"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faOdnoklassniki"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faReddit"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faSkype"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faTelegram"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faTwitter"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faVk"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faWeibo"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faWhatsapp"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faEnvelope"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faComments"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faCog"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faCoins"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faGem"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faCampground"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faSignal"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faClock"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faSearch"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faTimes"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faCaretDown"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faBolt"]);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_10__["library"].add(_fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faDiscord"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faEye"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faHeart"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faHeart"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faComment"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faShareSquare"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faEdit"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faTrashAlt"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faFacebook"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faLine"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faLinkedin"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faOdnoklassniki"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faReddit"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faSkype"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faTelegram"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faTwitter"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faVk"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faWeibo"], _fortawesome_free_brands_svg_icons__WEBPACK_IMPORTED_MODULE_11__["faWhatsapp"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faEnvelope"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faComments"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faCog"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faCoins"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faGem"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faCampground"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faSignal"], _fortawesome_free_regular_svg_icons__WEBPACK_IMPORTED_MODULE_12__["faClock"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faSearch"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faTimes"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faCaretDown"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_13__["faBolt"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_14__["FontAwesomeIcon"]); // Vue Router
 
  // App
@@ -68962,6 +69142,93 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/ToggleLike.vue":
+/*!************************************************!*\
+  !*** ./resources/js/components/ToggleLike.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ToggleLike_vue_vue_type_template_id_22ff4436___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ToggleLike.vue?vue&type=template&id=22ff4436& */ "./resources/js/components/ToggleLike.vue?vue&type=template&id=22ff4436&");
+/* harmony import */ var _ToggleLike_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ToggleLike.vue?vue&type=script&lang=js& */ "./resources/js/components/ToggleLike.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _ToggleLike_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ToggleLike.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/components/ToggleLike.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _ToggleLike_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ToggleLike_vue_vue_type_template_id_22ff4436___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ToggleLike_vue_vue_type_template_id_22ff4436___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ToggleLike.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/ToggleLike.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/ToggleLike.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ToggleLike_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ToggleLike.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ToggleLike.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ToggleLike_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/ToggleLike.vue?vue&type=style&index=0&lang=scss&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/ToggleLike.vue?vue&type=style&index=0&lang=scss& ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ToggleLike_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./ToggleLike.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ToggleLike.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ToggleLike_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ToggleLike_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ToggleLike_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ToggleLike_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ToggleLike_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/ToggleLike.vue?vue&type=template&id=22ff4436&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/ToggleLike.vue?vue&type=template&id=22ff4436& ***!
+  \*******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ToggleLike_vue_vue_type_template_id_22ff4436___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ToggleLike.vue?vue&type=template&id=22ff4436& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ToggleLike.vue?vue&type=template&id=22ff4436&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ToggleLike_vue_vue_type_template_id_22ff4436___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ToggleLike_vue_vue_type_template_id_22ff4436___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Update.vue":
 /*!********************************************!*\
   !*** ./resources/js/components/Update.vue ***!
@@ -69458,7 +69725,10 @@ var updates = {
     updatesLoad: 0,
     update: {},
     updateLoad: 0,
-    updateStatus: 0
+    updateStatus: 0,
+    likeUpdateAction: 0,
+    unlikeUpdateAction: 0,
+    updateLiked: false
   },
   mutations: {
     setUpdates: function setUpdates(state, data) {
@@ -69475,6 +69745,15 @@ var updates = {
     },
     setUpdateStatus: function setUpdateStatus(state, status) {
       state.updateStatus = status;
+    },
+    setLikeUpdateAction: function setLikeUpdateAction(state, status) {
+      state.likeUpdateAction = status;
+    },
+    setUnlikeUpdateAction: function setUnlikeUpdateAction(state, status) {
+      state.unlikeUpdateAction = status;
+    },
+    setUpdateLiked: function setUpdateLiked(state, status) {
+      state.updateLiked = status;
     }
   },
   actions: {
@@ -69499,33 +69778,36 @@ var updates = {
             switch (_context.prev = _context.next) {
               case 0:
                 commit = _ref2.commit;
+                commit('setUpdateLiked', false);
                 commit('setUpdateLoad', 1);
-                _context.prev = 2;
-                _context.next = 5;
+                _context.prev = 3;
+                _context.next = 6;
                 return _api_update_js__WEBPACK_IMPORTED_MODULE_1__["default"].fetchSingle(data.id);
 
-              case 5:
+              case 6:
                 response = _context.sent;
-                _context.next = 13;
+                _context.next = 14;
                 break;
 
-              case 8:
-                _context.prev = 8;
-                _context.t0 = _context["catch"](2);
+              case 9:
+                _context.prev = 9;
+                _context.t0 = _context["catch"](3);
                 commit('setUpdate', {});
                 commit('setUpdateLoad', 3);
                 return _context.abrupt("return");
 
-              case 13:
+              case 14:
+                console.log(response.data);
                 commit('setUpdate', response.data);
+                if (response.data.user_like.length > 0) commit('setUpdateLiked', true);
                 commit('setUpdateLoad', 2);
 
-              case 15:
+              case 18:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[2, 8]]);
+        }, _callee, null, [[3, 9]]);
       }));
 
       function fetchUpdate(_x, _x2) {
@@ -69665,7 +69947,27 @@ var updates = {
       }
 
       return destroyUpdate;
-    }()
+    }(),
+    likeUpdate: function likeUpdate(_ref6, data) {
+      var commit = _ref6.commit;
+      commit('setLikeUpdateAction', 1);
+      _api_update_js__WEBPACK_IMPORTED_MODULE_1__["default"].like(data.id).then(function (response) {
+        commit('setUpdateLiked', true);
+        commit('setLikeUpdateAction', 2);
+      })["catch"](function () {
+        commit('setLikeUpdateAction', 3);
+      });
+    },
+    unlikeUpdate: function unlikeUpdate(_ref7, data) {
+      var commit = _ref7.commit;
+      commit('setUnlikeUpdateAction', 1);
+      _api_update_js__WEBPACK_IMPORTED_MODULE_1__["default"].unlike(data.id).then(function (response) {
+        commit('setUpdateLiked', false);
+        commit('setUnlikeUpdateAction', 2);
+      })["catch"](function () {
+        commit('setUnlikeUpdateAction', 3);
+      });
+    }
   },
   getters: {
     getUpdates: function getUpdates(state) {
@@ -69682,6 +69984,15 @@ var updates = {
     },
     getUpdateStatus: function getUpdateStatus(state) {
       return state.updateStatus;
+    },
+    getLikeUpdateAction: function getLikeUpdateAction(state) {
+      return state.likeUpdateAction;
+    },
+    getUnlikeUpdateAction: function getUnlikeUpdateAction(state) {
+      return state.unlikeUpdateAction;
+    },
+    getUpdateLiked: function getUpdateLiked(state) {
+      return state.updateLiked;
     }
   }
 };

@@ -9,14 +9,24 @@ use Auth;
 
 class LikeController extends Controller
 {
-
-    public function like(Update $update)
+    public function like($id)
     {
-        $update->likes()->attach(Auth::guard('api')->user()->id);
+        $update = Update::findOrFail($id);
+        
+        if(!$update->likes->contains(Auth::user()->id))
+        {
+            $update->likes()->attach(Auth::user()->id);
+
+            return response()->json(['update_liked' => true], 204);
+        }
     }
 
-    public function unlike(Update $update)
+    public function unlike($id)
     {
-        $update->likes()->detach(Auth::guard('api')->user()->id);
+        $update = Update::findOrFail($id);
+
+        $update->likes()->detach(Auth::user()->id);
+
+        return response(null, 204);
     }
 }

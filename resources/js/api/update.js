@@ -45,5 +45,21 @@ export default {
     destroy(id)
     {
         return axios.delete(`${ADV_CONFIG.API_URL}/updates/${id}/destroy`)
+    },
+
+    /*
+        POST     /api/updates/{id}/like
+    */
+    like(id)
+    {
+        return axios.post(`${ADV_CONFIG.API_URL}/updates/${id}/like`)
+    },
+
+    /*
+        DELETE     /api/updates/{id}/unlike
+    */
+    unlike(id) 
+    {
+        return axios.delete(`${ADV_CONFIG.API_URL}/updates/${id}/unlike`)
     }
 }

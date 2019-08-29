@@ -42,9 +42,8 @@
                         <router-link v-if="!isShowRoute" class="post__continue link"  :to="{name: 'updates.show', params: {id: fetchedUpdate.id}}">Continue Reading</router-link>
                     </div>
                     <div class="post__footer-right">
-                            <div class="post__likes-container">
-                                <div class="post__like">{{ fetchedUpdate.likes_count}}</div> <font-awesome-icon :icon="['far', 'heart']" v-tooltip.bottom="'Like'"></font-awesome-icon>
-                            </div>
+                            <toggle-like-component :fetchedUpdate="fetchedUpdate"></toggle-like-component>
+                            
                             <div class="post__share u-margin-left-sm">
                                 <font-awesome-icon :icon="['far', 'share-square']" v-tooltip.bottom="'Share'" @click="showLinks = !showLinks"></font-awesome-icon>
                                 <social-sharing-component
@@ -89,9 +88,11 @@
 import SocialSharingComponent from './SocialSharing.vue'
 import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
 
+import ToggleLikeComponent from './ToggleLike.vue'
+
 export default {
     props: ['update'],
-    components: {SocialSharingComponent, ClipLoader},
+    components: {SocialSharingComponent, ClipLoader, ToggleLikeComponent},
     data(){return{
         id: this.$route.params.id,
         showModal: false,
@@ -117,7 +118,6 @@ export default {
     created()
     {
         this.url = window.location.href;
-        
         if(this.id && this.isShowRoute) this.fetchSingle();
     },
     methods:
@@ -125,6 +125,11 @@ export default {
         fetchSingle()
         {
             this.$store.dispatch('fetchUpdate', {id: this.id});
+        },
+
+        toggleLike()
+        {
+            console.log(this.fetchedUpdate.is_liked);
         },
         
         async destroy()
@@ -169,8 +174,6 @@ export default {
     .post
     {
         width: 95%;
-
-        
         @media only screen and (max-width: 30em)
         {
             width: 98%;
@@ -324,24 +327,12 @@ export default {
             display: inline-block;
             width: calc(100% - 15rem);
             text-align: right;
-            * {display: inline-block;}
-        }
-
-        &__likes-container
-        {
-            svg 
+            * 
             {
-                cursor: pointer;
-                color: $color-red;
-                font-size: 2rem;
+                display: inline-block;
+                line-height: 2rem;
+                vertical-align: top;
             }
-        }
-
-        &__like
-        {
-            
-            font-size: 2rem;
-            color: $color-red;
         }
 
         &__share
