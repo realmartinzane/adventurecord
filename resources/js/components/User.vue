@@ -321,12 +321,13 @@ export default {
             font-size: 4rem;
             line-height: 1;
             display: inline-block;
+            min-width: 5.5rem;
         }
 
         &__progress-bar
         {
             display: inline-block;
-            width: calc(100% - 85px);
+            width: calc(100% - 8.5rem);
             height: 2rem;
             background: $color-gray-light;
             border-radius: 3px;
