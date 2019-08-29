@@ -100,6 +100,11 @@ let routes =
             path: '/401',
             name: 'error.401',
             component: ErrorView
+        },
+        {
+            path: '*',
+            name: 'error.404',
+            component: ErrorView
         }
     ]
 
