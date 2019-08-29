@@ -1,6 +1,6 @@
 <template>
     <div class="post__likes-container">
-        <div class="post__like" v-if="LikeUpdateAction != 1 && UnlikeUpdateAction != 1">22 </div> 
+        <div class="post__like" v-if="LikeUpdateAction != 1 && UnlikeUpdateAction != 1"> {{ likesCount }} </div> 
         <font-awesome-icon :icon="['far', 'heart']" v-tooltip.bottom="'Like'" @click="toggleLike" v-if="!liked && LikeUpdateAction != 1 && UnlikeUpdateAction != 1"></font-awesome-icon>
         <font-awesome-icon :icon="['fas', 'heart']" v-tooltip.bottom="'Like'" @click="toggleLike" v-if="liked && LikeUpdateAction != 1 && UnlikeUpdateAction != 1"></font-awesome-icon>
         <clip-loader :loading="true" color="#ec4853" size="2rem" class="post__spinner" v-if="LikeUpdateAction == 1 || UnlikeUpdateAction == 1"></clip-loader>
@@ -29,6 +29,10 @@ export default {
         UnlikeUpdateAction()
         {
             return this.$store.getters.getUnlikeUpdateAction
+        },
+        likesCount()
+        {
+            return this.$store.getters.getUpdateLikesCount
         }
     },
     methods:
@@ -41,6 +45,7 @@ export default {
         like()
         {
             this.$store.dispatch('likeUpdate', {id: this.fetchedUpdate.id})
+
         },
         unlike()
         {

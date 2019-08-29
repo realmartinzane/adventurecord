@@ -16332,6 +16332,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     UnlikeUpdateAction: function UnlikeUpdateAction() {
       return this.$store.getters.getUnlikeUpdateAction;
+    },
+    likesCount: function likesCount() {
+      return this.$store.getters.getUpdateLikesCount;
     }
   },
   methods: {
@@ -46843,7 +46846,9 @@ var render = function() {
     { staticClass: "post__likes-container" },
     [
       _vm.LikeUpdateAction != 1 && _vm.UnlikeUpdateAction != 1
-        ? _c("div", { staticClass: "post__like" }, [_vm._v("22 ")])
+        ? _c("div", { staticClass: "post__like" }, [
+            _vm._v(" " + _vm._s(_vm.likesCount) + " ")
+          ])
         : _vm._e(),
       _vm._v(" "),
       !_vm.liked && _vm.LikeUpdateAction != 1 && _vm.UnlikeUpdateAction != 1
@@ -69728,7 +69733,8 @@ var updates = {
     updateStatus: 0,
     likeUpdateAction: 0,
     unlikeUpdateAction: 0,
-    updateLiked: false
+    updateLiked: false,
+    updateLikesCount: 0
   },
   mutations: {
     setUpdates: function setUpdates(state, data) {
@@ -69754,6 +69760,12 @@ var updates = {
     },
     setUpdateLiked: function setUpdateLiked(state, status) {
       state.updateLiked = status;
+    },
+    setUpdateLike: function setUpdateLike(state, amount) {
+      state.updateLikesCount += amount;
+    },
+    setUpdateUnlike: function setUpdateUnlike(state, amount) {
+      state.updateLikesCount -= amount;
     }
   },
   actions: {
@@ -69797,9 +69809,9 @@ var updates = {
                 return _context.abrupt("return");
 
               case 14:
-                console.log(response.data);
                 commit('setUpdate', response.data);
                 if (response.data.user_like.length > 0) commit('setUpdateLiked', true);
+                commit('setUpdateLike', response.data.likes_count);
                 commit('setUpdateLoad', 2);
 
               case 18:
@@ -69954,6 +69966,7 @@ var updates = {
       _api_update_js__WEBPACK_IMPORTED_MODULE_1__["default"].like(data.id).then(function (response) {
         commit('setUpdateLiked', true);
         commit('setLikeUpdateAction', 2);
+        commit('setUpdateLike', 1);
       })["catch"](function () {
         commit('setLikeUpdateAction', 3);
       });
@@ -69964,6 +69977,7 @@ var updates = {
       _api_update_js__WEBPACK_IMPORTED_MODULE_1__["default"].unlike(data.id).then(function (response) {
         commit('setUpdateLiked', false);
         commit('setUnlikeUpdateAction', 2);
+        commit('setUpdateUnlike', 1);
       })["catch"](function () {
         commit('setUnlikeUpdateAction', 3);
       });
@@ -69993,6 +70007,9 @@ var updates = {
     },
     getUpdateLiked: function getUpdateLiked(state) {
       return state.updateLiked;
+    },
+    getUpdateLikesCount: function getUpdateLikesCount(state) {
+      return state.updateLikesCount;
     }
   }
 };

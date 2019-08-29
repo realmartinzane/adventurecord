@@ -15,7 +15,8 @@ export const updates =
 
         likeUpdateAction: 0,
         unlikeUpdateAction: 0,
-        updateLiked: false
+        updateLiked: false,
+        updateLikesCount: 0
     },
 
     mutations:
@@ -58,6 +59,16 @@ export const updates =
         setUpdateLiked(state, status)
         {
             state.updateLiked = status
+        },
+
+        setUpdateLike(state, amount)
+        {
+            state.updateLikesCount += amount
+        },
+
+        setUpdateUnlike(state, amount) 
+        {
+            state.updateLikesCount -= amount
         }
     },
     
@@ -94,11 +105,10 @@ export const updates =
                 commit('setUpdateLoad', 3)
                 return 
             }
-
-            console.log(response.data)
             commit('setUpdate', response.data)
-            if (response.data.user_like.length > 0) 
+            if(response.data.user_like.length > 0) 
                 commit('setUpdateLiked', true);
+                commit('setUpdateLike', response.data.likes_count);
             
             commit('setUpdateLoad', 2)
         },
@@ -163,6 +173,7 @@ export const updates =
                     {
                         commit('setUpdateLiked', true);
                         commit('setLikeUpdateAction', 2);
+                        commit('setUpdateLike', 1);
                     })
                 .catch(function () 
                     {
@@ -179,6 +190,7 @@ export const updates =
                     {
                         commit('setUpdateLiked', false);
                         commit('setUnlikeUpdateAction', 2);
+                        commit('setUpdateUnlike', 1);
                     })
                 .catch(function () 
                     {
@@ -227,6 +239,10 @@ export const updates =
         getUpdateLiked(state)
         {
             return state.updateLiked
+        },
+        getUpdateLikesCount(state)
+        {
+            return state.updateLikesCount
         }
     }
 }

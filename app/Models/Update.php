@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Update extends Model
 {
-    protected $appends = ['created_date', 'body_html'];
+    protected $appends = ['created_date', 'body_html', 'likes_count'];
     protected $fillable = ['title', 'body'];
     protected $with = ['author', 'userLike'];
 
@@ -38,9 +38,13 @@ class Update extends Model
         return $this->belongsToMany('App\User', 'likes')->withTimestamps();
     }
 
-
     public function userLike()
     {
-        return $this->belongsToMany('App\User', 'likes');
+        return $this->belongsToMany('App\User', 'likes')->where('user_id', auth('api')->id());
+    }
+
+    public function getLikesCountAttribute()
+    {
+        return $this->likes()->count();
     }
 }
