@@ -35,7 +35,7 @@ class Update extends Model
 
     public function likes()
     {
-        return $this->belongsToMany('App\User', 'likes')->withTimestamps();
+        return $this->belongsToMany('App\User', 'likes');
     }
 
     public function userLike()
