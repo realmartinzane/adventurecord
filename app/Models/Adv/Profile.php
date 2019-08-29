@@ -10,7 +10,7 @@ class Profile extends Model
     protected $connection = 'mysql3';
     // protected $connection = 'mysql2';
     protected $table = 'Profiles';
-    protected $appends = ['last_active', 'experience_amount', 'gold_amount', 'gems_amount'];
+    protected $appends = ['last_active', 'experience_amount', 'gold_amount', 'gems_amount', 'level'];
 
     public function getLastActiveAttribute()
     {
@@ -30,5 +30,20 @@ class Profile extends Model
     public function getGemsAmountAttribute()
     {
         return number_format($this->Gems);
+    }
+
+    public function getLevelAttribute()
+    {
+        $experience = $this->Experience;
+        if($experience == 0) $experience = 1;
+
+        $total = 8.7 * log($experience + 111) + -40;
+        $level = floor($total);
+        $percentage = ($total - $level) * 100;
+
+        return [
+            'level' => $level, 
+            'percentage' => $percentage
+        ];
     }
 }

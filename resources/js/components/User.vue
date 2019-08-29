@@ -71,9 +71,9 @@
                     </div>
                     <div class="user-profile__stats-right">
                         <div class="user-profile__level-label">Level</div>
-                        <div class="user-profile__level">17</div>
+                        <div class="user-profile__level">{{ user.profile.level.level }}</div>
                         <div class="user-profile__progress-bar">
-                            <div class="user-profile__progress"></div>
+                            <div class="user-profile__progress" :style="{width: user.profile.level.percentage + '%'}"></div>
                         </div>
                     </div>
                 </div>
@@ -326,7 +326,7 @@ export default {
         &__progress-bar
         {
             display: inline-block;
-            width: calc(100% - 60px);
+            width: calc(100% - 85px);
             height: 2rem;
             background: $color-gray-light;
             border-radius: 3px;
@@ -334,7 +334,6 @@ export default {
 
         &__progress
         {
-            width: 40%;
             height: 100%;
             background-image: repeating-linear-gradient(45deg, $color-primary, $color-primary 1rem, #e2c000 1rem, #e2c000 2rem);
             border-top-left-radius: 3px;
