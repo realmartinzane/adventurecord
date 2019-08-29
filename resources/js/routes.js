@@ -11,6 +11,7 @@ import CommandsView from './views/Commands.vue'
 import MarketplaceView from './views/Marketplace.vue'
 import UserView from './views/User.vue';
 import UserSettingsView from './views/UserSettings.vue';
+import ErrorView from './views/Error.vue';
 
 function requireAuth(to, from, next) 
 {
@@ -21,7 +22,7 @@ function requireAuth(to, from, next)
             if (store.getters.getAuthUser != '') 
                 next();
             else 
-                next('/home');
+                next('/401');
         }
     }
 
@@ -92,7 +93,13 @@ let routes =
         {
             path: '/marketplace',
             name: 'marketplace',
-            component: MarketplaceView
+            component: MarketplaceView,
+            beforeEnter: requireAuth
+        },
+        {
+            path: '/401',
+            name: 'error.401',
+            component: ErrorView
         }
     ]
 
