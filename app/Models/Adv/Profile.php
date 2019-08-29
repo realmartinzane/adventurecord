@@ -7,7 +7,8 @@ use Carbon;
 
 class Profile extends Model
 {
-    protected $connection = 'mysql2';
+    protected $connection = 'mysql3';
+    // protected $connection = 'mysql2';
     protected $table = 'Profiles';
     protected $appends = ['last_active', 'experience_amount', 'gold_amount', 'gems_amount'];
 
