@@ -31,6 +31,16 @@
                     </div>
                 </div>
             </slide>
+
+            <slide class="slide">
+                <div class="slide__container">
+                    <div class="slide__content">
+                        <h2 class="slide__title">This is a text about Lorem Ipsum </h2>
+                        <p class="slide__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.  </p>
+                        <button class="btn btn--primary u-margin-top-sm">Lorem ipsum</button>
+                    </div>
+                </div>
+            </slide>
         </carousel>
     </div>
 </template>
@@ -81,18 +91,58 @@ export default {
         height: 100%;
         &:nth-child(1) 
         {
-            background-image: url(/../img/slides/slide_01_small.png);
-            @media only screen and (min-width: 60em)
+            background-image: url(/../img/slides/bohemia_small.png);
+
+            @media only screen and (min-width: 60em),
+                   (-webkit-min-device-pixel-ratio: 2),
+                   (min-resolution: 192dpi)
+                   
             {
-                background-image: url(/../img/slides/slide_01_large.png);
+                background-image: url(/../img/slides/bohemia_large_1x.png);
             }
+
+            @media only screen and (min-width: 60em) and (-webkit-min-device-pixel-ratio: 2), 
+                   only screen and (min-width: 60em) and (min-resolution: 192dpi)
+            {
+                background-image: url(/../img/slides/bohemia_large_2x.png);
+            }
+
         }
         &:nth-child(2)
         {
-            background-image: url(/../img/slides/slide_02_small.png);
-            @media only screen and (min-width: 60em)
+            background-image: url(/../img/slides/desert_small.png);
+
+            @media only screen and (min-width: 60em),
+                   (-webkit-min-device-pixel-ratio: 2),
+                   (min-resolution: 192dpi)
+                   
             {
-                background-image: url(/../img/slides/slide_02_large.png);
+                background-image: url(/../img/slides/desert_large_1x.png);
+            }
+
+            @media only screen and (min-width: 60em) and (-webkit-min-device-pixel-ratio: 2), 
+                   only screen and (min-width: 60em) and (min-resolution: 192dpi)
+            {
+                background-image: url(/../img/slides/desert_large_2x.png);
+            }
+        }
+
+        &:nth-child(3)
+        {
+            background-image: url(/../img/slides/chaiyna_small.png);
+
+            @media only screen and (min-width: 60em),
+                   (-webkit-min-device-pixel-ratio: 2),
+                   (min-resolution: 192dpi)
+                   
+            {
+                background-image: url(/../img/slides/chaiyna_large_1x.png);
+            }
+
+            @media only screen and (min-width: 60em) and (-webkit-min-device-pixel-ratio: 2), 
+                   only screen and (min-width: 60em) and (min-resolution: 192dpi)
+            {
+                background-image: url(/../img/slides/chaiyna_large_2x.png);
             }
         }
 
