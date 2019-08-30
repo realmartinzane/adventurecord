@@ -22,7 +22,7 @@
             <div class="col-1-of-3">
                 <div class="item__content" @click="showModal = true">
                     <div class="item__left">
-                        <img src="/img/brand_logo_1x.png" alt="Item Image" class="item__img">
+                        <img src="/img/brand/brand_logo_1x.png" alt="Item Image" class="item__img">
                     </div>
                     
                     <div class="item__right">
@@ -45,7 +45,7 @@
 
                 <div class="popup__body">
                     <div class="popup__left">
-                        <img class="popup__img" src="/img/brand_logo_1x.png" alt="Item Image">
+                        <img class="popup__img" src="/img/brand/brand_logo_1x.png" alt="Item Image">
                     </div>
 
                     <div class="popup__right">

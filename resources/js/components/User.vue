@@ -67,7 +67,7 @@
                 </header>
                 <div class="user-profile__stats">
                     <div class="user-profile__stats-left">
-                        <img :src="'/img/' + user.profile.Nation + '.png'" alt="Humania Logo" class="user-profile__nation">
+                        <img :src="'/img/nations/' + user.profile.Nation + '.png'" alt="Humania Logo" class="user-profile__nation">
                     </div>
                     <div class="user-profile__stats-right">
                         <div class="user-profile__level-label">Level</div>
@@ -80,7 +80,7 @@
 
                 <div class="user-profile__location">
                     <div class="user-profile__location-label">Current Location:</div>
-                    <img :src="'/img/' + user.profile.Location + '.png'" alr="Location Image" class="user-profile__location-img">
+                    <img :src="'/img/locations/' + user.profile.Location + '.png'" alr="Location Image" class="user-profile__location-img">
                 </div>
             </div>
         </div>

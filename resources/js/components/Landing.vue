@@ -81,18 +81,18 @@ export default {
         height: 100%;
         &:nth-child(1) 
         {
-            background-image: url(/../img/slide_01_small.png);
+            background-image: url(/../img/slides/slide_01_small.png);
             @media only screen and (min-width: 60em)
             {
-                background-image: url(/../img/slide_01_large.png);
+                background-image: url(/../img/slides/slide_01_large.png);
             }
         }
         &:nth-child(2)
         {
-            background-image: url(/../img/slide_02_small.png);
+            background-image: url(/../img/slides/slide_02_small.png);
             @media only screen and (min-width: 60em)
             {
-                background-image: url(/../img/slide_02_large.png);
+                background-image: url(/../img/slides/slide_02_large.png);
             }
         }
 

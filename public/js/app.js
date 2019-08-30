@@ -17543,7 +17543,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".carousel {\n  margin-top: 5.5rem;\n  height: 80rem;\n}\n@media screen and (max-width: 991px) {\n.carousel {\n    margin-top: 8rem;\n}\n}\n@media screen and (max-width: 1400px) {\n.carousel {\n    height: 60rem;\n}\n}\n.VueCarousel-wrapper, .VueCarousel-inner {\n  height: 100% !important;\n}\n.slide {\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  position: relative;\n  background-size: cover;\n  background-position: 50% 70%;\n  height: 100%;\n}\n.slide:nth-child(1) {\n  background-image: url(/../img/slide_01_small.png);\n}\n@media only screen and (min-width: 60em) {\n.slide:nth-child(1) {\n    background-image: url(/../img/slide_01_large.png);\n}\n}\n.slide:nth-child(2) {\n  background-image: url(/../img/slide_02_small.png);\n}\n@media only screen and (min-width: 60em) {\n.slide:nth-child(2) {\n    background-image: url(/../img/slide_02_large.png);\n}\n}\n.slide__container {\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  width: 80rem;\n  height: 151%;\n  background: linear-gradient(to bottom right, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0.75) 100%);\n}\n@media screen and (max-width: 1400px) {\n.slide__container {\n    width: 60rem;\n}\n}\n@media only screen and (max-width: 62em) {\n.slide__container {\n    background: none;\n    width: 100%;\n    height: 100%;\n}\n}\n.slide__content {\n  position: absolute;\n  bottom: 10%;\n  right: 10%;\n  width: 40rem;\n  text-align: center;\n}\n@media only screen and (max-width: 87.5em) {\n.slide__content {\n    width: 30rem;\n    bottom: 8%;\n    right: 8%;\n}\n}\n@media only screen and (max-width: 62em) {\n.slide__content {\n    bottom: 50%;\n    right: 50%;\n    transform: translate(50%, 50%);\n    width: 46rem;\n    background: rgba(0, 0, 0, 0.75);\n    padding: 3rem;\n    box-shadow: 0 0 10px #000;\n}\n}\n@media only screen and (max-width: 30em) {\n.slide__content {\n    width: 35rem !important;\n}\n}\n.slide__title {\n  font-size: 4rem;\n  line-height: 1.2;\n  font-weight: 300;\n  margin-bottom: 1rem;\n}\n@media only screen and (max-width: 87.5em) {\n.slide__title {\n    font-size: 3rem;\n}\n}\n.slide__text {\n  font-size: 1.4rem;\n  color: #d3d3d3;\n}", ""]);
+exports.push([module.i, ".carousel {\n  margin-top: 5.5rem;\n  height: 80rem;\n}\n@media screen and (max-width: 991px) {\n.carousel {\n    margin-top: 8rem;\n}\n}\n@media screen and (max-width: 1400px) {\n.carousel {\n    height: 60rem;\n}\n}\n.VueCarousel-wrapper, .VueCarousel-inner {\n  height: 100% !important;\n}\n.slide {\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  position: relative;\n  background-size: cover;\n  background-position: 50% 70%;\n  height: 100%;\n}\n.slide:nth-child(1) {\n  background-image: url(/../img/slides/slide_01_small.png);\n}\n@media only screen and (min-width: 60em) {\n.slide:nth-child(1) {\n    background-image: url(/../img/slides/slide_01_large.png);\n}\n}\n.slide:nth-child(2) {\n  background-image: url(/../img/slides/slide_02_small.png);\n}\n@media only screen and (min-width: 60em) {\n.slide:nth-child(2) {\n    background-image: url(/../img/slides/slide_02_large.png);\n}\n}\n.slide__container {\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  width: 80rem;\n  height: 151%;\n  background: linear-gradient(to bottom right, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0.75) 100%);\n}\n@media screen and (max-width: 1400px) {\n.slide__container {\n    width: 60rem;\n}\n}\n@media only screen and (max-width: 62em) {\n.slide__container {\n    background: none;\n    width: 100%;\n    height: 100%;\n}\n}\n.slide__content {\n  position: absolute;\n  bottom: 10%;\n  right: 10%;\n  width: 40rem;\n  text-align: center;\n}\n@media only screen and (max-width: 87.5em) {\n.slide__content {\n    width: 30rem;\n    bottom: 8%;\n    right: 8%;\n}\n}\n@media only screen and (max-width: 62em) {\n.slide__content {\n    bottom: 50%;\n    right: 50%;\n    transform: translate(50%, 50%);\n    width: 46rem;\n    background: rgba(0, 0, 0, 0.75);\n    padding: 3rem;\n    box-shadow: 0 0 10px #000;\n}\n}\n@media only screen and (max-width: 30em) {\n.slide__content {\n    width: 35rem !important;\n}\n}\n.slide__title {\n  font-size: 4rem;\n  line-height: 1.2;\n  font-weight: 300;\n  margin-bottom: 1rem;\n}\n@media only screen and (max-width: 87.5em) {\n.slide__title {\n    font-size: 3rem;\n}\n}\n.slide__text {\n  font-size: 1.4rem;\n  color: #d3d3d3;\n}", ""]);
 
 // exports
 
@@ -46142,7 +46142,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "item__left" }, [
       _c("img", {
         staticClass: "item__img",
-        attrs: { src: "/img/brand_logo_1x.png", alt: "Item Image" }
+        attrs: { src: "/img/brand/brand_logo_1x.png", alt: "Item Image" }
       })
     ])
   },
@@ -46166,7 +46166,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "popup__left" }, [
         _c("img", {
           staticClass: "popup__img",
-          attrs: { src: "/img/brand_logo_1x.png", alt: "Item Image" }
+          attrs: { src: "/img/brand/brand_logo_1x.png", alt: "Item Image" }
         })
       ]),
       _vm._v(" "),
@@ -46456,9 +46456,9 @@ var staticRenderFns = [
           staticClass: "navigation__brand-name",
           attrs: {
             srcset:
-              "/img/brand_name_1x.png" +
+              "/img/brand/brand_name_1x.png" +
               " 1x, " +
-              "/img/brand_name_2x.png" +
+              "/img/brand/brand_name_2x.png" +
               " 2x",
             alt: "Brand Name"
           }
@@ -46468,9 +46468,9 @@ var staticRenderFns = [
           staticClass: "navigation__brand-logo",
           attrs: {
             srcset:
-              "/img/brand_logo_1x.png" +
+              "/img/brand/brand_logo_1x.png" +
               " 1x, " +
-              "/img/brand_logo_2x.png" +
+              "/img/brand/brand_logo_2x.png" +
               " 2x",
             alt: "Brand Logo"
           }
@@ -46543,9 +46543,9 @@ var render = function() {
             staticClass: "mobile-navigation__brand-img",
             attrs: {
               srcset:
-                "/img/nav_brand_1x.png" +
+                "/img/brand/nav_brand_1x.png" +
                 " 1x, " +
-                "/img/nav_brand_2x.png" +
+                "/img/brand/nav_brand_2x.png" +
                 " 2x",
               alt: "Brand Image"
             }
@@ -48111,7 +48111,7 @@ var render = function() {
                   _c("img", {
                     staticClass: "user-profile__nation",
                     attrs: {
-                      src: "/img/" + _vm.user.profile.Nation + ".png",
+                      src: "/img/nations/" + _vm.user.profile.Nation + ".png",
                       alt: "Humania Logo"
                     }
                   })
@@ -48143,7 +48143,7 @@ var render = function() {
                 _c("img", {
                   staticClass: "user-profile__location-img",
                   attrs: {
-                    src: "/img/" + _vm.user.profile.Location + ".png",
+                    src: "/img/locations/" + _vm.user.profile.Location + ".png",
                     alr: "Location Image"
                   }
                 })
@@ -70598,7 +70598,8 @@ var routes = [{
   path: '/401',
   name: 'error.401',
   component: _views_Error_vue__WEBPACK_IMPORTED_MODULE_11__["default"]
-}, {
+}, // Always last route
+{
   path: '*',
   name: 'error.404',
   component: _views_Error_vue__WEBPACK_IMPORTED_MODULE_11__["default"]

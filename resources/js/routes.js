@@ -101,6 +101,8 @@ let routes =
             name: 'error.401',
             component: ErrorView
         },
+
+        // Always last route
         {
             path: '*',
             name: 'error.404',
