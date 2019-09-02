@@ -7,8 +7,8 @@
 
 <script>
 
-import Error401Component from '../components/Error401.vue';
-import Error404Component from '../components/Error404.vue';
+import Error401Component from '../components/errors/Error401.vue';
+import Error404Component from '../components/errors/Error404.vue';
 
 export default {
     components: {Error401Component, Error404Component},

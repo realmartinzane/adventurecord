@@ -45,7 +45,7 @@ export default {
 
 <style lang="scss" scoped>
 
-@import '../../sass/abstracts/_variables.scss';
+@import '../../../sass/abstracts/_variables.scss';
     
     .posts 
     {

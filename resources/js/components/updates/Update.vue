@@ -85,10 +85,10 @@
 
 <script>
 
-import SocialSharingComponent from './SocialSharing.vue'
+import SocialSharingComponent from '../SocialSharing.vue'
 import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
 
-import ToggleLikeComponent from './ToggleLike.vue'
+import ToggleLikeComponent from '../ToggleLike.vue'
 
 export default {
     props: ['update'],
@@ -169,7 +169,7 @@ export default {
 
 <style lang="scss">
 
-@import '../../sass/abstracts/_variables.scss';
+@import '../../../sass/abstracts/_variables.scss';
 
     .post
     {

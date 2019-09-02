@@ -6,7 +6,7 @@
 
 <script>
 
-import UpdatesComponent from '../components/Updates.vue';
+import UpdatesComponent from '../components/updates/Updates.vue';
 
 export default {
     components: {UpdatesComponent}

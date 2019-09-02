@@ -100,7 +100,7 @@
 <script>
 
 import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
-import SearchComponent from './Search'
+import SearchComponent from '../Search'
 
 export default {
     components: {ClipLoader, SearchComponent},
@@ -157,7 +157,7 @@ export default {
 
 <style lang="scss">
 
-@import '../../sass/abstracts/_variables.scss';
+@import '../../../sass/abstracts/_variables.scss';
 
     .user-profile
     {

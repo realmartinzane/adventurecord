@@ -6,7 +6,7 @@
 
 <script>
 
-import UserSettingsComponent from '../components/UserSettings.vue';
+import UserSettingsComponent from '../components/users/UserSettings.vue';
 
 export default {
     components: {UserSettingsComponent}

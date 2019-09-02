@@ -68,7 +68,7 @@ export default {
 
 <style lang="scss">
 
-@import '../../sass/abstracts/_variables.scss';
+@import '../../../sass/abstracts/_variables.scss';
 
     .navigation
     {

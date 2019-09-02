@@ -6,7 +6,7 @@
 
 <script>
 
-import UserComponent from '../components/User.vue';
+import UserComponent from '../components/users/User.vue';
 
 export default {
     components: {UserComponent}

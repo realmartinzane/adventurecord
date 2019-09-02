@@ -7,8 +7,8 @@
 
 <script>
 
-import UpdateCreateComponent from '../components/UpdateCreate.vue';
-import UpdateEditComponent from '../components/UpdateEdit.vue';
+import UpdateCreateComponent from '../components/updates/UpdateCreate.vue';
+import UpdateEditComponent from '../components/updates/UpdateEdit.vue';
 
 export default {
     components: {UpdateCreateComponent, UpdateEditComponent},
