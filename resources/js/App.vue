@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import NavigationBarDesktopComponent from './components/common/NavigationBarDesktop.vue'
-import NavigationBarMobileComponent from './components/common/NavigationBarMobile.vue'
-import FooterComponent from './components/common/Footer.vue'
+import NavigationBarDesktopComponent from './components/global/NavigationBarDesktop.vue'
+import NavigationBarMobileComponent from './components/global/NavigationBarMobile.vue'
+import FooterComponent from './components/global/Footer.vue'
 
 export default {
     components:

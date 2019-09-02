@@ -100,7 +100,7 @@
 <script>
 
 import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
-import SearchComponent from '../Search'
+import SearchComponent from '../common/Search'
 
 export default {
     components: {ClipLoader, SearchComponent},

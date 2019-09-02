@@ -85,10 +85,10 @@
 
 <script>
 
-import SocialSharingComponent from '../SocialSharing.vue'
+import SocialSharingComponent from '../common/SocialSharing.vue'
 import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
 
-import ToggleLikeComponent from '../ToggleLike.vue'
+import ToggleLikeComponent from '../common/ToggleLike.vue'
 
 export default {
     props: ['update'],

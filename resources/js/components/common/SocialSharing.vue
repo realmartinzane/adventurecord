@@ -61,7 +61,7 @@ export default {
 
 <style lang="scss">
 
-@import '../../sass/abstracts/variables.scss';
+@import '../../../sass/abstracts/variables.scss';
 
     .post__share
     {

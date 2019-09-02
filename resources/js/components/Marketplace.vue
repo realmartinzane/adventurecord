@@ -70,7 +70,7 @@
 
 <script>
 
-import SearchComponent from './Search'
+import SearchComponent from './common/Search'
 
 export default {
     components: {SearchComponent},
