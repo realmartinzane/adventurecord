@@ -29,6 +29,18 @@ Route::group(['prefix' => 'v1'], function()
     Route::get('/users/{id}', 'API\UserController@single');
 
   /*
+  |-------------------------------------------------------------------------------
+  | Search for a User
+  |-------------------------------------------------------------------------------
+  | URL:            /api/v1/users/{id}/search
+  | Controller:     API\UpdateController@search
+  | Method:         GET
+  | Description:    Search for a user.
+  */
+
+    Route::get('/users/{id}/search', 'API\UserController@search');
+
+  /*
     |-------------------------------------------------------------------------------
     | Get an Adventure Cord Profile
     |-------------------------------------------------------------------------------

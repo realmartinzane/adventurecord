@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('discriminator');
             $table->string('email');
-            $table->text('avatar');
+            $table->text('avatar')->nullable();
             $table->timestamps();
         });
     }

@@ -16309,7 +16309,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['placeholder', 'submit', 'message']
+  props: ['placeholder', 'submit', 'message'],
+  data: function data() {
+    return {
+      searchData: null
+    };
+  }
 });
 
 /***/ }),
@@ -17084,8 +17089,17 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-spinner/src/ClipLoader.vue */ "./node_modules/vue-spinner/src/ClipLoader.vue");
-/* harmony import */ var _Search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Search */ "./resources/js/components/Search.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-spinner/src/ClipLoader.vue */ "./node_modules/vue-spinner/src/ClipLoader.vue");
+/* harmony import */ var _Search__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Search */ "./resources/js/components/Search.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
 //
 //
 //
@@ -17188,8 +17202,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    ClipLoader: vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    SearchComponent: _Search__WEBPACK_IMPORTED_MODULE_1__["default"]
+    ClipLoader: vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    SearchComponent: _Search__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
@@ -17206,12 +17220,19 @@ __webpack_require__.r(__webpack_exports__);
     },
     profileLoad: function profileLoad() {
       return this.$store.getters.getProfileLoad;
+    },
+    userSearchId: function userSearchId() {
+      return this.$store.getters.getUserSearchId;
+    },
+    userSearchLoad: function userSearchLoad() {
+      return this.$store.getters.getUserSearchLoad;
+    },
+    profileExists: function profileExists() {
+      return Object.keys(this.user.profile).length;
     }
   },
   created: function created() {
-    console.log(this.id);
     this.fetchSingle();
-    console.log(this.id);
   },
   methods: {
     fetchSingle: function fetchSingle() {
@@ -17219,7 +17240,58 @@ __webpack_require__.r(__webpack_exports__);
         id: this.id
       });
     },
-    search: function search() {}
+    search: function () {
+      var _search = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(id) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return this.$store.dispatch('searchUser', {
+                  id: id
+                });
+
+              case 2:
+                if (!(this.userSearchLoad == 2)) {
+                  _context.next = 10;
+                  break;
+                }
+
+                if (!(this.userSearchId == this.user.id)) {
+                  _context.next = 6;
+                  break;
+                }
+
+                this.searchMessage = "This is the current user.";
+                return _context.abrupt("return");
+
+              case 6:
+                this.$router.replace("/users/".concat(this.userSearchId));
+                this.searchMessage = '';
+                _context.next = 11;
+                break;
+
+              case 10:
+                if (this.userSearchLoad == 3) {
+                  this.searchMessage = "User not found.";
+                }
+
+              case 11:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function search(_x) {
+        return _search.apply(this, arguments);
+      }
+
+      return search;
+    }()
   }
 });
 
@@ -45621,7 +45693,7 @@ var render = function() {
       _vm._v(" "),
       _c("navigation-bar-mobile-component"),
       _vm._v(" "),
-      _c("router-view"),
+      _c("router-view", { key: _vm.$route.fullPath }),
       _vm._v(" "),
       _c("footer-component")
     ],
@@ -46948,14 +47020,35 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "search" }, [
     _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.searchData,
+          expression: "searchData"
+        }
+      ],
       staticClass: "search__input",
-      attrs: { type: "text", id: "item", placeholder: _vm.placeholder }
+      attrs: { type: "text", id: "item", placeholder: _vm.placeholder },
+      domProps: { value: _vm.searchData },
+      on: {
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.searchData = $event.target.value
+        }
+      }
     }),
     _c(
       "button",
       {
         staticClass: "btn btn--secondary-gold search__btn",
-        on: { click: _vm.submit }
+        on: {
+          click: function($event) {
+            return _vm.submit(_vm.searchData)
+          }
+        }
       },
       [_c("font-awesome-icon", { attrs: { icon: ["fas", "search"] } })],
       1
@@ -48022,45 +48115,263 @@ var render = function() {
           })
         : _vm._e(),
       _vm._v(" "),
-      _vm.profileLoad == 2 && !_vm.user.profile
-        ? _c("div", { staticClass: "u-center-text" }, [_vm._m(0)])
+      _vm.profileLoad == 2
+        ? _c("search-component", {
+            staticClass: "user-profile__search",
+            attrs: {
+              placeholder: "Search for users with discord ID...",
+              message: _vm.searchMessage,
+              submit: _vm.search
+            }
+          })
         : _vm._e(),
       _vm._v(" "),
-      _vm.profileLoad == 2 && _vm.user.profile
-        ? _c(
-            "div",
-            { staticClass: "user-profile" },
-            [
-              _c("search-component", {
-                staticClass: "user-profile__search",
-                attrs: {
-                  placeholder: "Search for users with discord ID...",
-                  message: _vm.searchMessage,
-                  submit: _vm.search
-                }
-              }),
-              _vm._v(" "),
+      _vm.profileLoad == 2 && !_vm.profileExists
+        ? _c("div", { staticClass: "u-center-text" }, [
+            _c("p", [_vm._v("No AdventureCord profile found for this user.")])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.profileLoad == 2 && _vm.profileExists
+        ? _c("div", { staticClass: "user-profile" }, [
+            _c(
+              "header",
+              { staticClass: "user-profile__header user-profile__header--sm" },
+              [
+                _c("h2", { staticClass: "user-profile__name" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.user.name) +
+                      " \n            "
+                  )
+                ]),
+                _vm._v(" "),
+                _vm.user.profile.Banned == "Y"
+                  ? _c("p", { staticClass: "user-profile__ban" }, [
+                      _vm._v("Banned for " + _vm._s(_vm.user.profile.BanReason))
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("sub", { staticClass: "user-profile__id" }, [
+                  _vm._v("ID: " + _vm._s(_vm.user.provider_id) + " ")
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "user-profile__left" },
+              [
+                _c("img", {
+                  staticClass: "user-profile__img",
+                  attrs: {
+                    src: _vm.user.avatar
+                      ? _vm.user.avatar
+                      : "/img/brand/brand_logo_1x.png",
+                    alt: "Profile Image"
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "user-profile__btn btn btn--primary",
+                    attrs: {
+                      to: {
+                        name: "users.settings",
+                        params: { id: _vm.user.id }
+                      }
+                    }
+                  },
+                  [
+                    _c("font-awesome-icon", {
+                      staticClass: "mr-1",
+                      attrs: { icon: ["fas", "cog"] }
+                    }),
+                    _vm._v("\n                Settings\n            ")
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "user-profile__info" }, [
+                  _c(
+                    "div",
+                    {
+                      directives: [
+                        {
+                          name: "tooltip",
+                          rawName: "v-tooltip.left",
+                          value: "Experience",
+                          expression: "'Experience'",
+                          modifiers: { left: true }
+                        }
+                      ],
+                      staticClass: "user-profile__label"
+                    },
+                    [
+                      _c("font-awesome-icon", {
+                        staticClass: "user-profile__exp",
+                        attrs: { icon: ["fas", "bolt"] }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "user-profile__data" }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(_vm.user.profile.experience_amount) +
+                        "\n                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      directives: [
+                        {
+                          name: "tooltip",
+                          rawName: "v-tooltip.left",
+                          value: "Gold",
+                          expression: "'Gold'",
+                          modifiers: { left: true }
+                        }
+                      ],
+                      staticClass: "user-profile__label"
+                    },
+                    [
+                      _c("font-awesome-icon", {
+                        staticClass: "user-profile__gold",
+                        attrs: { icon: ["fas", "coins"] }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "user-profile__data" }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(_vm.user.profile.gold_amount) +
+                        "\n                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      directives: [
+                        {
+                          name: "tooltip",
+                          rawName: "v-tooltip.left",
+                          value: "Gems",
+                          expression: "'Gems'",
+                          modifiers: { left: true }
+                        }
+                      ],
+                      staticClass: "user-profile__label"
+                    },
+                    [
+                      _c("font-awesome-icon", {
+                        staticClass: "user-profile__gems",
+                        attrs: { icon: ["far", "gem"] }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "user-profile__data" }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(_vm.user.profile.gems_amount) +
+                        "\n                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      directives: [
+                        {
+                          name: "tooltip",
+                          rawName: "v-tooltip.left",
+                          value: "Guild",
+                          expression: "'Guild'",
+                          modifiers: { left: true }
+                        }
+                      ],
+                      staticClass: "user-profile__label"
+                    },
+                    [
+                      _c("font-awesome-icon", {
+                        staticClass: "user-profile__guild",
+                        attrs: { icon: ["fas", "campground"] }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "user-profile__data" }, [
+                    _vm._v(
+                      "\n                    RandomGuild\n                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      directives: [
+                        {
+                          name: "tooltip",
+                          rawName: "v-tooltip.left",
+                          value: "Last Active",
+                          expression: "'Last Active'",
+                          modifiers: { left: true }
+                        }
+                      ],
+                      staticClass: "user-profile__label"
+                    },
+                    [
+                      _c("font-awesome-icon", {
+                        staticClass: "user-profile__activity",
+                        attrs: { icon: ["far", "clock"] }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "user-profile__data" }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(_vm.user.profile.last_active) +
+                        "\n                "
+                    )
+                  ])
+                ])
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "user-profile__right" }, [
               _c(
                 "header",
                 {
-                  staticClass: "user-profile__header user-profile__header--sm"
+                  staticClass: "user-profile__header user-profile__header--lg"
                 },
                 [
                   _c("h2", { staticClass: "user-profile__name" }, [
                     _vm._v(
-                      "\n                " +
+                      "\n                    " +
                         _vm._s(_vm.user.name) +
-                        " \n            "
-                    )
+                        " \n                    "
+                    ),
+                    _vm.user.profile.Banned == "Y"
+                      ? _c("span", { staticClass: "user-profile__ban" }, [
+                          _vm._v(
+                            "Banned for " + _vm._s(_vm.user.profile.BanReason)
+                          )
+                        ])
+                      : _vm._e()
                   ]),
-                  _vm._v(" "),
-                  _vm.user.profile.Banned == "Y"
-                    ? _c("p", { staticClass: "user-profile__ban" }, [
-                        _vm._v(
-                          "Banned for " + _vm._s(_vm.user.profile.BanReason)
-                        )
-                      ])
-                    : _vm._e(),
                   _vm._v(" "),
                   _c("sub", { staticClass: "user-profile__id" }, [
                     _vm._v("ID: " + _vm._s(_vm.user.provider_id) + " ")
@@ -48068,290 +48379,56 @@ var render = function() {
                 ]
               ),
               _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "user-profile__left" },
-                [
+              _c("div", { staticClass: "user-profile__stats" }, [
+                _c("div", { staticClass: "user-profile__stats-left" }, [
                   _c("img", {
-                    staticClass: "user-profile__img",
-                    attrs: { src: _vm.user.avatar, alt: "Profile Image" }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "user-profile__btn btn btn--primary",
-                      attrs: {
-                        to: {
-                          name: "users.settings",
-                          params: { id: _vm.user.id }
-                        }
-                      }
-                    },
-                    [
-                      _c("font-awesome-icon", {
-                        staticClass: "mr-1",
-                        attrs: { icon: ["fas", "cog"] }
-                      }),
-                      _vm._v("\n                Settings\n            ")
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "user-profile__info" }, [
-                    _c(
-                      "div",
-                      {
-                        directives: [
-                          {
-                            name: "tooltip",
-                            rawName: "v-tooltip.left",
-                            value: "Experience",
-                            expression: "'Experience'",
-                            modifiers: { left: true }
-                          }
-                        ],
-                        staticClass: "user-profile__label"
-                      },
-                      [
-                        _c("font-awesome-icon", {
-                          staticClass: "user-profile__exp",
-                          attrs: { icon: ["fas", "bolt"] }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "user-profile__data" }, [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(_vm.user.profile.experience_amount) +
-                          "\n                "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        directives: [
-                          {
-                            name: "tooltip",
-                            rawName: "v-tooltip.left",
-                            value: "Gold",
-                            expression: "'Gold'",
-                            modifiers: { left: true }
-                          }
-                        ],
-                        staticClass: "user-profile__label"
-                      },
-                      [
-                        _c("font-awesome-icon", {
-                          staticClass: "user-profile__gold",
-                          attrs: { icon: ["fas", "coins"] }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "user-profile__data" }, [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(_vm.user.profile.gold_amount) +
-                          "\n                "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        directives: [
-                          {
-                            name: "tooltip",
-                            rawName: "v-tooltip.left",
-                            value: "Gems",
-                            expression: "'Gems'",
-                            modifiers: { left: true }
-                          }
-                        ],
-                        staticClass: "user-profile__label"
-                      },
-                      [
-                        _c("font-awesome-icon", {
-                          staticClass: "user-profile__gems",
-                          attrs: { icon: ["far", "gem"] }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "user-profile__data" }, [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(_vm.user.profile.gems_amount) +
-                          "\n                "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        directives: [
-                          {
-                            name: "tooltip",
-                            rawName: "v-tooltip.left",
-                            value: "Guild",
-                            expression: "'Guild'",
-                            modifiers: { left: true }
-                          }
-                        ],
-                        staticClass: "user-profile__label"
-                      },
-                      [
-                        _c("font-awesome-icon", {
-                          staticClass: "user-profile__guild",
-                          attrs: { icon: ["fas", "campground"] }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "user-profile__data" }, [
-                      _vm._v(
-                        "\n                    RandomGuild\n                "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        directives: [
-                          {
-                            name: "tooltip",
-                            rawName: "v-tooltip.left",
-                            value: "Last Active",
-                            expression: "'Last Active'",
-                            modifiers: { left: true }
-                          }
-                        ],
-                        staticClass: "user-profile__label"
-                      },
-                      [
-                        _c("font-awesome-icon", {
-                          staticClass: "user-profile__activity",
-                          attrs: { icon: ["far", "clock"] }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "user-profile__data" }, [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(_vm.user.profile.last_active) +
-                          "\n                "
-                      )
-                    ])
-                  ])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "user-profile__right" }, [
-                _c(
-                  "header",
-                  {
-                    staticClass: "user-profile__header user-profile__header--lg"
-                  },
-                  [
-                    _c("h2", { staticClass: "user-profile__name" }, [
-                      _vm._v(
-                        "\n                    " +
-                          _vm._s(_vm.user.name) +
-                          " \n                    "
-                      ),
-                      _vm.user.profile.Banned == "Y"
-                        ? _c("span", { staticClass: "user-profile__ban" }, [
-                            _vm._v(
-                              "Banned for " + _vm._s(_vm.user.profile.BanReason)
-                            )
-                          ])
-                        : _vm._e()
-                    ]),
-                    _vm._v(" "),
-                    _c("sub", { staticClass: "user-profile__id" }, [
-                      _vm._v("ID: " + _vm._s(_vm.user.provider_id) + " ")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "user-profile__stats" }, [
-                  _c("div", { staticClass: "user-profile__stats-left" }, [
-                    _c("img", {
-                      staticClass: "user-profile__nation",
-                      attrs: {
-                        src: "/img/nations/" + _vm.user.profile.Nation + ".png",
-                        alt: "Humania Logo"
-                      }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "user-profile__stats-right" }, [
-                    _c("div", { staticClass: "user-profile__level-label" }, [
-                      _vm._v("Level")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "user-profile__level" }, [
-                      _vm._v(_vm._s(_vm.user.profile.level.level))
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "user-profile__progress-bar" }, [
-                      _c("div", {
-                        staticClass: "user-profile__progress",
-                        style: {
-                          width: _vm.user.profile.level.percentage + "%"
-                        }
-                      })
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "user-profile__location" }, [
-                  _c("div", { staticClass: "user-profile__location-label" }, [
-                    _vm._v("Current Location:")
-                  ]),
-                  _vm._v(" "),
-                  _c("img", {
-                    staticClass: "user-profile__location-img",
+                    staticClass: "user-profile__nation",
                     attrs: {
-                      src:
-                        "/img/locations/" + _vm.user.profile.Location + ".png",
-                      alr: "Location Image"
+                      src: "/img/nations/" + _vm.user.profile.Nation + ".png",
+                      alt: "Humania Logo"
                     }
                   })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "user-profile__stats-right" }, [
+                  _c("div", { staticClass: "user-profile__level-label" }, [
+                    _vm._v("Level")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "user-profile__level" }, [
+                    _vm._v(_vm._s(_vm.user.profile.level.level))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "user-profile__progress-bar" }, [
+                    _c("div", {
+                      staticClass: "user-profile__progress",
+                      style: { width: _vm.user.profile.level.percentage + "%" }
+                    })
+                  ])
                 ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "user-profile__location" }, [
+                _c("div", { staticClass: "user-profile__location-label" }, [
+                  _vm._v("Current Location:")
+                ]),
+                _vm._v(" "),
+                _c("img", {
+                  staticClass: "user-profile__location-img",
+                  attrs: {
+                    src: "/img/locations/" + _vm.user.profile.Location + ".png",
+                    alr: "Location Image"
+                  }
+                })
               ])
-            ],
-            1
-          )
+            ])
+          ])
         : _vm._e()
     ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", [
-      _vm._v("No AdventureCord profile found for this user. Make sure to "),
-      _c("a", { staticClass: "link", attrs: { href: "#" } }, [
-        _vm._v("use the bot on our server")
-      ]),
-      _vm._v(" first.")
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -68818,8 +68895,19 @@ __webpack_require__.r(__webpack_exports__);
   fetchSingle: function fetchSingle(id) {
     return axios.get("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/users/").concat(id));
   },
+
+  /*
+      GET   /api/v1/profiles/{id}
+  */
   fetchProfile: function fetchProfile(id) {
     return axios.get("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/profiles/").concat(id));
+  },
+
+  /*
+      GET   /api/v1/users/{id}/search
+  */
+  search: function search(id) {
+    return axios.get("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/users/").concat(id, "/search"));
   }
 });
 
@@ -70671,7 +70759,15 @@ var updates = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "users", function() { return users; });
-/* harmony import */ var _api_user_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../api/user.js */ "./resources/js/api/user.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _api_user_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api/user.js */ "./resources/js/api/user.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 var users = {
   state: {
@@ -70679,7 +70775,9 @@ var users = {
     authUserLoad: 0,
     user: null,
     userLoad: 0,
-    profileLoad: 0
+    profileLoad: 0,
+    userSearchLoad: 0,
+    userSearchId: null
   },
   mutations: {
     setAuthUser: function setAuthUser(state, user) {
@@ -70699,13 +70797,19 @@ var users = {
     },
     setProfileLoad: function setProfileLoad(state, status) {
       state.profileLoad = status;
+    },
+    setUserSearchLoad: function setUserSearchLoad(state, status) {
+      state.userSearchLoad = status;
+    },
+    setUserSearchId: function setUserSearchId(state, status) {
+      state.userSearchId = status;
     }
   },
   actions: {
     fetchAuthUser: function fetchAuthUser(_ref) {
       var commit = _ref.commit;
       commit('setAuthUserLoad', 1);
-      _api_user_js__WEBPACK_IMPORTED_MODULE_0__["default"].fetchAuth().then(function (response) {
+      _api_user_js__WEBPACK_IMPORTED_MODULE_1__["default"].fetchAuth().then(function (response) {
         commit('setAuthUser', response.data);
         commit('setAuthUserLoad', 2);
       })["catch"](function (err) {
@@ -70722,7 +70826,7 @@ var users = {
       var commit = _ref3.commit,
           dispatch = _ref3.dispatch;
       commit('setUserLoad', 1);
-      _api_user_js__WEBPACK_IMPORTED_MODULE_0__["default"].fetchSingle(data.id).then(function (response) {
+      _api_user_js__WEBPACK_IMPORTED_MODULE_1__["default"].fetchSingle(data.id).then(function (response) {
         commit('setUser', response.data);
         commit('setUserLoad', 2);
         dispatch('fetchProfile', response.data.provider_id);
@@ -70734,14 +70838,57 @@ var users = {
     fetchProfile: function fetchProfile(_ref4, data) {
       var commit = _ref4.commit;
       commit('setProfileLoad', 1);
-      _api_user_js__WEBPACK_IMPORTED_MODULE_0__["default"].fetchProfile(data).then(function (response) {
+      _api_user_js__WEBPACK_IMPORTED_MODULE_1__["default"].fetchProfile(data).then(function (response) {
         commit('setProfile', response.data);
         commit('setProfileLoad', 2);
       })["catch"](function (err) {
         commit('setUser', {});
         commit('setProfileLoad', 3);
       });
-    }
+    },
+    searchUser: function () {
+      var _searchUser = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(_ref5, data) {
+        var commit, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                commit = _ref5.commit;
+                commit('setUserSearchLoad', 1);
+                _context.prev = 2;
+                _context.next = 5;
+                return _api_user_js__WEBPACK_IMPORTED_MODULE_1__["default"].search(data.id);
+
+              case 5:
+                response = _context.sent;
+                _context.next = 11;
+                break;
+
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context["catch"](2);
+                commit('setUserSearchLoad', 3);
+
+              case 11:
+                commit('setUserSearchLoad', 2);
+                commit('setUserSearchId', response.data);
+
+              case 13:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[2, 8]]);
+      }));
+
+      function searchUser(_x, _x2) {
+        return _searchUser.apply(this, arguments);
+      }
+
+      return searchUser;
+    }()
   },
   getters: {
     getAuthUser: function getAuthUser(state) {
@@ -70760,6 +70907,12 @@ var users = {
     },
     getProfileLoad: function getProfileLoad(state) {
       return state.profileLoad;
+    },
+    getUserSearchLoad: function getUserSearchLoad(state) {
+      return state.userSearchLoad;
+    },
+    getUserSearchId: function getUserSearchId(state) {
+      return state.userSearchId;
     }
   }
 };

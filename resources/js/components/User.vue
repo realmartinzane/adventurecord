@@ -1,20 +1,21 @@
 <template>
     <section class="section-user">
         <clip-loader v-if="profileLoad != 2" :loading="true" color="#FFD700" size="5rem"></clip-loader>
-        <div class="u-center-text" v-if="profileLoad == 2 && !user.profile">
-            <p>No AdventureCord profile found for this user. Make sure to <a class="link" href="#">use the bot on our server</a> first.</p>
-        </div>
-
-
-        <div class="user-profile" v-if="profileLoad == 2 && user.profile">
-
-            <search-component 
+        
+        <search-component
+                v-if="profileLoad == 2"
                 class="user-profile__search"
                 :placeholder="'Search for users with discord ID...'"
                 :message="searchMessage"
                 :submit="search">
             </search-component>
-            
+        
+        <div class="u-center-text" v-if="profileLoad == 2 && !profileExists">
+            <p>No AdventureCord profile found for this user.</p>
+        </div>        
+
+        <div class="user-profile" v-if="profileLoad == 2 && profileExists">
+
             <header class="user-profile__header user-profile__header--sm">
                 <h2 class="user-profile__name">
                     {{ user.name }} 
@@ -24,7 +25,7 @@
             </header>
 
             <div class="user-profile__left">
-                <img :src="user.avatar" alt="Profile Image" class="user-profile__img">
+                <img :src="user.avatar ? user.avatar : '/img/brand/brand_logo_1x.png'" alt="Profile Image" class="user-profile__img">
                 <router-link :to="{name: 'users.settings', params: {id: user.id}}" class="user-profile__btn btn btn--primary">
                     <font-awesome-icon :icon="['fas', 'cog']" class="mr-1"></font-awesome-icon>
                     Settings
@@ -113,13 +114,17 @@ export default {
         
         user() {return this.$store.getters.getUser},
 
-        profileLoad() {return this.$store.getters.getProfileLoad}
+        profileLoad() {return this.$store.getters.getProfileLoad},
+
+        userSearchId() {return this.$store.getters.getUserSearchId},
+
+        userSearchLoad() {return this.$store.getters.getUserSearchLoad},
+
+        profileExists() {return Object.keys(this.user.profile).length}
     },
     created()
     {
-        console.log(this.id)
         this.fetchSingle();
-        console.log(this.id)
     },
     methods:
     {
@@ -128,9 +133,23 @@ export default {
             this.$store.dispatch('fetchUser', {id: this.id})
         },
 
-        search()
+        async search(id)
         {
-            
+            await this.$store.dispatch('searchUser', {id})
+            if(this.userSearchLoad == 2)
+            {
+                if(this.userSearchId == this.user.id) 
+                    {
+                        this.searchMessage = `This is the current user.`
+                        return
+                    }
+                this.$router.replace(`/users/${this.userSearchId}`)
+                this.searchMessage = ''
+            }
+            else if (this.userSearchLoad == 3)
+            {
+                this.searchMessage = `User not found.`
+            }
         }
     }
 }

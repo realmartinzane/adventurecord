@@ -10,7 +10,10 @@ export const users =
         user: null,
         userLoad: 0,
 
-        profileLoad: 0
+        profileLoad: 0,
+
+        userSearchLoad: 0,
+        userSearchId: null
     },
 
     mutations:
@@ -43,6 +46,16 @@ export const users =
         setProfileLoad(state, status) 
         {
             state.profileLoad = status
+        },
+
+        setUserSearchLoad(state, status)
+        {
+            state.userSearchLoad = status
+        },
+
+        setUserSearchId(state, status) 
+        {
+            state.userSearchId = status
         }
     },
 
@@ -102,6 +115,22 @@ export const users =
                         commit('setProfileLoad', 3)
                     })
         },
+
+        async searchUser({commit}, data) 
+        {
+            commit('setUserSearchLoad', 1)
+            let response; 
+                try
+                {
+                    response = await UserAPI.search(data.id)
+                }
+                catch
+                {
+                    commit('setUserSearchLoad', 3)
+                }
+            commit('setUserSearchLoad', 2)
+            commit('setUserSearchId', response.data)
+        },
     },
 
     getters:
@@ -132,6 +161,16 @@ export const users =
         getProfileLoad(state)
         {
             return state.profileLoad
+        },
+
+        getUserSearchLoad(state) 
+        {
+            return state.userSearchLoad
+        },
+
+        getUserSearchId(state) 
+        {
+            return state.userSearchId
         }
     }
 }

@@ -2,7 +2,7 @@
     <div class="container">
         <navigation-bar-desktop-component></navigation-bar-desktop-component>
         <navigation-bar-mobile-component></navigation-bar-mobile-component>
-        <router-view></router-view>
+        <router-view :key="$route.fullPath"></router-view>
         <footer-component></footer-component>
     </div>
 </template>

@@ -1,8 +1,8 @@
 <template>
         <div class="search">
-            <input type="text" class="search__input" id="item" :placeholder="placeholder"
+            <input type="text" class="search__input" id="item" :placeholder="placeholder" v-model="searchData"
 
-            ><button @click="submit" class="btn btn--secondary-gold search__btn">
+            ><button @click="submit(searchData)" class="btn btn--secondary-gold search__btn">
                 <font-awesome-icon :icon="['fas', 'search']"></font-awesome-icon>
             </button>
             <p class="search__msg">{{ message }}</p>
@@ -11,7 +11,10 @@
 
 <script>
 export default {
-    props: ['placeholder', 'submit', 'message']
+    props: ['placeholder', 'submit', 'message'],
+    data(){return{
+        searchData: null
+    }}
     
 }
 </script>

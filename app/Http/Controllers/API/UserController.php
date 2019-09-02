@@ -30,7 +30,7 @@ class UserController extends Controller
     | URL:            /api/v1/users/{id}
     | Controller:     API\UpdateController@single
     | Method:         GET
-    | Description:    Get a single update.
+    | Description:    Get a single user.
     */
 
     public function single($id)
@@ -38,5 +38,22 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         
         return response()->json($user);
+    }
+
+    /*
+    |-------------------------------------------------------------------------------
+    | Search for a User
+    |-------------------------------------------------------------------------------
+    | URL:            /api/v1/users/{id}/search
+    | Controller:     API\UpdateController@search
+    | Method:         GET
+    | Description:    Search for a user.
+    */
+
+    public function search($id)
+    {
+        $user = User::where('provider_id', '=', $id)->first();
+        
+        return response()->json($user->id);
     }
 }
