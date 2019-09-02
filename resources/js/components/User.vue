@@ -4,8 +4,17 @@
         <div class="u-center-text" v-if="profileLoad == 2 && !user.profile">
             <p>No AdventureCord profile found for this user. Make sure to <a class="link" href="#">use the bot on our server</a> first.</p>
         </div>
+
+
         <div class="user-profile" v-if="profileLoad == 2 && user.profile">
 
+            <search-component 
+                class="user-profile__search"
+                :placeholder="'Search for users with discord ID...'"
+                :message="searchMessage"
+                :submit="search">
+            </search-component>
+            
             <header class="user-profile__header user-profile__header--sm">
                 <h2 class="user-profile__name">
                     {{ user.name }} 
@@ -90,11 +99,13 @@
 <script>
 
 import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
+import SearchComponent from './Search'
 
 export default {
-    components: {ClipLoader},
+    components: {ClipLoader, SearchComponent},
     data(){return{
         id: this.$route.params.id,
+        searchMessage: ''
     }},
     computed:
     {
@@ -116,6 +127,11 @@ export default {
         {
             this.$store.dispatch('fetchUser', {id: this.id})
         },
+
+        search()
+        {
+            
+        }
     }
 }
 </script>
@@ -126,6 +142,19 @@ export default {
 
     .user-profile
     {
+        &__search
+        {
+            max-width: 40rem;
+            margin: 0 auto;
+            margin-bottom: 2rem;
+
+            @media only screen and (min-width: 62em)
+            {
+                margin-left: auto;
+                margin-right: 0;
+            }
+        }
+
         &__header
         {
             &--sm

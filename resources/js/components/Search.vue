@@ -1,0 +1,84 @@
+<template>
+        <div class="search">
+            <input type="text" class="search__input" id="item" :placeholder="placeholder"
+
+            ><button @click="submit" class="btn btn--secondary-gold search__btn">
+                <font-awesome-icon :icon="['fas', 'search']"></font-awesome-icon>
+            </button>
+            <p class="search__msg">{{ message }}</p>
+        </div>
+</template>
+
+<script>
+export default {
+    props: ['placeholder', 'submit', 'message']
+    
+}
+</script>
+
+<style lang="scss">
+
+@import '../../sass/abstracts/_variables.scss';
+
+    .search
+    {
+        position:relative;
+        z-index: 5000;
+        &__input
+        {
+            display: inline-block;
+            width: calc(90% - 2px);
+            border: 1px solid transparent;
+            border-left: none;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            vertical-align: middle;
+            padding: 1rem;
+            padding-top: .9rem;
+            background-color: $color-secondary-light;
+            color: $color-gray-light;
+            font-family: 'Lato', sans-serif;
+            font-size: 1.6rem;
+
+            @media only screen and (max-width: 56.25em)
+            {
+                width: calc(100% - 5.2rem);
+            }
+            &:hover, &:focus, &:active
+            {
+                box-shadow: none;
+                border-right: none;
+            }
+        }
+
+        &__btn
+        {
+            &, &:visited, &:link
+            {
+                
+                display: inline-block;
+                width: calc(10% - 2px);
+                padding: 1rem !important;
+                border: 1px solid $color-primary-dark;
+                border-left: none;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                vertical-align: middle;
+                font-size: 1.6rem !important;
+
+                @media only screen and (max-width: 56.25em)
+                {
+                    width: 5rem;
+                }
+            }
+        }
+        &__msg
+        {
+            color: $color-red;
+            font-size: 1.4rem;
+            margin-top: .5rem;
+            text-align: center;
+        }
+    }
+
+</style>

@@ -395,52 +395,6 @@ body {
   margin: auto;
 }
 
-.form__input--search {
-  display: inline-block;
-  width: calc(90% - 2px);
-  border: 1px solid transparent;
-  border-left: none;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  vertical-align: middle;
-  padding-top: 0.9rem;
-}
-
-@media only screen and (max-width: 56.25em) {
-  .form__input--search {
-    width: calc(100% - 5.2rem);
-  }
-}
-
-.form__input--search:hover,
-.form__input--search:focus,
-.form__input--search:active {
-  box-shadow: none;
-  border-right: none;
-}
-
-.form__search--search,
-.form__search--search:visited,
-.form__search--search:link {
-  display: inline-block;
-  width: calc(10% - 2px);
-  padding: 1rem !important;
-  border: 1px solid #c9b350;
-  border-left: none;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  vertical-align: middle;
-  font-size: 1.6rem !important;
-}
-
-@media only screen and (max-width: 56.25em) {
-  .form__search--search,
-  .form__search--search:visited,
-  .form__search--search:link {
-    width: 5rem;
-  }
-}
-
 .popup {
   position: fixed;
   top: 0;

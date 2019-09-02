@@ -4,15 +4,12 @@
             <h2 class="heading-secondary">Marketplace</h2>
         </header>
 
-        <form action="#" class="form">
-            <div class="form__group">
-                <input type="text" class="form__input form__input--search" id="item" placeholder="Search for items..."
-
-                ><button type="submit" class="btn btn--secondary-gold form__search form__search--search">
-                    <font-awesome-icon :icon="['fas', 'search']"></font-awesome-icon>
-                </button>
-            </div>
-        </form>
+        <search-component 
+                class="user-profile__search"
+                :placeholder="'Search for items...'"
+                :message="searchMessage"
+                :submit="search">
+            </search-component>
 
         <div class="u-center-text u-margin-top-md u-margin-bottom-sm">
             <h3 class="heading-tertiary">Popular Items Now</h3>
@@ -73,15 +70,26 @@
 
 <script>
 
+import SearchComponent from './Search'
+
 export default {
+    components: {SearchComponent},
     data(){return{
-        showModal: false
+        showModal: false,
+        searchMessage: ''
     }},
     computed:
     {
         authUserLoad() {return this.$store.getters.getAuthUserLoad()},
         
         authUser() {return this.$store.getters.getAuthUser}
+    },
+    methods:
+    {
+        search()
+        {
+            console.log('Searching...')
+        }
     }
 }
 </script>
@@ -90,6 +98,13 @@ export default {
 
 @import '../../sass/abstracts/_variables.scss';
 @import '../../sass/abstracts/_mixins.scss';
+
+    .marketplace__search
+    {
+        width: 95%;
+        margin: auto;
+    }
+    
 
     .item
     {
