@@ -22,16 +22,14 @@ export default {
 
     .search
     {
-        position:relative;
-        z-index: 5000;
         &__input
         {
             display: inline-block;
             width: calc(90% - 2px);
             border: 1px solid transparent;
-            border-left: none;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
+            border-right: none;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
             vertical-align: middle;
             padding: 1rem;
             padding-top: .9rem;
@@ -44,10 +42,11 @@ export default {
             {
                 width: calc(100% - 5.2rem);
             }
-            &:hover, &:focus, &:active
+            &:focus, &:active
             {
                 box-shadow: none;
-                border-right: none;
+                border-color: $color-primary;
+                outline: none;
             }
         }
 
