@@ -4,13 +4,15 @@ namespace App\Models\Adv;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon;
+use App\Models\Adv\GuildMember;
+use App\Models\Adv\Guild;
 
 class Profile extends Model
 {
     protected $connection = 'mysql3';
     // protected $connection = 'mysql2';
     protected $table = 'Profiles';
-    protected $appends = ['last_active', 'experience_amount', 'gold_amount', 'gems_amount', 'level'];
+    protected $appends = ['last_active', 'experience_amount', 'gold_amount', 'gems_amount', 'level', 'guild'];
 
     public function getLastActiveAttribute()
     {
@@ -45,5 +47,12 @@ class Profile extends Model
             'level' => $level, 
             'percentage' => $percentage
         ];
+    }
+
+    public function getGuildAttribute()
+    {
+        $guildMember = GuildMember::where('DiscordId', '=', $this->DiscordId)->first();
+        $guild = Guild::where('GuildId', '=', $guildMember->GuildId)->first();
+        return $guild;
     }
 }

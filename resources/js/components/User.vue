@@ -56,7 +56,7 @@
                         <font-awesome-icon :icon="['fas', 'campground']" class="user-profile__guild"></font-awesome-icon>
                     </div>
                     <div class="user-profile__data">
-                        RandomGuild
+                        {{ user.profile.guild.GuildName }}
                     </div>
 
                     <div class="user-profile__label" v-tooltip.left="'Last Active'">

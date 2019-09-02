@@ -48312,7 +48312,9 @@ var render = function() {
                   _vm._v(" "),
                   _c("div", { staticClass: "user-profile__data" }, [
                     _vm._v(
-                      "\n                    RandomGuild\n                "
+                      "\n                    " +
+                        _vm._s(_vm.user.profile.guild.GuildName) +
+                        "\n                "
                     )
                   ]),
                   _vm._v(" "),
