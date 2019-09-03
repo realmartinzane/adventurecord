@@ -2,143 +2,76 @@
 
 use Illuminate\Http\Request;
 
+/*
+    ==================================================
+    Middleware: None
+    ==================================================
+*/
+
 Route::group(['prefix' => 'v1'], function()
 {
   /*
-    |-------------------------------------------------------------------------------
-    | Get Auth User
-    |-------------------------------------------------------------------------------
-    | URL:            /api/v1/user
-    | Controller:     API\UserController@user
-    | Method:         GET
-    | Description:    Get the authenticated user
+      GET     /api/v1/user
   */
-    
-    Route::get('/user', 'API\UserController@user');
-
+  Route::get('/user', 'API\UserController@user');
   /*
-    |-------------------------------------------------------------------------------
-    | Get a Single User
-    |-------------------------------------------------------------------------------
-    | URL:            /api/v1/users/{id}
-    | Controller:     API\UserController@single
-    | Method:         GET
-    | Description:    Get the authenticated user
+      GET     /api/v1/users/{id}
   */
-    
-    Route::get('/users/{id}', 'API\UserController@single');
-
+  Route::get('/users/{id}', 'API\UserController@single');
   /*
-  |-------------------------------------------------------------------------------
-  | Search for a User
-  |-------------------------------------------------------------------------------
-  | URL:            /api/v1/users/search
-  | Controller:     API\UpdateController@search
-  | Method:         POST
-  | Description:    Search for a user.
+      GET     /api/v1/users/search
   */
-
-    Route::post('/users/search', 'API\UserController@search');
-
+  Route::post('/users/search', 'API\UserController@search');
   /*
-    |-------------------------------------------------------------------------------
-    | Get an Adventure Cord Profile
-    |-------------------------------------------------------------------------------
-    | URL:            /api/v1/profiles/{id}/single
-    | Controller:     API\ProfileController@single
-    | Method:         GET
-    | Description:    Get an adventure cord profile.
+      GET     /api/v1/profiles/{id}/single
   */
-
   Route::get('profiles/{id}', 'Adv\ProfileController@single');
-
   /*
-    |-------------------------------------------------------------------------------
-    | Get All Updates
-    |-------------------------------------------------------------------------------
-    | URL:            /api/v1/updates/all
-    | Controller:     API\UpdateController@all
-    | Method:         GET
-    | Description:    Get all updates.
+      GET     /api/v1/upates/all
   */
-
   Route::get('updates/all', 'API\UpdateController@all');
-
   /*
-    |-------------------------------------------------------------------------------
-    | Get a Single Update
-    |-------------------------------------------------------------------------------
-    | URL:            /api/v1/updates/{id}/single
-    | Controller:     API\UpdateController@single
-    | Method:         GET
-    | Description:    Get a single update.
+      GET     /api/v1/updates/{id}
   */
-
   Route::get('updates/{id}', 'API\UpdateController@single');
 });
+
+/*
+    ==================================================
+    Middleware: Authenticated
+    ==================================================
+*/
 
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function()
 {
   /*
-    |-------------------------------------------------------------------------------
-    | Like an Update
-    |-------------------------------------------------------------------------------
-    | URL:            /api/v1/updates/{id}/like
-    | Controller:     API\LikeController@like
-    | Method:         POST
-    | Description:    Like an update.
+      GET     /api/v1/updates/{id}/like
   */
-
-    Route::post('updates/{id}/like', 'API\LikeController@like');
-
+  Route::post('updates/{id}/like', 'API\LikeController@like');
   /*
-    |-------------------------------------------------------------------------------
-    | Unlike an Update
-    |-------------------------------------------------------------------------------
-    | URL:            /api/v1/updates/{id}/unlike
-    | Controller:     API\LikeController@unlike
-    | Method:         POST
-    | Description:    Unlike an update.
+      GET     /api/v1/updates/{id}/unlike
   */
-
-    Route::delete('updates/{id}/unlike', 'API\LikeController@unlike');
+  Route::delete('updates/{id}/unlike', 'API\LikeController@unlike');
 });
+
+/*
+    ==================================================
+    Middleware: Authenticated & Role (Super Admin)
+    ==================================================
+*/
 
 Route::group(['prefix' => 'v1', 'middleware' => ['auth:api', 'role:1']], function()
 {
   /*
-    |-------------------------------------------------------------------------------
-    | Store a New Update
-    |-------------------------------------------------------------------------------
-    | URL:            /api/v1/updates/store
-    | Controller:     API\UpdateController@store
-    | Method:         POST
-    | Description:    Store a new update.
+      GET     /api/v1/updates/store
   */
-
   Route::post('updates/store', 'API\UpdateController@store');
-
   /*
-    |-------------------------------------------------------------------------------
-    | Update an Existing Update
-    |-------------------------------------------------------------------------------
-    | URL:            /api/v1/updates/{id}/update
-    | Controller:     API\UpdateController@update
-    | Method:         POST
-    | Description:    Update an existing update.
+      GET     /api/v1/updates/{id/update
   */
-
   Route::put('updates/{id}/update', 'API\UpdateController@update');
-
   /*
-    |-------------------------------------------------------------------------------
-    | Destroy an Existing Update
-    |-------------------------------------------------------------------------------
-    | URL:            /api/v1/updates/{id}/destroy
-    | Controller:     API\UpdateController@destroy
-    | Method:         DELETE
-    | Description:    Delete an Update from the records.
+      GET     /api/v1/updates/{id}/destroy
   */
-
   Route::delete('updates/{id}/destroy', 'API\UpdateController@destroy');
 });

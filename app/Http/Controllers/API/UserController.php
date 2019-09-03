@@ -10,29 +10,10 @@ use App\Http\Requests\SearchUserRequest;
 
 class UserController extends Controller
 {
-    /*
-    |-------------------------------------------------------------------------------
-    | Get User
-    |-------------------------------------------------------------------------------
-    | URL:            /api/v1/user
-    | Method:         GET
-    | Description:    Gets the authenticated user
-    */
-
     public function user()
     {
         return Auth::guard('api')->user();
     }
-
-    /*
-    |-------------------------------------------------------------------------------
-    | Get a Single User
-    |-------------------------------------------------------------------------------
-    | URL:            /api/v1/users/{id}
-    | Controller:     API\UpdateController@single
-    | Method:         GET
-    | Description:    Get a single user.
-    */
 
     public function single($id)
     {
@@ -40,16 +21,6 @@ class UserController extends Controller
         
         return response()->json($user);
     }
-
-    /*
-    |-------------------------------------------------------------------------------
-    | Search for a User
-    |-------------------------------------------------------------------------------
-    | URL:            /api/v1/users/search
-    | Controller:     API\UpdateController@search
-    | Method:         POST
-    | Description:    Search for a user.
-    */
 
     public function search(SearchUserRequest $request)
     {
