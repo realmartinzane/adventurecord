@@ -19,7 +19,7 @@ Route::group(['prefix' => 'v1'], function()
   */
   Route::get('/users/{id}', 'API\UserController@single');
   /*
-      GET     /api/v1/users/search
+      POST     /api/v1/users/search
   */
   Route::post('/users/search', 'API\UserController@search');
   /*
@@ -45,13 +45,17 @@ Route::group(['prefix' => 'v1'], function()
 Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function()
 {
   /*
-      GET     /api/v1/updates/{id}/like
+      POST     /api/v1/updates/{id}/like
   */
   Route::post('updates/{id}/like', 'API\LikeController@like');
   /*
-      GET     /api/v1/updates/{id}/unlike
+      DELETE     /api/v1/updates/{id}/unlike
   */
   Route::delete('updates/{id}/unlike', 'API\LikeController@unlike');
+  /*
+      GET     /api/v1/items/{id}
+  */
+  Route::get('items/{id}', 'API\ItemController@single');
 });
 
 /*
@@ -63,15 +67,15 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function()
 Route::group(['prefix' => 'v1', 'middleware' => ['auth:api', 'role:1']], function()
 {
   /*
-      GET     /api/v1/updates/store
+      POST     /api/v1/updates/store
   */
   Route::post('updates/store', 'API\UpdateController@store');
   /*
-      GET     /api/v1/updates/{id/update
+      PUT     /api/v1/updates/{id/update
   */
   Route::put('updates/{id}/update', 'API\UpdateController@update');
   /*
-      GET     /api/v1/updates/{id}/destroy
+      DELETE     /api/v1/updates/{id}/destroy
   */
   Route::delete('updates/{id}/destroy', 'API\UpdateController@destroy');
 });

@@ -1,4 +1,3 @@
-
 import { ADV_CONFIG } from '../../config.js';
 
 export default {

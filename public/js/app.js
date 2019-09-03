@@ -70448,6 +70448,29 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/modules/items.js":
+/*!***************************************!*\
+  !*** ./resources/js/modules/items.js ***!
+  \***************************************/
+/*! exports provided: items */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "items", function() { return items; });
+/* harmony import */ var _api_update_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../api/update.js */ "./resources/js/api/update.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+
+
+var items = {
+  state: {},
+  mutations: {},
+  actions: {},
+  getters: {}
+};
+
+/***/ }),
+
 /***/ "./resources/js/modules/updates.js":
 /*!*****************************************!*\
   !*** ./resources/js/modules/updates.js ***!
@@ -71066,6 +71089,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modules_updates_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/updates.js */ "./resources/js/modules/updates.js");
 /* harmony import */ var _modules_users_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/users.js */ "./resources/js/modules/users.js");
+/* harmony import */ var _modules_items_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/items.js */ "./resources/js/modules/items.js");
 /*
   Adds the promise polyfill for IE 11
 */
@@ -71076,10 +71100,12 @@ __webpack_require__(/*! es6-promise */ "./node_modules/es6-promise/dist/es6-prom
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   modules: {
     updates: _modules_updates_js__WEBPACK_IMPORTED_MODULE_2__["updates"],
-    users: _modules_users_js__WEBPACK_IMPORTED_MODULE_3__["users"]
+    users: _modules_users_js__WEBPACK_IMPORTED_MODULE_3__["users"],
+    items: _modules_items_js__WEBPACK_IMPORTED_MODULE_4__["items"]
   }
 }));
 

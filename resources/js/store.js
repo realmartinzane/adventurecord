@@ -10,11 +10,13 @@ Vue.use(Vuex)
 
 import { updates } from './modules/updates.js'
 import { users } from './modules/users.js'
+import { items } from './modules/items.js'
 
 export default new Vuex.Store({
     modules: 
     {
         updates,
-        users
+        users,
+        items
     }
 });
