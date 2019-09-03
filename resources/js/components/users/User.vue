@@ -135,6 +135,11 @@ export default {
 
         async search(id)
         {
+            if (id.length != 18 || isNaN(id))
+            {
+                this.searchMessage = `Incorrect input.`
+                return
+            }
             await this.$store.dispatch('searchUser', {id})
             if(this.userSearchLoad == 2)
             {

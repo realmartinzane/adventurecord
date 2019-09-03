@@ -16460,7 +16460,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _common_SocialSharing_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/SocialSharing.vue */ "./resources/js/components/common/SocialSharing.vue");
 /* harmony import */ var vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-spinner/src/ClipLoader.vue */ "./node_modules/vue-spinner/src/ClipLoader.vue");
-/* harmony import */ var _common_ToggleLike_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/ToggleLike.vue */ "./resources/js/components/common/ToggleLike.vue");
+/* harmony import */ var _common_ToggleLike_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/ToggleLike.vue */ "./resources/js/components/common/ToggleLike.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -16560,7 +16560,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   components: {
     SocialSharingComponent: _common_SocialSharing_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     ClipLoader: vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    ToggleLikeComponent: _common_ToggleLike_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+    ToggleLikeComponent: _common_ToggleLike_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
@@ -17248,37 +17248,46 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                if (!(id.length != 18 || isNaN(id))) {
+                  _context.next = 3;
+                  break;
+                }
+
+                this.searchMessage = "Incorrect input.";
+                return _context.abrupt("return");
+
+              case 3:
+                _context.next = 5;
                 return this.$store.dispatch('searchUser', {
                   id: id
                 });
 
-              case 2:
+              case 5:
                 if (!(this.userSearchLoad == 2)) {
-                  _context.next = 10;
+                  _context.next = 13;
                   break;
                 }
 
                 if (!(this.userSearchId == this.user.id)) {
-                  _context.next = 6;
+                  _context.next = 9;
                   break;
                 }
 
                 this.searchMessage = "This is the current user.";
                 return _context.abrupt("return");
 
-              case 6:
+              case 9:
                 this.$router.replace("/users/".concat(this.userSearchId));
                 this.searchMessage = '';
-                _context.next = 11;
+                _context.next = 14;
                 break;
 
-              case 10:
+              case 13:
                 if (this.userSearchLoad == 3) {
                   this.searchMessage = "User not found.";
                 }
 
-              case 11:
+              case 14:
               case "end":
                 return _context.stop();
             }
@@ -68906,10 +68915,12 @@ __webpack_require__.r(__webpack_exports__);
   },
 
   /*
-      GET   /api/v1/users/{id}/search
+      POST   /api/v1/users/search
   */
   search: function search(id) {
-    return axios.get("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/users/").concat(id, "/search"));
+    return axios.post("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/users/search"), {
+      id: id
+    });
   }
 });
 

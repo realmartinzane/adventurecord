@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\User;
+use App\Http\Requests\SearchUserRequest;
 
 class UserController extends Controller
 {
@@ -44,15 +45,15 @@ class UserController extends Controller
     |-------------------------------------------------------------------------------
     | Search for a User
     |-------------------------------------------------------------------------------
-    | URL:            /api/v1/users/{id}/search
+    | URL:            /api/v1/users/search
     | Controller:     API\UpdateController@search
-    | Method:         GET
+    | Method:         POST
     | Description:    Search for a user.
     */
 
-    public function search($id)
+    public function search(SearchUserRequest $request)
     {
-        $user = User::where('provider_id', '=', $id)->first();
+        $user = User::where('provider_id', '=', $request->id)->first();
         
         return response()->json($user->id);
     }

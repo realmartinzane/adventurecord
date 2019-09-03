@@ -32,13 +32,13 @@ Route::group(['prefix' => 'v1'], function()
   |-------------------------------------------------------------------------------
   | Search for a User
   |-------------------------------------------------------------------------------
-  | URL:            /api/v1/users/{id}/search
+  | URL:            /api/v1/users/search
   | Controller:     API\UpdateController@search
-  | Method:         GET
+  | Method:         POST
   | Description:    Search for a user.
   */
 
-    Route::get('/users/{id}/search', 'API\UserController@search');
+    Route::post('/users/search', 'API\UserController@search');
 
   /*
     |-------------------------------------------------------------------------------

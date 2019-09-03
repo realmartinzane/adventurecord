@@ -24,10 +24,10 @@ export default {
         return axios.get(`${ADV_CONFIG.API_URL}/profiles/${id}`);
     },
     /*
-        GET   /api/v1/users/{id}/search
+        POST   /api/v1/users/search
     */
     search(id) 
     {
-        return axios.get(`${ADV_CONFIG.API_URL}/users/${id}/search`);
+        return axios.post(`${ADV_CONFIG.API_URL}/users/search`, {id});
     }
 }

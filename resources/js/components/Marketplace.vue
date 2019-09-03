@@ -5,11 +5,11 @@
         </header>
 
         <search-component 
-                class="user-profile__search"
-                :placeholder="'Search for items...'"
-                :message="searchMessage"
-                :submit="search">
-            </search-component>
+            class="user-profile__search"
+            :placeholder="'Search for items...'"
+            :message="searchMessage"
+            :submit="search">
+        </search-component>
 
         <div class="u-center-text u-margin-top-md u-margin-bottom-sm">
             <h3 class="heading-tertiary">Popular Items Now</h3>
