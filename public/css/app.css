@@ -496,6 +496,10 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.popup__info svg {
+  color: #FFD700;
+}
+
 .popup__label {
   display: inline-block;
   font-weight: bold;
@@ -650,10 +654,11 @@ body::-webkit-scrollbar-thumb {
 
 .row [class^=col-] {
   float: left;
+  margin-bottom: 8rem;
 }
 
 .row [class^=col-]:not(:last-child) {
-  margin-right: 6rem;
+  margin-right: 4rem;
 }
 
 @media only screen and (max-width: 56.25em) {

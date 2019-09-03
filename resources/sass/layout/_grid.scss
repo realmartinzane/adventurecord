@@ -13,9 +13,10 @@
     [class^="col-"]
     {
         float: left;
+        margin-bottom: $gutter-vertical;
         &:not(:last-child)
         {
-            margin-right: $gutter-horizontal;
+            margin-right: $gutter-horizontal-md;
         }
 
         @media only screen and (max-width: 56.25em)

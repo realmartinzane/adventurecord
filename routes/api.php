@@ -53,9 +53,13 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function()
   */
   Route::delete('updates/{id}/unlike', 'API\LikeController@unlike');
   /*
-      GET     /api/v1/items/{id}
+      GET     /api/v1/marketplace/{id}/search
   */
-  Route::get('items/{id}', 'API\ItemController@single');
+  Route::get('marketplace/{id}/search', 'Adv\MarketplaceController@search');
+  /*
+      GET     /api/v1/marketplace/top
+  */
+  Route::get('marketplace/top', 'Adv\MarketplaceController@top');
 });
 
 /*

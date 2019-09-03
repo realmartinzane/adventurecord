@@ -15,80 +15,69 @@
             <h3 class="heading-tertiary">Popular Items Now</h3>
         </div>
 
-        <div class="row">
-            <div class="col-1-of-3">
-                <div class="item__content" @click="showModal = true">
+        <clip-loader v-if="topItemsLoad != 2" :loading="true" color="#FFD700" size="5rem"></clip-loader>
+
+        <div class="row" v-if="topItemsLoad == 2">
+            <div class="col-1-of-3" v-for="topItem in topItems" :key="topItem.Id">
+                <div class="item__content" @click="openModal(topItem)">
                     <div class="item__left">
                         <img src="/img/brand/brand_logo_1x.png" alt="Item Image" class="item__img">
                     </div>
                     
                     <div class="item__right">
-                        <h4 class="item__name">Item Name</h4>
-                        <div class="item__info">Class: Mage</div>
-                        <div class="item__info">Armor: 24</div>
+                        <h4 class="item__name">{{ topItem.details.ItemName }}</h4>
+                        <div class="item__info">Class: {{ topItem.details.ItemClass }}</div>
+                        <div class="item__info">{{ topItem.details.StatType }}: {{ topItem.details.Stats }}</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="popup" v-show="showModal">
-            <div class="popup__content">
-                <header class="popup__header">
-                    <h4 class="popup__header-text">Item Information</h4>
-                    <button class="popup__close" @click="showModal = false">
-                        <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
-                    </button>
-                </header>
-
-                <div class="popup__body">
-                    <div class="popup__left">
-                        <img class="popup__img" src="/img/brand/brand_logo_1x.png" alt="Item Image">
-                    </div>
-
-                    <div class="popup__right">
-                        <h3 class="popup__name">Item Name</h3>
-                        <p class="popup__description">
-                            This is the item description, where you will find more information about the item you are currently viewing.
-                        </p>
-                        <div class="popup__info"><span class="popup__label">Armor:</span>24</div>
-                        <div class="popup__info"><span class="popup__label">Rarity:</span>Epic</div>
-                        <div class="popup__info"><span class="popup__label">Class:</span>Mage</div>
-                        <div class="popup__info"><span class="popup__label">Sell Price:</span>174</div>
-                        <div class="popup__info"><span class="popup__label">Level:</span>17+</div>
-                        <div class="popup__info"><span class="popup__label">Obtainable:</span>Yes</div>
-                    </div>
-                </div>
-
-                <footer class="popup__footer">
-                    <button v-if="authUser != '' && authUserLoad == 2" class="btn btn--secondary-gold popup__purchase">Purchase</button>
-                    <a v-if="authUser == '' && authUserLoad == 2" href="/login/discord" class="link">Log in to purchase this item</a>
-                </footer>
-            </div>
-        </div>
+        <item-modal-component v-if="showModal" @close="showModal = false" :data="modalData"></item-modal-component>
     </section>
 </template>
 
 <script>
 
 import SearchComponent from './common/Search'
+import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
+import ItemModalComponent from './ItemModal.vue'
 
 export default {
-    components: {SearchComponent},
+    components: {SearchComponent, ClipLoader, ItemModalComponent},
     data(){return{
         showModal: false,
+        modalData: null,
         searchMessage: ''
     }},
     computed:
     {
         authUserLoad() {return this.$store.getters.getAuthUserLoad()},
         
-        authUser() {return this.$store.getters.getAuthUser}
+        authUser() {return this.$store.getters.getAuthUser},
+
+        topItems() {return this.$store.getters.getTopItems},
+
+        topItemsLoad() {return this.$store.getters.getTopItemsLoad}
+    },
+    created()
+    {
+        this.fetchTopItems();
     },
     methods:
     {
+        openModal(data)
+        {
+            this.modalData = data
+            this.showModal = true
+        },
         search()
         {
             console.log('Searching...')
+        },
+        fetchTopItems()
+        {
+            this.$store.dispatch('fetchTopItems')
         }
     }
 }
