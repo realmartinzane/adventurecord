@@ -17682,7 +17682,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".marketplace__search {\n  width: 95%;\n  margin: auto;\n}\n.item__content {\n  background-color: #2E2E36;\n  border: 1px solid #494957;\n  box-shadow: 0 0 1rem #FFD700;\n  padding: 1.5rem;\n  cursor: pointer;\n  transition: all 200ms;\n  color: #fff;\n}\n.item__content:hover {\n  transform: scale(1.05);\n}\n.item__left {\n  display: inline-block;\n  height: 6.5rem;\n  width: 6.5rem;\n  padding: 0.5rem;\n  background: #000;\n  outline: 1px solid #000;\n  border: 4px solid #FFD700;\n  vertical-align: middle;\n}\n.item__img {\n  width: 100%;\n}\n.item__right {\n  display: inline-block;\n  width: calc(100% - 8rem);\n  margin-left: 1rem;\n  vertical-align: middle;\n}\n.item__name {\n  font-size: 2.3rem;\n  font-weight: 400;\n}", ""]);
+exports.push([module.i, ".marketplace__search {\n  width: 95%;\n  max-width: 80rem;\n  margin: auto;\n}\n.item__content {\n  background-color: #2E2E36;\n  border: 1px solid #494957;\n  box-shadow: 0 0 1rem #FFD700;\n  padding: 1.5rem;\n  cursor: pointer;\n  transition: all 200ms;\n  color: #fff;\n}\n.item__content:hover {\n  transform: scale(1.05);\n}\n.item__left {\n  display: inline-block;\n  height: 6.5rem;\n  width: 6.5rem;\n  padding: 0.5rem;\n  background: #000;\n  outline: 1px solid #000;\n  border: 4px solid #FFD700;\n  vertical-align: middle;\n}\n.item__img {\n  width: 100%;\n}\n.item__right {\n  display: inline-block;\n  width: calc(100% - 8rem);\n  margin-left: 1rem;\n  vertical-align: middle;\n}\n.item__name {\n  font-size: 2.3rem;\n  font-weight: 400;\n}", ""]);
 
 // exports
 
@@ -46112,7 +46112,7 @@ var render = function() {
       _vm._m(0),
       _vm._v(" "),
       _c("search-component", {
-        staticClass: "user-profile__search",
+        staticClass: "marketplace__search",
         attrs: {
           placeholder: "Search for items...",
           message: _vm.searchMessage,

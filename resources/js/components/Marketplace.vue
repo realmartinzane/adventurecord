@@ -5,7 +5,7 @@
         </header>
 
         <search-component 
-            class="user-profile__search"
+            class="marketplace__search"
             :placeholder="'Search for items...'"
             :message="searchMessage"
             :submit="search">
@@ -102,9 +102,9 @@ export default {
     .marketplace__search
     {
         width: 95%;
+        max-width: 80rem;
         margin: auto;
     }
-    
 
     .item
     {
