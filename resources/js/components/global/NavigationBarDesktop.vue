@@ -14,7 +14,6 @@
                 <li class="navigation__item"><router-link :to="'/commands'" class="navigation__link">Commands</router-link></li>
                 <li class="navigation__item"><a href="https://youtu.be/mTzogDbNAI0" target="_blank" class="navigation__link">Tutorial</a></li>
                 <li class="navigation__item"><a href="https://adventurecord.fandom.com/wiki/AdventureCord_Wiki" target="_blank" class="navigation__link">Wiki</a></li>
-                <li class="navigation__item"><router-link :to="'/marketplace'" class="navigation__link">Marketplace</router-link></li>
             </ul>
 
             <a href="/login/discord" v-if="authUser == '' && authUserLoad == 2" class="btn btn--secondary-discord navigation__login">

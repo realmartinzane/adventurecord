@@ -52,14 +52,6 @@ Route::group(['prefix' => 'v1', 'middleware' => 'auth:api'], function()
       DELETE     /api/v1/updates/{id}/unlike
   */
   Route::delete('updates/{id}/unlike', 'API\LikeController@unlike');
-  /*
-      GET     /api/v1/marketplace/{id}/search
-  */
-  Route::get('marketplace/{id}/search', 'Adv\MarketplaceController@search');
-  /*
-      GET     /api/v1/marketplace/top
-  */
-  Route::get('marketplace/top', 'Adv\MarketplaceController@top');
 });
 
 /*

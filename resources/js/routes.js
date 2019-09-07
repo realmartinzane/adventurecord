@@ -8,7 +8,6 @@ import UpdatesView from './views/Updates.vue'
 import UpdateView from './views/Update.vue'
 import UpdatesFormView from './views/UpdatesForm.vue'
 import CommandsView from './views/Commands.vue'
-import MarketplaceView from './views/Marketplace.vue'
 import UserView from './views/User.vue';
 import UserSettingsView from './views/UserSettings.vue';
 import ErrorView from './views/Error.vue';
@@ -88,12 +87,6 @@ let routes =
             path: '/users/:id/settings',
             name: 'users.settings',
             component: UserSettingsView,
-            beforeEnter: requireAuth
-        },
-        {
-            path: '/marketplace',
-            name: 'marketplace',
-            component: MarketplaceView,
             beforeEnter: requireAuth
         },
         {
