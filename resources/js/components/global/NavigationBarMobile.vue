@@ -39,6 +39,7 @@
                 <li class="mobile-navigation__item"><router-link :to="'/commands'" class="mobile-navigation__link">Commands</router-link></li>
                 <li class="mobile-navigation__item"><a href="https://youtu.be/mTzogDbNAI0" target="_blank" class="mobile-navigation__link">Tutorial</a></li>
                 <li class="mobile-navigation__item"><a href="https://adventurecord.fandom.com/wiki/AdventureCord_Wiki" target="_blank" class="mobile-navigation__link">Wiki</a></li>
+                <li class="mobile-navigation__item"><router-link :to="'/shop'" class="mobile-navigation__link">Shop</router-link></li>
             </ul>
         </nav>
     </div>

@@ -10,6 +10,8 @@ import UpdatesFormView from './views/UpdatesForm.vue'
 import CommandsView from './views/Commands.vue'
 import UserView from './views/User.vue';
 import UserSettingsView from './views/UserSettings.vue';
+import ShopView from './views/Shop.vue';
+import ProductView from './views/Product.vue';
 import ErrorView from './views/Error.vue';
 
 function requireAuth(to, from, next) 
@@ -88,6 +90,16 @@ let routes =
             name: 'users.settings',
             component: UserSettingsView,
             beforeEnter: requireAuth
+        },
+        {
+            path: '/shop',
+            name: 'shop',
+            component: ShopView,
+        },
+        {
+            path: '/shop/products/:id',
+            name: 'products.show',
+            component: ProductView,
         },
         {
             path: '/401',
