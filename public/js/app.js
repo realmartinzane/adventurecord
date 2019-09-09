@@ -16369,6 +16369,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['fetchedProduct'],
   computed: {
@@ -17840,7 +17844,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".product {\n  background: #2E2E36;\n  border: 1px solid #3d3d49;\n  border-radius: 3px;\n  line-height: 1;\n  box-shadow: 0 0 10px #000;\n  position: relative;\n  margin: 2.5rem auto;\n}\n@media only screen and (max-width: 44.375em) {\n.product {\n    width: calc(49% - 1rem);\n    display: inline-block;\n    margin: 2.5rem 0.5rem;\n}\n}\n@media only screen and (max-width: 30rem) {\n.product {\n    width: 34rem;\n    display: block;\n    margin: 2.5rem auto;\n}\n}\n.product__left {\n  width: 30rem;\n  display: inline-block;\n}\n@media only screen and (max-width: 44.375em) {\n.product__left {\n    width: 100%;\n}\n}\n.product__img {\n  width: 100%;\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.product__right {\n  line-height: 1.7;\n  width: calc(100% - 30.5rem);\n  display: inline-block;\n  vertical-align: top;\n  padding: 1.5rem;\n}\n@media only screen and (max-width: 44.375em) {\n.product__right {\n    width: 100%;\n}\n}\n.product__description {\n  color: #d3d3d3;\n}\n.product__note {\n  color: #FFD700;\n  display: block;\n}\n.product__footer {\n  height: 4rem;\n}\n@media only screen and (max-width: 44.375em) {\n.product__footer {\n    height: auto;\n    margin: 1rem 0;\n}\n}\n.product__category {\n  position: absolute;\n  bottom: 2rem;\n  left: 31.5rem;\n  border: 1px solid #c9b350;\n  border-radius: 20px;\n  padding: 0 1rem;\n  text-transform: uppercase;\n  font-size: 1.2rem;\n  color: #c9b350;\n  letter-spacing: 1px;\n  vertical-align: bottom;\n}\n@media only screen and (max-width: 44.375em) {\n.product__category {\n    position: static;\n    text-align: center;\n    margin: 1rem 0;\n}\n}\n.product__purchase {\n  position: absolute;\n  bottom: 1.5rem;\n  right: 1.5rem;\n}\n@media only screen and (max-width: 44.375em) {\n.product__purchase {\n    position: static;\n    text-align: center;\n}\n}\n.product__price {\n  text-align: center;\n  border: 1px solid #c9b350;\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n  border-right: none;\n  display: inline-block;\n  height: 3.4rem;\n  padding: 0 0.8rem;\n  font-size: 1.8rem;\n  line-height: 3.4rem;\n  vertical-align: top;\n}\n.product__button {\n  text-align: center;\n  border-top-left-radius: 0 !important;\n  border-bottom-left-radius: 0 !important;\n  display: inline-block;\n  height: 3.4rem;\n  line-height: 1;\n  vertical-align: top;\n}", ""]);
+exports.push([module.i, ".product {\n  background: #2E2E36;\n  border: 1px solid #3d3d49;\n  border-radius: 3px;\n  line-height: 1;\n  box-shadow: 0 0 10px #000;\n  position: relative;\n  margin: 2.5rem auto;\n}\n@media only screen and (max-width: 44.375em) {\n.product {\n    width: calc(49% - 1rem);\n    display: inline-block;\n    margin: 2.5rem 0.5rem;\n}\n}\n@media only screen and (max-width: 30rem) {\n.product {\n    width: 34rem;\n    display: block;\n    margin: 2.5rem auto;\n}\n}\n.product__left {\n  width: 30rem;\n  display: inline-block;\n  position: relative;\n  overflow: hidden;\n}\n@media only screen and (max-width: 44.375em) {\n.product__left {\n    width: 100%;\n}\n}\n.product__img {\n  width: 100%;\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n  background: #10121A;\n}\n.product__ribbon {\n  position: absolute;\n  top: 5rem;\n  left: 5rem;\n  transform: translate(-50%, -50%) rotate(-45deg);\n  width: 20rem;\n  background-color: #ec4853;\n  color: #fff;\n  text-transform: uppercase;\n  text-align: center;\n  font-size: 2rem;\n  letter-spacing: 2px;\n  padding: 0.5rem 0;\n  border-top: 2px solid #fff;\n  border-bottom: 2px solid #fff;\n  outline: 4px solid #ec4853;\n}\n.product__right {\n  line-height: 1.7;\n  width: calc(100% - 30.5rem);\n  display: inline-block;\n  vertical-align: top;\n  padding: 1.5rem;\n}\n@media only screen and (max-width: 44.375em) {\n.product__right {\n    width: 100%;\n}\n}\n.product__description {\n  color: #d3d3d3;\n}\n.product__note {\n  color: #FFD700;\n  display: block;\n}\n.product__footer {\n  height: 4rem;\n  text-align: center;\n}\n@media only screen and (max-width: 44.375em) {\n.product__footer {\n    height: auto;\n    margin: 1rem 0;\n}\n}\n.product__category {\n  position: absolute;\n  bottom: 2rem;\n  left: 31.5rem;\n  border: 1px solid #c9b350;\n  border-radius: 20px;\n  padding: 0 1rem;\n  text-transform: uppercase;\n  font-size: 1.2rem;\n  color: #c9b350;\n  letter-spacing: 1px;\n  vertical-align: bottom;\n}\n@media only screen and (max-width: 44.375em) {\n.product__category {\n    position: static;\n    margin: 1rem auto;\n    display: inline-block;\n}\n}\n.product__purchase {\n  position: absolute;\n  bottom: 1.5rem;\n  right: 1.5rem;\n}\n@media only screen and (max-width: 44.375em) {\n.product__purchase {\n    position: static;\n    text-align: center;\n}\n}\n.product__price {\n  text-align: center;\n  border: 1px solid #c9b350;\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n  border-right: none;\n  display: inline-block;\n  height: 3.4rem;\n  padding: 0 0.8rem;\n  font-size: 1.8rem;\n  line-height: 3.4rem;\n  vertical-align: top;\n}\n.product__button {\n  text-align: center;\n  border-top-left-radius: 0 !important;\n  border-bottom-left-radius: 0 !important;\n  display: inline-block;\n  height: 3.4rem;\n  line-height: 1;\n  vertical-align: top;\n}", ""]);
 
 // exports
 
@@ -47212,10 +47216,16 @@ var render = function() {
       _c("img", {
         staticClass: "product__img",
         attrs: {
-          src: "/img/themes/" + _vm.fetchedProduct.image,
+          src: "/img/products/" + _vm.fetchedProduct.image,
           alt: "Theme Showcase Image"
         }
-      })
+      }),
+      _vm._v(" "),
+      _vm.fetchedProduct.category.name == "Special"
+        ? _c("div", { staticClass: "product__ribbon" }, [
+            _vm._v("\n            Special\n        ")
+          ])
+        : _vm._e()
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "product__right" }, [

@@ -1,12 +1,16 @@
 <template>
     <div class="product">
         <div class="product__left">
-            <img class="product__img" :src="'/img/themes/' + fetchedProduct.image" alt="Theme Showcase Image">
+            <img class="product__img" :src="'/img/products/' + fetchedProduct.image" alt="Theme Showcase Image">
+            <div class="product__ribbon" v-if="fetchedProduct.category.name == 'Special'">
+                Special
+            </div>
         </div>
         <div class="product__right">
             <h3 class="product__name">{{ fetchedProduct.name }}</h3>
             <div class="product__description" v-html="description"></div>
             <p class="product__note" v-if="isShowRoute">Note: Once purchased, this item is non-refundable.</p>         
+            
             <div class="product__footer">
                 <div class="product__category"> {{ fetchedProduct.category.name }}</div>
                 <div class="product__purchase">
@@ -63,6 +67,8 @@ export default {
         {
             width: 30rem;
             display: inline-block;
+            position: relative;
+            overflow: hidden;
 
             @media only screen and (max-width: 44.375em)
             {
@@ -75,6 +81,26 @@ export default {
             width: 100%;
             border-top-left-radius: 3px;
             border-bottom-left-radius: 3px;
+            background: $color-secondary-dark;
+        }
+
+        &__ribbon
+        {
+            position: absolute;
+            top: 5rem;
+            left: 5rem  ;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            width: 20rem;
+            background-color: $color-red;
+            color: $color-white;
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            padding: .5rem 0;
+            border-top: 2px solid $color-white;
+            border-bottom: 2px solid $color-white;
+            outline: 4px solid $color-red;
         }
 
         &__right 
@@ -105,6 +131,7 @@ export default {
         &__footer 
         {
             height: 4rem;
+            text-align: center;
 
             @media only screen and (max-width: 44.375em) 
             {
@@ -130,8 +157,8 @@ export default {
             @media only screen and (max-width: 44.375em) 
             {
                 position: static;
-                text-align: center;
-                margin: 1rem 0;
+                margin: 1rem auto;
+                display: inline-block;
             }
         }
 
