@@ -1,15 +1,19 @@
 <template>
     <div class="product">
         <div class="product__left">
-            <img class="product__img" src="/img/themes/lord_grim_medieval.png" alt="Theme Showcase Image">
+            <img class="product__img" :src="'/img/themes/' + fetchedProduct.image" alt="Theme Showcase Image">
         </div>
         <div class="product__right">
             <h3 class="product__name">{{ fetchedProduct.name }}</h3>
-            <p class="product__description">{{ fetchedProduct.description }}</p>           
-            <div class="product__purchase">
-                <div class="product__price">{{ fetchedProduct.price }}</div
-                ><button v-if="isShowRoute" class="btn btn--secondary-gold product__button">Purchase</button>
-                <router-link v-else class="product__button btn btn--secondary-gold" :to="{name: 'products.show', params: {id: fetchedProduct.id}}" >View Product</router-link>
+            <div class="product__description" v-html="description"></div>
+            <p class="product__note" v-if="isShowRoute">Note: Once purchased, this item is non-refundable.</p>         
+            <div class="product__footer">
+                <div class="product__category"> {{ fetchedProduct.category.name }}</div>
+                <div class="product__purchase">
+                    <div class="product__price">{{ fetchedProduct.price }}</div
+                    ><button v-if="isShowRoute" class="btn btn--secondary-gold product__button">Purchase</button>
+                    <router-link v-else class="product__button btn btn--secondary-gold" :to="{name: 'products.show', params: {id: fetchedProduct.id}}" >View Product</router-link>
+                </div>
             </div>
         </div>
     </div>
@@ -22,7 +26,7 @@ export default {
     {
         isShowRoute() {return this.$route.name == 'products.show'},
 
-        // description() {return this.fetchedProduct.description_html.length < 250 ? this.fetchedProduct.description_html : this.fetchedProduct.description_html.substring(0,250) + "..."},
+        description() {return !this.isShowRoute ? (this.fetchedProduct.description_html.length < 250 ? this.fetchedProduct.description_html : this.fetchedProduct.description_html.substring(0,250) + "...") : this.fetchedProduct.description_html},
     },
 }
 </script>
@@ -92,6 +96,45 @@ export default {
             color: $color-gray-light;
         }
 
+        &__note 
+        {
+            color: $color-primary;
+            display: block;
+        }
+
+        &__footer 
+        {
+            height: 4rem;
+
+            @media only screen and (max-width: 44.375em) 
+            {
+                height: auto;
+                margin: 1rem 0;
+            }
+        }
+
+        &__category 
+        {
+            position: absolute;
+            bottom: 2rem;
+            left: 31.5rem;
+            border: 1px solid $color-primary-dark;
+            border-radius: 20px;
+            padding: 0 1rem;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            color: $color-primary-dark;
+            letter-spacing: 1px;
+            vertical-align: bottom;
+            
+            @media only screen and (max-width: 44.375em) 
+            {
+                position: static;
+                text-align: center;
+                margin: 1rem 0;
+            }
+        }
+
         &__purchase 
         {
             position: absolute;
@@ -102,7 +145,6 @@ export default {
             {
                 position: static;
                 text-align: center;
-                margin-top: 2rem;
             }
         }
 

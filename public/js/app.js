@@ -16365,11 +16365,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['fetchedProduct'],
   computed: {
     isShowRoute: function isShowRoute() {
       return this.$route.name == 'products.show';
+    },
+    description: function description() {
+      return !this.isShowRoute ? this.fetchedProduct.description_html.length < 250 ? this.fetchedProduct.description_html : this.fetchedProduct.description_html.substring(0, 250) + "..." : this.fetchedProduct.description_html;
     }
   }
 });
@@ -17833,7 +17840,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".product {\n  background: #2E2E36;\n  border: 1px solid #3d3d49;\n  border-radius: 3px;\n  line-height: 1;\n  box-shadow: 0 0 10px #000;\n  position: relative;\n  margin: 2.5rem auto;\n}\n@media only screen and (max-width: 44.375em) {\n.product {\n    width: calc(49% - 1rem);\n    display: inline-block;\n    margin: 2.5rem 0.5rem;\n}\n}\n@media only screen and (max-width: 30rem) {\n.product {\n    width: 34rem;\n    display: block;\n    margin: 2.5rem auto;\n}\n}\n.product__left {\n  width: 30rem;\n  display: inline-block;\n}\n@media only screen and (max-width: 44.375em) {\n.product__left {\n    width: 100%;\n}\n}\n.product__img {\n  width: 100%;\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.product__right {\n  line-height: 1.7;\n  width: calc(100% - 30.5rem);\n  display: inline-block;\n  vertical-align: top;\n  padding: 1.5rem;\n}\n@media only screen and (max-width: 44.375em) {\n.product__right {\n    width: 100%;\n}\n}\n.product__description {\n  color: #d3d3d3;\n}\n.product__purchase {\n  position: absolute;\n  bottom: 1.5rem;\n  right: 1.5rem;\n}\n@media only screen and (max-width: 44.375em) {\n.product__purchase {\n    position: static;\n    text-align: center;\n    margin-top: 2rem;\n}\n}\n.product__price {\n  text-align: center;\n  border: 1px solid #c9b350;\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n  border-right: none;\n  display: inline-block;\n  height: 3.4rem;\n  padding: 0 0.8rem;\n  font-size: 1.8rem;\n  line-height: 3.4rem;\n  vertical-align: top;\n}\n.product__button {\n  text-align: center;\n  border-top-left-radius: 0 !important;\n  border-bottom-left-radius: 0 !important;\n  display: inline-block;\n  height: 3.4rem;\n  line-height: 1;\n  vertical-align: top;\n}", ""]);
+exports.push([module.i, ".product {\n  background: #2E2E36;\n  border: 1px solid #3d3d49;\n  border-radius: 3px;\n  line-height: 1;\n  box-shadow: 0 0 10px #000;\n  position: relative;\n  margin: 2.5rem auto;\n}\n@media only screen and (max-width: 44.375em) {\n.product {\n    width: calc(49% - 1rem);\n    display: inline-block;\n    margin: 2.5rem 0.5rem;\n}\n}\n@media only screen and (max-width: 30rem) {\n.product {\n    width: 34rem;\n    display: block;\n    margin: 2.5rem auto;\n}\n}\n.product__left {\n  width: 30rem;\n  display: inline-block;\n}\n@media only screen and (max-width: 44.375em) {\n.product__left {\n    width: 100%;\n}\n}\n.product__img {\n  width: 100%;\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n}\n.product__right {\n  line-height: 1.7;\n  width: calc(100% - 30.5rem);\n  display: inline-block;\n  vertical-align: top;\n  padding: 1.5rem;\n}\n@media only screen and (max-width: 44.375em) {\n.product__right {\n    width: 100%;\n}\n}\n.product__description {\n  color: #d3d3d3;\n}\n.product__note {\n  color: #FFD700;\n  display: block;\n}\n.product__footer {\n  height: 4rem;\n}\n@media only screen and (max-width: 44.375em) {\n.product__footer {\n    height: auto;\n    margin: 1rem 0;\n}\n}\n.product__category {\n  position: absolute;\n  bottom: 2rem;\n  left: 31.5rem;\n  border: 1px solid #c9b350;\n  border-radius: 20px;\n  padding: 0 1rem;\n  text-transform: uppercase;\n  font-size: 1.2rem;\n  color: #c9b350;\n  letter-spacing: 1px;\n  vertical-align: bottom;\n}\n@media only screen and (max-width: 44.375em) {\n.product__category {\n    position: static;\n    text-align: center;\n    margin: 1rem 0;\n}\n}\n.product__purchase {\n  position: absolute;\n  bottom: 1.5rem;\n  right: 1.5rem;\n}\n@media only screen and (max-width: 44.375em) {\n.product__purchase {\n    position: static;\n    text-align: center;\n}\n}\n.product__price {\n  text-align: center;\n  border: 1px solid #c9b350;\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n  border-right: none;\n  display: inline-block;\n  height: 3.4rem;\n  padding: 0 0.8rem;\n  font-size: 1.8rem;\n  line-height: 3.4rem;\n  vertical-align: top;\n}\n.product__button {\n  text-align: center;\n  border-top-left-radius: 0 !important;\n  border-bottom-left-radius: 0 !important;\n  display: inline-block;\n  height: 3.4rem;\n  line-height: 1;\n  vertical-align: top;\n}", ""]);
 
 // exports
 
@@ -47201,65 +47208,71 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "product" }, [
-    _vm._m(0),
+    _c("div", { staticClass: "product__left" }, [
+      _c("img", {
+        staticClass: "product__img",
+        attrs: {
+          src: "/img/themes/" + _vm.fetchedProduct.image,
+          alt: "Theme Showcase Image"
+        }
+      })
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "product__right" }, [
       _c("h3", { staticClass: "product__name" }, [
         _vm._v(_vm._s(_vm.fetchedProduct.name))
       ]),
       _vm._v(" "),
-      _c("p", { staticClass: "product__description" }, [
-        _vm._v(_vm._s(_vm.fetchedProduct.description))
-      ]),
+      _c("div", {
+        staticClass: "product__description",
+        domProps: { innerHTML: _vm._s(_vm.description) }
+      }),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "product__purchase" },
-        [
-          _c("div", { staticClass: "product__price" }, [
-            _vm._v(_vm._s(_vm.fetchedProduct.price))
-          ]),
-          _vm.isShowRoute
-            ? _c(
-                "button",
-                { staticClass: "btn btn--secondary-gold product__button" },
-                [_vm._v("Purchase")]
-              )
-            : _c(
-                "router-link",
-                {
-                  staticClass: "product__button btn btn--secondary-gold",
-                  attrs: {
-                    to: {
-                      name: "products.show",
-                      params: { id: _vm.fetchedProduct.id }
+      _vm.isShowRoute
+        ? _c("p", { staticClass: "product__note" }, [
+            _vm._v("Note: Once purchased, this item is non-refundable.")
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c("div", { staticClass: "product__footer" }, [
+        _c("div", { staticClass: "product__category" }, [
+          _vm._v(" " + _vm._s(_vm.fetchedProduct.category.name))
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "product__purchase" },
+          [
+            _c("div", { staticClass: "product__price" }, [
+              _vm._v(_vm._s(_vm.fetchedProduct.price))
+            ]),
+            _vm.isShowRoute
+              ? _c(
+                  "button",
+                  { staticClass: "btn btn--secondary-gold product__button" },
+                  [_vm._v("Purchase")]
+                )
+              : _c(
+                  "router-link",
+                  {
+                    staticClass: "product__button btn btn--secondary-gold",
+                    attrs: {
+                      to: {
+                        name: "products.show",
+                        params: { id: _vm.fetchedProduct.id }
+                      }
                     }
-                  }
-                },
-                [_vm._v("View Product")]
-              )
-        ],
-        1
-      )
+                  },
+                  [_vm._v("View Product")]
+                )
+          ],
+          1
+        )
+      ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "product__left" }, [
-      _c("img", {
-        staticClass: "product__img",
-        attrs: {
-          src: "/img/themes/lord_grim_medieval.png",
-          alt: "Theme Showcase Image"
-        }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
