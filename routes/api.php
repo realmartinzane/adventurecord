@@ -34,6 +34,14 @@ Route::group(['prefix' => 'v1'], function()
       GET     /api/v1/updates/{id}
   */
   Route::get('updates/{id}', 'API\UpdateController@single');
+  /*
+      GET     /api/v1/shop/products/
+  */
+  Route::get('shop/products', 'API\ProductController@all');
+  /*
+      GET     /api/v1/shop/products/{id}
+  */
+  Route::get('shop/products/{id}', 'API\ProductController@single');
 });
 
 /*

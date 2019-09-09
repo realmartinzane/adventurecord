@@ -16365,14 +16365,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['fetchedProduct'],
   computed: {
     isShowRoute: function isShowRoute() {
       return this.$route.name == 'products.show';
-    } // description() {return this.fetchedProduct.description_html.length < 250 ? this.fetchedProduct.description_html : this.fetchedProduct.description_html.substring(0,250) + "..."},
-
+    }
   }
 });
 
@@ -16387,7 +16385,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Product_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Product.vue */ "./resources/js/components/shop/Product.vue");
+/* harmony import */ var vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-spinner/src/ClipLoader.vue */ "./node_modules/vue-spinner/src/ClipLoader.vue");
+/* harmony import */ var _Product_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Product.vue */ "./resources/js/components/shop/Product.vue");
 //
 //
 //
@@ -16402,9 +16401,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    ProductComponent: _Product_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    ProductComponent: _Product_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    ClipLoader: vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  computed: {
+    fetchedProducts: function fetchedProducts() {
+      return this.$store.getters.getProducts;
+    },
+    productsLoad: function productsLoad() {
+      return this.$store.getters.getProductsLoad;
+    }
+  },
+  created: function created() {
+    this.fetchAll();
+  },
+  methods: {
+    fetchAll: function fetchAll() {
+      this.$store.dispatch('fetchProducts');
+    }
   }
 });
 
@@ -17420,7 +17437,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_shop_Product_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/shop/Product.vue */ "./resources/js/components/shop/Product.vue");
+/* harmony import */ var vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-spinner/src/ClipLoader.vue */ "./node_modules/vue-spinner/src/ClipLoader.vue");
+/* harmony import */ var _components_shop_Product_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/shop/Product.vue */ "./resources/js/components/shop/Product.vue");
+//
 //
 //
 //
@@ -17433,9 +17452,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    ProductComponent: _components_shop_Product_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    ProductComponent: _components_shop_Product_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    ClipLoader: vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      id: this.$route.params.id
+    };
+  },
+  computed: {
+    checkLoad: function checkLoad() {
+      return this.$store.getters.getProductLoad;
+    },
+    fetchedProduct: function fetchedProduct() {
+      return this.$store.getters.getProduct;
+    }
+  },
+  created: function created() {
+    this.fetchSingle();
+  },
+  methods: {
+    fetchSingle: function fetchSingle() {
+      this.$store.dispatch('fetchProduct', {
+        id: this.id
+      });
+    }
   }
 });
 
@@ -47161,20 +47205,20 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "product__right" }, [
       _c("h3", { staticClass: "product__name" }, [
-        _vm._v("LordGrim's Medieval Theme")
+        _vm._v(_vm._s(_vm.fetchedProduct.name))
       ]),
       _vm._v(" "),
       _c("p", { staticClass: "product__description" }, [
-        _vm._v(
-          "\n            This is one very unique background theme made by LordGrim, it's unique in every kind of way and very liked among the community! Use the command !purchase {code} to redeem your membership status, or feel free to give it to a friend!\n        "
-        )
+        _vm._v(_vm._s(_vm.fetchedProduct.description))
       ]),
       _vm._v(" "),
       _c(
         "div",
         { staticClass: "product__purchase" },
         [
-          _c("div", { staticClass: "product__price" }, [_vm._v("$19.90")]),
+          _c("div", { staticClass: "product__price" }, [
+            _vm._v(_vm._s(_vm.fetchedProduct.price))
+          ]),
           _vm.isShowRoute
             ? _c(
                 "button",
@@ -47185,7 +47229,12 @@ var render = function() {
                 "router-link",
                 {
                   staticClass: "product__button btn btn--secondary-gold",
-                  attrs: { to: { name: "products.show", params: { id: "1" } } }
+                  attrs: {
+                    to: {
+                      name: "products.show",
+                      params: { id: _vm.fetchedProduct.id }
+                    }
+                  }
                 },
                 [_vm._v("View Product")]
               )
@@ -47232,27 +47281,40 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "section-shop" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "products" },
-      [_c("product-component"), _vm._v(" "), _c("product-component")],
-      1
-    )
-  ])
+  return _c(
+    "section",
+    { staticClass: "section-shop" },
+    [
+      _vm.productsLoad !== 2
+        ? _c("clip-loader", {
+            attrs: { loading: true, color: "#FFD700", size: "5rem" }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.productsLoad == 2
+        ? _c("header", { staticClass: "u-center-text u-margin-bottom-lg" }, [
+            _c("h2", { staticClass: "heading-secondary" }, [_vm._v("Shop")])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.productsLoad == 2
+        ? _c(
+            "div",
+            { staticClass: "products" },
+            _vm._l(_vm.fetchedProducts, function(fetchedProduct) {
+              return _c("product-component", {
+                key: fetchedProduct.id,
+                attrs: { fetchedProduct: fetchedProduct }
+              })
+            }),
+            1
+          )
+        : _vm._e()
+    ],
+    1
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("header", { staticClass: "u-center-text u-margin-bottom-lg" }, [
-      _c("h2", { staticClass: "heading-secondary" }, [_vm._v("Shop")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -48513,21 +48575,32 @@ var render = function() {
     _c(
       "section",
       { staticClass: "section-product" },
-      [_vm._m(0), _vm._v(" "), _c("product-component")],
+      [
+        _vm.checkLoad == 2
+          ? _c("header", { staticClass: "u-center-text u-margin-bottom-lg" }, [
+              _c("h2", { staticClass: "heading-secondary" }, [
+                _vm._v("Product")
+              ])
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.checkLoad !== 2
+          ? _c("clip-loader", {
+              attrs: { loading: true, color: "#FFD700", size: "5rem" }
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.checkLoad == 2
+          ? _c("product-component", {
+              attrs: { fetchedProduct: _vm.fetchedProduct }
+            })
+          : _vm._e()
+      ],
       1
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("header", { staticClass: "u-center-text u-margin-bottom-lg" }, [
-      _c("h2", { staticClass: "heading-secondary" }, [_vm._v("Product")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -68740,6 +68813,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/api/product.js":
+/*!*************************************!*\
+  !*** ./resources/js/api/product.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../config.js */ "./resources/config.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  /*
+      GET     /api/v1/shop/products/{id}
+  */
+  fetchAll: function fetchAll() {
+    return axios.get("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/shop/products"));
+  },
+
+  /*
+      GET     /api/v1/shop/products/{id}
+  */
+  fetchSingle: function fetchSingle(id) {
+    return axios.get("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/shop/products/").concat(id));
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/api/update.js":
 /*!************************************!*\
   !*** ./resources/js/api/update.js ***!
@@ -68753,21 +68855,21 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   /*
-      GET     /api/updates/{id}
+      GET     /api/v1/updates/{id}
   */
   fetchSingle: function fetchSingle(id) {
     return axios.get("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates/").concat(id));
   },
 
   /*
-      GET     /api/updates
+      GET     /api/v1/updates
   */
   fetchAll: function fetchAll() {
     return axios.get("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates/all"));
   },
 
   /*
-      POST     /api/updates/store
+      POST     /api/v1/updates/store
   */
   store: function store(data) {
     return axios.post("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates/store"), {
@@ -68777,7 +68879,7 @@ __webpack_require__.r(__webpack_exports__);
   },
 
   /*
-      POST     /api/updates/{id}/update
+      POST     /api/v1/updates/{id}/update
   */
   update: function update(id, data) {
     console.log(id, data);
@@ -68788,21 +68890,21 @@ __webpack_require__.r(__webpack_exports__);
   },
 
   /*
-      POST     /api/updates/destroy
+      POST     /api/v1/updates/destroy
   */
   destroy: function destroy(id) {
     return axios["delete"]("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates/").concat(id, "/destroy"));
   },
 
   /*
-      POST     /api/updates/{id}/like
+      POST     /api/v1/updates/{id}/like
   */
   like: function like(id) {
     return axios.post("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates/").concat(id, "/like"));
   },
 
   /*
-      DELETE     /api/updates/{id}/unlike
+      DELETE     /api/v1/updates/{id}/unlike
   */
   unlike: function unlike(id) {
     return axios["delete"]("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates/").concat(id, "/unlike"));
@@ -70447,6 +70549,83 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/modules/products.js":
+/*!******************************************!*\
+  !*** ./resources/js/modules/products.js ***!
+  \******************************************/
+/*! exports provided: products */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "products", function() { return products; });
+/* harmony import */ var _api_product__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../api/product */ "./resources/js/api/product.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+
+
+var products = {
+  state: {
+    products: [],
+    productsLoad: 0,
+    product: {},
+    productLoad: 0
+  },
+  mutations: {
+    setProducts: function setProducts(state, data) {
+      state.products = data;
+    },
+    setProductsLoad: function setProductsLoad(state, status) {
+      state.productsLoad = status;
+    },
+    setProduct: function setProduct(state, data) {
+      state.product = data;
+    },
+    setProductLoad: function setProductLoad(state, status) {
+      state.productLoad = status;
+    }
+  },
+  actions: {
+    fetchProducts: function fetchProducts(_ref) {
+      var commit = _ref.commit;
+      commit('setProductsLoad', 1);
+      _api_product__WEBPACK_IMPORTED_MODULE_0__["default"].fetchAll().then(function (response) {
+        commit('setProducts', response.data);
+        commit('setProductsLoad', 2);
+      })["catch"](function () {
+        commit('setProducts', []);
+        commit('setProductsLoad', 3);
+      });
+    },
+    fetchProduct: function fetchProduct(_ref2, data) {
+      var commit = _ref2.commit;
+      commit('setProductLoad', 1);
+      _api_product__WEBPACK_IMPORTED_MODULE_0__["default"].fetchSingle(data.id).then(function (response) {
+        commit('setProduct', response.data);
+        commit('setProductLoad', 2);
+      })["catch"](function () {
+        commit('setProduct', []);
+        commit('setProductLoad', 3);
+      });
+    }
+  },
+  getters: {
+    getProducts: function getProducts(state) {
+      return state.products;
+    },
+    getProductsLoad: function getProductsLoad(state) {
+      return state.productsLoad;
+    },
+    getProduct: function getProduct(state) {
+      return state.product;
+    },
+    getProductLoad: function getProductLoad(state) {
+      return state.productLoad;
+    }
+  }
+};
+
+/***/ }),
+
 /***/ "./resources/js/modules/updates.js":
 /*!*****************************************!*\
   !*** ./resources/js/modules/updates.js ***!
@@ -71070,6 +71249,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _modules_updates_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/updates.js */ "./resources/js/modules/updates.js");
 /* harmony import */ var _modules_users_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/users.js */ "./resources/js/modules/users.js");
+/* harmony import */ var _modules_products_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/products.js */ "./resources/js/modules/products.js");
 /*
   Adds the promise polyfill for IE 11
 */
@@ -71080,10 +71260,12 @@ __webpack_require__(/*! es6-promise */ "./node_modules/es6-promise/dist/es6-prom
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   modules: {
     updates: _modules_updates_js__WEBPACK_IMPORTED_MODULE_2__["updates"],
-    users: _modules_users_js__WEBPACK_IMPORTED_MODULE_3__["users"]
+    users: _modules_users_js__WEBPACK_IMPORTED_MODULE_3__["users"],
+    products: _modules_products_js__WEBPACK_IMPORTED_MODULE_4__["products"]
   }
 }));
 

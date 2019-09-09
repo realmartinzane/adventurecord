@@ -2,21 +2,21 @@ import { ADV_CONFIG } from '../../config.js';
 
 export default {
     /*
-        GET     /api/updates/{id}
+        GET     /api/v1/updates/{id}
     */
     fetchSingle(id) 
     {
         return axios.get(`${ADV_CONFIG.API_URL}/updates/${id}`)
     },
     /*
-        GET     /api/updates
+        GET     /api/v1/updates
     */
     fetchAll() 
     {
         return axios.get(`${ADV_CONFIG.API_URL}/updates/all`)
     },
     /*
-        POST     /api/updates/store
+        POST     /api/v1/updates/store
     */
     store(data)
     {
@@ -27,7 +27,7 @@ export default {
         })
     },
     /*
-        POST     /api/updates/{id}/update
+        POST     /api/v1/updates/{id}/update
     */
     update(id, data)
     {
@@ -39,7 +39,7 @@ export default {
         })
     },
     /*
-        POST     /api/updates/destroy
+        POST     /api/v1/updates/destroy
     */
     destroy(id)
     {
@@ -47,7 +47,7 @@ export default {
     },
 
     /*
-        POST     /api/updates/{id}/like
+        POST     /api/v1/updates/{id}/like
     */
     like(id)
     {
@@ -55,7 +55,7 @@ export default {
     },
 
     /*
-        DELETE     /api/updates/{id}/unlike
+        DELETE     /api/v1/updates/{id}/unlike
     */
     unlike(id) 
     {

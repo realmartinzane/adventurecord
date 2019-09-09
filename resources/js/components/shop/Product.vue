@@ -4,14 +4,12 @@
             <img class="product__img" src="/img/themes/lord_grim_medieval.png" alt="Theme Showcase Image">
         </div>
         <div class="product__right">
-            <h3 class="product__name">LordGrim's Medieval Theme</h3>
-            <p class="product__description">
-                This is one very unique background theme made by LordGrim, it's unique in every kind of way and very liked among the community! Use the command !purchase {code} to redeem your membership status, or feel free to give it to a friend!
-            </p>           
+            <h3 class="product__name">{{ fetchedProduct.name }}</h3>
+            <p class="product__description">{{ fetchedProduct.description }}</p>           
             <div class="product__purchase">
-                <div class="product__price">$19.90</div
+                <div class="product__price">{{ fetchedProduct.price }}</div
                 ><button v-if="isShowRoute" class="btn btn--secondary-gold product__button">Purchase</button>
-                <router-link v-else class="product__button btn btn--secondary-gold" :to="{name: 'products.show', params: {id: '1'}}" >View Product</router-link>
+                <router-link v-else class="product__button btn btn--secondary-gold" :to="{name: 'products.show', params: {id: fetchedProduct.id}}" >View Product</router-link>
             </div>
         </div>
     </div>
@@ -19,12 +17,13 @@
 
 <script>
 export default {
+    props: ['fetchedProduct'],
     computed: 
     {
-        isShowRoute() {return this.$route.name == 'products.show'}
+        isShowRoute() {return this.$route.name == 'products.show'},
 
         // description() {return this.fetchedProduct.description_html.length < 250 ? this.fetchedProduct.description_html : this.fetchedProduct.description_html.substring(0,250) + "..."},
-    }
+    },
 }
 </script>
 
