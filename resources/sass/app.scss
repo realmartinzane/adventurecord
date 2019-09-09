@@ -1,11 +1,12 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
 // Abstracts
 @import 'abstracts/variables',
-        'abstracts/functions',
         'abstracts/mixins';
 
 // Base
 @import 'base/base',
-        'base/animations',
         'base/typography',
         'base/utilities';
 
@@ -19,9 +20,3 @@
 
 // Layout
 @import 'layout/grid';
-
-// ================================================================================================
-// Temporary, delete later.
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-@import 'variables',
-        'mixins';
