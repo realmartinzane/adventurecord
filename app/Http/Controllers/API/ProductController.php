@@ -10,7 +10,9 @@ class ProductController extends Controller
 {
     public function all()
     {
-        $products = Product::orderby('created_at', 'desc')->get();
+        $special = Product::where('category_id', '=', 2)->get();
+        $nonspecial = Product::where('category_id', '!=', 2)->orderby('created_at', 'desc')->get();
+        $products = $special->toBase()->merge($nonspecial);
         return response()->json($products);
     }
 
