@@ -1,8 +1,6 @@
 <template>
     <section class="section-update-form">
-        <header class="u-center-text u-margin-bottom-lg">
-            <h2 class="heading-secondary">Create a New Update</h2>
-        </header>
+        <secondary-header-component >Create a New Upate</secondary-header-component>
 
          <form-component>
             <div class="form__group">
@@ -42,10 +40,11 @@ import { validationMixin } from 'vuelidate'
 import { required, maxLength } from 'vuelidate/lib/validators'
 import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
 import FormComponent from '../common/Form.vue'
+import SecondaryHeaderComponent from '../common/SecondaryHeader.vue'
 
 export default {
     mixins: [validationMixin],
-    components: {ClipLoader, FormComponent},
+    components: {ClipLoader, FormComponent, SecondaryHeaderComponent},
 
     data(){return{
         form:

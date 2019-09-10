@@ -1,9 +1,7 @@
 <template>
     <section class="section-updates" :class="{'u-pos-relative': isHomeRoute }">
         <clip-loader v-if=" updatesLoad !== 2" :loading="true" color="#FFD700" size="5rem"></clip-loader>
-        <header v-if="updatesLoad == 2" class="u-center-text u-margin-bottom-lg">
-            <h2 class="heading-secondary">Updates</h2>
-        </header>
+        <secondary-header-component v-if="updatesLoad == 2">Updates</secondary-header-component>
         <div class="posts" v-if="updatesLoad == 2">
             <div class="posts__post" v-for="update in fetchedUpdates" :key="update.id">
                 <update-component :update="update"></update-component>
@@ -19,9 +17,10 @@
 import UpdateComponent from './Update.vue'
 import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
 import LinkComponent from '../common/Link.vue'
+import SecondaryHeaderComponent from '../common/SecondaryHeader.vue'
 
 export default {
-    components: {UpdateComponent, ClipLoader, LinkComponent},
+    components: {UpdateComponent, ClipLoader, LinkComponent, SecondaryHeaderComponent},
     computed:
     {
         isHomeRoute() {return this.$route.name === 'landing' || this.$route.name === 'home'},

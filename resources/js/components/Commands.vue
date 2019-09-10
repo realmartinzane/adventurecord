@@ -1,8 +1,6 @@
 <template>
     <section class="section-commands">
-        <header class="u-center-text u-margin-bottom-lg">
-            <h2 class="heading-secondary">Commands</h2>
-        </header>
+        <secondary-header-component>Commands</secondary-header-component>
 
         <div class="commands">
             <input type="radio" name="tabs" id="btn_1" checked="checked" class="commands__radio">
@@ -81,7 +79,11 @@
 </template>
 
 <script>
+
+import SecondaryHeaderComponent from './common/SecondaryHeader.vue'
+
 export default {
+    components: {SecondaryHeaderComponent},
     data(){return{
         listOne: 
         [

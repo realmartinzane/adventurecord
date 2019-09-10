@@ -2,9 +2,7 @@
     <section class="section-update-form">
         <clip-loader v-if="updateLoad != 2" :loading="true" color="#FFD700" size="5rem"></clip-loader>
 
-        <header v-if="updateLoad == 2" class="u-center-text u-margin-bottom-lg">
-            <h2 class="heading-secondary">Edit Update</h2>
-        </header>
+        <secondary-header-component>Edit Update</secondary-header-component>
 
          <form-component v-if="updateLoad == 2">
             <div class="form__group">
@@ -44,10 +42,11 @@ import { validationMixin } from 'vuelidate'
 import { required, maxLength } from 'vuelidate/lib/validators'
 import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
 import FormComponent from '../common/Form.vue'
+import SecondaryHeaderComponent from '../common/SecondaryHeader.vue'
 
 export default {
     mixins: [validationMixin],
-    components: {ClipLoader, FormComponent},
+    components: {ClipLoader, FormComponent, SecondaryHeaderComponent},
 
     data(){return{
         form:

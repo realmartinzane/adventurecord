@@ -1,8 +1,6 @@
 <template>
     <section class="section-user-settings">
-        <header class="u-center-text u-margin-bottom-lg">
-            <h2 class="heading-secondary">User Settings</h2>
-        </header>
+        <secondary-header-component>User Settings</secondary-header-component>
 
         <form-component action="#" class="form">
             <div class="form__group">
@@ -20,9 +18,10 @@
 
 <script>
 import FormComponent from '../common/Form.vue'
+import SecondaryHeaderComponent from '../common/SecondaryHeader.vue'
 
 export default {
-    components: {FormComponent},
+    components: {FormComponent, SecondaryHeaderComponent},
     data(){return{
         languages:
         [
