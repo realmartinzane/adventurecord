@@ -48118,7 +48118,7 @@ var render = function() {
         ? _c(
             "div",
             { staticClass: "products" },
-            _vm._l(_vm.products, function(product) {
+            _vm._l(_vm.filteredProducts, function(product) {
               return _c("product-component", {
                 key: product.id,
                 attrs: { product: product }

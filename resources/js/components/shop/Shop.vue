@@ -6,7 +6,7 @@
         <categories-component v-if="productsLoad == 2"></categories-component>
 
         <div class="products" v-if="productsLoad == 2">
-            <product-component v-for="product in products" :key="product.id" :product="product"></product-component>
+            <product-component v-for="product in filteredProducts" :key="product.id" :product="product"></product-component>
         </div>
     </section>
 </template>
