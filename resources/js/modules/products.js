@@ -34,17 +34,20 @@ export const products =
 
     actions:
     {
-        fetchProducts({ commit }) {
+        async fetchProducts({ commit }) {
             commit('setProductsLoad', 1)
-            ProductAPI.fetchAll()
-                .then(response => {
-                    commit('setProducts', response.data)
-                    commit('setProductsLoad', 2)
-                })
-                .catch(() => {
-                    commit('setProducts', [])
-                    commit('setProductsLoad', 3)
-                })
+            let response;
+            try
+            {
+                response = await ProductAPI.fetchAll()
+            }
+            catch(ex) 
+            {
+                commit('setProducts', [])
+                commit('setProductsLoad', 3)
+            }
+            commit('setProducts', response.data)
+            commit('setProductsLoad', 2)
         },
 
         fetchProduct({ commit }, data) {

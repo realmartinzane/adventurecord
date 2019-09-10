@@ -41,6 +41,7 @@ export default {
 
     .product
     {
+        text-align: left;
         background: $color-secondary-light;
         border: 1px solid $color-border-dark;
         border-radius: 3px;
