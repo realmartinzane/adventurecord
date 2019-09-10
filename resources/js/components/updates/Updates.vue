@@ -2,10 +2,10 @@
     <section class="section-updates" :class="{'u-pos-relative': isHomeRoute }">
         <clip-loader v-if=" updatesLoad !== 2" :loading="true" color="#FFD700" size="5rem"></clip-loader>
         <secondary-header-component v-if="updatesLoad == 2">Updates</secondary-header-component>
+        
         <div class="posts" v-if="updatesLoad == 2">
-            <div class="posts__post" v-for="update in fetchedUpdates" :key="update.id">
-                <update-component :update="update"></update-component>
-            </div>
+            <update-component v-for="update in updates" :key="update.id" :update="update"></update-component>
+            
             <div v-if="isHomeRoute" class="u-center-text">
                 <link-component :to="'/updates'">View more updates</link-component>
             </div>
@@ -27,15 +27,15 @@ export default {
 
         updatesLoad() {return this.$store.getters.getUpdatesLoad},
 
-        fetchedUpdates() {return this.$store.getters.getUpdates}
+        updates() {return this.$store.getters.getUpdates}
     },
     created()
     {
-        this.fetchAll()
+        this.fetchUpdates()
     },
     methods:
     {
-        fetchAll()
+        fetchUpdates()
         {
             this.$store.dispatch('fetchUpdates');
         }

@@ -1,9 +1,9 @@
 <template>
     <main>
         <section class="section-product">
-            <secondary-header-component v-if="checkLoad == 2">Shop</secondary-header-component>
-            <clip-loader v-if="checkLoad !== 2" :loading="true" color="#FFD700" size="5rem"></clip-loader>
-            <product-component v-if="checkLoad == 2" :fetchedProduct="fetchedProduct"></product-component>
+            <secondary-header-component v-if="productLoad == 2">Product</secondary-header-component>
+            <clip-loader v-if="productLoad !== 2" :loading="true" color="#FFD700" size="5rem"></clip-loader>
+            <product-component v-if="productLoad == 2" :product="product"></product-component>
         </section>
     </main>
 </template>
@@ -21,9 +21,9 @@ export default {
     }},
     computed: 
     {
-        checkLoad() {return this.$store.getters.getProductLoad},
+        productLoad() {return this.$store.getters.getProductLoad},
 
-        fetchedProduct() {return this.$store.getters.getProduct}
+        product() {return this.$store.getters.getProduct}
     },
     created()
     {

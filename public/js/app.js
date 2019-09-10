@@ -16479,14 +16479,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['fetchedProduct'],
+  props: ['product'],
   computed: {
     isShowRoute: function isShowRoute() {
       return this.$route.name == 'products.show';
     },
     description: function description() {
-      return !this.isShowRoute ? this.fetchedProduct.description_html.length < 250 ? this.fetchedProduct.description_html : this.fetchedProduct.description_html.substring(0, 250) + "..." : this.fetchedProduct.description_html;
+      return this.product.description_html.length < 250 ? this.product.description_html : this.product.description_html.substring(0, 250) + "...";
     }
   }
 });
@@ -16544,7 +16547,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   computed: {
-    fetchedProducts: function fetchedProducts() {
+    products: function products() {
       return this.$store.getters.getProducts;
     },
     productsLoad: function productsLoad() {
@@ -16552,11 +16555,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }
   },
   created: function created() {
-    this.fetchAll();
+    this.fetchProducts();
   },
   methods: {
-    fetchAll: function () {
-      var _fetchAll = _asyncToGenerator(
+    fetchProducts: function () {
+      var _fetchProducts = _asyncToGenerator(
       /*#__PURE__*/
       _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
@@ -16567,7 +16570,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return this.$store.dispatch('fetchProducts');
 
               case 2:
-                this.filteredProducts = this.fetchedProducts;
+                this.filteredProducts = this.products;
 
               case 3:
               case "end":
@@ -16577,14 +16580,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee, this);
       }));
 
-      function fetchAll() {
-        return _fetchAll.apply(this, arguments);
+      function fetchProducts() {
+        return _fetchProducts.apply(this, arguments);
       }
 
-      return fetchAll;
+      return fetchProducts;
     }(),
     filterProducts: function filterProducts(id) {
-      if (id == 0) this.filteredProducts = this.fetchedProducts;else this.filteredProducts = this.fetchedProducts.filter(function (product) {
+      if (id == 0) this.filteredProducts = this.products;else this.filteredProducts = this.products.filter(function (product) {
         return product.category_id == id;
       });
     }
@@ -16605,10 +16608,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _common_SocialSharing_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/SocialSharing.vue */ "./resources/js/components/common/SocialSharing.vue");
-/* harmony import */ var vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-spinner/src/ClipLoader.vue */ "./node_modules/vue-spinner/src/ClipLoader.vue");
-/* harmony import */ var _common_ToggleLike_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/ToggleLike.vue */ "./resources/js/components/common/ToggleLike.vue");
-/* harmony import */ var _common_Link_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/Link.vue */ "./resources/js/components/common/Link.vue");
-/* harmony import */ var _common_Popup_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../common/Popup.vue */ "./resources/js/components/common/Popup.vue");
+/* harmony import */ var _common_ToggleLike_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/ToggleLike.vue */ "./resources/js/components/common/ToggleLike.vue");
+/* harmony import */ var _common_Link_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/Link.vue */ "./resources/js/components/common/Link.vue");
+/* harmony import */ var _common_Popup_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/Popup.vue */ "./resources/js/components/common/Popup.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -16697,10 +16699,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-
 
 
 
@@ -16709,14 +16707,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   props: ['update'],
   components: {
     SocialSharingComponent: _common_SocialSharing_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    ClipLoader: vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    ToggleLikeComponent: _common_ToggleLike_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    LinkComponent: _common_Link_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    PopupComponent: _common_Popup_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    ToggleLikeComponent: _common_ToggleLike_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    LinkComponent: _common_Link_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    PopupComponent: _common_Popup_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   data: function data() {
     return {
-      id: this.$route.params.id,
       showModal: false,
       showLinks: false,
       url: ''
@@ -16727,13 +16723,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       return this.$route.name === 'updates.show';
     },
     body: function body() {
-      return this.fetchedUpdate.body_html.length < 250 ? this.fetchedUpdate.body_html : this.fetchedUpdate.body_html.substring(0, 250) + "...";
-    },
-    fetchedUpdate: function fetchedUpdate() {
-      return this.id && this.isShowRoute ? this.$store.getters.getUpdate : this.update;
-    },
-    checkLoad: function checkLoad() {
-      return this.isShowRoute ? this.$store.getters.getUpdateLoad : this.$store.getters.getUpdatesLoad;
+      return this.update.body_html.length < 250 ? this.update.body_html : this.update.body_html.substring(0, 250) + "...";
     },
     updateStatus: function updateStatus() {
       return this.$store.getters.getUpdateStatus;
@@ -16747,16 +16737,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   created: function created() {
     this.url = window.location.href;
-    if (this.id && this.isShowRoute) this.fetchSingle();
   },
   methods: {
-    fetchSingle: function fetchSingle() {
-      this.$store.dispatch('fetchUpdate', {
-        id: this.id
-      });
-    },
     toggleLike: function toggleLike() {
-      console.log(this.fetchedUpdate.is_liked);
+      console.log(this.update.is_liked);
     },
     destroy: function () {
       var _destroy = _asyncToGenerator(
@@ -16771,7 +16755,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context.next = 2;
                 return this.$store.dispatch('destroyUpdate', {
-                  id: this.fetchedUpdate.id
+                  id: this.update.id
                 });
 
               case 2:
@@ -17227,15 +17211,15 @@ __webpack_require__.r(__webpack_exports__);
     updatesLoad: function updatesLoad() {
       return this.$store.getters.getUpdatesLoad;
     },
-    fetchedUpdates: function fetchedUpdates() {
+    updates: function updates() {
       return this.$store.getters.getUpdates;
     }
   },
   created: function created() {
-    this.fetchAll();
+    this.fetchUpdates();
   },
   methods: {
-    fetchAll: function fetchAll() {
+    fetchUpdates: function fetchUpdates() {
       this.$store.dispatch('fetchUpdates');
     }
   }
@@ -17722,10 +17706,10 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   computed: {
-    checkLoad: function checkLoad() {
+    productLoad: function productLoad() {
       return this.$store.getters.getProductLoad;
     },
-    fetchedProduct: function fetchedProduct() {
+    product: function product() {
       return this.$store.getters.getProduct;
     }
   },
@@ -17778,6 +17762,12 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_updates_Update_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/updates/Update.vue */ "./resources/js/components/updates/Update.vue");
+/* harmony import */ var _components_common_SecondaryHeader_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/common/SecondaryHeader.vue */ "./resources/js/components/common/SecondaryHeader.vue");
+/* harmony import */ var vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-spinner/src/ClipLoader.vue */ "./node_modules/vue-spinner/src/ClipLoader.vue");
+//
+//
+//
+//
 //
 //
 //
@@ -17785,9 +17775,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    UpdateComponent: _components_updates_Update_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    UpdateComponent: _components_updates_Update_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    SecondaryHeaderComponent: _components_common_SecondaryHeader_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    ClipLoader: vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  data: function data() {
+    return {
+      id: this.$route.params.id
+    };
+  },
+  computed: {
+    update: function update() {
+      return this.$store.getters.getUpdate;
+    },
+    updateLoad: function updateLoad() {
+      return this.$store.getters.getUpdateLoad;
+    }
+  },
+  created: function created() {
+    this.fetchUpdate();
+  },
+  methods: {
+    fetchUpdate: function fetchUpdate() {
+      this.$store.dispatch('fetchUpdate', {
+        id: this.id
+      });
+    }
   }
 });
 
@@ -18171,7 +18188,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".product {\n  text-align: left;\n  background: #2E2E36;\n  border: 1px solid #3d3d49;\n  border-radius: 3px;\n  line-height: 1;\n  box-shadow: 0 0 10px #000;\n  position: relative;\n  margin: 2.5rem auto;\n}\n@media only screen and (max-width: 44.375em) {\n.product {\n    width: calc(49% - 1rem);\n    display: inline-block;\n    margin: 2.5rem 0.5rem;\n}\n}\n@media only screen and (max-width: 30rem) {\n.product {\n    width: 34rem;\n    display: block;\n    margin: 2.5rem auto;\n}\n}\n.product__left {\n  width: 30rem;\n  display: inline-block;\n  position: relative;\n  overflow: hidden;\n}\n@media only screen and (max-width: 44.375em) {\n.product__left {\n    width: 100%;\n}\n}\n.product__img {\n  width: 100%;\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n  background: #10121A;\n}\n.product__ribbon {\n  position: absolute;\n  top: 5rem;\n  left: 5rem;\n  transform: translate(-50%, -50%) rotate(-45deg);\n  width: 20rem;\n  background-color: #ec4853;\n  color: #fff;\n  text-transform: uppercase;\n  text-align: center;\n  font-size: 2rem;\n  letter-spacing: 2px;\n  padding: 0.5rem 0;\n  border-top: 2px solid #fff;\n  border-bottom: 2px solid #fff;\n  outline: 4px solid #ec4853;\n}\n.product__right {\n  line-height: 1.7;\n  width: calc(100% - 30.5rem);\n  display: inline-block;\n  vertical-align: top;\n  padding: 1.5rem;\n}\n@media only screen and (max-width: 44.375em) {\n.product__right {\n    width: 100%;\n}\n}\n.product__description {\n  color: #d3d3d3;\n}\n.product__note {\n  color: #FFD700;\n  display: block;\n}\n.product__footer {\n  height: 4rem;\n  text-align: center;\n}\n@media only screen and (max-width: 44.375em) {\n.product__footer {\n    height: auto;\n    margin: 1rem 0;\n}\n}\n.product__category {\n  position: absolute;\n  bottom: 2rem;\n  left: 31.5rem;\n  border: 1px solid #c9b350;\n  border-radius: 20px;\n  padding: 0 1rem;\n  text-transform: uppercase;\n  font-size: 1.2rem;\n  color: #c9b350;\n  letter-spacing: 1px;\n  vertical-align: bottom;\n}\n@media only screen and (max-width: 44.375em) {\n.product__category {\n    position: static;\n    margin: 1rem auto;\n    display: inline-block;\n}\n}\n.product__purchase {\n  position: absolute;\n  bottom: 1.5rem;\n  right: 1.5rem;\n}\n@media only screen and (max-width: 44.375em) {\n.product__purchase {\n    position: static;\n    text-align: center;\n}\n}\n.product__price {\n  text-align: center;\n  border: 1px solid #c9b350;\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n  border-right: none;\n  display: inline-block;\n  height: 3.4rem;\n  padding: 0 0.8rem;\n  font-size: 1.8rem;\n  line-height: 3.4rem;\n  vertical-align: top;\n}\n.product__button {\n  text-align: center;\n  border-top-left-radius: 0 !important;\n  border-bottom-left-radius: 0 !important;\n  display: inline-block;\n  height: 3.4rem;\n  line-height: 1;\n  vertical-align: top;\n}", ""]);
+exports.push([module.i, ".product {\n  text-align: left;\n  background: #2E2E36;\n  border: 1px solid #3d3d49;\n  border-radius: 3px;\n  line-height: 1;\n  box-shadow: 0 0 10px #000;\n  position: relative;\n  margin: 2.5rem auto;\n}\n@media only screen and (max-width: 44.375em) {\n.product {\n    width: 65%;\n}\n}\n@media only screen and (max-width: 30rem) {\n.product {\n    width: 34rem;\n}\n}\n.product__left {\n  width: 30rem;\n  display: inline-block;\n  position: relative;\n  overflow: hidden;\n}\n@media only screen and (max-width: 44.375em) {\n.product__left {\n    width: 100%;\n}\n}\n.product__img {\n  width: 100%;\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n  background: #10121A;\n}\n.product__ribbon {\n  position: absolute;\n  top: 5rem;\n  left: 5rem;\n  transform: translate(-50%, -50%) rotate(-45deg);\n  width: 20rem;\n  background-color: #ec4853;\n  color: #fff;\n  text-transform: uppercase;\n  text-align: center;\n  font-size: 2rem;\n  letter-spacing: 2px;\n  padding: 0.5rem 0;\n  border-top: 2px solid #fff;\n  border-bottom: 2px solid #fff;\n  outline: 4px solid #ec4853;\n}\n.product__right {\n  line-height: 1.7;\n  width: calc(100% - 30.5rem);\n  display: inline-block;\n  vertical-align: top;\n  padding: 1.5rem;\n}\n@media only screen and (max-width: 44.375em) {\n.product__right {\n    width: 100%;\n}\n}\n.product__description {\n  color: #d3d3d3;\n}\n.product__note {\n  color: #FFD700;\n  display: block;\n}\n.product__footer {\n  height: 4rem;\n  text-align: center;\n}\n@media only screen and (max-width: 44.375em) {\n.product__footer {\n    height: auto;\n    margin: 1rem 0;\n}\n}\n.product__category {\n  position: absolute;\n  bottom: 2rem;\n  left: 31.5rem;\n  border: 1px solid #c9b350;\n  border-radius: 20px;\n  padding: 0 1rem;\n  text-transform: uppercase;\n  font-size: 1.2rem;\n  color: #c9b350;\n  letter-spacing: 1px;\n  vertical-align: bottom;\n}\n@media only screen and (max-width: 44.375em) {\n.product__category {\n    position: static;\n    margin: 1rem auto;\n    display: inline-block;\n}\n}\n.product__purchase {\n  position: absolute;\n  bottom: 1.5rem;\n  right: 1.5rem;\n}\n@media only screen and (max-width: 44.375em) {\n.product__purchase {\n    position: static;\n    text-align: center;\n}\n}\n.product__price {\n  text-align: center;\n  border: 1px solid #c9b350;\n  border-top-left-radius: 3px;\n  border-bottom-left-radius: 3px;\n  border-right: none;\n  display: inline-block;\n  height: 3.4rem;\n  padding: 0 0.8rem;\n  font-size: 1.8rem;\n  line-height: 3.4rem;\n  vertical-align: top;\n}\n.product__button {\n  text-align: center;\n  border-top-left-radius: 0 !important;\n  border-bottom-left-radius: 0 !important;\n  display: inline-block;\n  height: 3.4rem;\n  line-height: 1;\n  vertical-align: top;\n}", ""]);
 
 // exports
 
@@ -18209,7 +18226,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".post {\n  width: 95%;\n}\n@media only screen and (max-width: 30em) {\n.post {\n    width: 98%;\n    margin: auto;\n}\n}\n.post__left {\n  display: inline-block;\n  margin: 0 3rem;\n  vertical-align: top;\n}\n@media only screen and (max-width: 30em) {\n.post__left {\n    margin-left: 0;\n    margin-right: 1.5rem;\n}\n}\n.post__img-container {\n  height: 10rem;\n  width: 10rem;\n  background-color: #000;\n  border: 3px solid #000;\n  outline: 5px solid #c9b350;\n}\n@media only screen and (max-width: 30em) {\n.post__img-container {\n    height: 7.5rem;\n    width: 7.5rem;\n    border: 2px solid #000;\n    outline: 2px solid #c9b350;\n}\n}\n.post__img {\n  width: 100%;\n}\n.post__btn-container {\n  text-align: center;\n}\n.post__left-btn, .post__left-btn:link, .post__left-btn:visited {\n  display: inline-block;\n  padding: 0.5rem 1rem !important;\n  margin-top: 2rem;\n  line-height: 1;\n  font-size: 1.4rem;\n  position: relative;\n  z-index: 5000;\n}\n.post__right {\n  display: inline-block;\n  width: calc(100% - 18rem);\n}\n@media only screen and (max-width: 30em) {\n.post__right {\n    width: calc(100% - 10rem);\n}\n}\n.post__header-left {\n  display: inline-block;\n  width: 79%;\n}\n@media only screen and (max-width: 37.5em) {\n.post__header-left {\n    width: 100%;\n}\n}\n.post__title {\n  font-size: 3rem;\n  font-weight: 400;\n  line-height: 1.15;\n  margin-bottom: 1rem;\n}\n@media only screen and (max-width: 30em) {\n.post__title {\n    font-size: 2rem;\n}\n}\n.post__author {\n  color: #d3d3d3;\n}\n.post__link:link, .post__link:visited {\n  color: #FFD700;\n  text-decoration: none;\n}\n.post__link:hover, .post__link:active, .post__link:focus {\n  text-decoration: underline;\n}\n.post__header-right {\n  display: inline-block;\n  width: 20%;\n  text-align: right;\n  vertical-align: top;\n}\n@media only screen and (max-width: 37.5em) {\n.post__header-right {\n    display: none;\n}\n}\n.post__date {\n  font-size: 1.4rem;\n  color: #d3d3d3;\n}\n.post__views {\n  font-size: 1.8rem;\n}\n.post__body {\n  margin: 2rem 0;\n  color: #d3d3d3;\n}\n.post__body p {\n  margin: 1rem 0;\n}\n.post__footer-left {\n  display: inline-block;\n  width: 14rem;\n}\n.post__footer-right {\n  display: inline-block;\n  width: calc(100% - 15rem);\n  text-align: right;\n}\n.post__footer-right * {\n  display: inline-block;\n  line-height: 2rem;\n  vertical-align: top;\n}\n.post__share svg {\n  font-size: 2rem;\n  cursor: pointer;\n  color: #3CB1B6;\n}", ""]);
+exports.push([module.i, ".post {\n  width: 95%;\n  margin: auto;\n  padding: 4rem 0;\n  border-bottom: 1px solid #494957;\n}\n.post:first-child {\n  border-top: 1px solid #494957;\n}\n@media only screen and (max-width: 30em) {\n.post {\n    width: 98%;\n}\n}\n.post__left {\n  display: inline-block;\n  margin: 0 3rem;\n  vertical-align: top;\n}\n@media only screen and (max-width: 30em) {\n.post__left {\n    margin-left: 0;\n    margin-right: 1.5rem;\n}\n}\n.post__img-container {\n  height: 10rem;\n  width: 10rem;\n  background-color: #000;\n  border: 3px solid #000;\n  outline: 5px solid #c9b350;\n}\n@media only screen and (max-width: 30em) {\n.post__img-container {\n    height: 7.5rem;\n    width: 7.5rem;\n    border: 2px solid #000;\n    outline: 2px solid #c9b350;\n}\n}\n.post__img {\n  width: 100%;\n}\n.post__btn-container {\n  text-align: center;\n}\n.post__left-btn, .post__left-btn:link, .post__left-btn:visited {\n  display: inline-block;\n  padding: 0.5rem 1rem !important;\n  margin-top: 2rem;\n  line-height: 1;\n  font-size: 1.4rem;\n  position: relative;\n  z-index: 5000;\n}\n.post__right {\n  display: inline-block;\n  width: calc(100% - 18rem);\n}\n@media only screen and (max-width: 30em) {\n.post__right {\n    width: calc(100% - 10rem);\n}\n}\n.post__header-left {\n  display: inline-block;\n  width: 79%;\n}\n@media only screen and (max-width: 37.5em) {\n.post__header-left {\n    width: 100%;\n}\n}\n.post__title {\n  font-size: 3rem;\n  font-weight: 400;\n  line-height: 1.15;\n  margin-bottom: 1rem;\n}\n@media only screen and (max-width: 30em) {\n.post__title {\n    font-size: 2rem;\n}\n}\n.post__author {\n  color: #d3d3d3;\n}\n.post__link:link, .post__link:visited {\n  color: #FFD700;\n  text-decoration: none;\n}\n.post__link:hover, .post__link:active, .post__link:focus {\n  text-decoration: underline;\n}\n.post__header-right {\n  display: inline-block;\n  width: 20%;\n  text-align: right;\n  vertical-align: top;\n}\n@media only screen and (max-width: 37.5em) {\n.post__header-right {\n    display: none;\n}\n}\n.post__date {\n  font-size: 1.4rem;\n  color: #d3d3d3;\n}\n.post__views {\n  font-size: 1.8rem;\n}\n.post__body {\n  margin: 2rem 0;\n  color: #d3d3d3;\n}\n.post__body p {\n  margin: 1rem 0;\n}\n.post__footer-left {\n  display: inline-block;\n  width: 14rem;\n}\n.post__footer-right {\n  display: inline-block;\n  width: calc(100% - 15rem);\n  text-align: right;\n}\n.post__footer-right * {\n  display: inline-block;\n  line-height: 2rem;\n  vertical-align: top;\n}\n.post__share svg {\n  font-size: 2rem;\n  cursor: pointer;\n  color: #3CB1B6;\n}", ""]);
 
 // exports
 
@@ -47988,12 +48005,12 @@ var render = function() {
       _c("img", {
         staticClass: "product__img",
         attrs: {
-          src: "/img/products/" + _vm.fetchedProduct.image,
+          src: "/img/products/" + _vm.product.image,
           alt: "Theme Showcase Image"
         }
       }),
       _vm._v(" "),
-      _vm.fetchedProduct.category.name == "Special"
+      _vm.product.category.name == "Special"
         ? _c("div", { staticClass: "product__ribbon" }, [
             _vm._v("\n            Special\n        ")
           ])
@@ -48002,13 +48019,18 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "product__right" }, [
       _c("h3", { staticClass: "product__name" }, [
-        _vm._v(_vm._s(_vm.fetchedProduct.name))
+        _vm._v(_vm._s(_vm.product.name))
       ]),
       _vm._v(" "),
-      _c("div", {
-        staticClass: "product__description",
-        domProps: { innerHTML: _vm._s(_vm.description) }
-      }),
+      _vm.isShowRoute
+        ? _c("div", {
+            staticClass: "product__description",
+            domProps: { innerHTML: _vm._s(_vm.product.description_html) }
+          })
+        : _c("div", {
+            staticClass: "product__description",
+            domProps: { innerHTML: _vm._s(_vm.description) }
+          }),
       _vm._v(" "),
       _vm.isShowRoute
         ? _c("p", { staticClass: "product__note" }, [
@@ -48018,7 +48040,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "product__footer" }, [
         _c("div", { staticClass: "product__category" }, [
-          _vm._v(" " + _vm._s(_vm.fetchedProduct.category.name))
+          _vm._v(" " + _vm._s(_vm.product.category.name))
         ]),
         _vm._v(" "),
         _c(
@@ -48026,7 +48048,7 @@ var render = function() {
           { staticClass: "product__purchase" },
           [
             _c("div", { staticClass: "product__price" }, [
-              _vm._v(_vm._s(_vm.fetchedProduct.price))
+              _vm._v(_vm._s(_vm.product.price))
             ]),
             _vm.isShowRoute
               ? _c(
@@ -48041,7 +48063,7 @@ var render = function() {
                     attrs: {
                       to: {
                         name: "products.show",
-                        params: { id: _vm.fetchedProduct.id }
+                        params: { id: _vm.product.id }
                       }
                     }
                   },
@@ -48096,10 +48118,10 @@ var render = function() {
         ? _c(
             "div",
             { staticClass: "products" },
-            _vm._l(_vm.filteredProducts, function(fetchedProduct) {
+            _vm._l(_vm.products, function(product) {
               return _c("product-component", {
-                key: fetchedProduct.id,
-                attrs: { fetchedProduct: fetchedProduct }
+                key: product.id,
+                attrs: { product: product }
               })
             }),
             1
@@ -48132,251 +48154,228 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "section",
-    {
-      class: {
-        "section-update": _vm.isShowRoute,
-        "item-update": !_vm.isShowRoute
-      },
-      attrs: { id: "#section_update" }
-    },
+    "div",
+    { staticClass: "post" },
     [
-      _vm.checkLoad !== 2
-        ? _c("clip-loader", {
-            attrs: { loading: true, color: "#FFD700", size: "5rem" }
+      _c("div", { staticClass: "post__left" }, [
+        _c("div", { staticClass: "post__img-container" }, [
+          _c("img", {
+            staticClass: "post__img",
+            attrs: { src: _vm.update.author.avatar, alt: "Update Source Image" }
           })
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.checkLoad === 2
-        ? _c("div", { staticClass: "post" }, [
-            _c("div", { staticClass: "post__left" }, [
-              _c("div", { staticClass: "post__img-container" }, [
-                _c("img", {
-                  staticClass: "post__img",
-                  attrs: {
-                    src: _vm.fetchedUpdate.author.avatar,
-                    alt: "Update Source Image"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _vm.authUser != "" &&
-              _vm.authUserLoad == 2 &&
-              _vm.authUser.role.id == 1
-                ? _c(
-                    "div",
-                    { staticClass: "post__btn-container" },
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          directives: [
-                            {
-                              name: "tooltip",
-                              rawName: "v-tooltip.bottom",
-                              value: "Edit",
-                              expression: "'Edit'",
-                              modifiers: { bottom: true }
-                            }
-                          ],
-                          staticClass: "btn btn--primary-blue post__left-btn",
-                          attrs: {
-                            to: {
-                              name: "updates.edit",
-                              params: { id: _vm.fetchedUpdate.id }
-                            }
-                          }
-                        },
-                        [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["far", "edit"] }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          directives: [
-                            {
-                              name: "tooltip",
-                              rawName: "v-tooltip.bottom",
-                              value: "Delete",
-                              expression: "'Delete'",
-                              modifiers: { bottom: true }
-                            }
-                          ],
-                          staticClass: "btn btn--primary-red post__left-btn",
-                          on: {
-                            click: function($event) {
-                              _vm.showModal = true
-                            }
-                          }
-                        },
-                        [
-                          _c("font-awesome-icon", {
-                            attrs: { icon: ["fas", "trash-alt"] }
-                          })
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                : _vm._e()
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "post__right" }, [
-              _c("header", { staticClass: "post__header" }, [
-                _c("div", { staticClass: "post__header-left" }, [
-                  _c("h2", { staticClass: "post__title" }, [
-                    _vm._v(_vm._s(_vm.fetchedUpdate.title))
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "post__author" },
-                    [
-                      _vm._v("Posted by "),
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "post__link",
-                          attrs: {
-                            to: {
-                              name: "users.show",
-                              params: { id: _vm.fetchedUpdate.author_id }
-                            }
-                          }
-                        },
-                        [_vm._v(_vm._s(_vm.fetchedUpdate.author.name))]
-                      )
-                    ],
-                    1
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "post__header-right" }, [
-                  _c("div", { staticClass: "post__date" }, [
-                    _vm._v(_vm._s(_vm.fetchedUpdate.created_date))
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "post__views" },
-                    [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(_vm.fetchedUpdate.views) +
-                          "\n                        "
-                      ),
-                      _c("font-awesome-icon", {
-                        directives: [
-                          {
-                            name: "tooltip",
-                            rawName: "v-tooltip.bottom",
-                            value: "Views",
-                            expression: "'Views'",
-                            modifiers: { bottom: true }
-                          }
-                        ],
-                        attrs: { icon: ["far", "eye"] }
-                      })
-                    ],
-                    1
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _vm.isShowRoute
-                ? _c("div", {
-                    staticClass: "post__body",
-                    domProps: { innerHTML: _vm._s(_vm.fetchedUpdate.body_html) }
-                  })
-                : _vm._e(),
-              _vm._v(" "),
-              !_vm.isShowRoute
-                ? _c("div", {
-                    staticClass: "post__body",
-                    domProps: { innerHTML: _vm._s(_vm.body) }
-                  })
-                : _vm._e(),
-              _vm._v(" "),
-              _c("footer", { staticClass: "post__footer" }, [
+        ]),
+        _vm._v(" "),
+        _vm.authUser != "" && _vm.authUserLoad == 2 && _vm.authUser.role.id == 1
+          ? _c(
+              "div",
+              { staticClass: "post__btn-container" },
+              [
                 _c(
-                  "div",
-                  { staticClass: "post__footer-left" },
+                  "router-link",
+                  {
+                    directives: [
+                      {
+                        name: "tooltip",
+                        rawName: "v-tooltip.bottom",
+                        value: "Edit",
+                        expression: "'Edit'",
+                        modifiers: { bottom: true }
+                      }
+                    ],
+                    staticClass: "btn btn--primary-blue post__left-btn",
+                    attrs: {
+                      to: {
+                        name: "updates.edit",
+                        params: { id: _vm.update.id }
+                      }
+                    }
+                  },
                   [
-                    !_vm.isShowRoute
-                      ? _c(
-                          "link-component",
-                          {
-                            staticClass: "post__continue",
-                            attrs: {
-                              to: {
-                                name: "updates.show",
-                                params: { id: _vm.fetchedUpdate.id }
-                              }
-                            }
-                          },
-                          [_vm._v("Continue Reading")]
-                        )
-                      : _vm._e()
+                    _c("font-awesome-icon", {
+                      attrs: { icon: ["far", "edit"] }
+                    })
                   ],
                   1
                 ),
                 _vm._v(" "),
                 _c(
-                  "div",
-                  { staticClass: "post__footer-right" },
+                  "button",
+                  {
+                    directives: [
+                      {
+                        name: "tooltip",
+                        rawName: "v-tooltip.bottom",
+                        value: "Delete",
+                        expression: "'Delete'",
+                        modifiers: { bottom: true }
+                      }
+                    ],
+                    staticClass: "btn btn--primary-red post__left-btn",
+                    on: {
+                      click: function($event) {
+                        _vm.showModal = true
+                      }
+                    }
+                  },
                   [
-                    _c("toggle-like-component", {
-                      attrs: { fetchedUpdate: _vm.fetchedUpdate }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "post__share u-margin-left-sm" },
-                      [
-                        _c("font-awesome-icon", {
-                          directives: [
-                            {
-                              name: "tooltip",
-                              rawName: "v-tooltip.bottom",
-                              value: "Share",
-                              expression: "'Share'",
-                              modifiers: { bottom: true }
-                            }
-                          ],
-                          attrs: { icon: ["far", "share-square"] },
-                          on: {
-                            click: function($event) {
-                              _vm.showLinks = !_vm.showLinks
-                            }
-                          }
-                        }),
-                        _vm._v(" "),
-                        _vm.showLinks
-                          ? _c("social-sharing-component", {
-                              attrs: {
-                                url: _vm.url,
-                                title: _vm.fetchedUpdate.title,
-                                quote: _vm.fetchedUpdate.title,
-                                hashtags: "adventurecord"
-                              }
-                            })
-                          : _vm._e()
-                      ],
-                      1
-                    )
+                    _c("font-awesome-icon", {
+                      attrs: { icon: ["fas", "trash-alt"] }
+                    })
                   ],
                   1
                 )
-              ])
-            ])
+              ],
+              1
+            )
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "post__right" }, [
+        _c("header", { staticClass: "post__header" }, [
+          _c("div", { staticClass: "post__header-left" }, [
+            _c("h2", { staticClass: "post__title" }, [
+              _vm._v(_vm._s(_vm.update.title))
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "post__author" },
+              [
+                _vm._v("Posted by "),
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "post__link",
+                    attrs: {
+                      to: {
+                        name: "users.show",
+                        params: { id: _vm.update.author_id }
+                      }
+                    }
+                  },
+                  [_vm._v(_vm._s(_vm.update.author.name))]
+                )
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "post__header-right" }, [
+            _c("div", { staticClass: "post__date" }, [
+              _vm._v(_vm._s(_vm.update.created_date))
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "post__views" },
+              [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(_vm.update.views) +
+                    "\n                    "
+                ),
+                _c("font-awesome-icon", {
+                  directives: [
+                    {
+                      name: "tooltip",
+                      rawName: "v-tooltip.bottom",
+                      value: "Views",
+                      expression: "'Views'",
+                      modifiers: { bottom: true }
+                    }
+                  ],
+                  attrs: { icon: ["far", "eye"] }
+                })
+              ],
+              1
+            )
           ])
-        : _vm._e(),
+        ]),
+        _vm._v(" "),
+        _vm.isShowRoute
+          ? _c("div", {
+              staticClass: "post__body",
+              domProps: { innerHTML: _vm._s(_vm.update.body_html) }
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        !_vm.isShowRoute
+          ? _c("div", {
+              staticClass: "post__body",
+              domProps: { innerHTML: _vm._s(_vm.body) }
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        _c("footer", { staticClass: "post__footer" }, [
+          _c(
+            "div",
+            { staticClass: "post__footer-left" },
+            [
+              !_vm.isShowRoute
+                ? _c(
+                    "link-component",
+                    {
+                      staticClass: "post__continue",
+                      attrs: {
+                        to: {
+                          name: "updates.show",
+                          params: { id: _vm.update.id }
+                        }
+                      }
+                    },
+                    [_vm._v("Continue Reading")]
+                  )
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "post__footer-right" },
+            [
+              _c("toggle-like-component", { attrs: { update: _vm.update } }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "post__share u-margin-left-sm" },
+                [
+                  _c("font-awesome-icon", {
+                    directives: [
+                      {
+                        name: "tooltip",
+                        rawName: "v-tooltip.bottom",
+                        value: "Share",
+                        expression: "'Share'",
+                        modifiers: { bottom: true }
+                      }
+                    ],
+                    attrs: { icon: ["far", "share-square"] },
+                    on: {
+                      click: function($event) {
+                        _vm.showLinks = !_vm.showLinks
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.showLinks
+                    ? _c("social-sharing-component", {
+                        attrs: {
+                          url: _vm.url,
+                          title: _vm.update.title,
+                          quote: _vm.update.title,
+                          hashtags: "adventurecord"
+                        }
+                      })
+                    : _vm._e()
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ])
+      ]),
       _vm._v(" "),
       _c(
         "popup-component",
@@ -48794,13 +48793,11 @@ var render = function() {
             "div",
             { staticClass: "posts" },
             [
-              _vm._l(_vm.fetchedUpdates, function(update) {
-                return _c(
-                  "div",
-                  { key: update.id, staticClass: "posts__post" },
-                  [_c("update-component", { attrs: { update: update } })],
-                  1
-                )
+              _vm._l(_vm.updates, function(update) {
+                return _c("update-component", {
+                  key: update.id,
+                  attrs: { update: update }
+                })
               }),
               _vm._v(" "),
               _vm.isHomeRoute
@@ -49533,20 +49530,18 @@ var render = function() {
       "section",
       { staticClass: "section-product" },
       [
-        _vm.checkLoad == 2
-          ? _c("secondary-header-component", [_vm._v("Shop")])
+        _vm.productLoad == 2
+          ? _c("secondary-header-component", [_vm._v("Product")])
           : _vm._e(),
         _vm._v(" "),
-        _vm.checkLoad !== 2
+        _vm.productLoad !== 2
           ? _c("clip-loader", {
               attrs: { loading: true, color: "#FFD700", size: "5rem" }
             })
           : _vm._e(),
         _vm._v(" "),
-        _vm.checkLoad == 2
-          ? _c("product-component", {
-              attrs: { fetchedProduct: _vm.fetchedProduct }
-            })
+        _vm.productLoad == 2
+          ? _c("product-component", { attrs: { product: _vm.product } })
           : _vm._e()
       ],
       1
@@ -49599,7 +49594,28 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("main", [_c("update-component")], 1)
+  return _c("main", [
+    _c(
+      "section",
+      { staticClass: "section-update" },
+      [
+        _vm.updateLoad == 2
+          ? _c("secondary-header-component", [_vm._v("Update")])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.updateLoad != 2
+          ? _c("clip-loader", {
+              attrs: { loading: true, color: "#FFD700", size: "5rem" }
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.updateLoad == 2
+          ? _c("update-component", { attrs: { update: _vm.update } })
+          : _vm._e()
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

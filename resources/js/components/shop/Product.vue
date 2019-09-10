@@ -1,22 +1,25 @@
 <template>
     <div class="product">
         <div class="product__left">
-            <img class="product__img" :src="'/img/products/' + fetchedProduct.image" alt="Theme Showcase Image">
-            <div class="product__ribbon" v-if="fetchedProduct.category.name == 'Special'">
+            <img class="product__img" :src="'/img/products/' + product.image" alt="Theme Showcase Image">
+            <div class="product__ribbon" v-if="product.category.name == 'Special'">
                 Special
             </div>
         </div>
         <div class="product__right">
-            <h3 class="product__name">{{ fetchedProduct.name }}</h3>
-            <div class="product__description" v-html="description"></div>
+            <h3 class="product__name">{{ product.name }}</h3>
+
+            <div v-if="isShowRoute" v-html="product.description_html" class="product__description"></div>
+            <div v-else v-html="description" class="product__description"></div>
+            
             <p class="product__note" v-if="isShowRoute">Note: Once purchased, this item is non-refundable.</p>         
             
             <div class="product__footer">
-                <div class="product__category"> {{ fetchedProduct.category.name }}</div>
+                <div class="product__category"> {{ product.category.name }}</div>
                 <div class="product__purchase">
-                    <div class="product__price">{{ fetchedProduct.price }}</div
+                    <div class="product__price">{{ product.price }}</div
                     ><button v-if="isShowRoute" class="btn btn--secondary-gold product__button">Purchase</button>
-                    <router-link v-else class="product__button btn btn--secondary-gold" :to="{name: 'products.show', params: {id: fetchedProduct.id}}" >View Product</router-link>
+                    <router-link v-else class="product__button btn btn--secondary-gold" :to="{name: 'products.show', params: {id: product.id}}" >View Product</router-link>
                 </div>
             </div>
         </div>
@@ -25,12 +28,12 @@
 
 <script>
 export default {
-    props: ['fetchedProduct'],
+    props: ['product'],
     computed: 
     {
         isShowRoute() {return this.$route.name == 'products.show'},
 
-        description() {return !this.isShowRoute ? (this.fetchedProduct.description_html.length < 250 ? this.fetchedProduct.description_html : this.fetchedProduct.description_html.substring(0,250) + "...") : this.fetchedProduct.description_html},
+        description() {return this.product.description_html.length < 250 ? this.product.description_html : this.product.description_html.substring(0,250) + "..."},
     },
 }
 </script>
@@ -52,16 +55,12 @@ export default {
 
         @media only screen and (max-width: 44.375em)
         {
-            width: calc(49% - 1rem);
-            display: inline-block;
-            margin: 2.5rem .5rem;
+            width: 65%;
         }
 
         @media only screen and (max-width: 30rem)
         {
             width: 34rem;
-            display: block;
-            margin: 2.5rem auto;
         }
 
         &__left 

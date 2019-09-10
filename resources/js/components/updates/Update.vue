@@ -1,62 +1,59 @@
 <template>
-    <section :class="{'section-update': isShowRoute, 'item-update': !isShowRoute}" id="#section_update">
-        <clip-loader v-if="checkLoad !== 2" :loading="true" color="#FFD700" size="5rem"></clip-loader>
-        <div class="post" v-if="checkLoad === 2">
-            <div class="post__left">
-                <div class="post__img-container">
-                    <img :src="fetchedUpdate.author.avatar" alt="Update Source Image" class="post__img">
-                </div>
+    <div class="post">
+        <div class="post__left">
+            <div class="post__img-container">
+                <img :src="update.author.avatar" alt="Update Source Image" class="post__img">
+            </div>
+            
+            <div class="post__btn-container" v-if="authUser != '' && authUserLoad == 2 && authUser.role.id == 1">
+                <router-link class="btn btn--primary-blue post__left-btn" :to="{name: 'updates.edit', params: {id: update.id}}" v-tooltip.bottom="'Edit'">
+                    <font-awesome-icon :icon="['far', 'edit']"></font-awesome-icon>
+                </router-link>
                 
-                <div class="post__btn-container" v-if="authUser != '' && authUserLoad == 2 && authUser.role.id == 1">
-                    <router-link class="btn btn--primary-blue post__left-btn" :to="{name: 'updates.edit', params: {id: fetchedUpdate.id}}" v-tooltip.bottom="'Edit'">
-                        <font-awesome-icon :icon="['far', 'edit']"></font-awesome-icon>
-                    </router-link>
-                    
-                    <button @click="showModal = true" class="btn btn--primary-red post__left-btn" v-tooltip.bottom="'Delete'" >
-                        <font-awesome-icon :icon="['fas', 'trash-alt']"></font-awesome-icon>
-                    </button>
+                <button @click="showModal = true" class="btn btn--primary-red post__left-btn" v-tooltip.bottom="'Delete'" >
+                    <font-awesome-icon :icon="['fas', 'trash-alt']"></font-awesome-icon>
+                </button>
+            </div>
+        </div>
+
+        <div class="post__right">
+            <header class="post__header">
+                <div class="post__header-left">
+                    <h2 class="post__title">{{ update.title }}</h2>
+                    <div class="post__author">Posted by <router-link :to="{name: 'users.show', params: {id: update.author_id}}" class="post__link">{{ update.author.name }}</router-link></div>
                 </div>
-            </div>
 
-            <div class="post__right">
-                <header class="post__header">
-                    <div class="post__header-left">
-                        <h2 class="post__title">{{ fetchedUpdate.title }}</h2>
-                        <div class="post__author">Posted by <router-link :to="{name: 'users.show', params: {id: fetchedUpdate.author_id}}" class="post__link">{{ fetchedUpdate.author.name }}</router-link></div>
+                <div class="post__header-right">
+                    <div class="post__date">{{ update.created_date }}</div>
+                    <div class="post__views">
+                        {{ update.views }}
+                        <font-awesome-icon :icon="['far', 'eye']" v-tooltip.bottom="'Views'"></font-awesome-icon>
                     </div>
+                </div>
+            </header>
 
-                    <div class="post__header-right">
-                        <div class="post__date">{{ fetchedUpdate.created_date }}</div>
-                        <div class="post__views">
-                            {{ fetchedUpdate.views }}
-                            <font-awesome-icon :icon="['far', 'eye']" v-tooltip.bottom="'Views'"></font-awesome-icon>
+            <div v-if="isShowRoute" v-html="update.body_html" class="post__body"></div>
+            <div v-if="!isShowRoute" v-html="body" class="post__body"></div>
+
+            <footer class="post__footer">
+                <div class="post__footer-left">
+                    <link-component v-if="!isShowRoute" class="post__continue"  :to="{name: 'updates.show', params: {id: update.id}}">Continue Reading</link-component>
+                </div>
+                <div class="post__footer-right">
+                        <toggle-like-component :update="update"></toggle-like-component>
+                        
+                        <div class="post__share u-margin-left-sm">
+                            <font-awesome-icon :icon="['far', 'share-square']" v-tooltip.bottom="'Share'" @click="showLinks = !showLinks"></font-awesome-icon>
+                            <social-sharing-component
+                                v-if="showLinks"
+                                :url="url"
+                                :title="update.title"
+                                :quote="update.title"
+                                :hashtags="'adventurecord'"
+                            ></social-sharing-component>
                         </div>
                     </div>
-                </header>
-
-                <div v-if="isShowRoute" v-html="fetchedUpdate.body_html" class="post__body"></div>
-                <div v-if="!isShowRoute" v-html="body" class="post__body"></div>
-
-                <footer class="post__footer">
-                    <div class="post__footer-left">
-                        <link-component v-if="!isShowRoute" class="post__continue"  :to="{name: 'updates.show', params: {id: fetchedUpdate.id}}">Continue Reading</link-component>
-                    </div>
-                    <div class="post__footer-right">
-                            <toggle-like-component :fetchedUpdate="fetchedUpdate"></toggle-like-component>
-                            
-                            <div class="post__share u-margin-left-sm">
-                                <font-awesome-icon :icon="['far', 'share-square']" v-tooltip.bottom="'Share'" @click="showLinks = !showLinks"></font-awesome-icon>
-                                <social-sharing-component
-                                    v-if="showLinks"
-                                    :url="url"
-                                    :title="fetchedUpdate.title"
-                                    :quote="fetchedUpdate.title"
-                                    :hashtags="'adventurecord'"
-                                ></social-sharing-component>
-                            </div>
-                        </div>
-                </footer>
-            </div>
+            </footer>
         </div>
 
         <popup-component v-show="showModal">
@@ -80,22 +77,20 @@
                 </footer>
             </div>
         </popup-component>
-    </section>
+    </div>
 </template>
 
 <script>
 
 import SocialSharingComponent from '../common/SocialSharing.vue'
-import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
 import ToggleLikeComponent from '../common/ToggleLike.vue'
 import LinkComponent from '../common/Link.vue'
 import PopupComponent from '../common/Popup.vue'
 
 export default {
     props: ['update'],
-    components: {SocialSharingComponent, ClipLoader, ToggleLikeComponent, LinkComponent, PopupComponent},
+    components: {SocialSharingComponent, ToggleLikeComponent, LinkComponent, PopupComponent},
     data(){return{
-        id: this.$route.params.id,
         showModal: false,
         showLinks: false,
         url: ''
@@ -104,11 +99,7 @@ export default {
     {
         isShowRoute() {return this.$route.name === 'updates.show'},
         
-        body() {return this.fetchedUpdate.body_html.length < 250 ? this.fetchedUpdate.body_html : this.fetchedUpdate.body_html.substring(0,250) + "..."},
-        
-        fetchedUpdate() {return this.id && this.isShowRoute ? this.$store.getters.getUpdate : this.update},
-        
-        checkLoad() {return this.isShowRoute ? this.$store.getters.getUpdateLoad : this.$store.getters.getUpdatesLoad},
+        body() {return this.update.body_html.length < 250 ? this.update.body_html : this.update.body_html.substring(0,250) + "..."},
 
         updateStatus() {return this.$store.getters.getUpdateStatus},
         
@@ -119,23 +110,18 @@ export default {
     created()
     {
         this.url = window.location.href;
-        if(this.id && this.isShowRoute) this.fetchSingle();
     },
     methods:
     {
-        fetchSingle()
-        {
-            this.$store.dispatch('fetchUpdate', {id: this.id});
-        },
 
         toggleLike()
         {
-            console.log(this.fetchedUpdate.is_liked);
+            console.log(this.update.is_liked);
         },
         
         async destroy()
         {
-            let response = await this.$store.dispatch('destroyUpdate', {id: this.fetchedUpdate.id})
+            let response = await this.$store.dispatch('destroyUpdate', {id: this.update.id})
             if(this.updateStatus == 2 && this.isShowRoute)
             {
                 this.$router.push('/updates', () =>
@@ -175,12 +161,15 @@ export default {
     .post
     {
         width: 95%;
+        margin: auto;
+        padding: 4rem 0;
+        &:first-child {border-top: 1px solid $color-border-light;}
+        border-bottom: 1px solid $color-border-light;
+
         @media only screen and (max-width: 30em)
         {
             width: 98%;
-            margin: auto;
         }
-        
         
         &__left
         {

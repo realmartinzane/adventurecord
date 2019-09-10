@@ -6,7 +6,7 @@
         <categories-component v-if="productsLoad == 2"></categories-component>
 
         <div class="products" v-if="productsLoad == 2">
-            <product-component v-for="fetchedProduct in filteredProducts" :key="fetchedProduct.id" :fetchedProduct="fetchedProduct"></product-component>
+            <product-component v-for="product in products" :key="product.id" :product="product"></product-component>
         </div>
     </section>
 </template>
@@ -25,29 +25,29 @@ export default {
     }},
     computed: 
     {
-        fetchedProducts() {return this.$store.getters.getProducts},
+        products() {return this.$store.getters.getProducts},
         
         productsLoad() {return this.$store.getters.getProductsLoad}
     },
     created()
     {
-        this.fetchAll()
+        this.fetchProducts()
 
     },
     methods:
     {
-        async fetchAll()
+        async fetchProducts()
         {
             await this.$store.dispatch('fetchProducts');
-            this.filteredProducts = this.fetchedProducts
+            this.filteredProducts = this.products
         },
 
         filterProducts(id)
         {
             if(id == 0) 
-                this.filteredProducts = this.fetchedProducts
+                this.filteredProducts = this.products
             else
-                this.filteredProducts = this.fetchedProducts.filter(product => product.category_id == id)
+                this.filteredProducts = this.products.filter(product => product.category_id == id)
         }
     }
 }

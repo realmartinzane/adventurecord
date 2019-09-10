@@ -56,15 +56,6 @@ section {
   }
 }
 
-.section-update {
-  padding-top: 15rem;
-}
-
-.item-update {
-  padding: 0;
-  margin: 2rem;
-}
-
 @media only screen and (min-width: 62em) and (max-width: 85em) {
   .section-commands {
     width: 76.5rem !important;
