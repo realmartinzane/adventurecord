@@ -71,6 +71,10 @@ section {
   }
 }
 
+.section-purchase-history {
+  padding-top: 0;
+}
+
 .v-spinner {
   position: absolute;
   top: 50%;
