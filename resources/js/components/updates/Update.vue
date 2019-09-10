@@ -39,7 +39,7 @@
 
                 <footer class="post__footer">
                     <div class="post__footer-left">
-                        <router-link v-if="!isShowRoute" class="post__continue link"  :to="{name: 'updates.show', params: {id: fetchedUpdate.id}}">Continue Reading</router-link>
+                        <link-component v-if="!isShowRoute" class="post__continue"  :to="{name: 'updates.show', params: {id: fetchedUpdate.id}}">Continue Reading</link-component>
                     </div>
                     <div class="post__footer-right">
                             <toggle-like-component :fetchedUpdate="fetchedUpdate"></toggle-like-component>
@@ -59,7 +59,7 @@
             </div>
         </div>
 
-        <div class="popup" v-show="showModal">
+        <popup-component v-show="showModal">
             <div class="popup__content">
                 <header class="popup__header">
                     <h4 class="popup__header-text">Are you sure?</h4>
@@ -79,7 +79,7 @@
                     <button class="btn btn--secondary-gray popup__purchase" @click="showModal = false">Cancel</button>
                 </footer>
             </div>
-        </div>
+        </popup-component>
     </section>
 </template>
 
@@ -87,12 +87,13 @@
 
 import SocialSharingComponent from '../common/SocialSharing.vue'
 import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
-
 import ToggleLikeComponent from '../common/ToggleLike.vue'
+import LinkComponent from '../common/Link.vue'
+import PopupComponent from '../common/Popup.vue'
 
 export default {
     props: ['update'],
-    components: {SocialSharingComponent, ClipLoader, ToggleLikeComponent},
+    components: {SocialSharingComponent, ClipLoader, ToggleLikeComponent, LinkComponent, PopupComponent},
     data(){return{
         id: this.$route.params.id,
         showModal: false,

@@ -4,7 +4,7 @@
 
         <div class="purchase-history__empty" v-if="true">
             Your purchase history is empty. Go get yourself something nice from the 
-            <router-link to="/shop" class="link">Shop</router-link>
+            <link-component to="/shop">Shop</link-component>
         </div>
 
         <table class="purchase-history__table" v-else>
@@ -49,8 +49,10 @@
 
 <script>
 
+import LinkComponent from '../common/Link.vue'
+
 export default {
-    
+    components: {LinkComponent}
 }
 </script>
 

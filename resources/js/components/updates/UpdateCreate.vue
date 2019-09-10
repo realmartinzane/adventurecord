@@ -1,11 +1,10 @@
 <template>
     <section class="section-update-form">
-        
         <header class="u-center-text u-margin-bottom-lg">
             <h2 class="heading-secondary">Create a New Update</h2>
         </header>
 
-         <form class="form">
+         <form-component>
             <div class="form__group">
                 <label for="title" class="form__label">Title</label>
                 <input
@@ -34,7 +33,7 @@
             <div class="form__group u-margin-top-md">
                 <button type="submit" class="form__submit btn btn--primary" @click="submit">Submit</button>
             </div>
-        </form>
+         </form-component>
     </section>
 </template>
 
@@ -42,10 +41,11 @@
 import { validationMixin } from 'vuelidate'
 import { required, maxLength } from 'vuelidate/lib/validators'
 import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
+import FormComponent from '../common/Form.vue'
 
 export default {
     mixins: [validationMixin],
-    components: {ClipLoader},
+    components: {ClipLoader, FormComponent},
 
     data(){return{
         form:

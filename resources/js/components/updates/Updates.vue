@@ -9,7 +9,7 @@
                 <update-component :update="update"></update-component>
             </div>
             <div v-if="isHomeRoute" class="u-center-text">
-                <router-link :to="'/updates'" class="link">View more updates</router-link>
+                <link-component :to="'/updates'">View more updates</link-component>
             </div>
         </div>
     </section>
@@ -18,9 +18,10 @@
 <script>
 import UpdateComponent from './Update.vue'
 import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
+import LinkComponent from '../common/Link.vue'
 
 export default {
-    components: {UpdateComponent, ClipLoader},
+    components: {UpdateComponent, ClipLoader, LinkComponent},
     computed:
     {
         isHomeRoute() {return this.$route.name === 'landing' || this.$route.name === 'home'},

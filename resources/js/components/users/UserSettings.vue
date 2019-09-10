@@ -4,7 +4,7 @@
             <h2 class="heading-secondary">User Settings</h2>
         </header>
 
-        <form action="#" class="form">
+        <form-component action="#" class="form">
             <div class="form__group">
                 <label for="lang" class="form__label">Adventure Cord Language</label>
                 <select name="lang" id="lang" class="form__select">
@@ -14,13 +14,15 @@
             <div class="form__group u-margin-top-md">
                 <button type="submit" class="form__submit btn btn--primary">Submit</button>
             </div>
-        </form>
+        </form-component>
     </section>
 </template>
 
 <script>
+import FormComponent from '../common/Form.vue'
 
 export default {
+    components: {FormComponent},
     data(){return{
         languages:
         [
