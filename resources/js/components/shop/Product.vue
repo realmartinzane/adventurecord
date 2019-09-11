@@ -17,25 +17,100 @@
             <div class="product__footer">
                 <div class="product__category"> {{ product.category.name }}</div>
                 <div class="product__purchase">
-                    <div class="product__price">{{ product.price }}</div
-                    ><button v-if="isShowRoute" class="btn btn--secondary-gold product__button">Purchase</button>
+                    <div class="product__price--show" v-if="isShowRoute">&dollar;{{ product.price }}</div
+                    ><div class="product__price" v-else>&dollar;{{ product.price }}</div
+                    ><div v-if="isShowRoute" id="paypal-button"></div>
                     <router-link v-else class="product__button btn btn--secondary-gold" :to="{name: 'products.show', params: {id: product.id}}" >View Product</router-link>
                 </div>
             </div>
         </div>
+
+        <popup-component v-show="showModal">
+            <div class="popup__content">
+                <header class="popup__header">
+                    <h4 class="popup__header-text">Purchase Successful</h4>
+                    <button @click="showModal = false" class="popup__close">
+                        <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
+                    </button>
+                </header>
+
+                <div class="popup__body">
+                    <p class="popup__question">
+                        Your purchase was successful! Thank you for supporting Adventure Cord
+                    </p>
+                </div>
+
+                <footer class="popup__footer popup__footer--prompt">
+                    <button class="btn btn--secondary popup__purchase" @click="showModal = false">Ok</button>
+                </footer>
+            </div>
+        </popup-component>
     </div>
 </template>
 
 <script>
+
+import PopupComponent from '../common/Popup.vue'
+
 export default {
     props: ['product'],
+    components: {PopupComponent},
+    data(){return{
+        showModal: false
+    }},
     computed: 
     {
         isShowRoute() {return this.$route.name == 'products.show'},
 
         description() {return this.product.description_html.length < 250 ? this.product.description_html : this.product.description_html.substring(0,250) + "..."},
     },
+    mounted()
+    {
+        if(this.isShowRoute) this.paypalRender();
+    },
+    methods: 
+    {
+        paypalRender()
+        {
+            let self = this;
+            paypal.Button.render(
+            {
+                env: 'sandbox', // Or 'production'
+                // Set up the payment:
+                // 1. Add a payment callback
+                
+                payment: function(data, actions) 
+                {
+                    // 2. Make a request to your server
+                    return actions.request.post(`/api/v1/shop/products/${self.$route.params.id}/create-payment`)
+                        .then(function(res) 
+                        {
+                        // 3. Return res.id from the response
+                        // console.log(res)
+                        return res.id;
+                        });
+                    },
+                    // Execute the payment:
+                    // 1. Add an onAuthorize callback
+
+                onAuthorize: function(data, actions) 
+                {
+                    // 2. Make a request to your server
+                    return actions.request.post(`/api/v1/shop/products/${self.$route.params.id}/execute-payment`, 
+                    {
+                        paymentID: data.paymentID,
+                        payerID:   data.payerID
+                    })
+                        .then(function(res) 
+                        {
+                            self.showModal = true;
+                        });
+                }
+            }, '#paypal-button');
+        }
+    }
 }
+
 </script>
 
 <style lang="scss">
@@ -126,6 +201,10 @@ export default {
         {
             color: $color-primary;
             display: block;
+            @media only screen and (min-width: 44.375em)
+            {
+                width: calc(100% - 15rem)
+            }
         }
 
         &__footer 
@@ -188,7 +267,10 @@ export default {
             font-size: 1.8rem;
             line-height: 3.4rem;
             vertical-align: top;
-            
+            &--show 
+            {
+                border: none;
+            }
         }
         
         &__button 

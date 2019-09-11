@@ -42,6 +42,14 @@ Route::group(['prefix' => 'v1'], function()
       GET     /api/v1/shop/products/{id}
   */
   Route::get('shop/products/{id}', 'API\ProductController@single');
+  /*
+      POST     /api/v1/shop/products/{id}/create-payment
+  */
+  Route::post('shop/products/{id}/create-payment', 'API\PaymentController@create');
+  /*
+      POST     /api/v1/shop/products/{id}/execute-payment
+  */
+  Route::post('shop/products/{id}/execute-payment', 'API\PaymentController@execute');
 });
 
 /*
