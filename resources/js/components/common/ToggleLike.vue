@@ -13,7 +13,7 @@ import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
 
 export default {
     components: {ClipLoader},
-    props: ['fetchedUpdate'],
+    props: ['update'],
     computed:
     {
         liked()
@@ -44,12 +44,12 @@ export default {
 
         like()
         {
-            this.$store.dispatch('likeUpdate', {id: this.fetchedUpdate.id})
+            this.$store.dispatch('likeUpdate', {id: this.update.id})
 
         },
         unlike()
         {
-            this.$store.dispatch('unlikeUpdate', {id: this.fetchedUpdate.id})
+            this.$store.dispatch('unlikeUpdate', {id: this.update.id})
         }
     }
 }

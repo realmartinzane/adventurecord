@@ -40,7 +40,7 @@
                     <link-component v-if="!isShowRoute" class="post__continue"  :to="{name: 'updates.show', params: {id: update.id}}">Continue Reading</link-component>
                 </div>
                 <div class="post__footer-right">
-                        <toggle-like-component :update="update"></toggle-like-component>
+                        <toggle-like-component v-if="isShowRoute" :update="update"></toggle-like-component>
                         
                         <div class="post__share u-margin-left-sm">
                             <font-awesome-icon :icon="['far', 'share-square']" v-tooltip.bottom="'Share'" @click="showLinks = !showLinks"></font-awesome-icon>

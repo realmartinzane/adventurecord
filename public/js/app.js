@@ -16192,7 +16192,7 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     ClipLoader: vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  props: ['fetchedUpdate'],
+  props: ['update'],
   computed: {
     liked: function liked() {
       return this.$store.getters.getUpdateLiked;
@@ -16213,12 +16213,12 @@ __webpack_require__.r(__webpack_exports__);
     },
     like: function like() {
       this.$store.dispatch('likeUpdate', {
-        id: this.fetchedUpdate.id
+        id: this.update.id
       });
     },
     unlike: function unlike() {
       this.$store.dispatch('unlikeUpdate', {
-        id: this.fetchedUpdate.id
+        id: this.update.id
       });
     }
   }
@@ -17535,7 +17535,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   break;
                 }
 
-                this.searchMessage = "Incorrect input.";
+                this.searchMessage = "Invalid Discord ID.";
                 return _context.abrupt("return");
 
               case 3:
@@ -48476,7 +48476,9 @@ var render = function() {
             "div",
             { staticClass: "post__footer-right" },
             [
-              _c("toggle-like-component", { attrs: { update: _vm.update } }),
+              _vm.isShowRoute
+                ? _c("toggle-like-component", { attrs: { update: _vm.update } })
+                : _vm._e(),
               _vm._v(" "),
               _c(
                 "div",

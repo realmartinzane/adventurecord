@@ -137,7 +137,7 @@ export default {
         {
             if (id.length != 18 || isNaN(id))
             {
-                this.searchMessage = `Incorrect input.`
+                this.searchMessage = `Invalid Discord ID.`
                 return
             }
             await this.$store.dispatch('searchUser', {id})
