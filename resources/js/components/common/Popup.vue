@@ -72,6 +72,11 @@ export default {
             padding: 1.5rem;
         }
 
+        &__question 
+        {
+            line-height: 1.7;
+        }
+
         // Prompt
 
         &__footer--prompt

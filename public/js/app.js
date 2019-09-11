@@ -16505,6 +16505,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['product'],
@@ -18120,7 +18122,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".popup {\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100vh;\n  width: 100%;\n  z-index: 10000;\n  background-color: rgba(0, 0, 0, 0.6);\n}\n.popup__content {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 15000;\n  background: #2E2E36;\n  border: 1px solid #494957;\n  border-radius: 3px;\n  width: 50rem;\n}\n@media only screen and (max-width: 30em) {\n.popup__content {\n    width: 95%;\n}\n}\n.popup__header {\n  background-color: #c9b350;\n  border-top-left-radius: 3px;\n  border-top-right-radius: 3px;\n  padding: 2rem;\n}\n.popup__header-text {\n  font-size: 1.8rem;\n  font-weight: 400;\n}\n.popup__close {\n  position: absolute;\n  top: 2.5rem;\n  right: 2rem;\n  font-size: 2rem;\n  line-height: 1;\n  color: rgba(255, 255, 255, 0.6);\n  border: none;\n  background: none;\n  cursor: pointer;\n}\n.popup__body {\n  padding: 1.5rem;\n}\n.popup__footer--prompt {\n  text-align: right;\n  padding: 2rem;\n}", ""]);
+exports.push([module.i, ".popup {\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100vh;\n  width: 100%;\n  z-index: 10000;\n  background-color: rgba(0, 0, 0, 0.6);\n}\n.popup__content {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  z-index: 15000;\n  background: #2E2E36;\n  border: 1px solid #494957;\n  border-radius: 3px;\n  width: 50rem;\n}\n@media only screen and (max-width: 30em) {\n.popup__content {\n    width: 95%;\n}\n}\n.popup__header {\n  background-color: #c9b350;\n  border-top-left-radius: 3px;\n  border-top-right-radius: 3px;\n  padding: 2rem;\n}\n.popup__header-text {\n  font-size: 1.8rem;\n  font-weight: 400;\n}\n.popup__close {\n  position: absolute;\n  top: 2.5rem;\n  right: 2rem;\n  font-size: 2rem;\n  line-height: 1;\n  color: rgba(255, 255, 255, 0.6);\n  border: none;\n  background: none;\n  cursor: pointer;\n}\n.popup__body {\n  padding: 1.5rem;\n}\n.popup__question {\n  line-height: 1.7;\n}\n.popup__footer--prompt {\n  text-align: right;\n  padding: 2rem;\n}", ""]);
 
 // exports
 
@@ -48159,7 +48161,7 @@ var render = function() {
           _c("div", { staticClass: "popup__content" }, [
             _c("header", { staticClass: "popup__header" }, [
               _c("h4", { staticClass: "popup__header-text" }, [
-                _vm._v("Purchase Successful")
+                _vm._v("Purchase Successful!")
               ]),
               _vm._v(" "),
               _c(
@@ -48182,7 +48184,11 @@ var render = function() {
             _c("div", { staticClass: "popup__body" }, [
               _c("p", { staticClass: "popup__question" }, [
                 _vm._v(
-                  "\n                    Your purchase was successful! Thank you for supporting Adventure Cord\n                "
+                  "\n                    Your purchase was successful! \n                    "
+                ),
+                _c("br"),
+                _vm._v(
+                  "\n                    Thank you for supporting Adventure Cord.\n                "
                 )
               ])
             ]),
@@ -48194,7 +48200,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "btn btn--secondary popup__purchase",
+                    staticClass: "btn btn--secondary-gold popup__purchase",
                     on: {
                       click: function($event) {
                         _vm.showModal = false

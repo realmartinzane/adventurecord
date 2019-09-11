@@ -28,7 +28,7 @@
         <popup-component v-show="showModal">
             <div class="popup__content">
                 <header class="popup__header">
-                    <h4 class="popup__header-text">Purchase Successful</h4>
+                    <h4 class="popup__header-text">Purchase Successful!</h4>
                     <button @click="showModal = false" class="popup__close">
                         <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
                     </button>
@@ -36,12 +36,14 @@
 
                 <div class="popup__body">
                     <p class="popup__question">
-                        Your purchase was successful! Thank you for supporting Adventure Cord
+                        Your purchase was successful! 
+                        <br>
+                        Thank you for supporting Adventure Cord.
                     </p>
                 </div>
 
                 <footer class="popup__footer popup__footer--prompt">
-                    <button class="btn btn--secondary popup__purchase" @click="showModal = false">Ok</button>
+                    <button class="btn btn--secondary-gold popup__purchase" @click="showModal = false">Ok</button>
                 </footer>
             </div>
         </popup-component>
