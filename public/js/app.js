@@ -15665,7 +15665,17 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _common_SecondaryHeader_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common/SecondaryHeader.vue */ "./resources/js/components/common/SecondaryHeader.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _common_SecondaryHeader_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common/SecondaryHeader.vue */ "./resources/js/components/common/SecondaryHeader.vue");
+/* harmony import */ var vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-spinner/src/ClipLoader.vue */ "./node_modules/vue-spinner/src/ClipLoader.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
 //
 //
 //
@@ -15747,143 +15757,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    SecondaryHeaderComponent: _common_SecondaryHeader_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    SecondaryHeaderComponent: _common_SecondaryHeader_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    ClipLoader: vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   data: function data() {
     return {
-      listOne: [{
-        command: '!tutorial ',
-        "function": 'Starts the tutorial.'
-      }, {
-        command: '!start',
-        "function": 'Prompts a class choice to create your character, choose a class by clicking on one of the corresponding reactions.'
-      }, {
-        command: '!profile or !profile [user mention] (!p)',
-        "function": 'View your or the mentioned user\'s character profile.'
-      }, {
-        command: '!explore',
-        "function": 'Encounter mobs for exp and items.'
-      }, {
-        command: '!travel',
-        "function": 'Shows the different locations to travel to for harder mobs and adventures. Click on the reaction below to travel to the location.'
-      }, {
-        command: '!inventory or !inventory [user mention] (!i)',
-        "function": 'View your or the mentioned user\'s collection of items.'
-      }, {
-        command: '!itemsearch [item name] (!is)',
-        "function": 'Searches for an item in the game and shows you its information.'
-      }, {
-        command: '!equip [item name]',
-        "function": 'Makes your character equip the item, if it meets the requirements.'
-      }, {
-        command: '!daily',
-        "function": 'Claim your daily gold and gems.'
-      }, {
-        command: '!achievements',
-        "function": 'Displays or updates your achievements.'
-      }, {
-        command: '!online',
-        "function": 'Shows how many players have'
-      }, {
-        command: '!changeclass',
-        "function": 'Change your character class for 1000 gems.'
-      }, {
-        command: '!support',
-        "function": 'Creates a link to the support discord server.'
-      }, {
-        command: '!invite',
-        "function": 'Provides a link to the bot invite.'
-      }, {
-        command: '!wiki',
-        "function": 'Provides links to the game wikipedia.'
-      }, {
-        command: '!help',
-        "function": 'Shows you a list of all the commands.'
-      }, {
-        command: '!moblogs (Members only)',
-        "function": 'Shows stats on the top 10 mobs you\'ve killed.'
-      }],
-      listTwo: [{
-        command: '!buy or !buy [item name]',
-        "function": 'Allows you to buy an item from the marketplace; if no item name was specified, your next message will be interpreted as the item to buy.'
-      }, {
-        command: '!sell',
-        "function": 'Allows you to put an item up for sale. Requires you to be level 50+, the minimum possible price is 10 gold.'
-      }, {
-        command: '!marketplace (!mp)',
-        "function": 'Shows a list of the items you are selling.'
-      }, {
-        command: '!dismantle [amount] [item name]',
-        "function": 'Dismantles items in exchange for gold. This process is not instantaneous and you can only dismantle three different items at a time (amount does not matter) (10 if you have bought membership).'
-      }, {
-        command: '!dismantleprocess',
-        "function": 'Shows how many items are being dismantled and how much gold you have already recieved.'
-      }, {
-        command: '!createguild',
-        "function": 'Creates a guild.'
-      }, {
-        command: '!joinguild [guild name]',
-        "function": 'Allows you to join a guild if it has free slots.'
-      }, {
-        command: '!leaveguild',
-        "function": 'Allows you to leave your current guild.'
-      }, {
-        command: '!topguilds',
-        "function": 'Shows a list of all guilds in order of total experience.'
-      }, {
-        command: '!guildinfo',
-        "function": 'Displays information about your guild (WIP)'
-      }, {
-        command: '!guildmembers',
-        "function": 'Shows a list of all members of your guild in order of experience.'
-      }, {
-        command: '!guildsettings',
-        "function": 'Allows you to adjust your guild\'s settings if you have permission.'
-      }, {
-        command: '!guilduserkick [user ID]',
-        "function": 'Kicks the user you specified from your guild. Be aware that the ID used is unique to AdventureCord.'
-      }, {
-        command: '!nation',
-        "function": 'Shows you information about your nation or allows you to join one if you have not done so already.'
-      }],
-      listThree: [{
-        command: '!vote',
-        "function": 'Provides links to voting sites or activates unclaimed votes.'
-      }, {
-        command: '!rewards',
-        "function": 'Claims Voting Milestones.'
-      }, {
-        command: '!claim',
-        "function": 'Activates unclaimed votes.'
-      }, {
-        command: '!event or !event [event name]',
-        "function": 'Lists current events or provides a description of the specified event.'
-      }, {
-        command: '!purchase or !purchase [serial key]',
-        "function": 'Provides a link to the online shop or activates a purchase.'
-      }, {
-        command: '!friendadd [user mention]',
-        "function": 'Adds a user to your friend list.'
-      }, {
-        command: '!friendlist',
-        "function": 'Displays a list of your friends.'
-      }],
-      listFour: [{
-        command: '!leaderboard (!lb)',
-        "function": 'Shows the global leaderboard of users with the most experience.'
-      }, {
-        command: '!lbgold (!top100gold)',
-        "function": 'Shows the global leaderboard of the users with the most gold.'
-      }, {
-        command: '!topguilds (!lb)',
-        "function": 'Shows a list of all guilds in order of total experience.'
-      }, {
-        command: '!online',
-        "function": 'Shows how many people have used which areas of AdventureCord in the last 10 minutes.'
-      }]
+      filteredCommands: null
     };
+  },
+  computed: {
+    commands: function commands() {
+      return this.$store.getters.getCommands;
+    },
+    commandsLoad: function commandsLoad() {
+      return this.$store.getters.getCommandsLoad;
+    }
+  },
+  created: function created() {
+    this.fetchCommands();
+  },
+  methods: {
+    filterCommands: function filterCommands(id) {
+      this.filteredCommands = this.commands.filter(function (product) {
+        return product.command_category_id == id;
+      });
+    },
+    fetchCommands: function () {
+      var _fetchCommands = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return this.$store.dispatch('fetchCommands');
+
+              case 2:
+                this.filterCommands(1);
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function fetchCommands() {
+        return _fetchCommands.apply(this, arguments);
+      }
+
+      return fetchCommands;
+    }()
   }
 });
 
@@ -46416,188 +46345,270 @@ var render = function() {
     "section",
     { staticClass: "section-commands" },
     [
-      _c("secondary-header-component", [_vm._v("Commands")]),
+      _vm.commandsLoad == 2
+        ? _c("secondary-header-component", [_vm._v("Commands")])
+        : _vm._e(),
       _vm._v(" "),
-      _c("div", { staticClass: "commands" }, [
-        _c("input", {
-          staticClass: "commands__radio",
-          attrs: {
-            type: "radio",
-            name: "tabs",
-            id: "btn_1",
-            checked: "checked"
-          }
-        }),
-        _vm._v(" "),
-        _c(
-          "label",
-          { staticClass: "commands__button", attrs: { for: "btn_1" } },
-          [_vm._v("General")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "commands__radio",
-          attrs: { type: "radio", name: "tabs", id: "btn_2" }
-        }),
-        _vm._v(" "),
-        _c(
-          "label",
-          { staticClass: "commands__button", attrs: { for: "btn_2" } },
-          [_vm._v("Marketplace & Guilds")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "commands__radio",
-          attrs: { type: "radio", name: "tabs", id: "btn_3" }
-        }),
-        _vm._v(" "),
-        _c(
-          "label",
-          { staticClass: "commands__button", attrs: { for: "btn_3" } },
-          [_vm._v("Voting & Friends")]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "commands__radio",
-          attrs: { type: "radio", name: "tabs", id: "btn_4" }
-        }),
-        _vm._v(" "),
-        _c(
-          "label",
-          { staticClass: "commands__button", attrs: { for: "btn_4" } },
-          [_vm._v("Leaderboards & Statistics")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "commands__info-box" }, [
-          _vm._v(
-            "\n            The prefix for AdventureCord is ! and is not interchangeable. The following is a list of all the available commands:\n        "
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "commands__tab", attrs: { id: "tab_1" } }, [
-          _c(
-            "table",
-            { staticClass: "commands__table" },
-            [
-              _vm._m(0),
-              _vm._v(" "),
-              _vm._l(_vm.listOne, function(item, index) {
-                return _c("tr", { key: index, staticClass: "commands__row" }, [
-                  _c(
-                    "td",
-                    {
-                      staticClass: "commands__column commands__column--command"
-                    },
-                    [_vm._v(_vm._s(item.command))]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "td",
-                    {
-                      staticClass: "commands__column commands__column--function"
-                    },
-                    [_vm._v(_vm._s(item.function))]
-                  )
-                ])
-              })
-            ],
-            2
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "commands__tab", attrs: { id: "tab_2" } }, [
-          _c(
-            "table",
-            { staticClass: "commands__table" },
-            [
-              _vm._m(1),
-              _vm._v(" "),
-              _vm._l(_vm.listTwo, function(item, index) {
-                return _c("tr", { key: index, staticClass: "commands__row" }, [
-                  _c(
-                    "td",
-                    {
-                      staticClass: "commands__column commands__column--command"
-                    },
-                    [_vm._v(_vm._s(item.command))]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "td",
-                    {
-                      staticClass: "commands__column commands__column--function"
-                    },
-                    [_vm._v(_vm._s(item.function))]
-                  )
-                ])
-              })
-            ],
-            2
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "commands__tab", attrs: { id: "tab_3" } }, [
-          _c(
-            "table",
-            { staticClass: "commands__table" },
-            [
-              _vm._m(2),
-              _vm._v(" "),
-              _vm._l(_vm.listThree, function(item, index) {
-                return _c("tr", { key: index, staticClass: "commands__row" }, [
-                  _c(
-                    "td",
-                    {
-                      staticClass: "commands__column commands__column--command"
-                    },
-                    [_vm._v(_vm._s(item.command))]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "td",
-                    {
-                      staticClass: "commands__column commands__column--function"
-                    },
-                    [_vm._v(_vm._s(item.function))]
-                  )
-                ])
-              })
-            ],
-            2
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "commands__tab", attrs: { id: "tab_4" } }, [
-          _c(
-            "table",
-            { staticClass: "commands__table" },
-            [
-              _vm._m(3),
-              _vm._v(" "),
-              _vm._l(_vm.listFour, function(item, index) {
-                return _c("tr", { key: index, staticClass: "commands__row" }, [
-                  _c(
-                    "td",
-                    {
-                      staticClass: "commands__column commands__column--command"
-                    },
-                    [_vm._v(_vm._s(item.command))]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "td",
-                    {
-                      staticClass: "commands__column commands__column--function"
-                    },
-                    [_vm._v(_vm._s(item.function))]
-                  )
-                ])
-              })
-            ],
-            2
-          )
-        ])
-      ])
+      _vm.commandsLoad !== 2
+        ? _c("clip-loader", {
+            attrs: { loading: true, color: "#FFD700", size: "5rem" }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.commandsLoad == 2
+        ? _c("div", { staticClass: "commands" }, [
+            _c("input", {
+              staticClass: "commands__radio",
+              attrs: {
+                type: "radio",
+                name: "tabs",
+                id: "btn_1",
+                checked: "checked"
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "commands__button",
+                attrs: { for: "btn_1" },
+                on: {
+                  click: function($event) {
+                    return _vm.filterCommands(1)
+                  }
+                }
+              },
+              [_vm._v("General")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "commands__radio",
+              attrs: { type: "radio", name: "tabs", id: "btn_2" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "commands__button",
+                attrs: { for: "btn_2" },
+                on: {
+                  click: function($event) {
+                    return _vm.filterCommands(2)
+                  }
+                }
+              },
+              [_vm._v("Marketplace & Guilds")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "commands__radio",
+              attrs: { type: "radio", name: "tabs", id: "btn_3" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "commands__button",
+                attrs: { for: "btn_3" },
+                on: {
+                  click: function($event) {
+                    return _vm.filterCommands(3)
+                  }
+                }
+              },
+              [_vm._v("Voting & Friends")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "commands__radio",
+              attrs: { type: "radio", name: "tabs", id: "btn_4" }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "commands__button",
+                attrs: { for: "btn_4" },
+                on: {
+                  click: function($event) {
+                    return _vm.filterCommands(4)
+                  }
+                }
+              },
+              [_vm._v("Leaderboards & Statistics")]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "commands__info-box" }, [
+              _vm._v(
+                "\n            The prefix for AdventureCord is ! and is not interchangeable. The following is a list of all the available commands:\n        "
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "commands__tab", attrs: { id: "tab_1" } },
+              [
+                _c(
+                  "table",
+                  { staticClass: "commands__table" },
+                  [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _vm._l(_vm.filteredCommands, function(command) {
+                      return _c(
+                        "tr",
+                        { key: command.id, staticClass: "commands__row" },
+                        [
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "commands__column commands__column--command"
+                            },
+                            [_vm._v(_vm._s(command.name))]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "commands__column commands__column--function"
+                            },
+                            [_vm._v(_vm._s(command.function))]
+                          )
+                        ]
+                      )
+                    })
+                  ],
+                  2
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "commands__tab", attrs: { id: "tab_2" } },
+              [
+                _c(
+                  "table",
+                  { staticClass: "commands__table" },
+                  [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _vm._l(_vm.filteredCommands, function(command) {
+                      return _c(
+                        "tr",
+                        { key: command.id, staticClass: "commands__row" },
+                        [
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "commands__column commands__column--command"
+                            },
+                            [_vm._v(_vm._s(command.name))]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "commands__column commands__column--function"
+                            },
+                            [_vm._v(_vm._s(command.function))]
+                          )
+                        ]
+                      )
+                    })
+                  ],
+                  2
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "commands__tab", attrs: { id: "tab_3" } },
+              [
+                _c(
+                  "table",
+                  { staticClass: "commands__table" },
+                  [
+                    _vm._m(2),
+                    _vm._v(" "),
+                    _vm._l(_vm.filteredCommands, function(command) {
+                      return _c(
+                        "tr",
+                        { key: command.id, staticClass: "commands__row" },
+                        [
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "commands__column commands__column--command"
+                            },
+                            [_vm._v(_vm._s(command.name))]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "commands__column commands__column--function"
+                            },
+                            [_vm._v(_vm._s(command.function))]
+                          )
+                        ]
+                      )
+                    })
+                  ],
+                  2
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "commands__tab", attrs: { id: "tab_4" } },
+              [
+                _c(
+                  "table",
+                  { staticClass: "commands__table" },
+                  [
+                    _vm._m(3),
+                    _vm._v(" "),
+                    _vm._l(_vm.filteredCommands, function(command) {
+                      return _c(
+                        "tr",
+                        { key: command.id, staticClass: "commands__row" },
+                        [
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "commands__column commands__column--command"
+                            },
+                            [_vm._v(_vm._s(command.name))]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            {
+                              staticClass:
+                                "commands__column commands__column--function"
+                            },
+                            [_vm._v(_vm._s(command.function))]
+                          )
+                        ]
+                      )
+                    })
+                  ],
+                  2
+                )
+              ]
+            )
+          ])
+        : _vm._e()
     ],
     1
   )
@@ -69951,6 +69962,28 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/api/command.js":
+/*!*************************************!*\
+  !*** ./resources/js/api/command.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _config_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../config.js */ "./resources/config.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  /*
+      GET     /api/v1/commands
+  */
+  fetchAll: function fetchAll() {
+    return axios.get("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/commands"));
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/api/product.js":
 /*!*************************************!*\
   !*** ./resources/js/api/product.js ***!
@@ -70003,7 +70036,7 @@ __webpack_require__.r(__webpack_exports__);
       GET     /api/v1/updates
   */
   fetchAll: function fetchAll() {
-    return axios.get("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates/all"));
+    return axios.get("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates"));
   },
 
   /*
@@ -72209,6 +72242,99 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/modules/commands.js":
+/*!******************************************!*\
+  !*** ./resources/js/modules/commands.js ***!
+  \******************************************/
+/*! exports provided: commands */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "commands", function() { return commands; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _api_command_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api/command.js */ "./resources/js/api/command.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+var commands = {
+  state: {
+    commands: [],
+    commandsLoad: 0
+  },
+  mutations: {
+    setCommands: function setCommands(state, data) {
+      state.commands = data;
+    },
+    setCommandsLoad: function setCommandsLoad(state, status) {
+      state.commandsLoad = status;
+    }
+  },
+  actions: {
+    fetchCommands: function () {
+      var _fetchCommands = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(_ref) {
+        var commit, response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                commit = _ref.commit;
+                commit('setCommandsLoad', 1);
+                _context.prev = 2;
+                _context.next = 5;
+                return _api_command_js__WEBPACK_IMPORTED_MODULE_1__["default"].fetchAll();
+
+              case 5:
+                response = _context.sent;
+                _context.next = 12;
+                break;
+
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context["catch"](2);
+                commit('setCommands', []);
+                commit('setCommandsLoad', 3);
+
+              case 12:
+                commit('setCommands', response.data);
+                commit('setCommandsLoad', 2);
+
+              case 14:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[2, 8]]);
+      }));
+
+      function fetchCommands(_x) {
+        return _fetchCommands.apply(this, arguments);
+      }
+
+      return fetchCommands;
+    }()
+  },
+  getters: {
+    getCommands: function getCommands(state) {
+      return state.commands;
+    },
+    getCommandsLoad: function getCommandsLoad(state) {
+      return state.commandsLoad;
+    }
+  }
+};
+
+/***/ }),
+
 /***/ "./resources/js/modules/products.js":
 /*!******************************************!*\
   !*** ./resources/js/modules/products.js ***!
@@ -72951,6 +73077,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_updates_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/updates.js */ "./resources/js/modules/updates.js");
 /* harmony import */ var _modules_users_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/users.js */ "./resources/js/modules/users.js");
 /* harmony import */ var _modules_products_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/products.js */ "./resources/js/modules/products.js");
+/* harmony import */ var _modules_commands_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/commands.js */ "./resources/js/modules/commands.js");
 /*
   Adds the promise polyfill for IE 11
 */
@@ -72962,11 +73089,13 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   modules: {
     updates: _modules_updates_js__WEBPACK_IMPORTED_MODULE_2__["updates"],
     users: _modules_users_js__WEBPACK_IMPORTED_MODULE_3__["users"],
-    products: _modules_products_js__WEBPACK_IMPORTED_MODULE_4__["products"]
+    products: _modules_products_js__WEBPACK_IMPORTED_MODULE_4__["products"],
+    commands: _modules_commands_js__WEBPACK_IMPORTED_MODULE_5__["commands"]
   }
 }));
 

@@ -27,15 +27,19 @@ Route::group(['prefix' => 'v1'], function()
   */
   Route::get('profiles/{id}', 'Adv\ProfileController@single');
   /*
-      GET     /api/v1/upates/all
+      GET     /api/v1/commands
   */
-  Route::get('updates/all', 'API\UpdateController@all');
+  Route::get('commands', 'API\CommandController@all');
+  /*
+      GET     /api/v1/upates
+  */
+  Route::get('updates', 'API\UpdateController@all');
   /*
       GET     /api/v1/updates/{id}
   */
   Route::get('updates/{id}', 'API\UpdateController@single');
   /*
-      GET     /api/v1/shop/products/
+      GET     /api/v1/shop/products
   */
   Route::get('shop/products', 'API\ProductController@all');
   /*

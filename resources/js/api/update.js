@@ -13,7 +13,7 @@ export default {
     */
     fetchAll() 
     {
-        return axios.get(`${ADV_CONFIG.API_URL}/updates/all`)
+        return axios.get(`${ADV_CONFIG.API_URL}/updates`)
     },
     /*
         POST     /api/v1/updates/store
