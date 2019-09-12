@@ -87,7 +87,7 @@ export default {
         user-select: none;
         position: relative;
         background-size: cover;
-        background-position: 50% 70%;;
+        background-position: 50% 70%;
         height: 100%;
         &:nth-child(1) 
         {
@@ -130,6 +130,7 @@ export default {
         &:nth-child(3)
         {
             background-image: url(/../img/slides/chaiyna_small.png);
+            background-position: 50% 30%;
 
             @media only screen and (min-width: 60em),
                    (-webkit-min-device-pixel-ratio: 2),

@@ -16507,6 +16507,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['product'],
@@ -16524,10 +16525,13 @@ __webpack_require__.r(__webpack_exports__);
     },
     description: function description() {
       return this.product.description_html.length < 250 ? this.product.description_html : this.product.description_html.substring(0, 250) + "...";
+    },
+    authUser: function authUser() {
+      return this.$store.getters.getAuthUser;
     }
   },
   mounted: function mounted() {
-    if (this.isShowRoute) this.paypalRender();
+    if (this.isShowRoute && this.authUser) this.paypalRender();
   },
   methods: {
     paypalRender: function paypalRender() {
@@ -18046,7 +18050,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".carousel {\n  margin-top: 5.5rem;\n  height: 80rem;\n}\n@media screen and (max-width: 991px) {\n.carousel {\n    margin-top: 8rem;\n}\n}\n@media screen and (max-width: 1400px) {\n.carousel {\n    height: 60rem;\n}\n}\n.VueCarousel-wrapper, .VueCarousel-inner {\n  height: 100% !important;\n}\n.slide {\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  position: relative;\n  background-size: cover;\n  background-position: 50% 70%;\n  height: 100%;\n}\n.slide:nth-child(1) {\n  background-image: url(/../img/slides/bohemia_small.png);\n}\n@media only screen and (min-width: 60em), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {\n.slide:nth-child(1) {\n    background-image: url(/../img/slides/bohemia_large_1x.png);\n}\n}\n@media only screen and (min-width: 60em) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 60em) and (min-resolution: 192dpi) {\n.slide:nth-child(1) {\n    background-image: url(/../img/slides/bohemia_large_2x.png);\n}\n}\n.slide:nth-child(2) {\n  background-image: url(/../img/slides/desert_small.png);\n}\n@media only screen and (min-width: 60em), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {\n.slide:nth-child(2) {\n    background-image: url(/../img/slides/desert_large_1x.png);\n}\n}\n@media only screen and (min-width: 60em) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 60em) and (min-resolution: 192dpi) {\n.slide:nth-child(2) {\n    background-image: url(/../img/slides/desert_large_2x.png);\n}\n}\n.slide:nth-child(3) {\n  background-image: url(/../img/slides/chaiyna_small.png);\n}\n@media only screen and (min-width: 60em), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {\n.slide:nth-child(3) {\n    background-image: url(/../img/slides/chaiyna_large_1x.png);\n}\n}\n@media only screen and (min-width: 60em) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 60em) and (min-resolution: 192dpi) {\n.slide:nth-child(3) {\n    background-image: url(/../img/slides/chaiyna_large_2x.png);\n}\n}\n.slide__container {\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  width: 80rem;\n  height: 151%;\n  background: linear-gradient(to bottom right, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0.75) 100%);\n}\n@media screen and (max-width: 1400px) {\n.slide__container {\n    width: 60rem;\n}\n}\n@media only screen and (max-width: 62em) {\n.slide__container {\n    background: none;\n    width: 100%;\n    height: 100%;\n}\n}\n.slide__content {\n  position: absolute;\n  bottom: 10%;\n  right: 10%;\n  width: 40rem;\n  text-align: center;\n}\n@media only screen and (max-width: 87.5em) {\n.slide__content {\n    width: 30rem;\n    bottom: 8%;\n    right: 8%;\n}\n}\n@media only screen and (max-width: 62em) {\n.slide__content {\n    bottom: 50%;\n    right: 50%;\n    transform: translate(50%, 50%);\n    width: 46rem;\n    background: rgba(0, 0, 0, 0.75);\n    padding: 3rem;\n    box-shadow: 0 0 10px #000;\n}\n}\n@media only screen and (max-width: 30em) {\n.slide__content {\n    width: 35rem !important;\n}\n}\n.slide__title {\n  font-size: 4rem;\n  line-height: 1.2;\n  font-weight: 300;\n  margin-bottom: 1rem;\n}\n@media only screen and (max-width: 87.5em) {\n.slide__title {\n    font-size: 3rem;\n}\n}\n.slide__text {\n  font-size: 1.4rem;\n  color: #d3d3d3;\n}", ""]);
+exports.push([module.i, ".carousel {\n  margin-top: 5.5rem;\n  height: 80rem;\n}\n@media screen and (max-width: 991px) {\n.carousel {\n    margin-top: 8rem;\n}\n}\n@media screen and (max-width: 1400px) {\n.carousel {\n    height: 60rem;\n}\n}\n.VueCarousel-wrapper, .VueCarousel-inner {\n  height: 100% !important;\n}\n.slide {\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  position: relative;\n  background-size: cover;\n  background-position: 50% 70%;\n  height: 100%;\n}\n.slide:nth-child(1) {\n  background-image: url(/../img/slides/bohemia_small.png);\n}\n@media only screen and (min-width: 60em), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {\n.slide:nth-child(1) {\n    background-image: url(/../img/slides/bohemia_large_1x.png);\n}\n}\n@media only screen and (min-width: 60em) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 60em) and (min-resolution: 192dpi) {\n.slide:nth-child(1) {\n    background-image: url(/../img/slides/bohemia_large_2x.png);\n}\n}\n.slide:nth-child(2) {\n  background-image: url(/../img/slides/desert_small.png);\n}\n@media only screen and (min-width: 60em), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {\n.slide:nth-child(2) {\n    background-image: url(/../img/slides/desert_large_1x.png);\n}\n}\n@media only screen and (min-width: 60em) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 60em) and (min-resolution: 192dpi) {\n.slide:nth-child(2) {\n    background-image: url(/../img/slides/desert_large_2x.png);\n}\n}\n.slide:nth-child(3) {\n  background-image: url(/../img/slides/chaiyna_small.png);\n  background-position: 50% 30%;\n}\n@media only screen and (min-width: 60em), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {\n.slide:nth-child(3) {\n    background-image: url(/../img/slides/chaiyna_large_1x.png);\n}\n}\n@media only screen and (min-width: 60em) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 60em) and (min-resolution: 192dpi) {\n.slide:nth-child(3) {\n    background-image: url(/../img/slides/chaiyna_large_2x.png);\n}\n}\n.slide__container {\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  width: 80rem;\n  height: 151%;\n  background: linear-gradient(to bottom right, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0.75) 100%);\n}\n@media screen and (max-width: 1400px) {\n.slide__container {\n    width: 60rem;\n}\n}\n@media only screen and (max-width: 62em) {\n.slide__container {\n    background: none;\n    width: 100%;\n    height: 100%;\n}\n}\n.slide__content {\n  position: absolute;\n  bottom: 10%;\n  right: 10%;\n  width: 40rem;\n  text-align: center;\n}\n@media only screen and (max-width: 87.5em) {\n.slide__content {\n    width: 30rem;\n    bottom: 8%;\n    right: 8%;\n}\n}\n@media only screen and (max-width: 62em) {\n.slide__content {\n    bottom: 50%;\n    right: 50%;\n    transform: translate(50%, 50%);\n    width: 46rem;\n    background: rgba(0, 0, 0, 0.75);\n    padding: 3rem;\n    box-shadow: 0 0 10px #000;\n}\n}\n@media only screen and (max-width: 30em) {\n.slide__content {\n    width: 35rem !important;\n}\n}\n.slide__title {\n  font-size: 4rem;\n  line-height: 1.2;\n  font-weight: 300;\n  margin-bottom: 1rem;\n}\n@media only screen and (max-width: 87.5em) {\n.slide__title {\n    font-size: 3rem;\n}\n}\n.slide__text {\n  font-size: 1.4rem;\n  color: #d3d3d3;\n}", ""]);
 
 // exports
 
@@ -48117,16 +48121,21 @@ var render = function() {
             "div",
             { staticClass: "product__purchase" },
             [
-              _vm.isShowRoute
+              (_vm.isShowRoute && _vm.authUser
+              ? true
+              : false)
                 ? _c("div", { staticClass: "product__price--show" }, [
                     _vm._v("$" + _vm._s(_vm.product.price))
                   ])
                 : _c("div", { staticClass: "product__price" }, [
                     _vm._v("$" + _vm._s(_vm.product.price))
                   ]),
-              _vm.isShowRoute
+              (_vm.isShowRoute && _vm.authUser
+              ? true
+              : false)
                 ? _c("div", { attrs: { id: "paypal-button" } })
-                : _c(
+                : !_vm.isShowRoute
+                ? _c(
                     "router-link",
                     {
                       staticClass: "product__button btn btn--secondary-gold",
@@ -48138,6 +48147,14 @@ var render = function() {
                       }
                     },
                     [_vm._v("View Product")]
+                  )
+                : _c(
+                    "a",
+                    {
+                      staticClass: "product__button btn btn--secondary-gold",
+                      attrs: { href: "/login/discord" }
+                    },
+                    [_vm._v("Log in to purchase")]
                   )
             ],
             1

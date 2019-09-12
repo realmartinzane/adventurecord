@@ -17,10 +17,11 @@
             <div class="product__footer">
                 <div class="product__category"> {{ product.category.name }}</div>
                 <div class="product__purchase">
-                    <div class="product__price--show" v-if="isShowRoute">&dollar;{{ product.price }}</div
+                    <div class="product__price--show" v-if="(isShowRoute && authUser ? true : false)">&dollar;{{ product.price }}</div
                     ><div class="product__price" v-else>&dollar;{{ product.price }}</div
-                    ><div v-if="isShowRoute" id="paypal-button"></div>
-                    <router-link v-else class="product__button btn btn--secondary-gold" :to="{name: 'products.show', params: {id: product.id}}" >View Product</router-link>
+                    ><div v-if="(isShowRoute && authUser ? true : false)" id="paypal-button"></div
+                    ><router-link v-else-if="!isShowRoute" class="product__button btn btn--secondary-gold" :to="{name: 'products.show', params: {id: product.id}}" >View Product</router-link
+                    ><a href="/login/discord" v-else class="product__button btn btn--secondary-gold">Log in to purchase</a>
                 </div>
             </div>
         </div>
@@ -65,10 +66,12 @@ export default {
         isShowRoute() {return this.$route.name == 'products.show'},
 
         description() {return this.product.description_html.length < 250 ? this.product.description_html : this.product.description_html.substring(0,250) + "..."},
+
+        authUser() {return this.$store.getters.getAuthUser}
     },
     mounted()
     {
-        if(this.isShowRoute) this.paypalRender();
+        if(this.isShowRoute && this.authUser) this.paypalRender();
     },
     methods: 
     {
