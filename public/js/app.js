@@ -16739,9 +16739,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     this.url = window.location.href;
   },
   methods: {
-    toggleLike: function toggleLike() {
-      console.log(this.update.is_liked);
-    },
     destroy: function () {
       var _destroy = _asyncToGenerator(
       /*#__PURE__*/
@@ -16769,7 +16766,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     });
                   });
                 } else if (this.updateStatus == 2 && !this.isShowRoute) {
-                  this.$parent.fetchAll();
+                  this.$parent.fetchUpdates();
                   this.$toast.success({
                     title: 'Success',
                     message: response

@@ -113,11 +113,6 @@ export default {
     },
     methods:
     {
-
-        toggleLike()
-        {
-            console.log(this.update.is_liked);
-        },
         
         async destroy()
         {
@@ -135,7 +130,7 @@ export default {
             }
             else if(this.updateStatus == 2 && !this.isShowRoute)
             {
-                this.$parent.fetchAll();
+                this.$parent.fetchUpdates();
                 this.$toast.success({
                         title:'Success',
                         message: response
