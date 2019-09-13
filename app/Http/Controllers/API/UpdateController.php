@@ -13,7 +13,8 @@ class UpdateController extends Controller
 
     public function all()
     {
-        return Update::orderby('created_at', 'desc')->get();
+        $updates = Update::orderby('created_at', 'desc')->get();
+        return response()->json($updates);
     }
 
     public function single($id)
@@ -21,7 +22,9 @@ class UpdateController extends Controller
         $update = Update::findOrFail($id);
         $update->views += 1;
         $update->save();
-        return Update::findOrFail($id);
+        
+        $savedUpdate = Update::findOrFail($id);
+        return response()->json($savedUpdate);
     }
 
     public function store(PostUpdateRequest $request)

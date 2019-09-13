@@ -17,7 +17,7 @@ class LikeController extends Controller
         {
             $update->likes()->attach(Auth::user()->id);
 
-            return response()->json(['update_liked' => true], 204);
+            return response()->json(['update_liked' => true]);
         }
     }
 
@@ -27,6 +27,6 @@ class LikeController extends Controller
 
         $update->likes()->detach(Auth::user()->id);
 
-        return response(null, 204);
+        return response(null);
     }
 }

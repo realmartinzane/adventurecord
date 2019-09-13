@@ -10,6 +10,7 @@ class CommandController extends Controller
 {
     public function all()
     {
-        return Command::all();
+        $commands = Command::all();
+        return response()->json($commands);
     }
 }
