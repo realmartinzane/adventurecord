@@ -11,9 +11,9 @@ export default {
     /*
         GET     /api/v1/updates
     */
-    fetchAll() 
+    fetchAll(page) 
     {
-        return axios.get(`${ADV_CONFIG.API_URL}/updates`)
+        return axios.get(`${ADV_CONFIG.API_URL}/updates?page=${page}`)
     },
     /*
         POST     /api/v1/updates/store

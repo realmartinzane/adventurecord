@@ -13,7 +13,7 @@ class UpdateController extends Controller
 
     public function all()
     {
-        $updates = Update::orderby('created_at', 'desc')->get();
+        $updates = Update::orderby('created_at', 'desc')->paginate(3);
         return response()->json($updates);
     }
 

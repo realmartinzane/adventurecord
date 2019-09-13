@@ -1,5 +1,6 @@
 import UpdateAPI from '../api/update.js';
 import VueRouter from 'vue-router';
+import Axios from 'axios';
 
 export const updates = 
 {
@@ -7,6 +8,8 @@ export const updates =
     {
         updates: [],
         updatesLoad: 0,
+        updatesPage: 1,
+        updatesLastPage: 1,
 
         update: {},
         updateLoad: 0,
@@ -23,12 +26,22 @@ export const updates =
     {
         setUpdates(state, data)
         {
-            state.updates = data
+            state.updates.push(data)
         },
         
         setUpdatesLoad(state, status)
         {
             state.updatesLoad = status
+        },
+
+        setUpdatesPage(state)
+        {
+            state.updatesPage++
+        },
+
+        setUpdatesLastPage(state, data)
+        {
+            state.updatesLastPage = data
         },
 
         setUpdate(state, data) 
@@ -74,13 +87,15 @@ export const updates =
     
     actions:
     {
-        fetchUpdates({commit})
+        fetchUpdates({commit, state},)
         {
             commit('setUpdatesLoad', 1)
-            UpdateAPI.fetchAll()
+            UpdateAPI.fetchAll(state.updatesPage)
                 .then(response =>
                     {
-                        commit('setUpdates', response.data)
+                        commit('setUpdates', response.data.data)
+                        commit('setUpdatesLastPage', response.data.last_page)
+                        commit('setUpdatesPage')
                         commit('setUpdatesLoad', 2)
                     })
                 .catch(() => 
@@ -209,6 +224,16 @@ export const updates =
         getUpdatesLoad(state) 
         {
             return state.updatesLoad
+        },
+
+        getUpdatesPage(state)
+        {
+            return state.updatesPage - 1
+        },
+
+        getUpdatesLastPage(state)
+        {
+            return state.updatesLastPage 
         },
 
         getUpdate(state) 

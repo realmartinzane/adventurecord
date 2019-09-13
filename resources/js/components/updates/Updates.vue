@@ -1,13 +1,15 @@
 <template>
     <section class="section-updates" :class="{'u-pos-relative': isHomeRoute }">
-        <clip-loader v-if=" updatesLoad !== 2" :loading="true" color="#FFD700" size="5rem"></clip-loader>
-        <secondary-header-component v-if="updatesLoad == 2">Updates</secondary-header-component>
+        <clip-loader v-if=" updatesLoad !== 2 && updates.length == 0" :loading="true" color="#FFD700" size="5rem"></clip-loader>
+        <secondary-header-component v-if="updatesLoad == 2 || updates.length > 0">Updates</secondary-header-component>
         
-        <div class="posts" v-if="updatesLoad == 2">
-            <update-component v-for="update in updates" :key="update.id" :update="update"></update-component>
+        <div class="posts" v-if="updatesLoad == 2 || updates.length > 0">
+            <update-component v-for="update in updates" :key="update.id" :update="update[0]"></update-component>
             
-            <div v-if="isHomeRoute" class="u-center-text">
-                <link-component :to="'/updates'">View more updates</link-component>
+            <div class="u-center-text posts__pagination u-margin-top-md">
+                <link-component :to="'/updates'" v-if="isHomeRoute">View more updates</link-component>
+                <link-component variant="button" @click.native="fetchUpdates" v-if ="!isHomeRoute && updatesLoad == 2 && (updatesPage !== updatesLastPage)">Load more updates</link-component>
+                <clip-loader v-if=" updatesLoad !== 2 && updates" :loading="true" color="#FFD700" size="3rem"></clip-loader>
             </div>
         </div>
     </section>
@@ -27,7 +29,11 @@ export default {
 
         updatesLoad() {return this.$store.getters.getUpdatesLoad},
 
-        updates() {return this.$store.getters.getUpdates}
+        updates() {return this.$store.getters.getUpdates},
+
+        updatesPage() {return this.$store.getters.getUpdatesPage},
+
+        updatesLastPage() {return this.$store.getters.getUpdatesLastPage}
     },
     created()
     {
@@ -74,6 +80,12 @@ export default {
                 margin-top: 2rem;
                 margin-bottom: 4rem;
             }
+        }
+
+        &__pagination 
+        {
+            position: relative;
+            height: 2.7rem;
         }
     }
     

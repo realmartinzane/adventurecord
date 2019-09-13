@@ -12,8 +12,7 @@ class UserController extends Controller
 {
     public function user()
     {
-        $authUser = Auth::guard('api')->user();
-        return respones()->json($authUser);
+        return Auth::guard('api')->user();
     }
 
     public function single($id)

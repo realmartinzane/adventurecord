@@ -16006,8 +16006,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['to']
+  props: ['to', 'variant']
 });
 
 /***/ }),
@@ -17257,6 +17261,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -17277,6 +17283,12 @@ __webpack_require__.r(__webpack_exports__);
     },
     updates: function updates() {
       return this.$store.getters.getUpdates;
+    },
+    updatesPage: function updatesPage() {
+      return this.$store.getters.getUpdatesPage;
+    },
+    updatesLastPage: function updatesLastPage() {
+      return this.$store.getters.getUpdatesLastPage;
     }
   },
   created: function created() {
@@ -18144,7 +18156,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".link, .link:link, .link:visited {\n  text-transform: uppercase;\n  color: #FFD700;\n  text-decoration: none;\n  font-size: 1.4rem;\n  display: inline-block;\n}\n.link:hover, .link:focus, .link:active {\n  text-decoration: underline;\n}", ""]);
+exports.push([module.i, ".link, .link:link, .link:visited {\n  text-transform: uppercase;\n  color: #FFD700;\n  text-decoration: none;\n  font-size: 1.4rem;\n  display: inline-block;\n  border: none;\n  background-color: transparent;\n  cursor: pointer;\n}\n.link:hover, .link:focus, .link:active {\n  text-decoration: underline;\n}", ""]);
 
 // exports
 
@@ -18353,7 +18365,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".posts[data-v-02beb66a] {\n  margin: 50px 0;\n}\n.posts__post[data-v-02beb66a]:first-child::before {\n  content: \"\";\n  display: block;\n  width: 100%;\n  height: 1px;\n  background-color: #494957;\n  margin-bottom: 4rem;\n}\n.posts__post[data-v-02beb66a]::after {\n  content: \"\";\n  display: block;\n  width: 100%;\n  height: 1px;\n  background-color: #494957;\n  margin-top: 2rem;\n  margin-bottom: 4rem;\n}", ""]);
+exports.push([module.i, ".posts[data-v-02beb66a] {\n  margin: 50px 0;\n}\n.posts__post[data-v-02beb66a]:first-child::before {\n  content: \"\";\n  display: block;\n  width: 100%;\n  height: 1px;\n  background-color: #494957;\n  margin-bottom: 4rem;\n}\n.posts__post[data-v-02beb66a]::after {\n  content: \"\";\n  display: block;\n  width: 100%;\n  height: 1px;\n  background-color: #494957;\n  margin-top: 2rem;\n  margin-bottom: 4rem;\n}\n.posts__pagination[data-v-02beb66a] {\n  position: relative;\n  height: 2.7rem;\n}", ""]);
 
 // exports
 
@@ -47187,12 +47199,14 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "router-link",
-    { staticClass: "link", attrs: { to: _vm.to } },
-    [_vm._t("default")],
-    2
-  )
+  return _vm.variant == "button"
+    ? _c("button", { staticClass: "link" }, [_vm._t("default")], 2)
+    : _c(
+        "router-link",
+        { staticClass: "link", attrs: { to: _vm.to } },
+        [_vm._t("default")],
+        2
+      )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -49225,17 +49239,17 @@ var render = function() {
       class: { "u-pos-relative": _vm.isHomeRoute }
     },
     [
-      _vm.updatesLoad !== 2
+      _vm.updatesLoad !== 2 && _vm.updates.length == 0
         ? _c("clip-loader", {
             attrs: { loading: true, color: "#FFD700", size: "5rem" }
           })
         : _vm._e(),
       _vm._v(" "),
-      _vm.updatesLoad == 2
+      _vm.updatesLoad == 2 || _vm.updates.length > 0
         ? _c("secondary-header-component", [_vm._v("Updates")])
         : _vm._e(),
       _vm._v(" "),
-      _vm.updatesLoad == 2
+      _vm.updatesLoad == 2 || _vm.updates.length > 0
         ? _c(
             "div",
             { staticClass: "posts" },
@@ -49243,22 +49257,47 @@ var render = function() {
               _vm._l(_vm.updates, function(update) {
                 return _c("update-component", {
                   key: update.id,
-                  attrs: { update: update }
+                  attrs: { update: update[0] }
                 })
               }),
               _vm._v(" "),
-              _vm.isHomeRoute
-                ? _c(
-                    "div",
-                    { staticClass: "u-center-text" },
-                    [
-                      _c("link-component", { attrs: { to: "/updates" } }, [
+              _c(
+                "div",
+                {
+                  staticClass: "u-center-text posts__pagination u-margin-top-md"
+                },
+                [
+                  _vm.isHomeRoute
+                    ? _c("link-component", { attrs: { to: "/updates" } }, [
                         _vm._v("View more updates")
                       ])
-                    ],
-                    1
-                  )
-                : _vm._e()
+                    : _vm._e(),
+                  _vm._v(" "),
+                  !_vm.isHomeRoute &&
+                  _vm.updatesLoad == 2 &&
+                  _vm.updatesPage !== _vm.updatesLastPage
+                    ? _c(
+                        "link-component",
+                        {
+                          attrs: { variant: "button" },
+                          nativeOn: {
+                            click: function($event) {
+                              return _vm.fetchUpdates($event)
+                            }
+                          }
+                        },
+                        [_vm._v("Load more updates")]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.updatesLoad !== 2 && _vm.updates
+                    ? _c("clip-loader", {
+                        attrs: { loading: true, color: "#FFD700", size: "3rem" }
+                      })
+                    : _vm._e()
+                ],
+                1
+              )
             ],
             2
           )
@@ -70334,8 +70373,8 @@ __webpack_require__.r(__webpack_exports__);
   /*
       GET     /api/v1/updates
   */
-  fetchAll: function fetchAll() {
-    return axios.get("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates"));
+  fetchAll: function fetchAll(page) {
+    return axios.get("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates?page=").concat(page));
   },
 
   /*
@@ -72853,6 +72892,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _api_update_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api/update.js */ "./resources/js/api/update.js");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -72861,10 +72902,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 var updates = {
   state: {
     updates: [],
     updatesLoad: 0,
+    updatesPage: 1,
+    updatesLastPage: 1,
     update: {},
     updateLoad: 0,
     updateStatus: 0,
@@ -72875,10 +72919,16 @@ var updates = {
   },
   mutations: {
     setUpdates: function setUpdates(state, data) {
-      state.updates = data;
+      state.updates.push(data);
     },
     setUpdatesLoad: function setUpdatesLoad(state, status) {
       state.updatesLoad = status;
+    },
+    setUpdatesPage: function setUpdatesPage(state) {
+      state.updatesPage++;
+    },
+    setUpdatesLastPage: function setUpdatesLastPage(state, data) {
+      state.updatesLastPage = data;
     },
     setUpdate: function setUpdate(state, data) {
       state.update = data;
@@ -72907,10 +72957,13 @@ var updates = {
   },
   actions: {
     fetchUpdates: function fetchUpdates(_ref) {
-      var commit = _ref.commit;
+      var commit = _ref.commit,
+          state = _ref.state;
       commit('setUpdatesLoad', 1);
-      _api_update_js__WEBPACK_IMPORTED_MODULE_1__["default"].fetchAll().then(function (response) {
-        commit('setUpdates', response.data);
+      _api_update_js__WEBPACK_IMPORTED_MODULE_1__["default"].fetchAll(state.updatesPage).then(function (response) {
+        commit('setUpdates', response.data.data);
+        commit('setUpdatesLastPage', response.data.last_page);
+        commit('setUpdatesPage');
         commit('setUpdatesLoad', 2);
       })["catch"](function () {
         commit('setUpdates', []);
@@ -73126,6 +73179,12 @@ var updates = {
     },
     getUpdatesLoad: function getUpdatesLoad(state) {
       return state.updatesLoad;
+    },
+    getUpdatesPage: function getUpdatesPage(state) {
+      return state.updatesPage - 1;
+    },
+    getUpdatesLastPage: function getUpdatesLastPage(state) {
+      return state.updatesLastPage;
     },
     getUpdate: function getUpdate(state) {
       return state.update;
