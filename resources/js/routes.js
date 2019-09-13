@@ -12,6 +12,7 @@ import UserView from './views/User.vue';
 import UserSettingsView from './views/UserSettings.vue';
 import ShopView from './views/Shop.vue';
 import ProductView from './views/Product.vue';
+import InviteView from './views/Invite.vue';
 import ErrorView from './views/Error.vue';
 
 function requireAuth(to, from, next) 
@@ -100,6 +101,11 @@ let routes =
             path: '/shop/products/:id',
             name: 'products.show',
             component: ProductView,
+        },
+        {
+            path: '/invite',
+            name: 'invite',
+            component: InviteView,
         },
         {
             path: '/401',

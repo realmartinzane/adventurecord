@@ -37,6 +37,7 @@
                 <li class="mobile-navigation__item"><router-link :to="'/'" class="mobile-navigation__link">Home</router-link ></li>
                 <li class="mobile-navigation__item"><router-link :to="'/updates'" class="mobile-navigation__link">Updates</router-link></li>
                 <li class="mobile-navigation__item"><router-link :to="'/commands'" class="mobile-navigation__link">Commands</router-link></li>
+                <li class="mobile-navigation__item"><router-link :to="'/invite'" class="mobile-navigation__link">Invite</router-link></li>
                 <li class="mobile-navigation__item"><a href="https://youtu.be/mTzogDbNAI0" target="_blank" class="mobile-navigation__link">Tutorial</a></li>
                 <li class="mobile-navigation__item"><a href="https://adventurecord.fandom.com/wiki/AdventureCord_Wiki" target="_blank" class="mobile-navigation__link">Wiki</a></li>
                 <li class="mobile-navigation__item"><router-link :to="'/shop'" class="mobile-navigation__link">Shop</router-link></li>
@@ -233,14 +234,14 @@ export default {
         // Checkbox Functionality
         &__checkbox:checked ~ &__list
         {
-            height: 47rem;
+            height: 51rem;
             border: 1px solid $color-border-light;
             border-right: none;
             box-shadow: 0 0 10px $color-black;
         }
         &__checkbox:checked ~ .mobile-no-auth
         {
-            height: 33rem !important;
+            height: 37rem !important;
         }
         &__checkbox:checked ~ .mobile-no-admin
         {
