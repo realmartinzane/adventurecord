@@ -4,7 +4,7 @@
         <secondary-header-component v-if="updatesLoad == 2 || updates.length > 0">Updates</secondary-header-component>
         
         <div class="posts" v-if="updatesLoad == 2 || updates.length > 0">
-            <update-component v-for="update in updates" :key="update.id" :update="update[0]"></update-component>
+            <update-component v-for="update in updates" :key="update.id" :update="update"></update-component>
             
             <div class="u-center-text posts__pagination u-margin-top-md">
                 <link-component :to="'/updates'" v-if="isHomeRoute">View more updates</link-component>

@@ -26,7 +26,10 @@ export const updates =
     {
         setUpdates(state, data)
         {
-            state.updates.push(data)
+            if (state.updates.length > 0)
+                state.updates.push(data[0])
+            else
+                state.updates = data
         },
         
         setUpdatesLoad(state, status)
@@ -103,6 +106,7 @@ export const updates =
                 .then(response =>
                     {
                         commit('setUpdates', response.data.data)
+                        console.log(response.data.data)
                         commit('setUpdatesLastPage', response.data.last_page)
                         commit('setUpdatesPage')
                         commit('setUpdatesLoad', 2)

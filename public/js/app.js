@@ -16842,7 +16842,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     });
                   });
                 } else if (this.updateStatus == 2 && !this.isShowRoute) {
-                  this.$parent.fetchUpdates();
+                  this.$parent.fetchUpdates(true);
                   this.$toast.success({
                     title: 'Success',
                     message: response
@@ -49291,7 +49291,7 @@ var render = function() {
               _vm._l(_vm.updates, function(update) {
                 return _c("update-component", {
                   key: update.id,
-                  attrs: { update: update[0] }
+                  attrs: { update: update }
                 })
               }),
               _vm._v(" "),
@@ -72916,7 +72916,7 @@ var updates = {
   },
   mutations: {
     setUpdates: function setUpdates(state, data) {
-      state.updates.push(data);
+      if (state.updates.length > 0) state.updates.push(data[0]);else state.updates = data;
     },
     setUpdatesLoad: function setUpdatesLoad(state, status) {
       state.updatesLoad = status;
@@ -72965,6 +72965,7 @@ var updates = {
       if (data.isFresh) commit('resetUpdates');else commit('setUpdatesLoad', 1);
       _api_update_js__WEBPACK_IMPORTED_MODULE_1__["default"].fetchAll(state.updatesPage).then(function (response) {
         commit('setUpdates', response.data.data);
+        console.log(response.data.data);
         commit('setUpdatesLastPage', response.data.last_page);
         commit('setUpdatesPage');
         commit('setUpdatesLoad', 2);
@@ -73432,7 +73433,7 @@ function requireAuth(to, from, next) {
     }
   }
 
-  if (_store_js__WEBPACK_IMPORTED_MODULE_2__["default"].getters.getAuthUserLoad != 2) {
+  if (_store_js__WEBPACK_IMPORTED_MODULE_2__["default"].getters.getAuthUserLoad() != 2) {
     _store_js__WEBPACK_IMPORTED_MODULE_2__["default"].dispatch('fetchAuthUser');
     _store_js__WEBPACK_IMPORTED_MODULE_2__["default"].watch(_store_js__WEBPACK_IMPORTED_MODULE_2__["default"].getters.getAuthUserLoad, function () {
       if (_store_js__WEBPACK_IMPORTED_MODULE_2__["default"].getters.getAuthUserLoad() == 2) proceed();

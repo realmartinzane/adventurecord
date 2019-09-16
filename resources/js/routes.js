@@ -28,7 +28,7 @@ function requireAuth(to, from, next)
         }
     }
 
-    if (store.getters.getAuthUserLoad != 2) 
+    if (store.getters.getAuthUserLoad() != 2) 
     {
         store.dispatch('fetchAuthUser');
         store.watch(store.getters.getAuthUserLoad, function () 

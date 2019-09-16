@@ -130,7 +130,7 @@ export default {
             }
             else if(this.updateStatus == 2 && !this.isShowRoute)
             {
-                this.$parent.fetchUpdates();
+                this.$parent.fetchUpdates(true);
                 this.$toast.success({
                         title:'Success',
                         message: response
