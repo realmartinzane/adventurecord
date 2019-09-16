@@ -17,7 +17,6 @@ class CreateUsersTable extends Migration
         {
             $table->increments('id');
             $table->string('provider_id');
-            $table->string('provider');
             $table->string('name');
             $table->string('discriminator');
             $table->string('email');

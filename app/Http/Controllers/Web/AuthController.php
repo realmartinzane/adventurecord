@@ -26,16 +26,13 @@ class AuthController extends Controller
     {
         $socialUser = Socialite::driver($provider)->user();
 
-        $user = User::where('provider_id', '=', $socialUser->id)
-                    ->where('provider', '=', $provider)
-                    ->first();
+        $user = User::where('provider_id', '=', $socialUser->id)->first();
 
         if($user == null)
         {
             $newUser = new User();
 
             $newUser->provider_id = $socialUser->getId();
-            $newUser->provider = $provider;
             $newUser->name = $socialUser->getName();
             $newUser->discriminator = $socialUser->user['discriminator'];
             $newUser->email = $socialUser->getEmail() == '' ? '' : $socialUser->getEmail();
