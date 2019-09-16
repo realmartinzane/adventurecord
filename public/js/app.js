@@ -16185,6 +16185,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -47571,57 +47575,81 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "post__likes-container" },
-    [
-      _vm.LikeUpdateAction != 1 && _vm.UnlikeUpdateAction != 1
-        ? _c("div", { staticClass: "post__like" }, [
+  return _vm.$parent.authUser != "" && _vm.$parent.authUserLoad == 2
+    ? _c(
+        "div",
+        { staticClass: "post__likes-container" },
+        [
+          _vm.LikeUpdateAction != 1 && _vm.UnlikeUpdateAction != 1
+            ? _c("div", { staticClass: "post__like" }, [
+                _vm._v(" " + _vm._s(_vm.likesCount) + " ")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.liked && _vm.LikeUpdateAction != 1 && _vm.UnlikeUpdateAction != 1
+            ? _c("font-awesome-icon", {
+                directives: [
+                  {
+                    name: "tooltip",
+                    rawName: "v-tooltip.bottom",
+                    value: "Like",
+                    expression: "'Like'",
+                    modifiers: { bottom: true }
+                  }
+                ],
+                attrs: { icon: ["far", "heart"] },
+                on: { click: _vm.toggleLike }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.liked && _vm.LikeUpdateAction != 1 && _vm.UnlikeUpdateAction != 1
+            ? _c("font-awesome-icon", {
+                directives: [
+                  {
+                    name: "tooltip",
+                    rawName: "v-tooltip.bottom",
+                    value: "Like",
+                    expression: "'Like'",
+                    modifiers: { bottom: true }
+                  }
+                ],
+                attrs: { icon: ["fas", "heart"] },
+                on: { click: _vm.toggleLike }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.LikeUpdateAction == 1 || _vm.UnlikeUpdateAction == 1
+            ? _c("clip-loader", {
+                staticClass: "post__spinner",
+                attrs: { loading: true, color: "#ec4853", size: "2rem" }
+              })
+            : _vm._e()
+        ],
+        1
+      )
+    : _c(
+        "div",
+        { staticClass: "post__likes-container" },
+        [
+          _c("div", { staticClass: "post__like" }, [
             _vm._v(" " + _vm._s(_vm.likesCount) + " ")
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      !_vm.liked && _vm.LikeUpdateAction != 1 && _vm.UnlikeUpdateAction != 1
-        ? _c("font-awesome-icon", {
+          ]),
+          _vm._v(" "),
+          _c("font-awesome-icon", {
             directives: [
               {
                 name: "tooltip",
                 rawName: "v-tooltip.bottom",
-                value: "Like",
-                expression: "'Like'",
+                value: "Login to Like",
+                expression: "'Login to Like'",
                 modifiers: { bottom: true }
               }
             ],
-            attrs: { icon: ["far", "heart"] },
-            on: { click: _vm.toggleLike }
+            attrs: { icon: ["far", "heart"] }
           })
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.liked && _vm.LikeUpdateAction != 1 && _vm.UnlikeUpdateAction != 1
-        ? _c("font-awesome-icon", {
-            directives: [
-              {
-                name: "tooltip",
-                rawName: "v-tooltip.bottom",
-                value: "Like",
-                expression: "'Like'",
-                modifiers: { bottom: true }
-              }
-            ],
-            attrs: { icon: ["fas", "heart"] },
-            on: { click: _vm.toggleLike }
-          })
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.LikeUpdateAction == 1 || _vm.UnlikeUpdateAction == 1
-        ? _c("clip-loader", {
-            staticClass: "post__spinner",
-            attrs: { loading: true, color: "#ec4853", size: "2rem" }
-          })
-        : _vm._e()
-    ],
-    1
-  )
+        ],
+        1
+      )
 }
 var staticRenderFns = []
 render._withStripped = true

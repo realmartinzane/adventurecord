@@ -1,9 +1,13 @@
 <template>
-    <div class="post__likes-container">
+    <div class="post__likes-container" v-if="$parent.authUser != '' && $parent.authUserLoad == 2">
         <div class="post__like" v-if="LikeUpdateAction != 1 && UnlikeUpdateAction != 1"> {{ likesCount }} </div> 
         <font-awesome-icon :icon="['far', 'heart']" v-tooltip.bottom="'Like'" @click="toggleLike" v-if="!liked && LikeUpdateAction != 1 && UnlikeUpdateAction != 1"></font-awesome-icon>
         <font-awesome-icon :icon="['fas', 'heart']" v-tooltip.bottom="'Like'" @click="toggleLike" v-if="liked && LikeUpdateAction != 1 && UnlikeUpdateAction != 1"></font-awesome-icon>
         <clip-loader :loading="true" color="#ec4853" size="2rem" class="post__spinner" v-if="LikeUpdateAction == 1 || UnlikeUpdateAction == 1"></clip-loader>
+    </div>
+    <div class="post__likes-container" v-else>
+        <div class="post__like"> {{ likesCount }} </div> 
+        <font-awesome-icon :icon="['far', 'heart']" v-tooltip.bottom="'Login to Like'"></font-awesome-icon>
     </div>
 </template>
 
