@@ -1,7 +1,7 @@
 <template>
     <div class="mobile-navigation">
         <div class="mobile-navigation__brand">
-            <router-link :to="'/home'"><img srcset="/img/brand/nav_brand_1x.png 1x, /img/brand/nav_brand_2x.png 2x" alt="Brand Image" class="mobile-navigation__brand-img"></router-link>
+            <router-link :to="'/'"><img srcset="/img/brand/nav_brand_1x.png 1x, /img/brand/nav_brand_2x.png 2x" alt="Brand Image" class="mobile-navigation__brand-img"></router-link>
         </div>
         
         <nav class="mobile-navigation__nav">

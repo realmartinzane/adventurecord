@@ -48103,7 +48103,7 @@ var render = function() {
       "div",
       { staticClass: "mobile-navigation__brand" },
       [
-        _c("router-link", { attrs: { to: "/home" } }, [
+        _c("router-link", { attrs: { to: "/" } }, [
           _c("img", {
             staticClass: "mobile-navigation__brand-img",
             attrs: {
@@ -49288,10 +49288,10 @@ var render = function() {
             "div",
             { staticClass: "posts" },
             [
-              _vm._l(_vm.updates, function(update) {
+              _vm._l(_vm.updates[0], function(update) {
                 return _c("update-component", {
                   key: update.id,
-                  attrs: { update: update[0] }
+                  attrs: { update: update }
                 })
               }),
               _vm._v(" "),
