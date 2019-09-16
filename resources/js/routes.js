@@ -46,12 +46,6 @@ let routes =
         {
             path: '/',
             name: 'landing',
-            redirect: {name: 'home'},
-            component: HomeView
-        },
-        {
-            path: '/home',
-            name: 'home',
             component: HomeView
         },
         {

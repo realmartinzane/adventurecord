@@ -46969,7 +46969,7 @@ var render = function() {
             paginationPosition: "bottom-overlay",
             autoplay: true,
             autoplayHoverPause: false,
-            autoplayTimeout: 4000,
+            autoplayTimeout: 5000,
             mouseDrag: false,
             loop: true,
             paginationColor: "rgba(255,255,255, .4)",
@@ -73443,13 +73443,6 @@ function requireAuth(to, from, next) {
 var routes = [{
   path: '/',
   name: 'landing',
-  redirect: {
-    name: 'home'
-  },
-  component: _views_Home_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
-}, {
-  path: '/home',
-  name: 'home',
   component: _views_Home_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
 }, {
   path: '/updates',
