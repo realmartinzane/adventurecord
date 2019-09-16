@@ -7,7 +7,8 @@
             :paginationPosition="'bottom-overlay'"
             :autoplay="true"
             :autoplayHoverPause="false"
-            :autoplayTimeout="1000000"
+            :autoplayTimeout="4000"
+            :mouseDrag="false"
             :loop="true"
             :paginationColor="'rgba(255,255,255, .4)'"
             :paginationActiveColor="'rgba(255,255,255, .8)'">
