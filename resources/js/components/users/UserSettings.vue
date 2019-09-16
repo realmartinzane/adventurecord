@@ -2,6 +2,7 @@
     <section class="section-user-settings">
         <secondary-header-component>User Settings</secondary-header-component>
 
+        <!--
         <form-component action="#" class="form">
             <div class="form__group">
                 <label for="lang" class="form__label">Adventure Cord Language</label>
@@ -13,6 +14,7 @@
                 <button type="submit" class="form__submit btn btn--primary">Submit</button>
             </div>
         </form-component>
+        -->
     </section>
 </template>
 

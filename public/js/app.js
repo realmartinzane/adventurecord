@@ -17628,6 +17628,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -49865,44 +49867,7 @@ var render = function() {
   return _c(
     "section",
     { staticClass: "section-user-settings" },
-    [
-      _c("secondary-header-component", [_vm._v("User Settings")]),
-      _vm._v(" "),
-      _c("form-component", { staticClass: "form", attrs: { action: "#" } }, [
-        _c("div", { staticClass: "form__group" }, [
-          _c("label", { staticClass: "form__label", attrs: { for: "lang" } }, [
-            _vm._v("Adventure Cord Language")
-          ]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              staticClass: "form__select",
-              attrs: { name: "lang", id: "lang" }
-            },
-            _vm._l(_vm.languages, function(lang, index) {
-              return _c(
-                "option",
-                { key: index, domProps: { value: lang.value } },
-                [_vm._v(_vm._s(lang.text))]
-              )
-            }),
-            0
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form__group u-margin-top-md" }, [
-          _c(
-            "button",
-            {
-              staticClass: "form__submit btn btn--primary",
-              attrs: { type: "submit" }
-            },
-            [_vm._v("Submit")]
-          )
-        ])
-      ])
-    ],
+    [_c("secondary-header-component", [_vm._v("User Settings")])],
     1
   )
 }
