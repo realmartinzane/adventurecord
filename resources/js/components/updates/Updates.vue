@@ -8,7 +8,7 @@
             
             <div class="u-center-text posts__pagination u-margin-top-md">
                 <link-component :to="'/updates'" v-if="isHomeRoute">View more updates</link-component>
-                <link-component variant="button" @click.native="fetchUpdates" v-if ="!isHomeRoute && updatesLoad == 2 && (updatesPage !== updatesLastPage)">Load more updates</link-component>
+                <link-component variant="button" @click.native="fetchUpdates(false)" v-if ="!isHomeRoute && updatesLoad == 2 && (updatesPage !== updatesLastPage)">Load more updates</link-component>
                 <clip-loader v-if=" updatesLoad !== 2 && updates" :loading="true" color="#FFD700" size="3rem"></clip-loader>
             </div>
         </div>
@@ -37,13 +37,13 @@ export default {
     },
     created()
     {
-        this.fetchUpdates()
+        this.fetchUpdates(true)
     },
     methods:
     {
-        fetchUpdates()
+        fetchUpdates(isFresh)
         {
-            this.$store.dispatch('fetchUpdates');
+            this.$store.dispatch('fetchUpdates', {isFresh});
         }
     }
 }

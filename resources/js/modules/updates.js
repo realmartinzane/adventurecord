@@ -82,14 +82,23 @@ export const updates =
         setUpdateUnlike(state, amount) 
         {
             state.updateLikesCount -= amount
+        },
+
+        resetUpdates(state)
+        {
+            state.updates = []
+            state.updatesLoad = 0
+            state.updatesPage = 1
+            state.updatesLastPage = 1
         }
     },
     
     actions:
     {
-        fetchUpdates({commit, state},)
+        fetchUpdates({commit, state}, data)
         {
-            commit('setUpdatesLoad', 1)
+            if(data.isFresh) commit('resetUpdates');
+            else commit('setUpdatesLoad', 1)
             UpdateAPI.fetchAll(state.updatesPage)
                 .then(response =>
                     {

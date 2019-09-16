@@ -17292,11 +17292,13 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
-    this.fetchUpdates();
+    this.fetchUpdates(true);
   },
   methods: {
-    fetchUpdates: function fetchUpdates() {
-      this.$store.dispatch('fetchUpdates');
+    fetchUpdates: function fetchUpdates(isFresh) {
+      this.$store.dispatch('fetchUpdates', {
+        isFresh: isFresh
+      });
     }
   }
 });
@@ -49282,7 +49284,7 @@ var render = function() {
                           attrs: { variant: "button" },
                           nativeOn: {
                             click: function($event) {
-                              return _vm.fetchUpdates($event)
+                              return _vm.fetchUpdates(false)
                             }
                           }
                         },
@@ -72953,13 +72955,19 @@ var updates = {
     },
     setUpdateUnlike: function setUpdateUnlike(state, amount) {
       state.updateLikesCount -= amount;
+    },
+    resetUpdates: function resetUpdates(state) {
+      state.updates = [];
+      state.updatesLoad = 0;
+      state.updatesPage = 1;
+      state.updatesLastPage = 1;
     }
   },
   actions: {
-    fetchUpdates: function fetchUpdates(_ref) {
+    fetchUpdates: function fetchUpdates(_ref, data) {
       var commit = _ref.commit,
           state = _ref.state;
-      commit('setUpdatesLoad', 1);
+      if (data.isFresh) commit('resetUpdates');else commit('setUpdatesLoad', 1);
       _api_update_js__WEBPACK_IMPORTED_MODULE_1__["default"].fetchAll(state.updatesPage).then(function (response) {
         commit('setUpdates', response.data.data);
         commit('setUpdatesLastPage', response.data.last_page);
