@@ -16513,6 +16513,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['product'],
@@ -16521,7 +16544,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      showModal: false
+      showSuccessModal: false,
+      showErrorModal: false
     };
   },
   computed: {
@@ -16552,6 +16576,8 @@ __webpack_require__.r(__webpack_exports__);
             // 3. Return res.id from the response
             // console.log(res)
             return res.id;
+          })["catch"](function (err) {
+            self.showErrorModal = true;
           });
         },
         // Execute the payment:
@@ -16560,9 +16586,12 @@ __webpack_require__.r(__webpack_exports__);
           // 2. Make a request to your server
           return actions.request.post("/api/v1/shop/products/".concat(self.$route.params.id, "/execute-payment"), {
             paymentID: data.paymentID,
-            payerID: data.payerID
+            payerID: data.payerID,
+            providerID: self.authUser.provider_id
           }).then(function (res) {
-            self.showModal = true;
+            self.showSuccessModal = true;
+          })["catch"](function (err) {
+            self.showErrorModal = true;
           });
         }
       }, '#paypal-button');
@@ -48503,8 +48532,8 @@ var render = function() {
             {
               name: "show",
               rawName: "v-show",
-              value: _vm.showModal,
-              expression: "showModal"
+              value: _vm.showSuccessModal,
+              expression: "showSuccessModal"
             }
           ]
         },
@@ -48521,7 +48550,7 @@ var render = function() {
                   staticClass: "popup__close",
                   on: {
                     click: function($event) {
-                      _vm.showModal = false
+                      _vm.showSuccessModal = false
                     }
                   }
                 },
@@ -48554,7 +48583,77 @@ var render = function() {
                     staticClass: "btn btn--secondary-gold popup__purchase",
                     on: {
                       click: function($event) {
-                        _vm.showModal = false
+                        _vm.showSuccessModal = false
+                      }
+                    }
+                  },
+                  [_vm._v("Ok")]
+                )
+              ]
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "popup-component",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.showErrorModal,
+              expression: "showErrorModal"
+            }
+          ]
+        },
+        [
+          _c("div", { staticClass: "popup__content" }, [
+            _c("header", { staticClass: "popup__header" }, [
+              _c("h4", { staticClass: "popup__header-text" }, [
+                _vm._v("Purchase Failed!")
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "popup__close",
+                  on: {
+                    click: function($event) {
+                      _vm.showErrorModal = false
+                    }
+                  }
+                },
+                [
+                  _c("font-awesome-icon", { attrs: { icon: ["fas", "times"] } })
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "popup__body" }, [
+              _c("p", { staticClass: "popup__question" }, [
+                _vm._v(
+                  "\n                    There was an error executing the payment. Please try again later\n                    "
+                ),
+                _c("br"),
+                _vm._v(
+                  "\n                    Make sure to contact us if this error persists.\n                "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "footer",
+              { staticClass: "popup__footer popup__footer--prompt" },
+              [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn--secondary-gold popup__purchase",
+                    on: {
+                      click: function($event) {
+                        _vm.showErrorModal = false
                       }
                     }
                   },

@@ -13,6 +13,9 @@ class Profile extends Model
     // protected $connection = 'mysql2';
     protected $table = 'Profiles';
     protected $appends = ['last_active', 'experience_amount', 'gold_amount', 'gems_amount', 'level', 'guild'];
+    public $timestamps = false;
+    protected $fillable = ['Membership'];
+    protected $primaryKey = 'DiscordId';
 
     public function getLastActiveAttribute()
     {

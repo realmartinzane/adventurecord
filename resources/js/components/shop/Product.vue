@@ -26,11 +26,11 @@
             </div>
         </div>
 
-        <popup-component v-show="showModal">
+        <popup-component v-show="showSuccessModal">
             <div class="popup__content">
                 <header class="popup__header">
                     <h4 class="popup__header-text">Purchase Successful!</h4>
-                    <button @click="showModal = false" class="popup__close">
+                    <button @click="showSuccessModal = false" class="popup__close">
                         <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
                     </button>
                 </header>
@@ -44,7 +44,30 @@
                 </div>
 
                 <footer class="popup__footer popup__footer--prompt">
-                    <button class="btn btn--secondary-gold popup__purchase" @click="showModal = false">Ok</button>
+                    <button class="btn btn--secondary-gold popup__purchase" @click="showSuccessModal = false">Ok</button>
+                </footer>
+            </div>
+        </popup-component>
+
+        <popup-component v-show="showErrorModal">
+            <div class="popup__content">
+                <header class="popup__header">
+                    <h4 class="popup__header-text">Purchase Failed!</h4>
+                    <button @click="showErrorModal = false" class="popup__close">
+                        <font-awesome-icon :icon="['fas', 'times']"></font-awesome-icon>
+                    </button>
+                </header>
+
+                <div class="popup__body">
+                    <p class="popup__question">
+                        There was an error executing the payment. Please try again later
+                        <br>
+                        Make sure to contact us if this error persists.
+                    </p>
+                </div>
+
+                <footer class="popup__footer popup__footer--prompt">
+                    <button class="btn btn--secondary-gold popup__purchase" @click="showErrorModal = false">Ok</button>
                 </footer>
             </div>
         </popup-component>
@@ -59,7 +82,8 @@ export default {
     props: ['product'],
     components: {PopupComponent},
     data(){return{
-        showModal: false
+        showSuccessModal: false,
+        showErrorModal: false
     }},
     computed: 
     {
@@ -93,6 +117,11 @@ export default {
                         // 3. Return res.id from the response
                         // console.log(res)
                         return res.id;
+                        })
+
+                        .catch(function(err) 
+                        {
+                            self.showErrorModal = true;
                         });
                     },
                     // Execute the payment:
@@ -104,11 +133,17 @@ export default {
                     return actions.request.post(`/api/v1/shop/products/${self.$route.params.id}/execute-payment`, 
                     {
                         paymentID: data.paymentID,
-                        payerID:   data.payerID
+                        payerID:   data.payerID,
+                        providerID: self.authUser.provider_id
                     })
                         .then(function(res) 
                         {
-                            self.showModal = true;
+                            self.showSuccessModal = true;
+                        })
+
+                        .catch(function(err) 
+                        {
+                            self.showErrorModal = true;
                         });
                 }
             }, '#paypal-button');

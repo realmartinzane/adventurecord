@@ -7,7 +7,7 @@ class ProfileController extends Controller
 {
     public function single($id)
     {
-        $profile = Profile::where('DiscordId', '=', $id)->first();
+        $profile = Profile::findOrFail($id);
         return response()->json($profile);
     }
 }
