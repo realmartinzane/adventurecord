@@ -45,10 +45,12 @@ class AuthController extends Controller
         else
         {
             $socialName = $socialUser->getName();
+            $socialAvatar = $socialUser->getAvatar();
             
-            if($user->name !== $socialName)
+            if($user->name !== $socialName || $user->avatar !== $socialAvatar)
             {
                 $user->name = $socialName;
+                $user->avatar = $socialAvatar;
                 $user->save();
             }
         }
