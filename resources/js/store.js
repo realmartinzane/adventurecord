@@ -19,6 +19,6 @@ export default new Vuex.Store({
         updates,
         users,
         products,
-        commands
+        commands,
     }
 });

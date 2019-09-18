@@ -17349,22 +17349,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_Link_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../common/Link.vue */ "./resources/js/components/common/Link.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-spinner/src/ClipLoader.vue */ "./node_modules/vue-spinner/src/ClipLoader.vue");
 //
 //
 //
@@ -17399,9 +17384,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    LinkComponent: _common_Link_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    LinkComponent: _common_Link_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    ClipLoader: vue_spinner_src_ClipLoader_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      id: this.$route.params.id
+    };
+  },
+  computed: {
+    user: function user() {
+      return this.$store.getters.getUser;
+    },
+    userLoad: function userLoad() {
+      return this.$store.getters.getUserLoad;
+    }
+  },
+  created: function created() {
+    this.fetchUser();
+  },
+  methods: {
+    fetchUser: function fetchUser() {
+      this.$store.dispatch('fetchUser', {
+        id: this.id
+      });
+    }
   }
 });
 
@@ -49461,170 +49471,133 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "section-purchase-history" }, [
-    _c("h3", { staticClass: "purchase-history__heading" }, [
-      _vm._v("Purchase History")
-    ]),
-    _vm._v(" "),
-    true
-      ? _c(
-          "div",
-          { staticClass: "purchase-history__empty" },
-          [
-            _vm._v(
-              "\n        Your purchase history is empty. Go get yourself something nice from the \n        "
-            ),
-            _c("link-component", { attrs: { to: "/shop" } }, [_vm._v("Shop")])
-          ],
-          1
-        )
-      : undefined
-  ])
+  return _vm.userLoad != 2
+    ? _c("clip-loader", {
+        attrs: { loading: true, color: "#FFD700", size: "5rem" }
+      })
+    : _c("section", { staticClass: "section-purchase-history" }, [
+        _c("h3", { staticClass: "purchase-history__heading" }, [
+          _vm._v("Purchase History")
+        ]),
+        _vm._v(" "),
+        _vm.user.purchases.length == 0
+          ? _c(
+              "div",
+              { staticClass: "purchase-history__empty" },
+              [
+                _vm._v(
+                  "\n        Your purchase history is empty. Go get yourself something nice from the \n        "
+                ),
+                _c("link-component", { attrs: { to: "/shop" } }, [
+                  _vm._v("Shop")
+                ])
+              ],
+              1
+            )
+          : _c(
+              "table",
+              { staticClass: "purchase-history__table" },
+              [
+                _c(
+                  "tr",
+                  {
+                    staticClass:
+                      "purchase-history__row purchase-history__row--first"
+                  },
+                  [
+                    _c(
+                      "th",
+                      {
+                        staticClass:
+                          "purchase-history__column purchase-history__column--command"
+                      },
+                      [_vm._v("Date")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "th",
+                      {
+                        staticClass:
+                          "purchase-history__column purchase-history__column--function"
+                      },
+                      [_vm._v("Discord ID")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "th",
+                      {
+                        staticClass:
+                          "purchase-history__column purchase-history__column--function"
+                      },
+                      [_vm._v("Product")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "th",
+                      {
+                        staticClass:
+                          "purchase-history__column purchase-history__column--function"
+                      },
+                      [_vm._v("Category")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "th",
+                      {
+                        staticClass:
+                          "purchase-history__column purchase-history__column--function"
+                      },
+                      [_vm._v("Price")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "th",
+                      {
+                        staticClass:
+                          "purchase-history__column purchase-history__column--function"
+                      },
+                      [_vm._v("Status")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._l(_vm.user.purchases, function(purchase) {
+                  return _c(
+                    "tr",
+                    { key: purchase.id, staticClass: "purchase-history__row" },
+                    [
+                      _c("td", { staticClass: "purchase-history__column" }, [
+                        _vm._v(_vm._s(purchase.date))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "purchase-history__column" }, [
+                        _vm._v(_vm._s(purchase.user.provider_id))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "purchase-history__column" }, [
+                        _vm._v(_vm._s(purchase.product.name))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "purchase-history__column" }, [
+                        _vm._v(_vm._s(purchase.product.category.name))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "purchase-history__column" }, [
+                        _vm._v("$" + _vm._s(purchase.product.price))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "purchase-history__column" }, [
+                        _vm._v("Successful")
+                      ])
+                    ]
+                  )
+                })
+              ],
+              2
+            )
+      ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "tr",
-      { staticClass: "purchase-history__row purchase-history__row--first" },
-      [
-        _c(
-          "th",
-          {
-            staticClass:
-              "purchase-history__column purchase-history__column--command"
-          },
-          [_vm._v("Date")]
-        ),
-        _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass:
-              "purchase-history__column purchase-history__column--function"
-          },
-          [_vm._v("Discord ID")]
-        ),
-        _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass:
-              "purchase-history__column purchase-history__column--function"
-          },
-          [_vm._v("Product")]
-        ),
-        _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass:
-              "purchase-history__column purchase-history__column--function"
-          },
-          [_vm._v("Category")]
-        ),
-        _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass:
-              "purchase-history__column purchase-history__column--function"
-          },
-          [_vm._v("Price")]
-        ),
-        _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass:
-              "purchase-history__column purchase-history__column--function"
-          },
-          [_vm._v("Status")]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", { staticClass: "purchase-history__row" }, [
-      _c("td", { staticClass: "purchase-history__column" }, [
-        _vm._v("10.09.2019")
-      ]),
-      _vm._v(" "),
-      _c("td", { staticClass: "purchase-history__column" }, [
-        _vm._v("312348590581923859")
-      ]),
-      _vm._v(" "),
-      _c("td", { staticClass: "purchase-history__column" }, [
-        _vm._v("LordGrim's Medieveal Theme")
-      ]),
-      _vm._v(" "),
-      _c("td", { staticClass: "purchase-history__column" }, [_vm._v("Themes")]),
-      _vm._v(" "),
-      _c("td", { staticClass: "purchase-history__column" }, [_vm._v("$19.90")]),
-      _vm._v(" "),
-      _c("td", { staticClass: "purchase-history__column" }, [
-        _vm._v("Completed")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", { staticClass: "purchase-history__row" }, [
-      _c("td", { staticClass: "purchase-history__column" }, [
-        _vm._v("10.09.2019")
-      ]),
-      _vm._v(" "),
-      _c("td", { staticClass: "purchase-history__column" }, [
-        _vm._v("312348590581923859")
-      ]),
-      _vm._v(" "),
-      _c("td", { staticClass: "purchase-history__column" }, [
-        _vm._v("LordGrim's Medieveal Theme")
-      ]),
-      _vm._v(" "),
-      _c("td", { staticClass: "purchase-history__column" }, [_vm._v("Themes")]),
-      _vm._v(" "),
-      _c("td", { staticClass: "purchase-history__column" }, [_vm._v("$19.90")]),
-      _vm._v(" "),
-      _c("td", { staticClass: "purchase-history__column" }, [
-        _vm._v("Completed")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", { staticClass: "purchase-history__row" }, [
-      _c("td", { staticClass: "purchase-history__column" }, [
-        _vm._v("10.09.2019")
-      ]),
-      _vm._v(" "),
-      _c("td", { staticClass: "purchase-history__column" }, [
-        _vm._v("312348590581923859")
-      ]),
-      _vm._v(" "),
-      _c("td", { staticClass: "purchase-history__column" }, [
-        _vm._v("LordGrim's Medieveal Theme")
-      ]),
-      _vm._v(" "),
-      _c("td", { staticClass: "purchase-history__column" }, [_vm._v("Themes")]),
-      _vm._v(" "),
-      _c("td", { staticClass: "purchase-history__column" }, [_vm._v("$19.90")]),
-      _vm._v(" "),
-      _c("td", { staticClass: "purchase-history__column" }, [
-        _vm._v("Completed")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -74443,8 +74416,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\marti\Desktop\webdev\projects\adventurecord\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\marti\Desktop\webdev\projects\adventurecord\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! c:\Users\marti\Desktop\webdev\projects\adventurecord\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! c:\Users\marti\Desktop\webdev\projects\adventurecord\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

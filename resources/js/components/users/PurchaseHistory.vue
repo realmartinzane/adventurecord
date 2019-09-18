@@ -1,8 +1,10 @@
 <template>
-    <section class="section-purchase-history">
+    <clip-loader v-if="userLoad != 2" :loading="true" color="#FFD700" size="5rem"></clip-loader>
+    <section class="section-purchase-history" v-else>
+        
         <h3 class="purchase-history__heading">Purchase History</h3>
 
-        <div class="purchase-history__empty" v-if="true">
+        <div class="purchase-history__empty" v-if="user.purchases.length == 0">
             Your purchase history is empty. Go get yourself something nice from the 
             <link-component to="/shop">Shop</link-component>
         </div>
@@ -17,31 +19,13 @@
                 <th class="purchase-history__column purchase-history__column--function">Status</th>
             </tr>
 
-            <tr class="purchase-history__row">
-                <td class="purchase-history__column">10.09.2019</td>
-                <td class="purchase-history__column">312348590581923859</td>
-                <td class="purchase-history__column">LordGrim's Medieveal Theme</td>
-                <td class="purchase-history__column">Themes</td>
-                <td class="purchase-history__column">$19.90</td>
-                <td class="purchase-history__column">Completed</td>
-            </tr>
-
-            <tr class="purchase-history__row">
-                <td class="purchase-history__column">10.09.2019</td>
-                <td class="purchase-history__column">312348590581923859</td>
-                <td class="purchase-history__column">LordGrim's Medieveal Theme</td>
-                <td class="purchase-history__column">Themes</td>
-                <td class="purchase-history__column">$19.90</td>
-                <td class="purchase-history__column">Completed</td>
-            </tr>
-
-            <tr class="purchase-history__row">
-                <td class="purchase-history__column">10.09.2019</td>
-                <td class="purchase-history__column">312348590581923859</td>
-                <td class="purchase-history__column">LordGrim's Medieveal Theme</td>
-                <td class="purchase-history__column">Themes</td>
-                <td class="purchase-history__column">$19.90</td>
-                <td class="purchase-history__column">Completed</td>
+            <tr class="purchase-history__row" v-for="purchase in user.purchases" :key="purchase.id">
+                <td class="purchase-history__column">{{ purchase.date }}</td>
+                <td class="purchase-history__column">{{ purchase.user.provider_id }}</td>
+                <td class="purchase-history__column">{{ purchase.product.name }}</td>
+                <td class="purchase-history__column">{{ purchase.product.category.name }}</td>
+                <td class="purchase-history__column">${{ purchase.product.price }}</td>
+                <td class="purchase-history__column">Successful</td>
             </tr>
         </table>
     </section>
@@ -50,9 +34,34 @@
 <script>
 
 import LinkComponent from '../common/Link.vue'
+import ClipLoader from 'vue-spinner/src/ClipLoader.vue'
 
 export default {
-    components: {LinkComponent}
+    components: {LinkComponent, ClipLoader},
+    data(){return{
+        id: this.$route.params.id
+    }},
+
+    computed: 
+    {
+        
+        user() {return this.$store.getters.getUser},
+
+        userLoad() {return this.$store.getters.getUserLoad}
+    },
+
+    created()
+    {
+        this.fetchUser()
+    },
+
+    methods: 
+    {
+        fetchUser()
+        {
+            this.$store.dispatch('fetchUser', {id: this.id})
+        }
+    }
 }
 </script>
 

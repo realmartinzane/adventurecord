@@ -17,7 +17,7 @@ class UserController extends Controller
 
     public function single($id)
     {
-        $user = User::findOrFail($id);
+        $user = User::with('purchases')->findOrFail($id);
         
         return response()->json($user);
     }
