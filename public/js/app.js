@@ -48142,7 +48142,7 @@ var render = function() {
       "div",
       { staticClass: "mobile-navigation__brand" },
       [
-        _c("router-link", { attrs: { to: "/home" } }, [
+        _c("router-link", { attrs: { to: "/" } }, [
           _c("img", {
             staticClass: "mobile-navigation__brand-img",
             attrs: {
