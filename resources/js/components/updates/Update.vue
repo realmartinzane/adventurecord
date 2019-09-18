@@ -33,7 +33,7 @@
             </header>
 
             <div v-if="isShowRoute" v-html="update.body_html" class="post__body"></div>
-            <div v-if="!isShowRoute" v-html="body" class="post__body"></div>
+            <p v-if="!isShowRoute" v-html="body" class="post__body"></p>
 
             <footer class="post__footer">
                 <div class="post__footer-left">
@@ -298,6 +298,8 @@ export default {
         {
             margin: 2rem 0;
             color: $color-gray-light;
+            line-height: 1.2;
+            white-space: pre-line;
             p {margin: 1rem 0}
         }
 
