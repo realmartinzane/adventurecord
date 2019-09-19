@@ -234,7 +234,7 @@ export default {
         // Checkbox Functionality
         &__checkbox:checked ~ &__list
         {
-            height: 51rem;
+            height: 52rem;
             border: 1px solid $color-border-light;
             border-right: none;
             box-shadow: 0 0 10px $color-black;
@@ -245,7 +245,7 @@ export default {
         }
         &__checkbox:checked ~ .mobile-no-admin
         {
-            height: 40.5rem !important;
+            height: 41rem !important;
         }
     }
 
