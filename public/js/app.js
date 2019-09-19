@@ -17594,37 +17594,46 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context.abrupt("return");
 
               case 3:
-                _context.next = 5;
+                if (this.userSearchId) {
+                  _context.next = 6;
+                  break;
+                }
+
+                this.searchMessage = "User not found.";
+                return _context.abrupt("return");
+
+              case 6:
+                _context.next = 8;
                 return this.$store.dispatch('searchUser', {
                   id: id
                 });
 
-              case 5:
+              case 8:
                 if (!(this.userSearchLoad == 2)) {
-                  _context.next = 13;
+                  _context.next = 16;
                   break;
                 }
 
                 if (!(this.userSearchId == this.user.id)) {
-                  _context.next = 9;
+                  _context.next = 12;
                   break;
                 }
 
                 this.searchMessage = "This is the current user.";
                 return _context.abrupt("return");
 
-              case 9:
+              case 12:
                 this.$router.replace("/users/".concat(this.userSearchId));
                 this.searchMessage = '';
-                _context.next = 14;
+                _context.next = 17;
                 break;
 
-              case 13:
+              case 16:
                 if (this.userSearchLoad == 3) {
                   this.searchMessage = "User not found.";
                 }
 
-              case 14:
+              case 17:
               case "end":
                 return _context.stop();
             }
@@ -49827,7 +49836,11 @@ var render = function() {
                   _c("div", { staticClass: "user-profile__data" }, [
                     _vm._v(
                       "\n                    " +
-                        _vm._s(_vm.user.profile.guild.GuildName) +
+                        _vm._s(
+                          _vm.user.profile.guild
+                            ? _vm.user.profile.guild.GuildName
+                            : "No Guild"
+                        ) +
                         "\n                "
                     )
                   ]),

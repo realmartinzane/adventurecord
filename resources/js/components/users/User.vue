@@ -56,7 +56,7 @@
                         <font-awesome-icon :icon="['fas', 'campground']" class="user-profile__guild"></font-awesome-icon>
                     </div>
                     <div class="user-profile__data">
-                        {{ user.profile.guild.GuildName }}
+                        {{ user.profile.guild ? user.profile.guild.GuildName : 'No Guild' }}
                     </div>
 
                     <div class="user-profile__label" v-tooltip.left="'Last Active'">
@@ -138,6 +138,13 @@ export default {
             if (id.length != 18 || isNaN(id))
             {
                 this.searchMessage = `Invalid Discord ID.`
+                return
+            }
+
+            if(!this.userSearchId)
+            {
+                
+                this.searchMessage = `User not found.`
                 return
             }
             await this.$store.dispatch('searchUser', {id})
