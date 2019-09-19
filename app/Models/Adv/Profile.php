@@ -55,6 +55,7 @@ class Profile extends Model
     public function getGuildAttribute()
     {
         $guildMember = GuildMember::where('DiscordId', '=', $this->DiscordId)->first();
+        if($guildMember == null) return;
         $guild = Guild::where('GuildId', '=', $guildMember->GuildId)->first();
         return $guild;
     }
