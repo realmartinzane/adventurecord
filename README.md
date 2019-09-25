@@ -1,6 +1,6 @@
 
 # Adventure Cord
-A website for Victor Thijssen's Discord Bot AdventureCord.
+A website for AdventureCord Discord Bot.
 
 ----------
 
