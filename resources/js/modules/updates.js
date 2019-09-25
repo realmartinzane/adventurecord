@@ -106,7 +106,6 @@ export const updates =
                 .then(response =>
                     {
                         commit('setUpdates', response.data.data)
-                        console.log(response.data.data)
                         commit('setUpdatesLastPage', response.data.last_page)
                         commit('setUpdatesPage')
                         commit('setUpdatesLoad', 2)

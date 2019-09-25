@@ -16575,7 +16575,6 @@ __webpack_require__.r(__webpack_exports__);
           // 2. Make a request to your server
           return actions.request.post("/api/v1/shop/products/".concat(self.$route.params.id, "/create-payment")).then(function (res) {
             // 3. Return res.id from the response
-            // console.log(res)
             return res.id;
           })["catch"](function (err) {
             self.showErrorModal = true;
@@ -70486,7 +70485,6 @@ __webpack_require__.r(__webpack_exports__);
       POST     /api/v1/updates/{id}/update
   */
   update: function update(id, data) {
-    console.log(id, data);
     return axios.put("".concat(_config_js__WEBPACK_IMPORTED_MODULE_0__["ADV_CONFIG"].API_URL, "/updates/").concat(id, "/update"), {
       title: data.title,
       body: data.body
@@ -73063,7 +73061,6 @@ var updates = {
       if (data.isFresh) commit('resetUpdates');else commit('setUpdatesLoad', 1);
       _api_update_js__WEBPACK_IMPORTED_MODULE_1__["default"].fetchAll(state.updatesPage).then(function (response) {
         commit('setUpdates', response.data.data);
-        console.log(response.data.data);
         commit('setUpdatesLastPage', response.data.last_page);
         commit('setUpdatesPage');
         commit('setUpdatesLoad', 2);
@@ -74442,8 +74439,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! c:\Users\marti\Desktop\webdev\projects\adventurecord\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! c:\Users\marti\Desktop\webdev\projects\adventurecord\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\marti\Desktop\webdev\projects\adventurecord\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\marti\Desktop\webdev\projects\adventurecord\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

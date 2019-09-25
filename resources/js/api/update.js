@@ -31,7 +31,6 @@ export default {
     */
     update(id, data)
     {
-        console.log(id, data)
         return axios.put(`${ADV_CONFIG.API_URL}/updates/${id}/update`,
         {
             title: data.title,

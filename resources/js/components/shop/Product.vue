@@ -115,7 +115,6 @@ export default {
                         .then(function(res) 
                         {
                         // 3. Return res.id from the response
-                        // console.log(res)
                         return res.id;
                         })
 
