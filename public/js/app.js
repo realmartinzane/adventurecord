@@ -16286,6 +16286,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -18308,7 +18309,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".footer[data-v-5e373c28] {\n  background: #10121A;\n  color: #d3d3d3;\n  padding: 25px;\n  border-top: 1px solid #494957;\n}", ""]);
+exports.push([module.i, ".footer[data-v-5e373c28] {\n  background: #10121A;\n  color: #d3d3d3;\n  padding: 25px;\n  border-top: 1px solid #494957;\n}\n.footer p[data-v-5e373c28] {\n  display: block;\n}\n.footer p:last-child .link[data-v-5e373c28] {\n  text-transform: none !important;\n}\n@media only screen and (min-width: 34.375em) {\n.footer p[data-v-5e373c28] {\n    display: inline-block;\n    width: 49%;\n}\n.footer p[data-v-5e373c28]:last-child {\n    text-align: right;\n}\n}", ""]);
 
 // exports
 
@@ -47811,7 +47812,19 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("footer", { staticClass: "footer" }, [
-      _c("p", [_vm._v("AdventureCord, Copyright © 2019")])
+      _c("p", [_vm._v("AdventureCord, Copyright © 2019")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("Contact: "),
+        _c(
+          "a",
+          {
+            staticClass: "link",
+            attrs: { href: "mailto:support@adventurecord.com" }
+          },
+          [_vm._v("support@adventurecord.com")]
+        )
+      ])
     ])
   }
 ]
@@ -74429,8 +74442,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\marti\Desktop\webdev\projects\adventurecord\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\marti\Desktop\webdev\projects\adventurecord\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! c:\Users\marti\Desktop\webdev\projects\adventurecord\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! c:\Users\marti\Desktop\webdev\projects\adventurecord\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
